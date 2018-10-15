@@ -332,11 +332,53 @@ class CommandContext {
 
 		// Output the message
 
-		if (message && message !== true && typeof message.then !== 'function') {
+	/*	if (message && message !== true && typeof message.then !== 'function') {
 			if (this.pmTarget) {
 				Chat.sendPM(message, this.user, this.pmTarget);
 			} else {
 				this.room.add(`|c|${this.user.getIdentity(this.room.id)}|${message}`);
+			}
+		}
+
+		this.update();
+
+		return message;
+	}*/
+	if (message && message !== true && typeof message.then !== 'function') {
+			if (this.pmTarget) {
+				Chat.sendPM(message, this.user, this.pmTarget);
+			} else {
+				let emoticons = Server.parseEmoticons(message);
+				if (emoticons && !this.room.disableEmoticons) {
+					if (Users.ShadowBan.checkBanned(this.user)) {
+						Users.ShadowBan.addMessage(this.user, "To " + this.room.id, message);
+						if (!Server.ignoreEmotes[this.user.userid]) this.user.sendTo(this.room, (this.room.type === 'chat' ? '|c:|' + (~~(Date.now() / 1000)) + '|' : '|c|') + this.user.getIdentity(this.room.id) + '|/html ' + emoticons);
+						if (Server.ignoreEmotes[this.user.userid]) this.user.sendTo(this.room, (this.room.type === 'chat' ? '|c:|' + (~~(Date.now() / 1000)) + '|' : '|c|') + this.user.getIdentity(this.room.id) + '|' + message);
+						this.room.update();
+						return false;
+					}
+					for (let u in this.room.users) {
+						let curUser = Users(u);
+						if (!curUser || !curUser.connected) continue;
+						if (Server.ignoreEmotes[curUser.userid]) {
+							curUser.sendTo(this.room, (this.room.type === 'chat' ? '|c:|' + (~~(Date.now() / 1000)) + '|' : '|c|') + this.user.getIdentity(this.room.id) + '|' + message);
+							continue;
+						}
+						curUser.sendTo(this.room, (this.room.type === 'chat' ? '|c:|' + (~~(Date.now() / 1000)) + '|' : '|c|') + this.user.getIdentity(this.room.id) + '|/html ' + emoticons);
+					}
+					this.room.log.log.push((this.room.type === 'chat' ? (this.room.type === 'chat' ? '|c:|' + (~~(Date.now() / 1000)) + '|' : '|c|') : '|c|') + this.user.getIdentity(this.room.id) + '|' + message);
+					this.room.lastUpdate = this.room.log.length;
+					this.room.messageCount++;
+				} else {
+					if (Users.ShadowBan.checkBanned(this.user)) {
+						Users.ShadowBan.addMessage(this.user, "To " + this.room.id, message);
+						this.user.sendTo(this.room, (this.room.type === 'chat' ? '|c:|' + (~~(Date.now() / 1000)) + '|' : '|c|') + this.user.getIdentity(this.room.id) + '|' + message);
+					} else {
+						this.room.add((this.room.type === 'chat' ? (this.room.type === 'chat' ? '|c:|' + (~~(Date.now() / 1000)) + '|' : '|c|') : '|c|') + this.user.getIdentity(this.room.id) + '|' + message);
+						this.room.messageCount++;
+					}
+				}
+				//this.room.add(`|c|${this.user.getIdentity(this.room.id)}|${message}`);
 			}
 		}
 
@@ -1197,11 +1239,27 @@ Chat.parse = function (message, room, user, connection) {
  * @param {User} pmTarget
  * @param {?User} onlyRecipient
  */
-Chat.sendPM = function (message, user, pmTarget, onlyRecipient = null) {
+/*Chat.sendPM = function (message, user, pmTarget, onlyRecipient = null) {
 	let buf = `|pm|${user.getIdentity()}|${pmTarget.getIdentity()}|${message}`;
 	if (onlyRecipient) return onlyRecipient.send(buf);
 	user.send(buf);
 	if (pmTarget !== user) pmTarget.send(buf);
+	pmTarget.lastPM = user.userid;
+	user.lastPM = pmTarget.userid;
+};*/
+Chat.sendPM = function (message, user, pmTarget, onlyRecipient = null) {
+	let noEmotes = message;
+	let emoticons = Server.parseEmoticons(message);
+	if (emoticons) message = "/html " + emoticons;
+	let buf = `|pm|${user.getIdentity()}|${pmTarget.getIdentity()}|${(Server.ignoreEmotes[user.userid] ? noEmotes : message)}`;
+	// TODO is onlyRecipient a user? If so we should check if they are ignoring emoticions.
+	if (onlyRecipient) return onlyRecipient.send(buf);
+	user.send(buf);
+	if (Users.ShadowBan.checkBanned(user)) {
+		Users.ShadowBan.addMessage(this.user, "Private to " + this.pmTarget.getIdentity(), noEmotes);
+	} else if (pmTarget !== user) {
+		pmTarget.send(buf);
+	}
 	pmTarget.lastPM = user.userid;
 	user.lastPM = pmTarget.userid;
 };
@@ -1290,6 +1348,11 @@ Chat.loadPlugins = function () {
 		if (plugin.loginfilter) Chat.loginfilters.push(plugin.loginfilter);
 		if (plugin.nicknamefilter) Chat.nicknamefilters.push(plugin.nicknamefilter);
 	}
+	for (let file of FS('custom-plugins').readdirSync()) {
+		if (file.substr(-3) !== '.js') continue;
+		const cp = require(`./custom-plugins/${file}`);
+		Object.assign(commands, cp.commands);
+	}
 };
 
 /**
@@ -1313,7 +1376,6 @@ Chat.stripHTML = function (html) {
 	if (!html) return '';
 	return html.replace(/<[^>]*>/g, '');
 };
-
 /**
  * Template string tag function for escaping HTML
  *

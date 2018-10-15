@@ -901,6 +901,8 @@ class User {
 			Punishments.checkName(user, userid, registered);
 
 			Rooms.global.checkAutojoin(user);
+			Server.giveDailyReward(user);
+			Server.friendLogin(user);
 			Chat.loginfilter(user, this, userType);
 			return true;
 		}
@@ -913,7 +915,13 @@ class User {
 			return false;
 		}
 		Rooms.global.checkAutojoin(this);
+		Server.giveDailyReward(this);
 		Chat.loginfilter(this, null, userType);
+		if (Tells.inbox[userid]) Tells.sendTell(userid, this);
+		Ontime[userid] = Date.now();
+		Server.showNews(userid, this);
+		Server.onlineFriends(userid);
+		Server.friendLogin(this);
 		return true;
 	}
 	/**

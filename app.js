@@ -65,6 +65,11 @@ const FS = require('./lib/fs');
 /*********************************************************
  * Load configuration
  *********************************************************/
+/*Script That Keeps Server Alive 24x7. HEROKU
+const http = require("http");
+setInterval(function() {
+    http.get("http://<yourapp>.herokuapp.com");
+}, 300000); // every 5 minutes (300000)*/
 
 try {
 	// @ts-ignore This file doesn't exist on the repository, so Travis checks fail if this isn't ignored
@@ -95,6 +100,30 @@ if (Config.watchconfig) {
 /*********************************************************
  * Set up most of our globals
  *********************************************************/
+// Custom Globals
+
+global.Server = {};
+
+global.Server = require('./Server.js').Server;
+
+global.serverName = Config.serverName;
+
+// PS-Heroku Uses MongoDB To Store Custom-Plugins Data. Replace URL with your MongoDB Url.
+// Heroku provide FREE MongoDB, You can use it to store data or you can use MongoDB.com which also provide free MobgoDB Hosting.
+
+//global.Db = require('nef')(require('nef-mongo')('<URL'));
+
+const nef = require('nef');
+const nefFs = require('nef-fs');
+global.Db = nef(nefFs('./config/Db'));
+
+// Sqlite3 Databse for REGIONS.
+global.sqlite3 = require('sqlite3');
+
+// Additional Database
+global.Ad = require('origindb')('./config/Ad');
+ 
+// Custom Globals End
 
 global.Dex = require('./sim/dex');
 global.toId = Dex.getId;
@@ -110,6 +139,10 @@ global.Punishments = require('./punishments');
 global.Chat = require('./chat');
 
 global.Rooms = require('./rooms');
+
+global.Ontime = {};
+
+global.Tells = require('./tells.js');
 
 global.Verifier = require('./verifier');
 Verifier.PM.spawn();
