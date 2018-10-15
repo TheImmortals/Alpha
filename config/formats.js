@@ -528,6 +528,125 @@ let Formats = [
 		// no restrictions, for serious (other than team preview)
 		ruleset: ['Team Preview', 'Cancel Mod'],
 	},
+	
+	// Custom Formats.
+	////////////////////////////////////////////////////////////////////
+	
+	{
+		section: '' + Config.serverName + ' Metagames',
+		column: 2,
+	},
+		{
+		name: "[Gen 7] Random Metronome Battle",
+		desc: ["&bullet; Metronome battles format: 6v6 singles, Only move allowed is metronome, all healing items/abilities are banned, Ubers (and mega rayquaza) are banned, immunites dont exist in this format (ex normal is not very effective on ghost instead of x0)"],
+		ruleset: ['PotD', 'Pokemon', 'Sleep Clause Mod', 'HP Percentage Mod', 'Cancel Mod'],
+		team: 'random',
+		mod: 'gen7',
+		onBegin: function () {
+			let allPokemon = this.p1.pokemon.concat(this.p2.pokemon);
+			allPokemon.forEach(pokemon => {
+				pokemon.baseMoveSlots = [{
+					move: 'Metronome',
+					id: 'metronome',
+					pp: 16,
+					maxpp: 16,
+					target: 'self',
+					disabled: false,
+					disabledSource: '',
+					used: false,
+				}];
+				pokemon.moves.splice(0, 4);
+				pokemon.moves.push('metronome');
+				pokemon.moveSlots = pokemon.baseMoveSlots;
+				if (this.getFormat('[Gen 7] Metronome Battle').banlist.includes(this.getItem(pokemon.item).name)) {
+					pokemon.item = 'leppaberry';
+				}
+			});
+		},
+		onEffectiveness: function (typeMod, target, type, move) {
+			//change no effect to not very effective
+			if (move && !this.getImmunity(move, type)) return 2;
+		},
+	},
+	{
+		name: "[Gen 7] Super Staff Bros",
+
+		mod: 'ssb',
+		team: 'randomSeasonalRegStaff',
+		ruleset: ['HP Percentage Mod', 'Cancel Mod', 'Sleep Clause Mod'],
+		onBegin: function () {
+			this.add('message', 'GET READY FOR THE NEXT BATTLE!');
+
+			let allPokemon = this.p1.pokemon.concat(this.p2.pokemon);
+			for (let i = 0, len = allPokemon.length; i < len; i++) {
+				let pokemon = allPokemon[i];
+				let last = pokemon.moves.length - 1;
+				if (pokemon.moves[last]) {
+					pokemon.moves.splice(last, 1);
+					pokemon.moves.push(toId(pokemon.set.signatureMove));
+					pokemon.moveSlots[last].move = pokemon.set.signatureMove;
+					pokemon.baseMoveSlots[last].move = pokemon.set.signatureMove;
+				}
+			}
+		},
+		onSwitchIn: function (pokemon) {
+			let name = toId(pokemon.illusion ? pokemon.illusion.name : pokemon.name);
+			//Add the mon's status effect to it as a volatile.
+			if (this.data.Statuses[name] && this.data.Statuses[name].exists) {
+				pokemon.addVolatile(name, pokemon);
+			}
+		},
+		onModifyPokemon: function (pokemon) {
+			//let name = toId(pokemon.name);
+			// Enforce choice item locking on custom moves.
+			let moves = pokemon.moveSlots;
+			if (pokemon.getItem().isChoice && pokemon.lastMove === moves[3].id) {
+				for (let i = 0; i < 3; i++) {
+					if (!moves[i].disabled) {
+						pokemon.disableMove(moves[i].id, false);
+						moves[i].disabled = true;
+					}
+				}
+			}
+		},
+	},
+	{
+	    
+		name: "[Gen 7] Pokemon Mystery Dungeon",
+
+		mod: 'pmd',
+		team: 'randomPmd',
+		ruleset: ['HP Percentage Mod', 'Cancel Mod'],
+		onBegin: function () {
+			let allPokemon = this.p1.pokemon.concat(this.p2.pokemon);
+			for (let i = 0, len = allPokemon.length; i < len; i++) {
+				allPokemon[i].maxhp *= 3;
+				allPokemon[i].hp = allPokemon[i].maxhp;
+			}
+		},
+	},
+	{
+		name: "[Gen 7] Super Staff Bros Free For All",
+		desc: ['Duke it out with other users custom made pokemon.',
+			'Make your own as well! Get started with <button class="button" name="send" value="/ssb edit">/ssb edit</button>.',
+			'Use <button class="button" name="send" value="/ssb">/ssb</button> for the commands you can use.',
+		],
+
+		mod: 'cssb',
+		team: 'randomCustomSSB',
+		ruleset: ['Pokemon', 'Sleep Clause Mod', 'Freeze Clause Mod', 'HP Percentage Mod', 'Cancel Mod', 'Mega Rayquaza Clause'],
+		onBegin: function () {
+			this.add("raw|<h2>Free for All!</h2>");
+			this.add("raw|<h3>3</h3>");
+			this.add("raw|<h3>2</h3>");
+			this.add("raw|<h3>1</h3>");
+			this.add("raw|<h1>BATTLE!</h1>");
+		},
+		onSwitchInPriority: 1,
+		onSwitchIn: function (pokemon) {
+			if (!pokemon.template.isMega) pokemon.canMegaEvo = this.canMegaEvo(pokemon);
+		},
+	},
 
 	// Other Metagames
 	///////////////////////////////////////////////////////////////////
