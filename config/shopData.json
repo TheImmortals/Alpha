@@ -1,0 +1,1042 @@
+{  
+   "accountcustomization":{
+      "display":"Account Customization",
+      "info":"Customize your account with a variety of options; some selections may require an Upper Staff member to assist you.",
+      "items":{
+         "symbol":{
+            "display":"Custom Symbol",
+            "price":2,
+            "currency":"bucks",
+            "onbuy":"You have purchased a Custom Symbol. To activate your custom symbol, you can set it with with /customsymbol [symbol];<br/>once you set your symbol, you'll need to purchase this again to set a new one.<br/>You can remove your symbol with /resetsymbol.<br/>",
+            "info":"Redeems a custom symbol to go in front of your name. (Temporary until restart, or untill you log off for an hour)"
+         },
+         "globaldeclare":{
+            "display":"Global Declare",
+            "price":5,
+            "currency":"bucks",
+            "onbuy":"You have purchased a Global Declare. To redeem your Global Declare, do /usetoken declare, [message you want declared]",
+            "info":"Globally declares a message to every room on the server. (Cannot be used for server advertisements, message must be approved by an administrator.)"
+         },
+         "customavatar":{
+            "display":"Custom Avatar",
+            "price":10,
+            "currency":"bucks", 
+            "onbuy":"You have purchased a Custom Avatar. To redeem your Custom Avatar, do /usetoken avatar, [avatar image]<br/>Inappropriate images may be denied; 80x80 is the optimal image resolution.<br/>",
+            "info":"Redeems a custom avatar to be applied to your name (You supply, must be .png or .gif format. Images must be 80x80 to display properly.)"
+         },
+         "customcolor":{
+            "display":"Custom Name Color",
+            "price":20,
+            "currency":"bucks",
+            "onbuy":"You have purchased a Custom Name Color. To redeem your Custom Color, do /usetoken color, [hex color code]<br/>Colors must be easily visible on the website.<br/>",
+            "info":"Redeems the ability to have your name color changed. Difficult to see colors are not allowed."
+         },
+         "title":{
+            "display":"Custom Title",
+            "price":15,
+            "currency":"bucks",
+            "onbuy":"You have purchased a Custom Title. To redeem your Custom Title, do /usetoken title, [title], [hex color code]<br/>",
+            "info":"Redeems a custom title that appears on your profile, in a custom color. Titles that are deamed inappropriate will be rejected."
+         },
+         "emote":{
+            "display":"Emoticon",
+            "price":20,
+            "currency":"bucks",
+            "onbuy":"You have purchased an Emoticon. To redeem your Emoticon, do /usetoken emote, [emote name], [image]<br/>",
+            "info":"Add an emote to the server. You supply the image. Innappropraite images or names may be denied."
+         },
+         "icon":{
+            "display":"Userlist Icon",
+            "price":25,
+            "currency":"bucks",
+            "onbuy":"You have purchased a Userlist Icon. To redeem your Userlist Icon, do /usetoken icon, [image]<br/>Inappropriate images may be denied; must be a 32x32 image.<br/>",
+            "info":"Redeems an Icon to be set next to your name on the userlist. (Must be 32x32)"
+         },
+         "profilemusic":{
+            "display":"Profile Music",
+            "price":25,
+            "currency":"bucks",
+            "onbuy":"You have purchased the ability to set your profile music. To redeem this, do /usetoken profilemusic<br/>PM one of our admin after buying.",
+            "info":"Buys ability to set your profile mUsic."
+         },
+         "profileteam":{
+            "display":"Profile Team",
+            "price":25,
+            "currency":"bucks",
+            "onbuy":"You have purchased the ability to set your profile team. To redeem this, do /usetoken profileteam<br/>PM one of our admin after buying.",
+            "info":"Buys ability to set your profile team."
+         },
+         "profilebackground":{
+             "display":"Profile Background",
+             "price":25,
+             "currency":"bucks",
+             "onbuy":"You have purchased a profile background. To set your profile background use /pbg set [image]<br />Inappropriate images may get deleted. Can  be used only once.",
+             "info":"Buys ability to set your profile background."
+         },
+        "roomshop":{
+             "display":"Room Shop",
+             "price":30,
+             "currency":"bucks",
+             "onbuy":"You have purchased a room shop. Pm a upperstaff to set ur roomshop.",
+             "info":"Gives ur room to set ur own private shop"
+         }
+      }
+   },
+   "ssbffa":{
+      "display":"Super Staff Bros FFA",
+      "info":"Further customize your SSBFFA pokemon with these add-ons.",
+      "items":{  
+         "shiny":{  
+            "display":"Shiny",
+            "price":5,
+            "currency":"bucks",
+            "onbuy":"You can now make your SSBFFA pokemon shiny.",
+            "info":"Allows you to toggle whether or not your pokemon is shiny."
+         },
+         "ffacustomsymbol":{
+            "display":"Custom Symbol",
+            "price":10,
+            "currency":"bucks",
+            "onbuy":"You can now set a symbol on your SSBFFA pokemon.",
+            "info":"Allows you to set a custom symbol on your pokemon. Global Auth may set to their auth symbol and lower."
+         },
+         "customitem":{
+            "display":"Custom Item",
+            "price":50,
+            "currency":"bucks",
+            "onbuy":"You have purchased a Custom Item. You are now queued to have your custom item hardcoded into the format. Please note this can take some time as there may be other users ahead of you, and the Administrators are busy alot. Upper staff has been notified of your purchase and will contact you shortly to ask what you want as your custom item. Excessively powerful items will need to be changed before they are approved.<br/>",
+            "info":"Hardcode a custom item into the tier for your pokemon to use. This will take time as the Administrators are busy alot."
+         },
+         "customability":{
+            "display":"Custom Ability",
+            "price":50,
+            "currency":"bucks",
+            "onbuy":"You have purchased a Custom Ability. You are now queued to have your custom ability hardcoded into the format. Please note this can take some time as there may be other users ahead of you, and the Administrators are busy alot. Upper staff has been notified of your purchase and will contact you shortly to ask what you want as your custom ability. Excessively powerful abilities will need to be changed before they are approved.<br/>",
+            "info":"Hardcode a custom ability into the tier for your pokemon to use. This will take time as the Administrators are busy alot."
+         },
+         "custommove":{  
+            "display":"Custom Move",
+            "price":50,
+            "currency":"bucks",
+            "onbuy":"You have purchased a Custom Move. You are now queued to have your custom move hardcoded into the format. Please note this can take some time as there may be other users ahead of you, and the Administrators are busy alot. Upper staff has been notified of your purchase and will contact you shortly to ask what you want as your custom move. Excessively powerful moves will need to be changed before they are approved.<br/>",
+            "info":"Hardcode a custom move into the tier for your pokemon to use. This will take time as the Administrators are busy alot."
+         }
+      }
+   },
+   "psgo":{  
+      "display":"PSGO",
+      "info":"Buy card packs for PSGO",
+      "items":{  
+         "ancientorigins":{  
+            "display":"Ancient Origins",
+            "price":5,
+            "currency":"bucks",
+            "onbuy":"You have purchased a pack of 10 cards from the Ancient Origins set. To open your pack, use /openpack Ancient Origins. Or view all your unopened packs with /checkpacks<br/>",
+            "info":"A pack of 10 cards from the Ancient Origins set.",
+            "multibuy": true
+         },
+         "aquapolis":{  
+            "display":"Aquapolis",
+            "price":5,
+            "currency":"bucks",
+            "onbuy":"You have purchased a pack of 10 cards from the Aquapolis set. To open your pack, use /openpack Aquapolis. Or view all your unopened packs with /checkpacks<br/>",
+            "info":"A pack of 10 cards from the Aquapolis set.",
+            "multibuy": true
+         },
+         "arceus":{  
+            "display":"Arceus",
+            "price":5,
+            "currency":"bucks",
+            "onbuy":"You have purchased a pack of 10 cards from the Arceus set. To open your pack, use /openpack Arceus. Or view all your unopened packs with /checkpacks<br/>",
+            "info":"A pack of 10 cards from the Arceus set.",
+            "multibuy": true
+         },
+         "breakpoint":{  
+            "display":"BREAKpoint",
+            "price":5,
+            "currency":"bucks",
+            "onbuy":"You have purchased a pack of 10 cards from the BREAKpoint set. To open your pack, use /openpack BREAKpoint. Or view all your unopened packs with /checkpacks<br/>",
+            "info":"A pack of 10 cards from the BREAKpoint set.",
+            "multibuy": true
+         },
+         "breakthrough":{  
+            "display":"BREAKthrough",
+            "price":5,
+            "currency":"bucks",
+            "onbuy":"You have purchased a pack of 10 cards from the BREAKthrough set. To open your pack, use /openpack BREAKthrough. Or view all your unopened packs with /checkpacks<br/>",
+            "info":"A pack of 10 cards from the BREAKthrough set.",
+            "multibuy": true
+         },
+         "bwblackstarpromos":{  
+            "display":"BW Black Star Promos",
+            "price":5,
+            "currency":"bucks",
+            "onbuy":"You have purchased a pack of 10 cards from the BW Black Star Promos set. To open your pack, use /openpack BW Black Star Promos. Or view all your unopened packs with /checkpacks<br/>",
+            "info":"A pack of 10 cards from the BW Black Star Promos set.",
+            "multibuy": true
+         },
+         "base":{  
+            "display":"Base",
+            "price":5,
+            "currency":"bucks",
+            "onbuy":"You have purchased a pack of 10 cards from the Base set. To open your pack, use /openpack Base. Or view all your unopened packs with /checkpacks<br/>",
+            "info":"A pack of 10 cards from the Base set.",
+            "multibuy": true
+         },
+         "baseset2":{  
+            "display":"Base Set 2",
+            "price":5,
+            "currency":"bucks",
+            "onbuy":"You have purchased a pack of 10 cards from the Base Set 2 set. To open your pack, use /openpack Base Set 2. Or view all your unopened packs with /checkpacks<br/>",
+            "info":"A pack of 10 cards from the Base Set 2 set.",
+            "multibuy": true
+         },
+         "blackwhite":{  
+            "display":"Black & White",
+            "price":5,
+            "currency":"bucks",
+            "onbuy":"You have purchased a pack of 10 cards from the Black & White set. To open your pack, use /openpack Black & White. Or view all your unopened packs with /checkpacks<br/>",
+            "info":"A pack of 10 cards from the Black & White set.",
+            "multibuy": true
+         },
+         "boundariescrossed":{  
+            "display":"Boundaries Crossed",
+            "price":5,
+            "currency":"bucks",
+            "onbuy":"You have purchased a pack of 10 cards from the Boundaries Crossed set. To open your pack, use /openpack Boundaries Crossed. Or view all your unopened packs with /checkpacks<br/>",
+            "info":"A pack of 10 cards from the Boundaries Crossed set.",
+            "multibuy": true
+         },
+         "burningshadows":{  
+            "display":"Burning Shadows",
+            "price":5,
+            "currency":"bucks",
+            "onbuy":"You have purchased a pack of 10 cards from the Burning Shadows set. To open your pack, use /openpack Burning Shadows. Or view all your unopened packs with /checkpacks<br/>",
+            "info":"A pack of 10 cards from the Burning Shadows set.",
+            "multibuy": true
+         },
+         "calloflegends":{  
+            "display":"Call of Legends",
+            "price":5,
+            "currency":"bucks",
+            "onbuy":"You have purchased a pack of 10 cards from the Call of Legends set. To open your pack, use /openpack Call of Legends. Or view all your unopened packs with /checkpacks<br/>",
+            "info":"A pack of 10 cards from the Call of Legends set.",
+            "multibuy": true
+         },
+         "crystalguardians":{  
+            "display":"Crystal Guardians",
+            "price":5,
+            "currency":"bucks",
+            "onbuy":"You have purchased a pack of 10 cards from the Crystal Guardians set. To open your pack, use /openpack Crystal Guardians. Or view all your unopened packs with /checkpacks<br/>",
+            "info":"A pack of 10 cards from the Crystal Guardians set.",
+            "multibuy": true
+         },
+         "darkexplorers":{  
+            "display":"Dark Explorers",
+            "price":5,
+            "currency":"bucks",
+            "onbuy":"You have purchased a pack of 10 cards from the Dark Explorers set. To open your pack, use /openpack Dark Explorers. Or view all your unopened packs with /checkpacks<br/>",
+            "info":"A pack of 10 cards from the Dark Explorers set.",
+            "multibuy": true
+         },
+         "deltaspecies":{  
+            "display":"Delta Species",
+            "price":5,
+            "currency":"bucks",
+            "onbuy":"You have purchased a pack of 10 cards from the Delta Species set. To open your pack, use /openpack Delta Species. Or view all your unopened packs with /checkpacks<br/>",
+            "info":"A pack of 10 cards from the Delta Species set.",
+            "multibuy": true
+         },
+         "deoxys":{  
+            "display":"Deoxys",
+            "price":5,
+            "currency":"bucks",
+            "onbuy":"You have purchased a pack of 10 cards from the Deoxys set. To open your pack, use /openpack Deoxys. Or view all your unopened packs with /checkpacks<br/>",
+            "info":"A pack of 10 cards from the Deoxys set.",
+            "multibuy": true
+         },
+         "diamondpearl":{  
+            "display":"Diamond & Pearl",
+            "price":5,
+            "currency":"bucks",
+            "onbuy":"You have purchased a pack of 10 cards from the Diamond & Pearl set. To open your pack, use /openpack Diamond & Pearl. Or view all your unopened packs with /checkpacks<br/>",
+            "info":"A pack of 10 cards from the Diamond & Pearl set.",
+            "multibuy": true
+         },
+         "doublecrisis":{  
+            "display":"Double Crisis",
+            "price":5,
+            "currency":"bucks",
+            "onbuy":"You have purchased a pack of 10 cards from the Double Crisis set. To open your pack, use /openpack Double Crisis. Or view all your unopened packs with /checkpacks<br/>",
+            "info":"A pack of 10 cards from the Double Crisis set.",
+            "multibuy": true
+         },
+         "dragon":{  
+            "display":"Dragon",
+            "price":5,
+            "currency":"bucks",
+            "onbuy":"You have purchased a pack of 10 cards from the Dragon set. To open your pack, use /openpack Dragon. Or view all your unopened packs with /checkpacks<br/>",
+            "info":"A pack of 10 cards from the Dragon set.",
+            "multibuy": true
+         },
+         "dragonfrontiers":{  
+            "display":"Dragon Frontiers",
+            "price":5,
+            "currency":"bucks",
+            "onbuy":"You have purchased a pack of 10 cards from the Dragon Frontiers set. To open your pack, use /openpack Dragon Frontiers. Or view all your unopened packs with /checkpacks<br/>",
+            "info":"A pack of 10 cards from the Dragon Frontiers set.",
+            "multibuy": true
+         },
+         "dragonvault":{  
+            "display":"Dragon Vault",
+            "price":5,
+            "currency":"bucks",
+            "onbuy":"You have purchased a pack of 10 cards from the Dragon Vault set. To open your pack, use /openpack Dragon Vault. Or view all your unopened packs with /checkpacks<br/>",
+            "info":"A pack of 10 cards from the Dragon Vault set.",
+            "multibuy": true
+         },
+         "dragonsexalted":{  
+            "display":"Dragons Exalted",
+            "price":5,
+            "currency":"bucks",
+            "onbuy":"You have purchased a pack of 10 cards from the Dragons Exalted set. To open your pack, use /openpack Dragons Exalted. Or view all your unopened packs with /checkpacks<br/>",
+            "info":"A pack of 10 cards from the Dragons Exalted set.",
+            "multibuy": true
+         },
+         "emerald":{  
+            "display":"Emerald",
+            "price":5,
+            "currency":"bucks",
+            "onbuy":"You have purchased a pack of 10 cards from the Emerald set. To open your pack, use /openpack Emerald. Or view all your unopened packs with /checkpacks<br/>",
+            "info":"A pack of 10 cards from the Emerald set.",
+            "multibuy": true
+         },
+         "emergingpowers":{  
+            "display":"Emerging Powers",
+            "price":5,
+            "currency":"bucks",
+            "onbuy":"You have purchased a pack of 10 cards from the Emerging Powers set. To open your pack, use /openpack Emerging Powers. Or view all your unopened packs with /checkpacks<br/>",
+            "info":"A pack of 10 cards from the Emerging Powers set.",
+            "multibuy": true
+         },
+         "evolutions":{  
+            "display":"Evolutions",
+            "price":5,
+            "currency":"bucks",
+            "onbuy":"You have purchased a pack of 10 cards from the Evolutions set. To open your pack, use /openpack Evolutions. Or view all your unopened packs with /checkpacks<br/>",
+            "info":"A pack of 10 cards from the Evolutions set.",
+            "multibuy": true
+         },
+         "expeditionbaseset":{  
+            "display":"Expedition Base Set",
+            "price":5,
+            "currency":"bucks",
+            "onbuy":"You have purchased a pack of 10 cards from the Expedition Base Set set. To open your pack, use /openpack Expedition Base Set. Or view all your unopened packs with /checkpacks<br/>",
+            "info":"A pack of 10 cards from the Expedition Base Set set.",
+            "multibuy": true
+         },
+         "fatescollide":{  
+            "display":"Fates Collide",
+            "price":5,
+            "currency":"bucks",
+            "onbuy":"You have purchased a pack of 10 cards from the Fates Collide set. To open your pack, use /openpack Fates Collide. Or view all your unopened packs with /checkpacks<br/>",
+            "info":"A pack of 10 cards from the Fates Collide set.",
+            "multibuy": true
+         },
+         "fireredleafgreen":{  
+            "display":"FireRed & LeafGreen",
+            "price":5,
+            "currency":"bucks",
+            "onbuy":"You have purchased a pack of 10 cards from the FireRed & LeafGreen set. To open your pack, use /openpack FireRed & LeafGreen. Or view all your unopened packs with /checkpacks<br/>",
+            "info":"A pack of 10 cards from the FireRed & LeafGreen set.",
+            "multibuy": true
+         },
+         "flashfire":{  
+            "display":"Flashfire",
+            "price":5,
+            "currency":"bucks",
+            "onbuy":"You have purchased a pack of 10 cards from the Flashfire set. To open your pack, use /openpack Flashfire. Or view all your unopened packs with /checkpacks<br/>",
+            "info":"A pack of 10 cards from the Flashfire set.",
+            "multibuy": true
+         },
+         "fossil":{  
+            "display":"Fossil",
+            "price":5,
+            "currency":"bucks",
+            "onbuy":"You have purchased a pack of 10 cards from the Fossil set. To open your pack, use /openpack Fossil. Or view all your unopened packs with /checkpacks<br/>",
+            "info":"A pack of 10 cards from the Fossil set.",
+            "multibuy": true
+         },
+         "furiousfists":{  
+            "display":"Furious Fists",
+            "price":5,
+            "currency":"bucks",
+            "onbuy":"You have purchased a pack of 10 cards from the Furious Fists set. To open your pack, use /openpack Furious Fists. Or view all your unopened packs with /checkpacks<br/>",
+            "info":"A pack of 10 cards from the Furious Fists set.",
+            "multibuy": true
+         },
+         "generations":{  
+            "display":"Generations",
+            "price":5,
+            "currency":"bucks",
+            "onbuy":"You have purchased a pack of 10 cards from the Generations set. To open your pack, use /openpack Generations. Or view all your unopened packs with /checkpacks<br/>",
+            "info":"A pack of 10 cards from the Generations set.",
+            "multibuy": true
+         },
+         "greatencounters":{  
+            "display":"Great Encounters",
+            "price":5,
+            "currency":"bucks",
+            "onbuy":"You have purchased a pack of 10 cards from the Great Encounters set. To open your pack, use /openpack Great Encounters. Or view all your unopened packs with /checkpacks<br/>",
+            "info":"A pack of 10 cards from the Great Encounters set.",
+            "multibuy": true
+         },
+         "guardiansrising":{  
+            "display":"Guardians Rising",
+            "price":5,
+            "currency":"bucks",
+            "onbuy":"You have purchased a pack of 10 cards from the Guardians Rising set. To open your pack, use /openpack Guardians Rising. Or view all your unopened packs with /checkpacks<br/>",
+            "info":"A pack of 10 cards from the Guardians Rising set.",
+            "multibuy": true
+         },
+         "gymchallenge":{  
+            "display":"Gym Challenge",
+            "price":5,
+            "currency":"bucks",
+            "onbuy":"You have purchased a pack of 10 cards from the Gym Challenge set. To open your pack, use /openpack Gym Challenge. Or view all your unopened packs with /checkpacks<br/>",
+            "info":"A pack of 10 cards from the Gym Challenge set.",
+            "multibuy": true
+         },
+         "gymheroes":{  
+            "display":"Gym Heroes",
+            "price":5,
+            "currency":"bucks",
+            "onbuy":"You have purchased a pack of 10 cards from the Gym Heroes set. To open your pack, use /openpack Gym Heroes. Or view all your unopened packs with /checkpacks<br/>",
+            "info":"A pack of 10 cards from the Gym Heroes set.",
+            "multibuy": true
+         },
+         "hstriumphant":{  
+            "display":"HS—Triumphant",
+            "price":5,
+            "currency":"bucks",
+            "onbuy":"You have purchased a pack of 10 cards from the HS—Triumphant set. To open your pack, use /openpack HS—Triumphant. Or view all your unopened packs with /checkpacks<br/>",
+            "info":"A pack of 10 cards from the HS—Triumphant set.",
+            "multibuy": true
+         },
+         "hsundaunted":{  
+            "display":"HS—Undaunted",
+            "price":5,
+            "currency":"bucks",
+            "onbuy":"You have purchased a pack of 10 cards from the HS—Undaunted set. To open your pack, use /openpack HS—Undaunted. Or view all your unopened packs with /checkpacks<br/>",
+            "info":"A pack of 10 cards from the HS—Undaunted set.",
+            "multibuy": true
+         },
+         "hsunleashed":{  
+            "display":"HS—Unleashed",
+            "price":5,
+            "currency":"bucks",
+            "onbuy":"You have purchased a pack of 10 cards from the HS—Unleashed set. To open your pack, use /openpack HS—Unleashed. Or view all your unopened packs with /checkpacks<br/>",
+            "info":"A pack of 10 cards from the HS—Unleashed set.",
+            "multibuy": true
+         },
+         "heartgoldsoulsilver":{  
+            "display":"HeartGold & SoulSilver",
+            "price":5,
+            "currency":"bucks",
+            "onbuy":"You have purchased a pack of 10 cards from the HeartGold & SoulSilver set. To open your pack, use /openpack HeartGold & SoulSilver. Or view all your unopened packs with /checkpacks<br/>",
+            "info":"A pack of 10 cards from the HeartGold & SoulSilver set.",
+            "multibuy": true
+         },
+         "hiddenlegends":{  
+            "display":"Hidden Legends",
+            "price":5,
+            "currency":"bucks",
+            "onbuy":"You have purchased a pack of 10 cards from the Hidden Legends set. To open your pack, use /openpack Hidden Legends. Or view all your unopened packs with /checkpacks<br/>",
+            "info":"A pack of 10 cards from the Hidden Legends set.",
+            "multibuy": true
+         },
+         "holonphantoms":{  
+            "display":"Holon Phantoms",
+            "price":5,
+            "currency":"bucks",
+            "onbuy":"You have purchased a pack of 10 cards from the Holon Phantoms set. To open your pack, use /openpack Holon Phantoms. Or view all your unopened packs with /checkpacks<br/>",
+            "info":"A pack of 10 cards from the Holon Phantoms set.",
+            "multibuy": true
+         },
+         "jungle":{  
+            "display":"Jungle",
+            "price":5,
+            "currency":"bucks",
+            "onbuy":"You have purchased a pack of 10 cards from the Jungle set. To open your pack, use /openpack Jungle. Or view all your unopened packs with /checkpacks<br/>",
+            "info":"A pack of 10 cards from the Jungle set.",
+            "multibuy": true
+         },
+         "kalosstarterset":{  
+            "display":"Kalos Starter Set",
+            "price":5,
+            "currency":"bucks",
+            "onbuy":"You have purchased a pack of 10 cards from the Kalos Starter Set set. To open your pack, use /openpack Kalos Starter Set. Or view all your unopened packs with /checkpacks<br/>",
+            "info":"A pack of 10 cards from the Kalos Starter Set set.",
+            "multibuy": true
+         },
+         "legendmaker":{  
+            "display":"Legend Maker",
+            "price":5,
+            "currency":"bucks",
+            "onbuy":"You have purchased a pack of 10 cards from the Legend Maker set. To open your pack, use /openpack Legend Maker. Or view all your unopened packs with /checkpacks<br/>",
+            "info":"A pack of 10 cards from the Legend Maker set.",
+            "multibuy": true
+         },
+         "legendarycollection":{  
+            "display":"Legendary Collection",
+            "price":5,
+            "currency":"bucks",
+            "onbuy":"You have purchased a pack of 10 cards from the Legendary Collection set. To open your pack, use /openpack Legendary Collection. Or view all your unopened packs with /checkpacks<br/>",
+            "info":"A pack of 10 cards from the Legendary Collection set.",
+            "multibuy": true
+         },
+         "legendarytreasures":{  
+            "display":"Legendary Treasures",
+            "price":5,
+            "currency":"bucks",
+            "onbuy":"You have purchased a pack of 10 cards from the Legendary Treasures set. To open your pack, use /openpack Legendary Treasures. Or view all your unopened packs with /checkpacks<br/>",
+            "info":"A pack of 10 cards from the Legendary Treasures set.",
+            "multibuy": true
+         },
+         "legendsawakened":{  
+            "display":"Legends Awakened",
+            "price":5,
+            "currency":"bucks",
+            "onbuy":"You have purchased a pack of 10 cards from the Legends Awakened set. To open your pack, use /openpack Legends Awakened. Or view all your unopened packs with /checkpacks<br/>",
+            "info":"A pack of 10 cards from the Legends Awakened set.",
+            "multibuy": true
+         },
+         "majesticdawn":{  
+            "display":"Majestic Dawn",
+            "price":5,
+            "currency":"bucks",
+            "onbuy":"You have purchased a pack of 10 cards from the Majestic Dawn set. To open your pack, use /openpack Majestic Dawn. Or view all your unopened packs with /checkpacks<br/>",
+            "info":"A pack of 10 cards from the Majestic Dawn set.",
+            "multibuy": true
+         },
+         "mysterioustreasures":{  
+            "display":"Mysterious Treasures",
+            "price":5,
+            "currency":"bucks",
+            "onbuy":"You have purchased a pack of 10 cards from the Mysterious Treasures set. To open your pack, use /openpack Mysterious Treasures. Or view all your unopened packs with /checkpacks<br/>",
+            "info":"A pack of 10 cards from the Mysterious Treasures set.",
+            "multibuy": true
+         },
+         "neodestiny":{  
+            "display":"Neo Destiny",
+            "price":5,
+            "currency":"bucks",
+            "onbuy":"You have purchased a pack of 10 cards from the Neo Destiny set. To open your pack, use /openpack Neo Destiny. Or view all your unopened packs with /checkpacks<br/>",
+            "info":"A pack of 10 cards from the Neo Destiny set.",
+            "multibuy": true
+         },
+         "neodiscovery":{  
+            "display":"Neo Discovery",
+            "price":5,
+            "currency":"bucks",
+            "onbuy":"You have purchased a pack of 10 cards from the Neo Discovery set. To open your pack, use /openpack Neo Discovery. Or view all your unopened packs with /checkpacks<br/>",
+            "info":"A pack of 10 cards from the Neo Discovery set.",
+            "multibuy": true
+         },
+         "neogenesis":{  
+            "display":"Neo Genesis",
+            "price":5,
+            "currency":"bucks",
+            "onbuy":"You have purchased a pack of 10 cards from the Neo Genesis set. To open your pack, use /openpack Neo Genesis. Or view all your unopened packs with /checkpacks<br/>",
+            "info":"A pack of 10 cards from the Neo Genesis set.",
+            "multibuy": true
+         },
+         "neorevelation":{  
+            "display":"Neo Revelation",
+            "price":5,
+            "currency":"bucks",
+            "onbuy":"You have purchased a pack of 10 cards from the Neo Revelation set. To open your pack, use /openpack Neo Revelation. Or view all your unopened packs with /checkpacks<br/>",
+            "info":"A pack of 10 cards from the Neo Revelation set.",
+            "multibuy": true
+         },
+         "nextdestinies":{  
+            "display":"Next Destinies",
+            "price":5,
+            "currency":"bucks",
+            "onbuy":"You have purchased a pack of 10 cards from the Next Destinies set. To open your pack, use /openpack Next Destinies. Or view all your unopened packs with /checkpacks<br/>",
+            "info":"A pack of 10 cards from the Next Destinies set.",
+            "multibuy": true
+         },
+         "noblevictories":{  
+            "display":"Noble Victories",
+            "price":5,
+            "currency":"bucks",
+            "onbuy":"You have purchased a pack of 10 cards from the Noble Victories set. To open your pack, use /openpack Noble Victories. Or view all your unopened packs with /checkpacks<br/>",
+            "info":"A pack of 10 cards from the Noble Victories set.",
+            "multibuy": true
+         },
+         "popseries1":{  
+            "display":"POP Series 1",
+            "price":5,
+            "currency":"bucks",
+            "onbuy":"You have purchased a pack of 10 cards from the POP Series 1 set. To open your pack, use /openpack POP Series 1. Or view all your unopened packs with /checkpacks<br/>",
+            "info":"A pack of 10 cards from the POP Series 1 set.",
+            "multibuy": true
+         },
+         "popseries2":{  
+            "display":"POP Series 2",
+            "price":5,
+            "currency":"bucks",
+            "onbuy":"You have purchased a pack of 10 cards from the POP Series 2 set. To open your pack, use /openpack POP Series 2. Or view all your unopened packs with /checkpacks<br/>",
+            "info":"A pack of 10 cards from the POP Series 2 set.",
+            "multibuy": true
+         },
+         "popseries3":{  
+            "display":"POP Series 3",
+            "price":5,
+            "currency":"bucks",
+            "onbuy":"You have purchased a pack of 10 cards from the POP Series 3 set. To open your pack, use /openpack POP Series 3. Or view all your unopened packs with /checkpacks<br/>",
+            "info":"A pack of 10 cards from the POP Series 3 set.",
+            "multibuy": true
+         },
+         "popseries4":{  
+            "display":"POP Series 4",
+            "price":5,
+            "currency":"bucks",
+            "onbuy":"You have purchased a pack of 10 cards from the POP Series 4 set. To open your pack, use /openpack POP Series 4. Or view all your unopened packs with /checkpacks<br/>",
+            "info":"A pack of 10 cards from the POP Series 4 set.",
+            "multibuy": true
+         },
+         "popseries5":{  
+            "display":"POP Series 5",
+            "price":5,
+            "currency":"bucks",
+            "onbuy":"You have purchased a pack of 10 cards from the POP Series 5 set. To open your pack, use /openpack POP Series 5. Or view all your unopened packs with /checkpacks<br/>",
+            "info":"A pack of 10 cards from the POP Series 5 set.",
+            "multibuy": true
+         },
+         "popseries6":{  
+            "display":"POP Series 6",
+            "price":5,
+            "currency":"bucks",
+            "onbuy":"You have purchased a pack of 10 cards from the POP Series 6 set. To open your pack, use /openpack POP Series 6. Or view all your unopened packs with /checkpacks<br/>",
+            "info":"A pack of 10 cards from the POP Series 6 set.",
+            "multibuy": true
+         },
+         "popseries7":{  
+            "display":"POP Series 7",
+            "price":5,
+            "currency":"bucks",
+            "onbuy":"You have purchased a pack of 10 cards from the POP Series 7 set. To open your pack, use /openpack POP Series 7. Or view all your unopened packs with /checkpacks<br/>",
+            "info":"A pack of 10 cards from the POP Series 7 set.",
+            "multibuy": true
+         },
+         "popseries8":{  
+            "display":"POP Series 8",
+            "price":5,
+            "currency":"bucks",
+            "onbuy":"You have purchased a pack of 10 cards from the POP Series 8 set. To open your pack, use /openpack POP Series 8. Or view all your unopened packs with /checkpacks<br/>",
+            "info":"A pack of 10 cards from the POP Series 8 set.",
+            "multibuy": true
+         },
+         "popseries9":{  
+            "display":"POP Series 9",
+            "price":5,
+            "currency":"bucks",
+            "onbuy":"You have purchased a pack of 10 cards from the POP Series 9 set. To open your pack, use /openpack POP Series 9. Or view all your unopened packs with /checkpacks<br/>",
+            "info":"A pack of 10 cards from the POP Series 9 set.",
+            "multibuy": true
+         },
+         "phantomforces":{  
+            "display":"Phantom Forces",
+            "price":5,
+            "currency":"bucks",
+            "onbuy":"You have purchased a pack of 10 cards from the Phantom Forces set. To open your pack, use /openpack Phantom Forces. Or view all your unopened packs with /checkpacks<br/>",
+            "info":"A pack of 10 cards from the Phantom Forces set.",
+            "multibuy": true
+         },
+         "plasmablast":{  
+            "display":"Plasma Blast",
+            "price":5,
+            "currency":"bucks",
+            "onbuy":"You have purchased a pack of 10 cards from the Plasma Blast set. To open your pack, use /openpack Plasma Blast. Or view all your unopened packs with /checkpacks<br/>",
+            "info":"A pack of 10 cards from the Plasma Blast set.",
+            "multibuy": true
+         },
+         "plasmafreeze":{  
+            "display":"Plasma Freeze",
+            "price":5,
+            "currency":"bucks",
+            "onbuy":"You have purchased a pack of 10 cards from the Plasma Freeze set. To open your pack, use /openpack Plasma Freeze. Or view all your unopened packs with /checkpacks<br/>",
+            "info":"A pack of 10 cards from the Plasma Freeze set.",
+            "multibuy": true
+         },
+         "plasmastorm":{  
+            "display":"Plasma Storm",
+            "price":5,
+            "currency":"bucks",
+            "onbuy":"You have purchased a pack of 10 cards from the Plasma Storm set. To open your pack, use /openpack Plasma Storm. Or view all your unopened packs with /checkpacks<br/>",
+            "info":"A pack of 10 cards from the Plasma Storm set.",
+            "multibuy": true
+         },
+         "platinum":{  
+            "display":"Platinum",
+            "price":5,
+            "currency":"bucks",
+            "onbuy":"You have purchased a pack of 10 cards from the Platinum set. To open your pack, use /openpack Platinum. Or view all your unopened packs with /checkpacks<br/>",
+            "info":"A pack of 10 cards from the Platinum set.",
+            "multibuy": true
+         },
+         "powerkeepers":{  
+            "display":"Power Keepers",
+            "price":5,
+            "currency":"bucks",
+            "onbuy":"You have purchased a pack of 10 cards from the Power Keepers set. To open your pack, use /openpack Power Keepers. Or view all your unopened packs with /checkpacks<br/>",
+            "info":"A pack of 10 cards from the Power Keepers set.",
+            "multibuy": true
+         },
+         "primalclash":{  
+            "display":"Primal Clash",
+            "price":5,
+            "currency":"bucks",
+            "onbuy":"You have purchased a pack of 10 cards from the Primal Clash set. To open your pack, use /openpack Primal Clash. Or view all your unopened packs with /checkpacks<br/>",
+            "info":"A pack of 10 cards from the Primal Clash set.",
+            "multibuy": true
+         },
+         "risingrivals":{  
+            "display":"Rising Rivals",
+            "price":5,
+            "currency":"bucks",
+            "onbuy":"You have purchased a pack of 10 cards from the Rising Rivals set. To open your pack, use /openpack Rising Rivals. Or view all your unopened packs with /checkpacks<br/>",
+            "info":"A pack of 10 cards from the Rising Rivals set.",
+            "multibuy": true
+         },
+         "roaringskies":{  
+            "display":"Roaring Skies",
+            "price":5,
+            "currency":"bucks",
+            "onbuy":"You have purchased a pack of 10 cards from the Roaring Skies set. To open your pack, use /openpack Roaring Skies. Or view all your unopened packs with /checkpacks<br/>",
+            "info":"A pack of 10 cards from the Roaring Skies set.",
+            "multibuy": true
+         },
+         "rubysapphire":{  
+            "display":"Ruby & Sapphire",
+            "price":5,
+            "currency":"bucks",
+            "onbuy":"You have purchased a pack of 10 cards from the Ruby & Sapphire set. To open your pack, use /openpack Ruby & Sapphire. Or view all your unopened packs with /checkpacks<br/>",
+            "info":"A pack of 10 cards from the Ruby & Sapphire set.",
+            "multibuy": true
+         },
+         "smblackstarpromos":{  
+            "display":"SM Black Star Promos",
+            "price":5,
+            "currency":"bucks",
+            "onbuy":"You have purchased a pack of 10 cards from the SM Black Star Promos set. To open your pack, use /openpack SM Black Star Promos. Or view all your unopened packs with /checkpacks<br/>",
+            "info":"A pack of 10 cards from the SM Black Star Promos set.",
+            "multibuy": true
+         },
+         "sandstorm":{  
+            "display":"Sandstorm",
+            "price":5,
+            "currency":"bucks",
+            "onbuy":"You have purchased a pack of 10 cards from the Sandstorm set. To open your pack, use /openpack Sandstorm. Or view all your unopened packs with /checkpacks<br/>",
+            "info":"A pack of 10 cards from the Sandstorm set.",
+            "multibuy": true
+         },
+         "secretwonders":{  
+            "display":"Secret Wonders",
+            "price":5,
+            "currency":"bucks",
+            "onbuy":"You have purchased a pack of 10 cards from the Secret Wonders set. To open your pack, use /openpack Secret Wonders. Or view all your unopened packs with /checkpacks<br/>",
+            "info":"A pack of 10 cards from the Secret Wonders set.",
+            "multibuy": true
+         },
+         "shininglegends":{  
+            "display":"Shining Legends",
+            "price":5,
+            "currency":"bucks",
+            "onbuy":"You have purchased a pack of 10 cards from the Shining Legends set. To open your pack, use /openpack Shining Legends. Or view all your unopened packs with /checkpacks<br/>",
+            "info":"A pack of 10 cards from the Shining Legends set.",
+            "multibuy": true
+         },
+         "skyridge":{  
+            "display":"Skyridge",
+            "price":5,
+            "currency":"bucks",
+            "onbuy":"You have purchased a pack of 10 cards from the Skyridge set. To open your pack, use /openpack Skyridge. Or view all your unopened packs with /checkpacks<br/>",
+            "info":"A pack of 10 cards from the Skyridge set.",
+            "multibuy": true
+         },
+         "steamsiege":{  
+            "display":"Steam Siege",
+            "price":5,
+            "currency":"bucks",
+            "onbuy":"You have purchased a pack of 10 cards from the Steam Siege set. To open your pack, use /openpack Steam Siege. Or view all your unopened packs with /checkpacks<br/>",
+            "info":"A pack of 10 cards from the Steam Siege set.",
+            "multibuy": true
+         },
+         "stormfront":{  
+            "display":"Stormfront",
+            "price":5,
+            "currency":"bucks",
+            "onbuy":"You have purchased a pack of 10 cards from the Stormfront set. To open your pack, use /openpack Stormfront. Or view all your unopened packs with /checkpacks<br/>",
+            "info":"A pack of 10 cards from the Stormfront set.",
+            "multibuy": true
+         },
+         "sunmoon":{  
+            "display":"Sun & Moon",
+            "price":5,
+            "currency":"bucks",
+            "onbuy":"You have purchased a pack of 10 cards from the Sun & Moon set. To open your pack, use /openpack Sun & Moon. Or view all your unopened packs with /checkpacks<br/>",
+            "info":"A pack of 10 cards from the Sun & Moon set.",
+            "multibuy": true
+         },
+         "supremevictors":{  
+            "display":"Supreme Victors",
+            "price":5,
+            "currency":"bucks",
+            "onbuy":"You have purchased a pack of 10 cards from the Supreme Victors set. To open your pack, use /openpack Supreme Victors. Or view all your unopened packs with /checkpacks<br/>",
+            "info":"A pack of 10 cards from the Supreme Victors set.",
+            "multibuy": true
+         },
+         "teammagmavsteamaqua":{  
+            "display":"Team Magma vs Team Aqua",
+            "price":5,
+            "currency":"bucks",
+            "onbuy":"You have purchased a pack of 10 cards from the Team Magma vs Team Aqua set. To open your pack, use /openpack Team Magma vs Team Aqua. Or view all your unopened packs with /checkpacks<br/>",
+            "info":"A pack of 10 cards from the Team Magma vs Team Aqua set.",
+            "multibuy": true
+         },
+         "teamrocket":{  
+            "display":"Team Rocket",
+            "price":5,
+            "currency":"bucks",
+            "onbuy":"You have purchased a pack of 10 cards from the Team Rocket set. To open your pack, use /openpack Team Rocket. Or view all your unopened packs with /checkpacks<br/>",
+            "info":"A pack of 10 cards from the Team Rocket set.",
+            "multibuy": true
+         },
+         "teamrocketreturns":{  
+            "display":"Team Rocket Returns",
+            "price":5,
+            "currency":"bucks",
+            "onbuy":"You have purchased a pack of 10 cards from the Team Rocket Returns set. To open your pack, use /openpack Team Rocket Returns. Or view all your unopened packs with /checkpacks<br/>",
+            "info":"A pack of 10 cards from the Team Rocket Returns set.",
+            "multibuy": true
+         },
+         "unseenforces":{  
+            "display":"Unseen Forces",
+            "price":5,
+            "currency":"bucks",
+            "onbuy":"You have purchased a pack of 10 cards from the Unseen Forces set. To open your pack, use /openpack Unseen Forces. Or view all your unopened packs with /checkpacks<br/>",
+            "info":"A pack of 10 cards from the Unseen Forces set.",
+            "multibuy": true
+         },
+         "wizardsblackstarpromos":{  
+            "display":"Wizards Black Star Promos",
+            "price":5,
+            "currency":"bucks",
+            "onbuy":"You have purchased a pack of 10 cards from the Wizards Black Star Promos set. To open your pack, use /openpack Wizards Black Star Promos. Or view all your unopened packs with /checkpacks<br/>",
+            "info":"A pack of 10 cards from the Wizards Black Star Promos set.",
+            "multibuy": true
+         },
+         "xy":{  
+            "display":"XY",
+            "price":5,
+            "currency":"bucks",
+            "onbuy":"You have purchased a pack of 10 cards from the XY set. To open your pack, use /openpack XY. Or view all your unopened packs with /checkpacks<br/>",
+            "info":"A pack of 10 cards from the XY set.",
+            "multibuy": true
+         },
+         "xyblackstarpromos":{  
+            "display":"XY Black Star Promos",
+            "price":5,
+            "currency":"bucks",
+            "onbuy":"You have purchased a pack of 10 cards from the XY Black Star Promos set. To open your pack, use /openpack XY Black Star Promos. Or view all your unopened packs with /checkpacks<br/>",
+            "info":"A pack of 10 cards from the XY Black Star Promos set.",
+            "multibuy": true
+         }
+      }
+   },
+   "sggame":{  
+      "display":"SGgame (Alpha)",
+      "info":"Extra items to help you out in the alpha test. Please note that save data may be wiped after the alpha test ends",
+      "items":{  
+         "berry1":{  
+            "display":"Berry Bag 1",
+            "price":1,
+            "currency":"bucks",
+            "onbuy":"You have purchased 30 random berries for SGgame Alpha. The berries have been added to your bag, close and reopen your bag if its open to get them to display.<br/>",
+            "info":"30 random berries for SGgame Alpha. Possible berries: Cheri, Pecha, Rawst, Chesto, Aspear, Persim, Oran, Sitrus, Lum, Leppa",
+            "multibuy": true
+         },
+         "berry2":{  
+            "display":"Berry Bag 2",
+            "price":1,
+            "currency":"bucks",
+            "onbuy":"You have purchased 30 random berries for SGgame Alpha. The berries have been added to your bag, close and reopen your bag if its open to get them to display.<br/>",
+            "info":"30 random berries for SGgame Alpha. Possible berries: Aguav, Apicot, Babiri, Charti, Chilan, Chople, Coba, Colbur, Custap, Enigma, Figy, Ganlon, Haban, Iapapa, Jaboca, Kasib, Kebia, Kee, Lansat, Liechi, Mago, Maranga, Micle, Occa, Passho, Payapa, Petaya, Rindo, Roseli, Rowap, Salac, Shuca, Starf, Tanga, Wacan, Wiki, Yache",
+            "multibuy": true
+         },
+         "potion":{  
+            "display":"Potion Pack",
+            "price":1,
+            "currency":"bucks",
+            "onbuy":"You have purchased a pack of 15 Potions for SGgame Alpha. The Potions have been added to your bag, close and reopen your bag if its open to get them to display.<br/>",
+            "info":"15 Potions for SGgame Alpha.",
+            "multibuy": true
+         },
+         "superpotion":{  
+            "display":"Super Potion Pack",
+            "price":1,
+            "currency":"bucks",
+            "onbuy":"You have purchased a pack of 6 Super Potions for SGgame Alpha. The Super Potions have been added to your bag, close and reopen your bag if its open to get them to display.<br/>",
+            "info":"6 Super Potions for SGgame Alpha.",
+            "multibuy": true
+         },
+         "hyperpotion":{  
+            "display":"Hyper Potion Pack",
+            "price":1,
+            "currency":"bucks",
+            "onbuy":"You have purchased a pack of 4 Hyper Potions for SGgame Alpha. The Hyper Potions have been added to your bag, close and reopen your bag if its open to get them to display.<br/>",
+            "info":"4 Hyper Potions for SGgame Alpha.",
+            "multibuy": true
+         },
+         "maxpotion":{  
+            "display":"Max Potion Pack",
+            "price":1,
+            "currency":"bucks",
+            "onbuy":"You have purchased a pack of 3 Max Potions for SGgame Alpha. The Max Potions have been added to your bag, close and reopen your bag if its open to get them to display.<br/>",
+            "info":"3 Max Potions for SGgame Alpha.",
+            "multibuy": true
+         },
+         "fullrestore":{  
+            "display":"Full Restore Pack",
+            "price":1,
+            "currency":"bucks",
+            "onbuy":"You have purchased a pack of 2 Full Restores for SGgame Alpha. The Full Restores have been added to your bag, close and reopen your bag if its open to get them to display.<br/>",
+            "info":"2 Full Restores for SGgame Alpha.",
+            "multibuy": true
+         },
+         "antidote":{  
+            "display":"Antidote Pack",
+            "price":1,
+            "currency":"bucks",
+            "onbuy":"You have purchased a pack of 10 Antidotes for SGgame Alpha. The Antidotes have been added to your bag, close and reopen your bag if its open to get them to display.<br/>",
+            "info":"10 Antidotes for SGgame Alpha.",
+            "multibuy": true
+         },
+         "awakening":{  
+            "display":"Awakening Pack",
+            "price":1,
+            "currency":"bucks",
+            "onbuy":"You have purchased a pack of 10 Antidotes for SGgame Alpha. The Awakening have been added to your bag, close and reopen your bag if its open to get them to display.<br/>",
+            "info":"10 Awakenings for SGgame Alpha.",
+            "multibuy": true
+         },
+         "burnheal":{  
+            "display":"Burn Heal Pack",
+            "price":1,
+            "currency":"bucks",
+            "onbuy":"You have purchased a pack of 10 Burn Heals for SGgame Alpha. The Burn Heals have been added to your bag, close and reopen your bag if its open to get them to display.<br/>",
+            "info":"10 Burn Heals for SGgame Alpha.",
+            "multibuy": true
+         },
+         "iceheal":{  
+            "display":"Ice Heal Pack",
+            "price":1,
+            "currency":"bucks",
+            "onbuy":"You have purchased a pack of 10 Ice Heals for SGgame Alpha. The Ice Heals have been added to your bag, close and reopen your bag if its open to get them to display.<br/>",
+            "info":"10 Ice Heals for SGgame Alpha.",
+            "multibuy": true
+         },
+         "parlyzheal":{  
+            "display":"Parlyz Heal Pack",
+            "price":1,
+            "currency":"bucks",
+            "onbuy":"You have purchased a pack of 10 Parlyz Heals for SGgame Alpha. The Parlyz Heals have been added to your bag, close and reopen your bag if its open to get them to display.<br/>",
+            "info":"10 Parlyz Heals for SGgame Alpha.",
+            "multibuy": true
+         },
+         "fullheal":{  
+            "display":"Full Heal Pack",
+            "price":1,
+            "currency":"bucks",
+            "onbuy":"You have purchased a pack of 6 Full Heals for SGgame Alpha. The Full Heals have been added to your bag, close and reopen your bag if its open to get them to display.<br/>",
+            "info":"6 Full Heals for SGgame Alpha.",
+            "multibuy": true
+         },
+         "pokeball":{  
+            "display":"Pokeballs",
+            "price":1,
+            "currency":"bucks",
+            "onbuy":"You have purchased a pack of 30 Pokeballs for SGgame Alpha. The Pokeballs have been added to your bag, close and reopen your bag if its open to get them to display.<br/>",
+            "info":"30 Pokeballs for SGgame Alpha.",
+            "multibuy": true
+         },
+         "greatball":{  
+            "display":"Greatballs",
+            "price":1,
+            "currency":"bucks",
+            "onbuy":"You have purchased a pack of 15 Greatballs for SGgame Alpha. The Greatballs have been added to your bag, close and reopen your bag if its open to get them to display.<br/>",
+            "info":"15 Greatballs for SGgame Alpha.",
+            "multibuy": true
+         },
+         "ultraball":{  
+            "display":"Ultraballs",
+            "price":1,
+            "currency":"bucks",
+            "onbuy":"You have purchased a pack of 7 Ultraballs for SGgame Alpha. The Ultraballs have been added to your bag, close and reopen your bag if its open to get them to display.<br/>",
+            "info":"7 Ultraballs for SGgame Alpha.",
+            "multibuy": true
+         },
+         "hpup":{  
+            "display":"HP Up",
+            "price":1,
+            "currency":"bucks",
+            "onbuy":"You have purchased a HP Up for SGgame Alpha. The HP-Up has been added to your bag, close and reopen your bag if its open to get it to display.<br/>",
+            "info":"1 HP Up for SGgame Alpha. (Boosts HP evs by 10)",
+            "multibuy": true
+         },
+         "protein":{  
+            "display":"Protein",
+            "price":1,
+            "currency":"bucks",
+            "onbuy":"You have purchased a Protein for SGgame Alpha. The Protein has been added to your bag, close and reopen your bag if its open to get it to display.<br/>",
+            "info":"1 Protein for SGgame Alpha. (Boosts ATK evs by 10)",
+            "multibuy": true
+         },
+         "iron":{  
+            "display":"Iron",
+            "price":1,
+            "currency":"bucks",
+            "onbuy":"You have purchased an Iron for SGgame Alpha. The Iron has been added to your bag, close and reopen your bag if its open to get it to display.<br/>",
+            "info":"1 Iron for SGgame Alpha. (Boosts DEF evs by 10)",
+            "multibuy": true
+         },
+         "calcium":{  
+            "display":"Calcium",
+            "price":1,
+            "currency":"bucks",
+            "onbuy":"You have purchased a HP Up for SGgame Alpha. The Calcium has been added to your bag, close and reopen your bag if its open to get it to display.<br/>",
+            "info":"1 Calcium for SGgame Alpha. (Boosts SPA evs by 10)",
+            "multibuy": true
+         },
+         "zinc":{  
+            "display":"Zinc",
+            "price":1,
+            "currency":"bucks",
+            "onbuy":"You have purchased a Zinc for SGgame Alpha. The Zinc has been added to your bag, close and reopen your bag if its open to get it to display.<br/>",
+            "info":"1 Zinc for SGgame Alpha. (Boosts SPD evs by 10)",
+            "multibuy": true
+         },
+         "carbos":{  
+            "display":"Carbos",
+            "price":1,
+            "currency":"bucks",
+            "onbuy":"You have purchased a Carbos for SGgame Alpha. The Carbos has been added to your bag, close and reopen your bag if its open to get it to display.<br/>",
+            "info":"1 Carbos for SGgame Alpha. (Boosts SPE evs by 10)",
+            "multibuy": true
+         }
+      }
+   }
+}

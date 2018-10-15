@@ -6,6 +6,16 @@
 exports.port = 8000;
 
 /**
+ * The server Namr - Being used to rename custom-plugins.
+ */
+exports.serverName = 'Server';
+
+/**
+* The server IP - Being used to show avatars in profile.
+*/
+exports.serverIp = 'serverip';
+
+/**
  * The server address - the address at which Pokemon Showdown should be hosting
  *   This should be kept set to 0.0.0.0 unless you know what you're doing.
  */
@@ -412,6 +422,25 @@ exports.disablehotpatchall = false;
  *     - gamemanagement: enable/disable games, minigames, and tournaments.
  *     - minigame: make minigames (hangman, polls, etc.).
  *     - game: make games.
+ * Custom-Plugins specific permissions
+ *     - customcolor: manage custom colors
+ *     - avatar: manage custom avatars
+ *     - badge: manage badges
+ *     - draft: manage room drafts
+ *     - economy: manage server currency
+ *     - emote: manage emoticons
+ *     - editshop: manage the server shop
+ *     - exp: manage the exp system
+ *     - faction: manage factions
+ *     - icon: manage custom icons
+ *     - lottery: manage a room's lottery
+ *     - news: manage server news
+ *     - perma: manage permalocks and permabans
+ *     - customtitle: manage custom profile titles
+ *     - psgo: manage PSGO
+ *     - pmall: send a masspm to a room or globally
+ *     - ssb: manage super staff bros free for all
+ *     - roomshop: manage room shops
  */
 exports.grouplist = [
 	{
@@ -443,6 +472,42 @@ exports.grouplist = [
 		globalonly: true,
 		gamemanagement: true,
 		exportinputlog: true,
+		// Custom
+		customcolor: true,
+		badge: true,
+		editshop: true,
+		exp: true,
+		faction: true,
+		icon: true,
+		customtitle: true,
+	},
+	{
+		symbol: '^',
+		id: "captain",
+		name: "Captain",
+		inherit: '@',
+		jurisdiction: 'u',
+		globalonly: true,
+		declare: true,
+		gdeclare: true,
+		makeroom: true,
+		editroom: true,
+		roomowner: true,
+		roombot: true,
+		roommod: true,
+		roomdriver: true,
+		modchatall: true,
+		tourannouncements: true,
+		gamemanagement: true,
+		potd: true,
+		// Custom
+		draft: true,
+		masspm: true,
+		avatar: true,
+		economy: true,
+		emote: true,
+		psgo: true,
+		ssb: true,
 	},
 	{
 		symbol: '#',
@@ -458,6 +523,9 @@ exports.grouplist = [
 		modchatall: true,
 		roomonly: true,
 		gamemanagement: true,
+		// Custom
+		draft: true,
+		masspm: true,
 	},
 	{
 		symbol: '\u2605',
@@ -506,6 +574,9 @@ exports.grouplist = [
 		alts: '@u',
 		tournaments: true,
 		game: true,
+		// Custom
+		news: true,
+		roomshop: true,
 	},
 	{
 		symbol: '%',
@@ -528,6 +599,8 @@ exports.grouplist = [
 		jeopardy: true,
 		joinbattle: true,
 		minigame: true,
+		// Custom
+		lottery: true,
 	},
 	{
 		symbol: '+',
