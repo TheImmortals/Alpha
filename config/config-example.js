@@ -88,6 +88,10 @@ exports.ofe = false;
  */
 exports.potd = '';
 
+/* Poof being used for poof command */
+
+exports.poof = true;
+
 /**
  * crash guard - write errors to log file instead of crashing
  *   This is normally not recommended - if Node wants to crash, the
