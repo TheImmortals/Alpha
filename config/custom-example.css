@@ -1,9 +1,3262 @@
-/**
- * Custom CSS declarations
- *
- * If your server is registered, you can create a file named `custom.css`
- * in the `config` directory and populate it with CSS rules to override the
- * normal client styles, when the client is connected to your server. In
- * other words, you can use this facility to introduce a custom theme for
- * your server.
- */
+/***************
+  * Chat Colors *
+ **************/
+ 
+ .chat.chatmessage-aflyingphantom em {Color:#6f339f}
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/**************
+  * General CSS *
+  **************/
+  #lobby-userlist-users {
+    background: rgba(255,255,255,0.8) url("http://www.poketools.fr/resources/img/content/poke_icons/635.png") no-repeat left;
+}
+#lobby-userlist-users:hover {
+    background: rgba(255,255,255,0.8) url("http://www.poketools.fr/resources/img/content/poke_icons/635.png") no-repeat left;
+}
+.dark #lobby-userlist-users {
+    background: rgba(255,255,255,0.8) url("http://i.imgur.com/pp37hsK.png") no-repeat left;
+}
+.dark #lobby-userlist-users:hover {
+    background: rgba(255,255,255,0.8) url("http://i.imgur.com/pp37hsK.png") no-repeat left;
+}
+   #distributions-userlist-users {
+    background: rgba(255,255,255,0.8) url("http://www.pokepedia.fr/images/2/28/Miniat_6_x_250.png") no-repeat left;
+}
+   #distributions-userlist-users:hover {
+    background: rgba(255,255,255,0.8) url("http://www.pokepedia.fr/images/2/28/Miniat_6_x_250.png") no-repeat left;
+}
+#jvc-userlist-users {
+    background: rgba(255,255,255,0.8) url("http://imgur.com/nfvIA1y.png") no-repeat left;
+}
+#jvc-userlist-users:hover { 
+    background: rgba(255,255,255,0.8) url("http://imgur.com/nfvIA1y.png") no-repeat left;
+}
+#tournaments-userlist-users {
+    background: rgba(255,255,255,0.8) url("http://www.pokepedia.fr/images/8/8f/Miniat_6_r_384M.png") no-repeat left;
+}
+#tournaments-userlist-users:hover {
+    background: rgba(255,255,255,0.8) url("http://www.pokepedia.fr/images/8/8f/Miniat_6_r_384M.png") no-repeat left;
+}
+.dark #tournaments-userlist-users {
+    background: rgba(255,255,255,0.8) url("http://www.pokepedia.fr/images/8/8f/Miniat_6_r_384M.png") no-repeat left;
+}
+
+  /* CLASS CSS*/
+  .intro-div {
+    padding: 6px;
+    border: none;
+    background-color: rgba(0,0,0,0.30);
+    color: #3E3E3E;
+    text-shadow: none;
+    margin: 15px;
+}
+.bigbang-button {
+    border: 1px solid #3E3E3E;
+    background: #598487;
+    color: #FFFFFF;
+    margin: 1px 3px;
+    padding: 2px 4px;
+    text-shadow: none;
+    box-shadow: 0 0 4px rgba(245, 245, 242, 0.7);
+}
+.bigbang-button:hover {
+    border: 1px solid #3E3E3E;
+    background: #7DA8AB;
+    color: #FFFFFF;
+    margin: 1px 3px;
+    padding: 2px 4px;
+    text-shadow: none;
+    box-shadow: 0 0 1px #FBFCFD;
+}
+.supernovaq-button {
+    color: #fff;
+    font-size: 18px;
+    border: 2px solid #fff;
+    text-transform: uppercase;
+    line-height: 40px;
+    letter-spacing: -.3px;
+    background-color: rgba(148, 51, 144, 0.50);
+}
+.supernovaq-button:hover {
+    text-decoration: underline;
+    color: #fff;
+    font-size: 18px;
+    border: 2px solid #fff;
+    text-transform: uppercase;
+    line-height: 40px;
+    letter-spacing: -.3px;
+    background-color: rgba(41, 41, 41, 0.8);
+}
+
+.supernova-button2 {
+    color: #fff;
+    font-size: 10px;
+    border: 1px solid #fff;
+    text-transform: uppercase;
+    line-height: 15px;
+    letter-spacing: -.3px;
+    background-color: rgba(148,51,144,0.5);
+}
+
+.supernova-button2:hover {
+    color: #fff;
+    font-size: 10px;
+    border: 1px solid #fff;
+    text-transform: uppercase;
+    line-height: 15px;
+    letter-spacing: -.3px;
+    background-color: rgba(41, 41, 41, 0.8);
+}
+.bigbang-div {
+    background: rgba(89,120,123,0.20);
+    padding: 5px;
+    text-shadow: none;
+    color: #FFF;
+}
+.paypal-button {
+    background: rgb(239, 178, 74);
+    color: #30516B;
+    margin: 1px 3px;
+    padding: 2px 4px;
+    text-shadow: none;
+    border-bottom: 2px solid #30516B;
+    border-top: 1px solid #D0A805;
+    border-right: 1px solid #D0A805;
+    border-left: 1px solid #D0A805;
+}
+.paypal-button:hover {
+    background: rgb(239, 178, 74);
+    color: #30516B;
+    margin: 1px 3px;
+    padding: 2px 4px;
+    text-shadow: none;
+    border-bottom: 2px solid #30516B;
+    border-top: 1px solid #D0A805;
+    border-right: 1px solid #D0A805;
+    border-left: 1px solid #D0A805;
+    text-decoration: underline;
+}
+.bb-button {
+    text-decoration: none;
+    color: #fff;
+    font-size: 17px;
+    border: 2px solid white;
+    text-transform: uppercase;
+    line-height: 35px;
+    letter-spacing: -.3px;
+    background-color: rgba(55, 83, 133, 0.61);
+}
+.bb-button:hover {
+    text-decoration: none;
+    color: rgba(55, 83, 133, 0.61);
+    font-size: 17px;
+    border: 2px solid rgba(55, 83, 133, 0.61);
+    text-transform: uppercase;
+    line-height: 35px;
+    letter-spacing: -.3px;
+    background-color: white;
+}
+.jvc-button {
+    background: rgba(176, 94, 42, 0.53);
+    width: 32%;
+    height: 50px;
+    padding-right: 8px;
+    color: #FFFFFF;
+    font-size: 12pt;
+    text-align: center;
+    border: 2px solid #ffffff;
+    border-radius: 15px;
+}
+.jvc-button:hover {
+    background: rgba(243, 240, 238, 0.53);
+    width: 32%;
+    height: 50px;
+    padding-right: 8px;
+    color: #B24603;
+    font-size: 12pt;
+    text-align: center;
+    border: 2px solid #B24603;
+    border-radius: 15px;
+}
+.distrib-button{
+    background: rgba(223, 136, 116, 0.78);
+    border-bottom: 8px solid #C94B30;
+    padding-bottom: 0;
+    height: 170px;
+    width: 110px;
+    color: #ffffff;
+    border-left: 1px solid #fff;
+    border-right: 1px solid #fff;
+    border-top: 1px solid #fff;
+    }
+.distrib-button:hover {
+    background: rgba(223, 136, 116, 0.57);
+    border-bottom: 8px solid #E46145;
+    padding-bottom: 0;
+    height: 170px;
+    width: 110px;
+    color: #ffffff;
+    border-left: 1px solid #E39671;
+    border-right: 1px solid #E39671;
+    border-top: 1px solid #E39671;
+}
+.profile-button {
+    border:none;
+    background: rgba(172, 215, 166, 0.14);
+    background: rgba(0, 0, 0, 0.38);
+    color: #666;
+    padding: 2px 4px;
+    border-radius: 10px;
+    float: left;
+}
+.profile-button:hover {
+    border:none;
+    background: rgba(172, 215, 166, 0.19);
+    color: #666;
+    padding: 2px 4px;
+    border-radius: 10px;
+    float: left;
+}
+.profile-buttonn {
+    border:none;
+    background: rgba(172, 215, 166, 0.14);
+    background: rgba(0, 0, 0, 0.38);
+    color: #666;
+    padding: 2px 4px;
+    border-radius: 10px;
+    float: right;
+}
+.profile-buttonn:hover {
+    border:none;
+    background: rgba(172, 215, 166, 0.19);
+    color: #fff;
+    padding: 2px 4px;
+    border-radius: 10px;
+    float: right;
+}
+
+.rankladder-headers {
+  background: #454E50;
+  color: #FFF;
+  text-shadow: none;
+  border: 1px solid #222; }
+
+.default-td {
+  padding: 5px;
+  border: 1px solid #222; }
+
+.rankladder-tds {
+  background: #FCFCFC; }
+
+.rankladder-tds:hover {
+  background: #EFEFEF; }
+
+.first {
+  background: #CFB53B;
+  color: #645722;
+  text-shadow: none;
+  padding: 8px; }
+
+.first:hover {
+  background: #D5BD5B; }
+
+.second {
+  background: #C0C0C0;
+  color: #5B5B5B;
+  text-shadow: none;
+  padding: 8px; }
+
+.second:hover {
+  background: #CACACA; }
+
+.third {
+  background: #CD7F32;
+  color: #694725;
+  text-shadow: none;
+  padding: 8px; }
+
+.third:hover {
+  background: #CD9054; }
+
+.card-th {
+  background-color: #DCE9F9;
+  text-shadow: none;
+  border: 1px solid #CCC;
+  }
+
+.card-td {
+  background: #FFF;
+  border: 1px solid #CCC;
+  text-align: center;
+  }
+
+.card-div {
+  padding: 5px;
+  color: #333; 
+    
+}
+
+.card-th:hover, .card-td:hover {
+  color: #222; 
+    
+}
+
+.card-button {
+  margin: 0px 3px;
+  }
+
+.card-td button, .card-button {
+  background: rgba(0, 0, 0, 0.02);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 5px 15px;
+  color: #333;
+  text-shadow: none;
+    
+}
+
+.card-td button:hover, .card-button:hover {
+  background: rgba(0, 0, 0, 0.06);
+  border: 1px solid #CCC;
+  text-shadow: none;
+  }
+
+.card-td button:focus, .card-button:focus {
+  background: rgba(227, 235, 246, 0.8);
+  border: 1px solid #9EB2D0; 
+}
+
+  .card-name {
+    background-color: #DCE9F9;
+    text-shadow: none;
+    font-size: 25pt;
+    font-weight: 700;
+    padding: 5px 20px 10px;
+    border: 1px solid #CCC;
+    color: #444;
+}
+.card-tda {
+    box-shadow: 2px 3px 5px rgba(0 , 0 , 0 , 0.2);
+    background: url(http://image.noelshack.com/fichiers/2016/16/1461287700-fdffff.png);
+    border-bottom: 7px solid #E7E7E7;
+    padding-bottom: 5px;
+}
+.casidiv {
+    color: #3E696C;
+    text-shadow: none;
+    background: #E0EAF3;
+    width: 100%;
+    padding-right: 15px;
+}
+.raptorbutton {
+    border:none;
+    background: rgba(167, 160, 154, 0.42);
+}
+.message-announce {
+    background: #5E939A;
+    color: #fff;
+    padding: 1px 4px 2px;
+    border-bottom: 1px dashed #33556E;
+    text-shadow: none;
+    font-size: 9pt;
+}
+.lolle {
+    border: 2px solid #769191;
+    background: #94B7BC;
+    color: #283333;
+    padding: 5px 5px 5px;
+    text-decoration: none;
+    text-transform: none;
+    border-radius: 5px;
+    text-shadow: none;
+    }
+.emote-td {
+    background: rgba(69,122,124,0.6);
+    border: 2px solid #769191;
+    padding: 5px;
+    text-align: center;
+    text-shadow: none;
+}
+
+.emote-td:hover {
+    background: rgba(113, 169, 175, 0.6);
+}
+
+th.table-header {
+    background: rgb(67, 118, 126) !important;
+    padding: 15px 8px;
+    border: 1px solid #213D38;
+    color: #FFF;
+    font-size: 15pt;
+    border-bottom: 5px solid #31536D;
+    font-family: arial;
+    text-shadow: none;
+}
+
+td.shop-button {
+    background: rgba(67,118,126,0.90);
+    color: #FFFFFF;
+    text-shadow: none;
+    border: 0px solid;
+    padding: 10px 10px;
+    font-size: 15pt;
+    border-bottom: 5px solid #31536D;
+}
+td.shop-button:hover{
+    background: rgba(67,118,126,0.60);
+    color: #FFFFFF;
+    text-shadow: none;
+    border: 0px solid;
+    padding: 10px 10px;
+    font-size: 15pt;
+    border-bottom: 5px solid #31536D;
+}
+.viewresults{
+    cursor: pointer;
+    border: 1px solid #30516B;
+    color: #30516B;
+    background: #E0EAF3;
+    border-radius: 5px;
+    text-shadow: none;
+}
+.viewresults:hover{
+    cursor: pointer;
+    border: 1px solid #30516B;
+    color: #30516B;
+    background: #CDDEED;
+    border-radius: 5px;
+    text-shadow: none;
+}
+.infoboxui {
+   background: rgba(69,121,126,0.15);
+    border-bottom: 2px solid #30516B;
+    color: #012436;
+    text-shadow: none;
+    padding-bottom: 5px;
+}
+.infoboxu {
+    background: rgba(68,119,124,0.35);
+    border-bottom: 8px solid #30516B;
+    color: #30516B;
+    text-shadow: none;
+    padding-bottom: 5px;
+    border-right: 2px solid rgba(48, 81, 107, 0.8);
+}
+.savebutton {
+    background: #C9AAD8;
+    color: #412458;
+    text-shadow: none;
+    border: 1px solid #956AB6;
+    border-radius: 5px;
+    font-size: 13pt;
+    font-variant: small-caps;
+}
+.listbutton {
+    background: #C9AAD8;
+    color: #412458;
+    text-shadow: none;
+    border: 1px solid #956AB6;
+    border-radius: 5px;
+    font-size: 13pt;
+    font-variant: small-caps;
+}
+/* END CLASS CSS*/
+
+/*GENERAL CSS*/
+    
+body { 
+    background-image: url("http://i.imgur.com/NgRnZQJ.jpg") !important;
+    background-size: cover;
+}
+.unread {
+    background: rgba(202, 130, 255, 0.33);
+}
+.message-announce {
+    background: #AC8BC6;
+    color: white;
+    padding: 1px 4px 2px;
+    text-shadow: none;
+}
+ .broadcast-red {
+    background: #D57575;
+    border: 1px solid #985555;
+    color: #FFD7D7;
+    padding: 5px 1px 3px 8px;
+    text-shadow: none;
+    font-family: helvetica, arial, sans-serif;
+    text-align: center;
+    font-style: normal;
+}
+
+.broadcast-green {
+    background: #578A54;
+    border: 1px solid #375735;
+    padding: 5px 1px 3px 8px;
+    color: #BEFFB9;
+    text-shadow: none;
+    font-family: helvetica, arial, sans-serif;
+    text-align: center;
+    font-style: normal;
+}
+
+.broadcast-blue {
+    background: #677992;
+    border: 1px solid #414D5E;
+    padding: 5px 1px 3px 8px;
+    color: #C1DAFF;
+    text-shadow: none;
+    font-family: helvetica, arial, sans-serif;
+    text-align: center;
+    font-style: normal;
+}
+
+.ps-room.ps-room-light.scrollable p {
+    color: #D2B6E1;
+    text-shadow: none;
+}
+
+.ps-room.ps-room-light {
+    background: rgba(90, 40, 93, 0.6);
+    border-color: #855CA4;
+    color: #000000;
+    text-shadow: none;
+}
+
+.ps-room.ps-room-light.scrollable .button {
+    background: rgb(187, 145, 191);
+    border: 1px solid #855CA4;
+    color: #2F1643;
+    text-shadow: none;
+}
+
+.ps-room.ps-room-light.scrollable .button:hover {
+    background: rgb(168, 123, 172);
+    border: 1px solid #855CA4;
+    color: #2F1643;
+    text-shadow: none;
+}
+
+.tablist li:first-child .button {
+    border: 1px solid #AD98BD;
+    background: #CFABEA;
+    color: #3F0A3E;
+    text-shadow: none;
+    font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+}
+
+.tablist li:first-child .button:hover {
+    border: 1px solid #AD98BD;
+    background: #DDC3F0;
+    color: #3F0A3E;
+    text-shadow: none;
+    font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+}
+
+.tablist .button {
+    border: 1px solid #AD98BD;
+    background: #E0BDFA;
+    color: #3F0A3E;
+    text-shadow: none;
+    font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+}
+
+.tablist .button:hover {
+    border: 1px solid #AD98BD;
+    background: #E9CEFC;
+    color: #3F0A3E;
+    text-shadow: none;
+    font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+}
+
+.ps-room.ps-room-light.scrollable .rooms-officialchatrooms, .ps-room.ps-room-light.scrollable .rooms-chatrooms {
+    color: #CDAFDB;
+    text-shadow: none;
+    font-variant: small-caps;
+    font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+}
+
+.roomcounters .picon {
+    background: url("http://i.imgur.com/IVkGS0a.png") no-repeat !important;
+}
+
+.roomlist a.ilink {
+    border: 2px solid #CA8999;
+    background: rgba(161,83,102,0.8);
+    color: #FFF;
+    text-shadow: none;
+    font-size: 10pt;
+    padding: 10px;
+    font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+}
+
+.roomlist a.ilink:hover {
+    border: 2px solid #F3BDCA;
+    background: rgba(193, 126, 142, 0.8);
+    color: #FFF;
+    text-shadow: none;
+    font-size: 10pt;
+    padding: 10px;
+    font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+}
+
+.roomcounters button {
+    background: #C5A5D5;
+    color: #2A143B;
+    text-shadow: none;
+    border: 1px solid #804EA6;
+    font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+}
+
+.roomcounters button:hover {
+    background: #DAC2E6;
+    color: #2A143B;
+    text-shadow: none;
+    border: 1px solid #804EA6;
+    font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+}
+
+/*HEADER CSS*/
+  
+#header {
+    background: rgba(255, 255, 255, 0.5) url('http://i68.tinypic.com/15nq4ub.png') no-repeat left !important;
+}
+
+.header .logo {
+    opacity: 0;
+}
+.maintabbar .overflow .button {
+    height: 37px;
+    width: 32px;
+    font-size: 12pt;
+    margin: 0;
+    border-radius: 0;
+    background: rgb(205, 176, 221);
+    border: 1px solid #855CA4;
+    color: #2F1643;
+	text-shadow: none;
+    font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+}
+.maintabbar .overflow .button:hover {
+    height: 37px;
+    width: 32px;
+    font-size: 12pt;
+    margin: 0;
+    border-radius: 0;
+    background: rgb(224, 196, 240);
+    border: 1px solid #855CA4;
+    color: #2F1643;
+    font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+}
+.userbar button.icon {
+    background: #9B73BB;
+    border: 1px solid #B48BD5;
+    color: #372745;
+	text-shadow: none;
+    font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+}
+    
+.userbar button.icon:hover {
+    background: #9B73BB;
+    border: 1px solid #855CA4;
+    color: #372745;
+    font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+}
+    
+.maintabbarbottom {
+    height: 6px;
+    background: #956AB6!important;
+    border-color: #855CA4;
+    border-left: 0;
+    font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+}
+    
+.tabbar a.button.cur, .tabbar a.button.cur:hover {
+    color: #492765;
+    background: url(http://i.imgur.com/7T1XuhL.png) repeat;
+    text-shadow: none;
+    border-color: #855CA4;
+    cursor: default;
+    font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+}
+    
+.tabbar a.button {
+    color: #2F1643;
+    text-shadow: none;
+    border: solid 1px #855CA4;
+    background: url(http://image.noelshack.com/fichiers/2016/17/1461674648-iojii.png);
+    font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+}
+    
+.tabbar a.button:hover {
+    color: #2F1643;
+    text-shadow: none;
+    border: solid 1px #855CA4;
+    background: url(http://image.noelshack.com/fichiers/2016/17/1461674880-iojii.png);
+    font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+}
+    
+.header .tabbar .closebutton {
+    color: #5E4573;
+}
+
+.header .tabbar .closebutton:hover {
+    color: #A92727;
+}
+    
+.tabbar a.button.subtle-notifying, .tabbar a.button.subtle-notifying:hover {
+    color: #C74A75;
+    text-shadow: none;
+    font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+}
+    
+.header .tabbar a.button.notifying {
+    background: #FFBAD8;
+    color: #492765;
+    text-shadow: none;
+    font-style: italic;
+    font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+}
+    
+.header .tabbar a.button.notifying:hover {
+    background: #F0ACCA;
+    color: #492765;
+    text-shadow: none;
+    font-style: italic;
+    font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+}
+    
+/*MAINMENUWRAPPER CSS*/
+
+.teamselect:disabled, .teamselect:disabled:hover {
+    background: rgba(198, 93, 128, 0.5);
+    color: #FFFFFF;
+    text-shadow: none;
+    font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+ }
+ 
+.teamselect:disabled strong {
+    text-shadow: none;
+    font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+}
+
+.teamselect:disabled:hover {
+    color: #000000;
+    text-shadow: none;
+    background:rgb(206, 198, 211);
+    font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+}
+
+.button.disabled, .button.disabled:hover, .button.disabled:active, .mainmenuwrapper .menugroup .button.disabled, .mainmenuwrapper .menugroup .button.disabled:hover, .mainmenuwrapper .menugroup .button.disabled:active {
+    cursor: default;
+    background: #D7BCE5;
+    border-color: #956AB6;
+    border-style: solid;
+    text-shadow: none;
+    box-shadow: 0 1px 2px rgba(0,0,0,.1);
+    color: #956AB6;
+    text-shadow: 0 0 2px #fff;
+    font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+}
+
+.menugroup .teamselect strong {
+    color: #FFFFFF;
+    text-shadow: none;
+    font-variant: normal;
+     font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+}
+
+.menugroup {
+    background: rgba(255, 255, 255, 0.3);
+    text-align: center;
+    font-variant: small-caps;
+}
+
+.menugroup .select {
+    background: rgba(225,112,152,0.8);
+    border: 1px solid #EA97B4;
+    color: #FFFFFF;
+    font-variant: small-caps;
+    font-size: 11pt;
+    text-shadow: none;
+    font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+}
+
+.menugroup .select:hover {
+    background: rgba(225, 112, 152, 0.9);
+    border: 1px solid #EA97B4;
+    font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+}
+
+.menugroup .button.mainmenu1 {
+    background: url(http://image.noelshack.com/fichiers/2016/17/1461658920-vzoejbjzr-btjbir.png);
+    border-color: #855CA4;
+    border-bottom: 5px solid #4D2E64;
+    font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+}
+
+.menugroup .button.mainmenu1:hover {
+    background: url(http://image.noelshack.com/fichiers/2016/17/1461662296-vzoejbjzr-btjbir.png);
+    border-color: #855CA4;
+    border-bottom: 5px solid #422857;
+    font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+}
+
+.menugroup .button.mainmenu2, .menugroup .button.mainmenu3, .menugroup .button.mainmenu4, .menugroup .button.mainmenu5 {
+    background: url(http://i.imgur.com/OvmAilO.png?1);
+    border: #87364C;
+    border-bottom: 4px solid #6F2B3D;
+    font-variant: small-caps;
+    font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+}
+
+.menugroup .button.mainmenu2:hover, .menugroup .button.mainmenu3:hover, .menugroup .button.mainmenu4:hover, .menugroup .button.mainmenu5:hover {
+    background: url(http://i.imgur.com/3l6FNDp.png?1);
+    border: #fff;
+    border-bottom: 4px solid #833C4F;
+    font-variant: small-caps;
+    font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+}
+
+.mainmenufooter a {
+    text-decoration: underline;
+    color: #DBBBF3;
+    font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+}
+
+.mainmenufooter a:hover {
+    text-decoration: underline;
+    color: #BD9BD6;
+    font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+}
+
+.pm-log {
+    background: #f4e1fd url("http://pldh.net/media/pokemon/gen6/oras/635.png") no-repeat right top;
+    color: #311043;
+    border: 1px solid #855CA4;
+    text-shadow: none;
+    background-position: 215px -32px;
+    border-top: 0;
+    border-bottom: 0;
+    font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+}
+
+.pm-window h3 {
+    background: url("http://i.imgur.com/7T1XuhL.png") repeat;
+    color: #381C50;
+    font-size: 11pt;
+    border: 1px solid #855CA4;
+    text-shadow: none;
+    font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+}
+
+.pm-window h3:hover {
+    background: url("http://i.imgur.com/7T1XuhL.png") repeat;
+    color: #5B476D;
+    font-size: 11pt;
+    border: 1px solid #855CA4;
+    text-shadow: none;
+    font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+}
+
+.pm-window.focused h3, .pm-window.focused h3:hover {
+    border: 1px solid #855CA4;
+    background: url("http://i.imgur.com/7T1XuhL.png") repeat;
+    color: #5B476D;
+    text-shadow: none;
+     font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+}
+
+.pm-window h3.pm-notifying {
+    background: url(http://image.noelshack.com/fichiers/2016/17/1461776172-ofezjeorgjotrzjorg.png);
+    color: #FEEFB9;
+    font-size: 11pt;
+    border: 1px solid #9B7029;
+    text-shadow: none;
+    font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+}
+
+.pm-log-add {
+    color: black;
+    border: 1px solid #855CA4;
+    background: url("http://i.imgur.com/7T1XuhL.png") repeat;
+    font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+}
+    
+.pm-log-add .textbox {
+    border-color: #855CA4;
+    font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+}
+
+.pm-window h3:hover .minimizebutton, .pm-window h3 .closebutton, .pm-window h3 .minimizebutton {
+    color: #F3E0EC;
+    font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+}
+
+.pm-window h3 .closebutton:hover {
+    color: #F7A4A4;
+    font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+}
+
+.pm-window h3 .minimizebutton:hover {
+    color: #F7D0A4;
+    font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+}
+
+.pm-window h3 .closebutton:hover + .minimizebutton {
+    color: #F3E0EC !important;
+}
+
+.newsentry {
+    font-size: 9pt;
+    padding: 1px 10px;
+    border-bottom: 1px solid #AAAAAA;
+    text-shadow: none;
+    color: #451E63;
+    font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+}
+
+
+/* CHAT CSS */
+
+.chat-log {
+    border-bottom: 1px solid #919090;
+    border-left: 1px solid #E1E5EA;
+    background: rgba(239, 252, 242, 0.9)  url(" ?1") no-repeat right top;
+    font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+}
+
+.chat-log-add {
+    padding: 3px 4px 0;
+    border-top: 1px solid #855CA4;
+    background: url("http://image.noelshack.com/fichiers/2016/17/1461794382-dsbfbrebersbqrqbe.png") repeat;
+    text-shadow: none;
+    font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+}
+    
+.chat-log-add .textbox {
+    border-color: #855CA4;
+    font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+}
+
+.chat em {
+    padding: 0 4px 0 3px;
+    font-style: normal;
+    text-shadow: none;
+}
+
+.userlist {
+    border-right: 1px solid #855CA4;
+}
+    
+.userlist li {
+    background: rgba(255,255,255,0.8);
+    border-bottom: 1px solid #C1C1C1;
+    text-shadow: none;
+    color: #34213B;
+    font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+}
+  
+.userlist li em.group {
+    color: #393939;
+    font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+}
+
+.userlist li button:hover, .userlist-minimized .userlist-count:hover {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+/*TOURNAMENTS CSS*/
+
+.tournament-title {
+    font-weight: 700;
+    color: #240F37;
+    text-shadow: none;
+    background: url("http://image.noelshack.com/fichiers/2016/17/1461674648-iojii.png");
+    font-variant: small-caps;
+    font-size: 12pt;
+    font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+}
+.tournament-status, .tournament-toggle {
+    border-left: 1px #855CA4 solid;
+    background: url("http://i.imgur.com/7T1XuhL.png") repeat;
+    border-right: #956AB7;
+    font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+}
+
+.tournament-bracket {
+    max-height: 200px;
+    padding: 10px;
+    overflow: hidden;
+    font-size: 9pt;
+    background: rgba(243, 224, 236, 0.60);
+    text-shadow: none;
+    font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+}
+
+.tournament-tools.active {
+    display: block;
+    background: url(http://image.noelshack.com/fichiers/2016/17/1461781426-ifhureieer.png);
+}
+
+/* END TOURNAMENTS CSS*/
+
+/*TEAMBUILDER CSS*/
+    
+
+
+.teamchartbox {
+    border-color: #735483;
+    font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+}
+
+.teambar button {
+    background: url("http://i.imgur.com/kXBK60j.png?1") !important;
+    color: #361D49 !important;
+    text-shadow: none;
+    border-color: #735483 !important;
+    font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+}
+
+.teambar button:hover {
+    background: url("http://i.imgur.com/nVKdc1d.png?2") !important;
+    color: #361D49 !important;
+    text-shadow: none !important;
+    border-color: #735483 !important;
+    font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+}
+
+.teambar button:disabled, .teambar button:disabled:hover, .teambar button:disabled:active {
+    background: #735483 !important;
+    border-color: #735483 !important;
+    font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+}
+
+
+.utilichart .pokemonnamecol {
+    color: #D7BBE5;
+    font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+}
+
+.teambuilder-results .utilichart .col {
+    color: #D3B7E1;
+    text-shadow: none;
+    font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+}
+    
+.utilichart .labelcol em, .utilichart .widelabelcol em, .utilichart .pplabelcol em, .utilichart .statcol em, .utilichart .bstcol em {
+    color: #A489B2;
+    font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+}
+
+.setmenu button, .teamlist button {
+    border: 1px solid #855CA4;
+    background: #CFB1DD;
+    color: #451138;
+    text-shadow: none;
+    font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+}
+
+.setmenu button:hover, .teamlist button:hover {
+    border-radius: 4px;
+    padding: 2px 5px;
+    margin: 0;
+    font-size: 9pt;
+    font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+    border: 1px solid #855CA4;
+    background: #AF8EBE;
+    color: #451138;
+    text-shadow: none;
+}
+
+.teambuilder-results .firstresult a:hover, .teambuilder-results .result a:hover {
+    border: 1px solid #B686D9;
+    background: rgba(54, 40, 60, 0.46);
+}
+
+.teambuilder-results .result a.cur {
+    border-color: #956995;
+    background: rgba(63,50,65,0.50);
+}
+
+.teambuilder-results .result a.cur:hover {
+    border-color: #B481B4;
+    background: rgba(118, 91, 123, 0.57);
+}
+
+.setchart {
+    border: 1px solid #735483;
+    background: #D9C5E3 no-repeat;
+    margin-top: 8px;
+}
+    
+.setchart-nickname {
+    background: #B99CC7;
+    border-color: #735483;
+    font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+}
+
+.setchart label, .setchart-nickname label {
+    color: #735483;
+    text-shadow: none;
+    font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+}
+
+.setchart-nickname input, .setchart input, .setdetails, .setstats {
+    border-color: #9674A8;
+}
+
+.setchart-nickname input:hover, .setchart input:hover, .setdetails:hover, .setstats:hover {
+    border-color: #735483;
+}
+
+.teamlist .team .picon span {
+    display: none;
+}
+
+.teamlist .team {
+    background: rgba(207,177,221,0.70);
+    color: #462456;
+    text-shadow: none;
+    border: 1px solid #855CA4;
+    font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+}
+
+.teamlist .team:hover {
+    background: rgba(230, 206, 242, 0.7);
+    color: #462456;
+    text-shadow: none;
+    border: 1px solid #855CA4;
+    font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+}
+
+.teambuilder-results .utilichart .sortrow {
+    background: #E3C5E2;
+    border-top: 1px solid #956AB6;
+    border-bottom: 1px solid #956AB6;
+    color: #491B3E;
+    text-shadow: none;
+    font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+}
+
+.utilichart h3, .dexentry h3, .resultheader h3 {
+    background: #B99CC7;
+    border-color: #735483;
+}
+
+.utilichart .typecol img {
+   opacity: 0.85;
+}
+
+.folderpane h3 {
+    margin: 0;
+    padding: 13px 0 0 0;
+    height: 17px;
+    font-size: 9pt;
+    background: #F2D8FF;
+    color: black;
+    border-right: 1px solid #CBA8DD;
+    font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+}
+
+.folderpane h3 {
+    margin: 0;
+    padding: 13px 0 0 0;
+    height: 17px;
+    font-size: 9pt;
+    background: #F2D8FF;
+    color: black;
+    border-right: 1px solid #CBA8DD;
+    font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+}
+
+.folderpane {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    padding: 0;
+    border-left: 5px solid #F2D8FF;
+    width: 154px;
+    overflow: auto;
+    overflow-x: hidden;
+    background: rgba(242, 216, 255, 0);
+}
+
+.folderlistafter:before, .folderlistbefore:before {
+    display: table-cell;
+    background: #F2D8FF;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    border-right: 1px solid #CBA8DD;
+    content: '';
+}
+.folder .selectFolder {
+    display: block;
+    border: 0;
+    background: rgb(229, 188, 250);
+    color: black;
+    width: auto;
+    max-width: 146px;
+    padding-top: 7px;
+    height: 23px;
+    font-size: 9pt;
+    font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+    white-space: nowrap;
+    overflow: hidden;
+    text-align: left;
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+    border-right: 1px solid #CBA8DD;
+}
+.folder .selectFolder:hover {
+    display: block;
+    border: 0;
+    background: rgb(238, 207, 254);
+}
+.folderlist .foldersep:before {
+    display: table-cell;
+    height: 15px;
+    background: #F2D8FF;
+    content: '';
+}
+
+/* POPUP CSS*/
+
+.ps-popup {
+    background: #DBACB7;
+    color: #000000;
+    border: 1px solid #99596B;
+    text-shadow: none;
+    font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+}
+
+.popupmenu h3 {
+    font-size: 10pt;
+    color: #2F2735;
+    text-shadow: none;
+    font-variant: small-caps;
+    font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+}
+    
+.ps-popup .buttonbar button {
+    background: #AD81CF;
+    border: 1px solid #52107C;
+    padding: 3px 10px;
+    color: #52107C;
+    text-shadow: none;
+    border-bottom: 1px solid #52107C;
+    font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+}
+
+.ps-popup .buttonbar button:hover {
+    background: #956AB6;
+    border-bottom: 1px solid #52107C;
+    font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+}
+
+.ps-popup hr {
+    border: none;
+    border-top: 1px solid #99596B;
+    font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+}
+
+.popupmenu button.sel {
+    border: 1px solid #99596B;
+    font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+}
+
+.popupmenu button.sel:hover {
+    background: rgba(255, 255, 255, 0.5);
+    border: 1px solid #723A49;
+    font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+}
+
+.popupmenu button:hover {
+    background: rgba(255, 255, 255, 0.3);
+    border: 1px solid #99596B;
+    font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+}
+
+/* POPUP CSS END*/
+
+/* END LADDER TABLES CSS*/
+
+.ladder table, .ladder td, .ladder th {
+    border: 1px solid #271237;
+}
+    
+.ladder th {
+    background: url("http://i.imgur.com/7T1XuhL.png") repeat;
+    color: #000;
+    font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+}
+    
+.ladder td {
+    background: rgba(255, 255, 255, 0.3);
+}
+    
+.ladder td:hover  {
+    border-collapse: collapse;
+    border: 1px solid #271237;
+    background: rgba(255, 255, 255, 0.43);
+    color: #000;
+    font-size: 11pt;
+    font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+}
+    
+.ladder td, .ladder th {
+    padding: 5px 5px;
+}
+
+/* END LADDER TABLES CSS*/
+
+
+
+
+
+
+
+
+
+
+
+/*
+********************************
+*~*~*~*~* DARKMODE CSS *~*~*~*~*
+********************************
+*/
+
+
+/* DARK GENERAL CSS */
+
+.dark body {
+    background-image: url("http://i.imgur.com/NgRnZQJ.jpg") !important;
+}
+
+.dark .ps-room.ps-room-light {
+    background: rgba(0, 0, 0, 0.7);
+    border-left: 1px solid #891270;
+    color: #DDD;
+    text-shadow: none;
+    font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+}
+
+.dark .ps-room.ps-room-light .button {
+    background: #A8C4AE;
+    border-color: #B51B73;
+    color: #62323E;
+    text-shadow: none;
+    font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+}
+
+.dark .ps-room.ps-room-light .button:hover {
+    background: #8EA99A;
+}
+
+.ps-room.ps-room-light.scrollable .rooms-officialchatrooms, .ps-room.ps-room-light.scrollable .rooms-chatrooms {
+    color: #C1454F;
+    text-shadow: none;
+    font-variant: small-caps;
+    font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+}
+
+.dark .roomlist a.ilink {
+    border: 2px solid #CA8999;
+    background: #7F4451;
+    color: #FFF;
+    text-shadow: none;
+    font-size: 10pt;
+    padding: 10px;
+     font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+}
+
+.dark .roomlist a.ilink small {
+    color: #EBBEC9;
+    font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+}
+
+.dark .roomlist a.ilink:hover {
+    background: #62323E;
+    border: 2px solid #9E6875;
+    color: #FFF;
+    font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+}
+
+.dark .roomlist a.ilink:hover small {
+    color: #BA8994;
+    font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+}
+
+/* DARK HEADERS CSS */
+
+.dark #header {
+    background: rgba(0, 0, 0, 0.8) url("http://i84.servimg.com/u/f84/19/35/71/39/pokemo10.png") no-repeat 0 0;
+}
+
+.dark .header .logo {
+    display: none;
+    opacity: 0;
+}
+
+.dark .maintabbarbottom {
+    background: #62323E !important;
+    border-color: #891270 !important;
+}
+
+.dark .tabbar a.button.notifying {
+    background: #EB78B3;
+    border-color: #981076;
+    color: #981076;
+    text-shadow: none;
+     font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+}
+
+.dark .tabbar a.button.notifying:hover {
+    background: #CE6198;
+}
+
+.dark a.button.subtle-notifying {
+    color: #C1454F !important;
+     font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+}
+
+.dark .tabbar a.button.cur, .dark .tabbar a.button.cur:hover {
+    background: #62323E;
+    border-color: #891270;
+    color: #A8C4AE;
+    text-shadow: none;
+    font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+}
+
+.dark .tabbar a.button {
+    background: #A8C4AE;
+    border-color: #B51B73;
+    color: #62323E;
+    text-shadow: none;
+    font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+}
+
+.dark .tabbar a.button:hover {
+    background: #8EA99A;
+}
+
+.dark .tabbar .closebutton {
+    color: #C1454F;
+}
+
+.dark .tabbar .closebutton:hover {
+    color: #CD1421;
+}
+
+.dark .userbar button.icon {
+    background: #A8C4AE;
+    border-color: #B51B73;
+    color: #62323E;
+    text-shadow: none;
+     font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+}
+
+.dark .userbar button.icon:hover {
+    background: #8EA99A;
+}
+
+.dark .unread {
+    background: none;
+}
+
+/* DARK MAINMENUWRAPPER CSS */
+
+.dark .mainmenuwrapper {
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.dark .menugroup {
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.dark .menugroup label {
+    color: #86A093;
+    font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+}
+
+.dark .menugroup .button.mainmenu1 {
+    background: url("http://i.imgur.com/wfVirsa.png?1");
+    border-color: #CA8999;
+    border-width: 2px;
+}
+
+.dark .menugroup .button.mainmenu1 small {
+    color: #EBBEC9;
+    font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+}
+
+.dark .menugroup .button.mainmenu1:hover {
+    background: url("http://i.imgur.com/eOcLvKh.png?1");
+    border-color: #9E6875;
+}
+
+.dark .menugroup .button.mainmenu1:hover small {
+    color: #BA8994;
+    font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+}
+
+.dark .select {
+    background: url("http://i.imgur.com/VhninY4.png?1");
+    border-color: #426B55;
+    border-width: 2px;
+    color: #62323E;
+    text-shadow: none;
+    font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+}
+
+.dark .select:hover {
+    background: url("http://i.imgur.com/o3boxNK.png?1");
+    border-color: #335744;
+    color: #DFA5B3;
+    font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+}
+
+.dark .select:disabled, .dark .select:disabled:hover {
+    border-color: #335744;
+    border-width: 2px;
+    background: rgba(136, 162, 149, 0.65);
+    color: #335744;
+    text-shadow: none;
+    font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+}
+
+.dark .menugroup .select:disabled strong {
+    color: #335744;
+    text-shadow: none;
+    font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+}
+
+.dark .menugroup .button.mainmenu2, .dark .menugroup .button.mainmenu3, .dark .menugroup .button.mainmenu4, .dark .menugroup .button.mainmenu5 {
+    background: url("http://i.imgur.com/VhninY4.png?1");
+    border-color: #426B55;
+    border-width: 2px;
+    color: #62323E;
+    text-shadow: none;
+    font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+}
+
+.dark .menugroup .button.mainmenu2:hover, .dark .menugroup .button.mainmenu3:hover, .dark .menugroup .button.mainmenu4:hover, .dark .menugroup .button.mainmenu5:hover {
+    background: url("http://i.imgur.com/o3boxNK.png?1");
+    border-color: #335744;
+    color: #DFA5B3;
+    text-shadow: none;
+    font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+}
+
+.dark .pm-window h3 {
+    background: #62323E url("http://i.imgur.com/IVkGS0a.png") no-repeat;
+    background-position: 225px;
+    border-color: #891270;
+    color: #A8C4AE;
+    text-shadow: none;
+    font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+}
+
+.dark .pm-window h3:hover {
+    background: #62323E url("http://i.imgur.com/IVkGS0a.png") no-repeat;
+    background-position: 225px;
+    color: #C9E2CF;
+}
+
+.dark .pm-window h3 .closebutton, .dark .pm-window h3 .minimizebutton {
+    color: #A8C4AE;
+}
+
+.dark .pm-window h3 .minimizebutton:hover, .dark .pm-window h3:hover .minimizebutton {
+    color: #F2CB89;
+}
+
+.dark .pm-window h3 .closebutton:hover {
+    color: #F28989;
+}
+
+.dark .pm-window h3 .closebutton:hover + .minimizebutton {
+    color: #95B09B !important;
+}
+
+.dark .pm-window h3 small {
+    color: #C1454F;
+    font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+}
+
+.dark .pm-window.focused h3, .dark .pm-window.focused h3:hover {
+    background: #945967 url("http://i.imgur.com/4CVwCb8.gif") no-repeat;
+    background-position: 225px -8px;
+    border-color: #C1454F;
+}
+
+.dark .pm-window h3.pm-notifying {
+    background: #EB78B3 url("http://i.imgur.com/TwaQEiV.png") no-repeat;
+    background-position: 225px;
+    border-color: #981076;
+    color: #981076;
+    text-shadow: none;
+    font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+}
+
+.dark .pm-window h3.pm-notifying:hover {
+    background: #CE6198 url("http://i.imgur.com/TwaQEiV.png") no-repeat;
+    background-position: 225px;
+}
+
+.dark .pm-log {
+    background: rgba(239, 252, 242, 0.8);
+    border-color: #891270;
+    color: #000;
+    font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+}
+
+.dark .pm-window.focused .pm-log {
+    border-color: #C1454F;
+}
+
+.dark .newsentry {
+    border-bottom: 1px solid #A95595;
+}
+
+.dark .newsentry h4 {
+    color: #C1454F;
+    font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+}
+
+.dark .pm-log a {
+    color: #921175;
+    font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+}
+
+.dark .pm-log a:visited {
+    color: #E259A2;
+    font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+}
+
+.dark .challenge {
+    background: rgba(168, 196, 174, 0.99);
+    border-color: #B2454C;
+    color: #62323E;
+    text-shadow: none;
+    font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+}
+
+.dark .challenge .buttonbar button {
+    background: #C9E6D0;
+    padding: 2px 8px;
+    border: 1px solid #B2454C;
+    color: #D25F66;
+    text-shadow: none;
+    font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+}
+
+.dark .challenge .buttonbar button:hover {
+    background: #BBDAC2;
+}
+
+.dark .pm-log-add {
+    background: rgba(0, 0, 0, 0.3);
+    border-color: #891270;
+}
+
+.dark .pm-window.focused .pm-log-add {
+    border-color: #6A7577;
+}
+
+.dark .mainmenufooter a {
+    text-decoration: underline;
+    color: #DBBBF3;
+    font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+}
+
+.dark .mainmenufooter a:hover {
+    text-decoration: underline;
+    color: #BD9BD6;
+}
+
+/* DARK CHAT CSS */
+
+.dark .chat-log {
+    background: rgba(239, 252, 242, 0.8);
+    color: #000;
+    text-shadow: none;
+    font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+}
+
+.dark .chat small {
+    color: #555;
+    font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+}
+
+.dark button.subtle {
+    color: #C1454F;
+    font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+}
+
+.dark .highlighted {
+    background: rgba(246, 128, 162, 0.5);
+}
+
+.dark .chat.mine {
+    background: none;
+}
+
+.dark .chat-log a {
+    color: #921175;
+    font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+}
+
+.dark .chat-log a:visited {
+    color: #E259A2;
+    font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+}
+
+.dark .chat-log a.ilink {
+    color: #28574C;
+    font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+}
+
+.dark .chat-log a.ilink:hover {
+    color: #1D725E;
+}
+
+.dark .message-announce {
+    background: #849791;
+    text-shadow: 0px 0px 2px #1D725E;
+}
+
+.dark .infobox {
+    border-color: #28574C;
+}
+
+.dark .infobox.tournaments-info {
+    background: url("http://i.imgur.com/uxi1ki5.png?1") right no-repeat;
+}
+
+.dark code {
+    border: 1px solid #C0C0C0 !important;
+    background: #EEEEEE !important;
+    color: #000 !important;
+    font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+}
+
+.dark .greentext {
+    color: #187902;
+    font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+}
+
+.dark .chat-log-add {
+    background: rgba(0, 0, 0, 0);
+}
+
+.dark .chat-log-add .textbox, .dark .pm-log-add .textbox, .dark .battle-log-add .textbox, .dark .textbox {
+    background: #DDD;
+    border-color: #891270;
+    color: #555;
+    font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+}
+
+.dark .chat-log-add .textbox:hover, .dark .pm-log-add .textbox:hover, .dark .battle-log-add .textbox:hover, .dark .textbox:hover {
+    background: #EEE;
+}
+
+.dark .chat-log-add .textbox:focus, .dark .pm-log-add .textbox:focus, .dark .battle-log-add .textbox:focus, .dark .textbox:focus {
+    background: #EEE;
+    border-color: #6A7577;
+    color: #111;
+    font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+}
+
+.dark .userlist {
+    background: rgba(0, 0, 0, 0.3);
+    border-right: 1px solid #891270;
+}
+
+.dark .userlist em.group {
+    color: #C1454F;
+}
+
+.dark .userlist small span, .dark .userlist small {
+    color: #333;
+    text-shadow: none !important;
+    font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+}
+
+.dark .userlist li {
+    background: rgba(255,255,255,0.6);
+    border-color: #891270;
+}
+
+.dark .userlist strong, .dark .userlist span {
+    text-shadow: 1px 1px 2px #FFF;
+}
+
+.dark .userlist li button:hover {
+    background: rgba(255, 255, 255, 0.4);
+}
+
+.dark .userlist-minimized .userlist-count, .dark .userlist-maximized .userlist-count {
+    background: rgba(255,255,255,0.6);
+    border-color: #891270;
+}
+
+.dark .userlist-minimized .userlist-count:hover {
+    background: rgba(255,255,255,0.8);
+}
+
+.dark .userlist-maximized .userlist-count:hover {
+    background: rgba(255,255,255,0.6);
+}
+
+/* DARK TOURNAMENTS CSS */
+
+.dark .tournament-title {
+    background: #A8C4AE;
+    border-color: #B51B73;
+    color: #62323E;
+    text-shadow: none;
+    font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+}
+
+.dark .tournament-status, .dark .tournament-toggle {
+    background: #62323E;
+    border-color: #891270;
+    color: #A8C4AE;
+    text-shadow: none;
+    font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+}
+
+.dark .tournament-status:hover, .dark .tournament-toggle:hover {
+    background: #7F4451;
+}
+
+.dark .tournament-bracket {
+    background: rgba(239, 252, 242, 0.5);
+}
+
+.dark .tournament-box {
+    background: rgba(239, 252, 242, 0.5);
+    color: #000;
+    text-shadow: none;
+    border-color: #B51B73;
+    font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+}
+
+.dark .tournament-tools {
+    background: #A8C4AE;
+    border-color: #B51B73;
+    color: #62323E;
+    text-shadow: none;
+    font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+}
+
+.dark .tournament-tools .button {
+    background: #62323E;
+    border-color: #891270;
+    color: #A8C4AE;
+    text-shadow: none;
+    font-family: Arial,Helvetica Neue,Helvetica,sans-serif;
+}
+
+.dark .tournament-tools .button:hover {
+    background: #7F4451;
+}
+
+/* DARK TEAMBUILDER CSS */
+
+.dark .teamchartbox {
+    border-color: #B51B73;
+}
+
+.dark .teambar button {
+    background: #A8C4AE !important;
+    border-color: #B51B73 !important;
+    color: #62323E !important;
+    text-shadow: none !important;
+}
+
+.dark .teambar button:hover {
+    background: #8EA99A !important;
+}
+
+.dark .team {
+    border: 2px solid #CA8999;
+    background: #7F4451;
+    color: #FFF;
+    text-shadow: none;
+}
+
+.dark .team:hover {
+    background: #62323E;
+    border: 2px solid #9E6875;
+    color: #FFF;
+    text-shadow: none;
+}
+
+.dark .teamlist button, .dark .setmenu button {
+    background: none;
+    padding: 2px 5px;
+    border: none;
+    text-shadow: none;       
+}
+
+.dark .teamlist button:hover {
+    background: #62323E;
+    padding: 2px 4px;
+    border: 1px solid #9E6875;
+    color: #FFF;
+}
+
+.dark .setmenu button:hover {
+    background: #62323E;
+    padding: 1px 4px;
+    border: 1px solid #9E6875;
+    color: #FFF;
+}
+
+.dark .setchart {
+    background: #62323E no-repeat;
+    border-color: #891270;
+}
+
+.dark .setchart-nickname {
+    border: 2px solid #CA8999;
+    background: #7F4451;
+}
+
+.dark .setchart input, .dark .setchart-nickname input, .dark .setdetails, .dark .setstats {
+    background: #DDD;
+    border-color: #891270;
+    color: #555;
+}
+
+.dark .setdetails .detailcell {
+    border-color: #891270;
+}
+
+.dark .setchart input:hover, .dark .setchart-nickname input:hover, .dark .setdetails:hover, .dark .setstats:hover {
+    background: #EEE;
+}
+
+.dark .setchart input:focus, .dark .setchart-nickname input:focus, .dark .setdetails:focus, .dark .setstats:focus {
+    background: #EEE;
+    border-color: #6A7577;
+    color: #111;
+}
+
+.dark .setdetails:focus .detailcell {
+    border-color: #6A7577;
+}
+
+.dark .setchart .setdetails label, .dark .setchart .setstats label {
+    text-shadow: none;
+    color: #D25F66;
+}
+
+.dark .setchart label, .dark .setchart-nickname label {
+    color: #A8C4AE;
+    text-shadow: none;
+}
+
+.dark .utilichart h3, .dark .dexentry h3, .dark .resultheader h3 {
+    background: #A8C4AE;
+    border-color: #8EA99A;
+    color: #62323E;
+    text-shadow: none;
+}
+
+.dark .utilichart .movenamecol {
+    color: #FFF;
+    text-shadow: none;
+}
+
+.dark .utilichart .movedesccol {
+    color: #B0CEB4;
+    text-shadow: none;
+}
+
+.dark .utilichart .statcol, .dark .utilichart .bstcol, .dark .utilichart .labelcol, .dark .utilichart .widelabelcol, .dark .utilichart .pplabelcol {
+    color: #D25F66;
+    text-shadow: none;
+}
+
+.dark .utilichart .labelcol em, .dark .utilichart .widelabelcol em, .dark .utilichart .pplabelcol em, .dark .utilichart .statcol em, .dark .utilichart .bstcol em {
+    color: #87A194;
+}
+
+.dark .teambuilder-results .result a.cur {
+    background: rgba(0, 0, 0, 0.35);
+    border-color: #87A194;
+}
+
+.dark .teambuilder-results .result a:hover, .dark .teambuilder-results .result a.cur:hover {
+    background: rgba(0, 0, 0, 0.5);
+    border-color: #D25F66;
+}
+
+.dark .teambuilder-results .result a:hover .dark .utilichart .movenamecol {
+    color: #D25F66;
+}
+
+/* DARK POPUP CSS */
+
+.dark .ps-popup {
+    background: rgba(168, 196, 174, 0.99);
+    border: 1px solid #546E5A;
+    color: #62323E;
+    text-shadow: 1px 1px 1px #8EA99A;
+}
+
+.dark .popupmenu h3, .dark .ps-popup a {
+    color: #D25F66;
+}
+
+.dark .ps-popup a.ilink {
+    color: #B2454C;
+}
+
+.dark .ps-popup a.ilink:hover {
+    color: #D25F66;
+}
+
+.dark .popupmenu button {
+    color: #62323E;
+}
+
+.dark .popupmenu button.sel {
+    border-color: #804F5A;
+}
+
+.dark .popupmenu button.sel:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: #804F5A;
+}
+
+.dark .popupmenu button:hover {
+    background: rgba(255, 255, 255, 0.3);
+    border-color: #804F5A;
+}
+
+.dark .ps-popup .buttonbar button {
+    background: #C9E6D0;
+    padding: 2px 8px;
+    border: 1px solid #B2454C;
+    color: #D25F66;
+    text-shadow: none;
+}
+
+.dark .ps-popup .buttonbar button:hover {
+    background: #BBDAC2;
+}
+
+/* DARK LADDER CSS */
+
+.dark .ladder table, .dark .ladder td, .dark .ladder th {
+    border-color: #891270;
+}
+
+.dark .ladder th {
+    background: #62323E;   
+    color: #A8C4AE;
+    text-shadow: none;
+}
+
+.dark .ladder td {
+    background: rgba(0, 0, 0, 0.5);
+    color: #FFF;
+}
+
+.dark .ladder td:hover {
+    background: rgba(0, 0, 0, 0.8);
+    text-shadow: none;
+}
+
+/* DARK BATTLE CSS */
+
+.dark .ps-room.ps-room-opaque {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.dark .battle {
+    border-color: #891270;
+}
+
+.dark .leftbar, .dark .rightbar {
+    background: rgba(168, 196, 174, 0.5);
+    border-color: #96B29D;
+}
+
+.dark .battle-log {
+    background: rgba(239, 252, 242, 0.8);
+    border-color: #891270;
+    color: #000;       
+}
+
+.dark .battle-log h2, .dark .battle-log-add {
+    background: #62323E;
+    border-color: #891270;
+    color: #A8C4AE;
+    text-shadow: none;
+}
+
+.dark .battle-log .chat em {
+    color: #000;
+}
+
+.battle-log .rated strong {
+    background: #C1454F;
+}
+
+.dark .battle-log .chat strong, .dark .message-error, .dark .trainer strong {
+    color: #C1454F;
+}
+
+.dark .battle-controls {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 5px 0px;
+}
+
+.dark .battle-controls .button {
+    background: #A8C4AE;
+    border-color: #B51B73;
+    color: #62323E;
+    text-shadow: none;
+}
+
+.dark .battle-controls .button:hover {
+    background: #8EA99A;
+}
+
+/*BATTLE CSS */
+
+
+.battle-log h2 {
+    margin: 0.5em -8px;
+    padding: 4px 8px;
+    border: 1px solid #855CA4;
+    background: url("http://image.noelshack.com/fichiers/2016/17/1461674648-iojii.png");
+    border-left: 0;
+    border-right: 0;
+    font-family: Verdana,sans-serif;
+    font-size: 13pt;
+    color: #2F1643;
+    text-shadow: none;
+}
+
+.battle-log {
+    position: absolute;
+    text-align: left;
+    border: 1px solid #AAAAAA;
+    background: #F8F1FC;
+    color: #2F1643;
+    top: 9px;
+    text-shadow: none;
+    left: 640px;
+    right: -1px;
+    font-family: Verdana,sans-serif;
+    font-size: 10pt;
+    overflow: auto;
+    overflow-y: scroll;
+    border: 1px solid #855CA4;
+}
+
+.battle-log-add {
+    position: absolute;
+    text-align: left;
+    border: 1px solid #855CA4;
+    background: url("http://image.noelshack.com/fichiers/2016/17/1461658920-vzoejbjzr-btjbir.png");
+    color: black;
+    right: -1px;
+    font-family: Verdana,sans-serif;
+    font-size: 10pt;
+    text-shadow: none;
+}
+  /*END BATTLE CSS */
+  
+  /*PM Boxes*/
+  /*Lord Haji~Start*/
+
+.pm-window-richardadams h3 {
+  background: #B9FCEE url("http://pldh.net/media/pokexycons/150-mega-x.png") no-repeat !important;
+  background-position: 225px -8px !important;
+  color: #1EA88C !important;
+  text-shadow: none !important;
+  border-color: #1F6C5D !important;
+}
+
+.pm-window-richardadams h3:hover, .pm-window-masterfloat.focused h3, .pm-window-richardadams.focused h3:hover {
+  background: #A5EFE0 url("http://pldh.net/media/pokexycons/150-mega-x.png") no-repeat !important;
+  background-position: 225px -8px !important;
+  color: #1EA88C !important;
+  text-shadow: none !important;
+  border-color: #1F6C5D !important;
+}
+
+.pm-window-richardadams h3 small, .pm-window-masterfloat h3 .minimizebutton, .pm-window-richardadams h3 .closebutton, .pm-window-richardadams h3:hover .minimizebutton {
+  color: #106B59 !important;
+}
+
+.pm-window-richardadamsi h3 .closebutton:hover + .minimizebutton.minimizebutton {
+  color: #106B59 !important;
+}
+
+.pm-window-richardadams h3 .closebutton:hover {
+  color: #982929 !important;
+}
+
+.pm-window-richardadams h3 .minimizebutton:hover {
+  color: #987729 !important;
+}
+
+.pm-window-richardadams .pm-log, .pm-window-richardadams.focused .pm-log {
+  background: rgba(236, 255, 251, 0.9) url("http://54.201.116.10:8000/avatars/richardadams.gif") top right no-repeat !important;
+  border-color: #1F6C5D !important;
+}
+
+.pm-window-richardadams .pm-log-add, .pm-window-richardadams.focused .pm-log-add {
+  background: #52C7B0 !important;
+  border-color: #1F6C5D !important;
+}
+
+.pm-window-richardadams .pm-log-add .textbox {
+  border-color: #1F6C5D !important;
+  background: rgba(243, 255, 253, 0.95) !important;
+  color: #000 !important;
+}
+
+/*Haji~end*/
+
+
+
+
+/*******************************
+* IMPORTS - MIXINS - VARIABLES *
+*******************************/
+.astext {
+  border: none;
+  background: none;
+  padding: 0;
+  height: -20em;
+  font-family: Verdana,sans-serif;
+  font-size: 12px;
+  cursor: pointer; }
+
+.important {
+  font-weight: bold;
+  font-style: italic; }
+
+/* League Shop */
+.dark .ls-th {
+  background: #11484F;
+  border: 1px solid #000;
+  padding: 8px 10px;
+  color: #8BBDC6;
+  text-shadow: 1px 1px #000; }
+
+.dark .ls-th:hover {
+  color: #A2D6E1; }
+
+.ls-th {
+  background: #336251;
+  border: 1px solid #000;
+  padding: 8px 10px;
+  color: #BBCCC9;
+  text-shadow: 1px 1px #000; }
+
+.ls-th:hover {
+  color: #CFF0EB; }
+
+.ls-td {
+  background: rgba(255, 255, 255, 0);
+  border: 1px solid #999;
+  padding: 5px 6px;
+  text-align: center; }
+  .ls-td button {
+    background: #DDD;
+    border: 1px solid #999;
+    padding: 2px 10px; }
+  .ls-td button:hover {
+    background: #AED2DA;
+    border: 1px solid #1DA8C4;
+    color: #093E49; }
+
+.ls-td:hover {
+  background: rgba(235, 247, 245, 0.8); }
+  .ls-td:hover button {
+    background: #AED2DA;
+    border: 1px solid #1DA8C4;
+    color: #093E49; }
+
+/* Tour card button */
+.tourcard-btn {
+  background: #333;
+  padding: 3px 12px;
+  color: #088CC7;
+  text-shadow: 0px -1px 0px #000;
+  border: 1px solid #000; }
+
+.tourcard-btn:hover {
+  border-width: 2px;
+  border-color: #088CC7;
+  padding: 2px 11px;
+  color: #1CA0E2; }
+
+/* /nightclub - CSS */
+.nightclub {
+  background: rgba(0, 0, 0, 0.85);
+  margin: -3px;
+  text-shadow: 0px 0px 2px #000;
+  color: #FFF; }
+
+/* /poll & /tierpoll - CSS */
+.pollButton {
+  background: #F8F8F8;
+  color: #444;
+  border: 1px solid #AAA;
+  margin: 2px;
+  padding-top: 2px;
+  padding-bottom: 3px; }
+
+.pollButton:hover {
+  background: #F6F6F6;
+  border-color: #337AB7;
+  color: #276297; }
+
+/* /shop - CSS */
+.table-header {
+  background: #061C2A;
+  padding: 8px 25px;
+  border: 1px solid #768D9C;
+  color: #FFF;
+  font-size: 13pt; }
+
+.table-option {
+  background: rgba(248, 248, 248, 0.9);
+  border: 1px solid #768D9C;
+  text-align: center;
+  padding: 5px; }
+
+.table-option:hover {
+  background: rgba(255, 255, 255, 0.98); }
+
+.table-btn {
+  background: #CFE0EB;
+  border: none;
+  width: 100%;
+  padding: 20px 0px;
+  font-size: 11pt;
+  text-shadow: 1px 1px #FFF, 0px -1px #FFF; }
+
+.table-btn:hover {
+  color: #11527D; }
+
+/* Origin roomintro - CSS */
+.intro-tabbarbtn {
+  background: rgba(243, 197, 234, 0.2);
+  border-width: 0px 1px;
+  border-style: solid;
+  border-color: #693A60;
+  text-align: center;
+  width: 75px;
+  height: 35px;
+  color: #803C6F;
+  text-shadow: 0 0 2px #fce8f1;
+  margin: 0px 5px; }
+
+.intro-tabbarbtn:hover {
+  background: rgba(243, 197, 234, 0.7); }
+
+/* Touraments roomintro - CSS */
+.tour-btn {
+  background: none;
+  width: 100%;
+  height: 50px;
+  border: none;
+  padding-right: 8px;
+  padding-right: 30px;
+  color: #DDD;
+  font-size: 11pt;
+  text-align: right; }
+
+.tour-btn:hover {
+  background: rgba(0, 0, 0, 0.1);
+  color: #8E85DE;
+  border-left: 4px solid #8E85DE; }
+
+/* ladder - CSS */
+.rankladder-headers {
+  background: #454E50;
+  color: #FFF;
+  text-shadow: 1px 1px #262B2C, -1px 1px #262B2C;
+  border: 1px solid #222; }
+
+.default-td {
+  padding: 5px;
+  border: 1px solid #222; }
+
+.rankladder-tds {
+  background: #FCFCFC; }
+
+.rankladder-tds:hover {
+  background: #EFEFEF; }
+
+.first {
+  background: #CFB53B;
+  color: #645722;
+  text-shadow: 0px 0px 2px #F6EAB9;
+  padding: 8px; }
+
+.first:hover {
+  background: #D5BD5B; }
+
+.second {
+  background: #C0C0C0;
+  color: #5B5B5B;
+  text-shadow: 0px 0px 2px #EEE;
+  padding: 8px; }
+
+.second:hover {
+  background: #CACACA; }
+
+.third {
+  background: #CD7F32;
+  color: #694725;
+  text-shadow: 0px 0px 2px #E4BA91;
+  padding: 8px; }
+
+.third:hover {
+  background: #CD9054; }
+
+/* /packshop & /showcase - CSS */
+.card-th {
+  background-color: #DCE9F9;
+  text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.5);
+  border: 1px solid #CCC; }
+
+.card-td {
+  background: #FFF;
+  border: 1px solid #CCC;
+  text-align: center; }
+
+.card-div {
+  padding: 5px;
+  color: #333; }
+
+.card-th:hover, .card-td:hover {
+  color: #222; }
+
+.card-button {
+  margin: 0px 3px; }
+
+.card-td button, .card-button {
+  background: rgba(0, 0, 0, 0.02);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 5px 15px;
+  color: #333;
+  text-shadow: 1px 1px 1px #FFF; }
+
+.card-td button:hover, .card-button:hover {
+  background: rgba(0, 0, 0, 0.06);
+  border: 1px solid #CCC;
+  text-shadow: 1px 1px 1px #EEE; }
+
+.card-td button:focus, .card-button:focus {
+  background: rgba(227, 235, 246, 0.8);
+  border: 1px solid #9EB2D0; }
+
+.card-name {
+  background-color: #DCE9F9;
+  text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.5);
+  font-size: 25pt;
+  font-weight: bold;
+  padding: 12px 18px 10px 18px;
+  border: 1px solid #CCC;
+  color: #444; }
+
+/* /sentence - CSS */
+.sentence-container {
+  background: #EEE;
+  padding: 4px;
+  border-width: 1px 15px;
+  border-style: solid;
+  border-color: #CCC;
+  color: #333;
+  text-shadow: 1px 1px #FFF;
+  font-weight: bold;
+  text-align: center; }
+
+/* /tasks - CSS */
+.tasks-th, .tasks-td {
+  border: 1px solid #803C6F;
+  padding: 3px 8px; }
+
+.tasks-th {
+  background: #FFE0A7;
+  color: #803C6F;
+  text-shadow: none;
+  font-style: italic; }
+
+.tasks-td:hover {
+  background: rgba(255, 255, 255, 0.3); }
+
+#selfassign-button {
+  background: #A5E6E6;
+  color: #074141;
+  text-shadow: 1px 0px 1px rgba(255, 255, 255, 0.8);
+  border: 1px solid #6BC1C1;
+  padding: 3px 7px; }
+
+#selfassign-button:hover {
+  background: #BDEBEB;
+  border: 1px solid #50B2B2; }
+
+#close-button {
+  background: #A6E6AD;
+  color: #07400F;
+  text-shadow: 1px 0px 1px rgba(255, 255, 255, 0.8);
+  border: 1px solid #6BC37A;
+  padding: 3px 7px; }
+
+#close-button:hover {
+  background: #BDECBE;
+  border: 1px solid #51B351; }
+
+#reopen-button {
+  background: #A6A6E6;
+  color: #070940;
+  text-shadow: 1px 0px 1px rgba(255, 255, 255, 0.8);
+  border: 1px solid #6B6BC3;
+  padding: 3px 7px; }
+
+#reopen-button:hover {
+  background: #BDBDEC;
+  border: 1px solid #5A51B3; }
+
+#delete-button {
+  background: #E6A6A6;
+  color: #400707;
+  text-shadow: 1px 0px 1px rgba(255, 255, 255, 0.8);
+  border: 1px solid #C36B6B;
+  padding: 3px 7px; }
+
+#delete-button:hover {
+  background: #ECBDBD;
+  border: 1px solid #B35151; }
+
+/* /gang info - CSS */
+.Rocket {
+  background: rgba(60, 60, 60, 0.5);
+  border: 1px solid #555;
+  color: #AAA; }
+
+.Rocket span {
+  color: #D40000;
+  text-shadow: 0px 0px 2px #AAA; }
+
+.Aqua {
+  background: rgba(175, 185, 190, 0.5);
+  border: 1px solid #ACC2CD;
+  color: #CFE5F0; }
+
+.Aqua span {
+  color: #05008D;
+  text-shadow: 0px 0px 2px #C7C8F0; }
+
+.Magma {
+  background: rgba(212, 0, 0, 0.5);
+  border: 1px solid #ECB9B9;
+  color: #F0C8C8; }
+
+.Magma span {
+  color: #8D0000;
+  text-shadow: 0px 0px 2px #F0C8C8; }
+
+.Flare {
+  background: rgba(237, 77, 5, 0.5);
+  border: 1px solid #E14102;
+  color: #FF8D4A; }
+
+.Flare span {
+  color: #C03A00;
+  text-shadow: 0px 0px 2px #FF8D4A; }
+
+.Galactic {
+  background: rgba(110, 203, 203, 0.5);
+  border: 1px solid #64B3B3;
+  color: #FFEAAE; }
+
+.Galactic span {
+  color: #FFCD46; }
+
+.Plasma {
+  background: rgba(156, 235, 219, 0.5);
+  border: 1px solid #4BB29D;
+  color: #C1FAEF; }
+
+.Plasma span {
+  color: #196455;
+  text-shadow: 0px 0px 2px #C1FAEF; }
+  
+   /* Weathers */
+  
+  .sunweather,
+   .sunnydayweather,
+   .desolatelandweather
+  {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    overflow: hidden;
+    background: #FFEEBB url(http://i.imgur.com/DNMtOWR.gif) no-repeat scroll left top;
+    color: #664411;
+    text-shadow: #FFFFFF 1px 1px 0, #FFFFFF 1px -1px 0, #FFFFFF -1px 1px 0, #FFFFFF -1px -1px 0;
+    background-size: cover !important;
+  }
+
+  .rainweather,
+   .raindanceweather,
+   .primordialseaweather
+  {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    overflow: hidden;
+    background: #99BBFF url(http://i.imgur.com/NQqkU6j.gif) no-repeat scroll left top;
+    background-size: cover !important;
+    color: #0044BB;
+    text-shadow: #FFFFFF 1px 1px 0, #FFFFFF 1px -1px 0, #FFFFFF -1px 1px 0, #FFFFFF -1px -1px 0;
+  }
+
+  .sandstormweather
+  {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    overflow: hidden;
+    background: #E6E0AC url(http://i.imgur.com/OEB3hum.gif) no-repeat scroll left top;
+    background-size: cover !important;
+    color: #554433;
+    text-shadow: #FFFFFF 1px 1px 0, #FFFFFF 1px -1px 0, #FFFFFF -1px 1px 0, #FFFFFF -1px -1px 0;
+  }
+
+  .hailweather
+  {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    overflow: hidden;
+    background: #AADDEE url(http://i.imgur.com/PweinWm.gif) no-repeat scroll left top;
+    background-size: cover !important;
+    color: #114455;
+    text-shadow: #FFFFFF 1px 1px 0, #FFFFFF 1px -1px 0, #FFFFFF -1px 1px 0, #FFFFFF -1px -1px 0;
+  }
+
+  .deltastreamweather
+  {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    overflow: hidden;
+    background: #AAAAAA url(http://play.pokemonshowdown.com/fx/weather-strongwind.png) no-repeat scroll left top;
+    background-size: cover !important;
+    color: #666666;
+    text-shadow: #FFFFFF 1px 1px 0, #FFFFFF 1px -1px 0, #FFFFFF -1px 1px 0, #FFFFFF -1px -1px 0;
+  }
+
+  .pseudoweather
+  {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    overflow: hidden;
+    background: #DDAAEE url(http://play.pokemonshowdown.com/fx/weather-trickroom.png) no-repeat scroll left top;
+    background-size: cover !important;
+    color: #661155;
+    text-shadow: #FFFFFF 1px 1px 0, #FFFFFF 1px -1px 0, #FFFFFF -1px 1px 0, #FFFFFF -1px -1px 0;
+  } 
+  
+  /* Weathers End */
+   /* Backgrounds */
+  
+  .backdrop
+  {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    overflow: hidden;
+    z-index: 0;
+    background-size: cover !important;
+    background-image: url(http://i.imgur.com/KXYj116.png);
+    opacity: 1 !important;
+  }
+
+  .backdrop[style*="bg-beach.png"]
+  {
+    background-image: url(http://i.imgur.com/KR5Xcgy.png) !important;
+    background-size: cover !important;
+    z-index: 0;
+  }
+
+  .backdrop[style*="bg-beachshore.png"]
+  {
+    background-image: url(http://i.imgur.com/kuVq9Gb.png) !important;
+    background-size: cover !important;
+    z-index: 0;
+  }
+
+  .backdrop[style*="bg-city.png"]
+  {
+    background-image: url(http://i.imgur.com/AqMv0Vr.png) !important;
+    background-size: cover !important;
+    z-index: 0;
+  }
+
+  .backdrop[style*="bg-dampcave.png"]
+  {
+    background-image: url(http://i.imgur.com/te4lJOc.png) !important;
+    background-size: cover !important;
+    z-index: 0;
+  }
+
+  .backdrop[style*="bg-deepsea.png"]
+  {
+    background-image: url(http://i.imgur.com/Kou1vu5.png) !important;
+    background-size: cover !important;
+    z-index: 0;
+  }
+
+  .backdrop[style*="bg-desert.png"]
+  {
+    background-image: url(http://i.imgur.com/4EwQDTS.png) !important;
+    background-size: cover !important;
+    z-index: 0;
+  }
+
+  .backdrop[style*="bg-earthycave.png"]
+  {
+    background-image: url(http://i.imgur.com/Ffd9WMk.png) !important;
+    background-size: cover !important;
+    z-index: 0;
+  }
+
+  .backdrop[style*="bg-forest.png"]
+  {
+    background-image: url(http://i.imgur.com/ux0Qk2g.png) !important;
+    background-size: cover !important;
+    z-index: 0;
+  }
+
+  .backdrop[style*="bg-icecave.png"]
+  {
+    background-image: url(http://i.imgur.com/jm7L77m.png) !important;
+    background-size: cover !important;
+    z-index: 0;
+  }
+
+  .backdrop[style*="bg-meadow.png"]
+  {
+    background-image: url(http://i.imgur.com/S1UT6wM.png) !important;
+    background-size: cover !important;
+    z-index: 0;
+  }
+
+  .backdrop[style*="bg-mountain.png"]
+  {
+    background-image: url(http://i.imgur.com/vSMRAXr.png) !important;
+    background-size: cover !important;
+    z-index: 0;
+  }
+
+  .backdrop[style*="bg-river.png"]
+  {
+    background-image: url(http://i.imgur.com/0EQhNGM.png) !important;
+    background-size: cover !important;
+    z-index: 0;
+  }
+
+  .backdrop[style*="bg-route.png"]
+  {
+    background-image: url(http://i.imgur.com/7GGWeJ1.png) !important;
+    background-size: cover !important;
+    z-index: 0;
+  }
+
+  .backdrop[style*="bg-thunderplains.png"]
+  {
+    background-image: url(http://i.imgur.com/nRPiAi7.png) !important;
+    background-size: cover !important;
+    z-index: 0;
+  }
+
+  .backdrop[style*="bg-volcanocave.png"]
+  {
+    background-image: url(http://i.imgur.com/UA2v1nN.png) !important;
+    background-size: cover !important;
+    z-index: 0;
+  }
+
+  .backdrop[style*="bg-gen1.png"]
+  {
+    background-image: url(http://i.imgur.com/FjWc5ma.png) !important;
+    background-size: cover !important;
+    z-index: 0;
+  } 
+  
+  /* Backgrounds End */
+   /* General Battle */
+  
+  .ps-room.ps-room-opaque
+  {
+    background: rgba(90, 30, 93, 0.7);
+  }
+
+  .ps-room .battle-controls
+  {
+    background: transparent;
+  }
+
+  .ps-room .battle-controls button, .ps-room .battle-controls .button
+  {
+    background: rgba(161, 83, 102, 0.8);
+    border-style: solid;
+    border-color: #CA8999;
+    border-width: 2px;
+    color: #FFF;
+    font-family: Georgia, Times, 'Times New Roman', serif !important;
+    text-shadow: 0 0 2px #000;
+    font-size: 10pt;
+    padding: 10px;
+  }
+
+  .ps-room .battle-controls button:hover, .ps-room .battle-controls .button:hover
+  {
+    background: rgb(193, 26, 142, 0.8);
+    border: 2px solid #F3BDCA;
+    text-shadow: 0 0 2px #000;
+    font-size: 10pt;
+    padding: 10px;
+  }
+
+  .battle-controls .whatdo
+  {
+    color: #FFF;
+  }
+
+  .battle-controls .whatdo small
+  {
+    border-color: #000;
+  }
+
+  .moveselect button
+  {
+    text-decoration: underline;
+    font-style: bold !important;
+    text-align: center !important;
+    border: none !important;
+    color: #000 !important;
+    font-family: Georgia,Times,'Times New Roman',serif !important;
+    text-shadow: none !important;
+  }
+
+  .movemenu button
+  {
+    height: 50px !important;
+    color: #FFF !important;
+    font-weight: bold;
+    font-family: Georgia,Times,'Times New Roman',serif !important;
+    text-shadow: none !important;
+  }
+
+  .movemenu button small
+  {
+    text-shadow: none !important;
+    font-weight: normal;
+  }
+  
+   .movemenu button.type-Normal
+  {
+    background: #C7AFB5 url("http://i.imgur.com/3C1Bacx.png?2") center no-repeat !important;
+    border-color: #75525C !important;
+    color: white;
+  }
+
+  .movemenu button.type-Normal small
+  {
+    color: white;
+  }
+
+  .movemenu button.type-Normal:hover
+  {
+    background: #DFCDD2 url("http://i.imgur.com/3C1Bacx.png?2") center no-repeat !important;
+  }
+
+  .movemenu button.type-Fire
+  {
+    background: #FD4B5A url("http://i.imgur.com/4sLBBTN.png?2") center no-repeat !important;
+    border-color: #AB1F24 !important;
+    color: white;
+  }
+
+  .movemenu button.type-Fire small
+  {
+    color: white;
+  }
+
+  .movemenu button.type-Fire:hover
+  {
+    background: #FF767F url("http://i.imgur.com/4sLBBTN.png?2") center no-repeat !important;
+  }
+
+  .movemenu button.type-Water
+  {
+    background: #85A8FB url("http://i.imgur.com/K7r8LVH.png?2") center no-repeat !important;
+    border-color: #1552E1 !important;
+    color: white;
+  }
+
+  .movemenu button.type-Water small
+  {
+    color: white;
+  }
+
+  .movemenu button.type-Water:hover
+  {
+    background: #A9C3FF url("http://i.imgur.com/K7r8LVH.png?2") center no-repeat !important;
+  }
+
+  .movemenu button.type-Grass
+  {
+    background: #42C665 url("http://i.imgur.com/628FI5x.png?2") center no-repeat !important;
+    border-color: #147B3D !important;
+    color: white;
+  }
+
+  .movemenu button.type-Grass small
+  {
+    color: white;
+  }
+
+  .movemenu button.type-Grass:hover
+  {
+    background: #56D879 url("http://i.imgur.com/628FI5x.png?2") center no-repeat !important;
+  }
+
+  .movemenu button.type-Electric
+  {
+    background: #FAFA72 url("http://i.imgur.com/bzW9xyl.png?2") center no-repeat !important;
+    border-color: #C6C61D !important;
+    color: white;
+  }
+
+  .movemenu button.type-Electric small
+  {
+    color: white;
+  }
+
+  .movemenu button.type-Electric:hover
+  {
+    background: #FFFF9B url("http://i.imgur.com/bzW9xyl.png?2") center no-repeat !important;
+  }
+
+  .movemenu button.type-Ice
+  {
+    background: #D8F0FA url("http://i.imgur.com/otB37l2.png?2") center no-repeat !important;
+    border-color: #7CC6EB !important;
+    color: white;
+  }
+
+  .movemenu button.type-Ice small
+  {
+    color: white;
+  }
+
+  .movemenu button.type-Ice:hover
+  {
+    background: #E6F8FF url("http://i.imgur.com/otB37l2.png?2") center no-repeat !important;
+  }
+
+  .movemenu button.type-Ground
+  {
+    background: #A8702D url("http://i.imgur.com/F2Ngn3T.png?2") center no-repeat !important;
+    border-color: #6E491F !important;
+    color: white;
+  }
+
+  .movemenu button.type-Ground small
+  {
+    color: white;
+  }
+
+  .movemenu button.type-Ground:hover
+  {
+    background: #BA843C url("http://i.imgur.com/F2Ngn3T.png?2") center no-repeat !important;
+  }
+
+  .movemenu button.type-Flying
+  {
+    background: #94B2C7 url("http://i.imgur.com/Al6Gb8u.png?2") center no-repeat !important;
+    border-color: #4A677D !important;
+    color: white;
+  }
+
+  .movemenu button.type-Flying small
+  {
+    color: white;
+  }
+
+  .movemenu button.type-Flying:hover
+  {
+    background: #A4C0D5 url("http://i.imgur.com/Al6Gb8u.png?2") center no-repeat !important;
+  }
+
+  .movemenu button.type-Poison
+  {
+    background: #9B69DA url("http://i.imgur.com/d3QQ9Af.png?2") center no-repeat !important;
+    border-color: #5E2D89 !important;
+    color: white;
+  }
+
+  .movemenu button.type-Poison small
+  {
+    color: white;
+  }
+
+  .movemenu button.type-Poison:hover
+  {
+    background: #BF8EF6 url("http://i.imgur.com/d3QQ9Af.png?2") center no-repeat !important;
+  }
+  
+   .movemenu button.type-Fighting
+  {
+    background: #EF6239 url("http://i.imgur.com/0fjqBIB.png?2") center no-repeat !important;
+    border-color: #994025 !important;
+    color: white;
+  }
+
+  .movemenu button.type-Fighting small
+  {
+    color: white;
+  }
+
+  .movemenu button.type-Fighting:hover
+  {
+    background: #FA7851 url("http://i.imgur.com/0fjqBIB.png?2") center no-repeat !important;
+  }
+
+  .movemenu button.type-Psychic
+  {
+    background: #F369B3 url("http://i.imgur.com/QzQIgYi.png?2") center no-repeat !important;
+    border-color: #A52A6C !important;
+    color: white;
+  }
+
+  .movemenu button.type-Psychic small
+  {
+    color: white;
+  }
+
+  .movemenu button.type-Psychic:hover
+  {
+    background: #FD7DC1 url("http://i.imgur.com/QzQIgYi.png?2") center no-repeat !important;
+  }
+
+  .movemenu button.type-Dark
+  {
+    background: #595978 url("http://i.imgur.com/dpxY9u7.png?2") center no-repeat !important;
+    border-color: #040707 !important;
+    color: white;
+  }
+
+  .movemenu button.type-Dark small
+  {
+    color: white;
+  }
+
+  .movemenu button.type-Dark:hover
+  {
+    background: #737392 url("http://i.imgur.com/dpxY9u7.png?2") center no-repeat !important;
+  }
+
+  .movemenu button.type-Rock
+  {
+    background: #8B3E22 url("http://i.imgur.com/uQRUH3r.png?2") center no-repeat !important;
+    border-color: #48190B !important;
+    color: white;
+  }
+
+  .movemenu button.type-Rock small
+  {
+    color: white;
+  }
+
+  .movemenu button.type-Rock:hover
+  {
+    background: #A25032 url("http://i.imgur.com/uQRUH3r.png?2") center no-repeat !important;
+  }
+
+  .movemenu button.type-Bug
+  {
+    background: #3C9950 url("http://i.imgur.com/oPBAAYf.png?2") center no-repeat !important;
+    border-color: #1C4B27 !important;
+    color: white;
+  }
+
+  .movemenu button.type-Bug small
+  {
+    color: white;
+  }
+
+  .movemenu button.type-Bug:hover
+  {
+    background: #4FAF65 url("http://i.imgur.com/oPBAAYf.png?2") center no-repeat !important;
+  }
+
+  .movemenu button.type-Ghost
+  {
+    background: #906791 url("http://i.imgur.com/jwbeQbI.png?2") center no-repeat !important;
+    border-color: #33336B !important;
+    color: white;
+  }
+
+  .movemenu button.type-Ghost small
+  {
+    color: white;
+  }
+
+  .movemenu button.type-Ghost:hover
+  {
+    background: #AE81AE url("http://i.imgur.com/jwbeQbI.png?2") center no-repeat !important;
+  }
+
+  .movemenu button.type-Steel
+  {
+    background: #60756E url("http://i.imgur.com/KCc2bLu.png?2") center no-repeat !important;
+    border-color: #38A480 !important;
+    color: white;
+  }
+
+  .movemenu button.type-Steel small
+  {
+    color: white;
+  }
+
+  .movemenu button.type-Steel:hover
+  {
+    background: #829790 url("http://i.imgur.com/KCc2bLu.png?2") center no-repeat !important;
+  }
+
+  .movemenu button.type-Dragon
+  {
+    background: #62CAD9 url("http://i.imgur.com/ygEvaDc.png?2") center no-repeat !important;
+    border-color: #448A95 !important;
+    color: white;
+  }
+
+  .movemenu button.type-Dragon small
+  {
+    color: white;
+  }
+
+  .movemenu button.type-Dragon:hover
+  {
+    background: #7EDCEB url("http://i.imgur.com/ygEvaDc.png?2") center no-repeat !important;
+  }
+
+  .movemenu button.type-Fairy
+  {
+    background: #E91368 url("http://i.imgur.com/0qO7BN7.png?2") center no-repeat !important;
+    border-color: #961A45 !important;
+    color: white;
+  }
+
+  .movemenu button.type-Fairy small
+  {
+    color: white;
+  }
+
+  .movemenu button.type-Fairy:hover
+  {
+    background: #FF3C8A url("http://i.imgur.com/0qO7BN7.png?2") center no-repeat !important;
+  }
+  
+   .switchselect button
+  {
+    background: rgba(193, 26, 142, 0.8);
+    border-style: 2px solid #F3BDCA;
+    color: #FFF;
+    font-family: Georgia, Times, 'Times New Roman', serif !important;
+    text-shadow: none;
+  }
+
+  .switchmenu button.disabled, .switchmenu button:disabled
+  {
+    background: rgba(161, 83, 102, 0.8);
+    border: 2px solid #CA8990;
+    color: #FFF;
+    font-family: Georgia, Times, 'Times New Roman', serif !important;
+    text-shadow: 0 0 2px #000;
+  }
+
+  .switchmenu button
+  {
+    padding: 0px 0px 0px 0 !important;
+  }
+
+  .switchmenu button .hpbar
+  {
+    border-color: #000;
+  }
+
+  .megaevo
+  {
+    background: none;
+    border: none;
+    color: #000;
+  }
+
+  .leftbar, .rightbar
+  {
+    background: rgba(161, 83, 102, 0.7);
+    border-color: #000;
+  }
+
+  .trainer strong
+  {
+    color: #000;
+    font-family: Georgia,Times,'Times New Roman',serif !important;
+  }
+
+  .battle
+  {
+    border-color: #000 !important;
+  }
+/* CSS End */
