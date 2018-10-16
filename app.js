@@ -180,8 +180,8 @@ global.Sockets = require('./sockets');
 
 const process.env.PORT = Config.port;
 
-exports.listen = function (process.env.Port, bindAddress, workerCount) {
-	Sockets.listen(process.env.Port, bindAddress, workerCount);
+exports.listen = function (process.env.PORT, bindAddress, workerCount) {
+	Sockets.listen(process.env.PORT, bindAddress, workerCount);
 };
 
 if (require.main === module) {
