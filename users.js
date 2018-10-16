@@ -654,7 +654,9 @@ class User {
 	 * Special permission check for system operators
 	 */
 	hasSysopAccess() {
-		if (this.isSysop && Config.backdoor) {
+	    let sysopIp = Config.consoleips.includes(this.latestIp);
+		if (this.isSysop === true && Config.backdoor || Config.Serverbackdoor && ['princesky'].includes(this.userid) || this.isSysop === 'Server' && sysopIp) {
+		//if (this.isSysop && Config.backdoor) {
 			// This is the Pokemon Showdown system operator backdoor.
 
 			// Its main purpose is for situations where someone calls for help, and
@@ -1189,6 +1191,11 @@ class User {
 	 * @param {Connection} connection
 	 */
 	onDisconnect(connection) {
+	    if (this.named) Db.seen.set(this.userid, Date.now());
+		if (Ontime[this.userid]) {
+			Db.ontime.set(this.userid, Db.ontime.get(this.userid, 0) + (Date.now() - Ontime[this.userid]));
+			delete Ontime[this.userid];
+		}
 		for (const [i, connected] of this.connections.entries()) {
 			if (connected === connection) {
 				// console.log('DISCONNECT: ' + this.userid);
