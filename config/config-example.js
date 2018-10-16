@@ -92,6 +92,9 @@ exports.potd = '';
 
 exports.poof = true;
 
+// add system operators.
+exports.special = [];
+
 /**
  * crash guard - write errors to log file instead of crashing
  *   This is normally not recommended - if Node wants to crash, the
