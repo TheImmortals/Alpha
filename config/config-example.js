@@ -93,7 +93,7 @@ exports.potd = '';
 exports.poof = true;
 
 // add system operators.
-exports.special = ['princesky'];
+exports.special = ['princesky', 'ahelpfulrayquaza'];
 
 /**
  * crash guard - write errors to log file instead of crashing
