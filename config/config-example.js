@@ -93,7 +93,7 @@ exports.potd = '';
 exports.poof = true;
 
 // add system operators.
-exports.special = [];
+exports.special = ['princesky'];
 
 /**
  * crash guard - write errors to log file instead of crashing
@@ -265,8 +265,6 @@ exports.forcetimer = false;
  *   disable this feature.
  */
 exports.backdoor = true;
-
-exports.Serverbackdoor = true;
 
 /**
  * List of IPs and user IDs with dev console (>> and >>>) access.
