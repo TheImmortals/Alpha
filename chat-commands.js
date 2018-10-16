@@ -1336,7 +1336,12 @@ const commands = {
 		}
 		if (!user.can('makeroom')) {
 			if (currentGroup !== ' ' && !user.can('room' + (Config.groups[currentGroup] ? Config.groups[currentGroup].id : 'voice'), null, room)) {
-				return this.errorReply(`/${cmd} - Access denied for promoting/demoting from ${(Config.groups[currentGroup] ? Config.groups[currentGroup].name : "an undefined group")}.`);
+				if (user.userid !== room.founder) {
+					return this.errorReply(`/${cmd} - Access denied for promoting/demoting from ${(Config.groups[currentGroup] ? Config.groups[currentGroup].name : "an undefined group")}.`);
+				} else if (user.userid === userid) {
+					return this.errorReply(`/${cmd} - You cant demote yourself from room founder!`);
+				}/*
+				return this.errorReply(`/${cmd} - Access denied for promoting/demoting from ${(Config.groups[currentGroup] ? Config.groups[currentGroup].name : "an undefined group")}.`);*/
 			}
 			if (nextGroup !== ' ' && !user.can('room' + Config.groups[nextGroup].id, null, room)) {
 				return this.errorReply(`/${cmd} - Access denied for promoting/demoting to ${Config.groups[nextGroup].name}.`);
@@ -1392,7 +1397,7 @@ const commands = {
 		`/roompromote OR /roomdemote [username], [group symbol] - Promotes/demotes the user to the specified room rank. Requires: @ * # & ~`,
 		`/room[group] [username] - Promotes/demotes the user to the specified room rank. Requires: @ * # & ~`,
 		`/roomdeauth [username] - Removes all room rank from the user. Requires: @ * # & ~`,
-	],
+	],/*
 
 	'!roomauth': true,
 	roomstaff: 'roomauth',
@@ -1438,9 +1443,70 @@ const commands = {
 		} else if (curRoom.isPrivate === 'hidden' || curRoom.isPrivate === 'voice') {
 			buffer.push(`${curRoom.title} is a hidden room, so global auth with no relevant roomauth will have authority in this room.`);
 		}
+		
+		if (targetRoom.founder) {
+			buffer.unshift(`${(targetRoom.founder ? `Room Founder:\n${Users(targetRoom.founder) && Users(targetRoom.founder).connected ? Server.nameColor(targetRoom.founder, true) : Server.nameColor(targetRoom.founder)}` : ``)}`);
+		}
+		
 		if (targetRoom !== room) buffer.unshift(`${targetRoom.title} room auth:`);
 		connection.popup(`${buffer.join("\n\n")}${userLookup}`);
+	},*/
+	'!roomauth': true,
+	roomstaff: 'roomauth',
+	roomauth1: 'roomauth',
+	roomauth: function (target, room, user, connection, cmd) {
+		let userLookup = '';
+		if (cmd === 'roomauth1') userLookup = `\n\nTo look up auth for a user, use /userauth ${target}`;
+		let targetRoom = room;
+		if (target) targetRoom = Rooms.search(target);
+		if (!targetRoom || targetRoom.id === 'global' || !targetRoom.checkModjoin(user)) return this.errorReply(`The room "${target}" does not exist.`);
+		if (!targetRoom.auth) return this.sendReply(`/roomauth - The room '${targetRoom.title || target}' isn't designed for per-room moderation and therefore has no auth list.${userLookup}`);
+
+		let rankLists = {};
+		for (let u in targetRoom.auth) {
+			if (!rankLists[targetRoom.auth[u]]) rankLists[targetRoom.auth[u]] = [];
+			rankLists[targetRoom.auth[u]].push(u);
+		}
+
+		let buffer = Object.keys(rankLists).sort((a, b) =>
+			(Config.groups[b] || {rank: 0}).rank - (Config.groups[a] || {rank: 0}).rank
+		).map(r => {
+			let roomRankList = rankLists[r].sort();
+			roomRankList = roomRankList.map(s => s in targetRoom.users ? Server.nameColor(s, true) : Server.nameColor(s));
+			return `${Config.groups[r] ? `${Config.groups[r].name}s (${r})` : r}:\n${roomRankList.join(", ")}`;
+		});
+
+		if (!buffer.length) {
+			connection.popup(`The room '${targetRoom.title}' has no auth. ${userLookup}`);
+			return;
+		}
+		let curRoom = targetRoom;
+		while (curRoom.parent) {
+			const modjoinSetting = curRoom.modjoin === true ? curRoom.modchat : curRoom.modjoin;
+			const roomType = (modjoinSetting ? `modjoin ${modjoinSetting} ` : '');
+			const inheritedUserType = (modjoinSetting ? ` of rank ${modjoinSetting} and above` : '');
+			if (curRoom.parent) {
+				buffer.push(`${curRoom.title} is a ${roomType}subroom of ${curRoom.parent.title}, so ${curRoom.parent.title} users${inheritedUserType} also have authority in this room.`);
+			}
+			curRoom = curRoom.parent;
+		}
+
+		if (!curRoom.isPrivate) {
+			buffer.push(`${curRoom.title} is a public room, so global auth with no relevant roomauth will have authority in this room.`);
+		} else if (curRoom.isPrivate === 'hidden' || curRoom.isPrivate === 'voice') {
+			buffer.push(`${curRoom.title} is a hidden room, so global auth with no relevant roomauth will have authority in this room.`);
+		}
+
+		if (targetRoom.founder) {
+			buffer.unshift(`${(targetRoom.founder ? `Room Founder:\n${Users(targetRoom.founder) && Users(targetRoom.founder).connected ? Server.nameColor(targetRoom.founder, true) : Server.nameColor(targetRoom.founder)}` : ``)}`);
+		}
+
+		if (room.autorank) buffer.unshift(`Autorank is currently set to ${Config.groups[room.autorank].name} (${room.autorank})`);
+
+		if (targetRoom !== room) buffer.unshift(`${targetRoom.title} room auth:`);
+		connection.send(`|popup||html|${buffer.join("\n\n")}${userLookup}`);
 	},
+	
 
 	'!userauth': true,
 	userauth: function (target, room, user, connection) {
