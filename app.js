@@ -178,8 +178,10 @@ if (Config.crashguard) {
 
 global.Sockets = require('./sockets');
 
-exports.listen = function (port, bindAddress, workerCount) {
-	Sockets.listen(port, bindAddress, workerCount);
+const process.env.PORT = Config.port;
+
+exports.listen = function (process.env.Port, bindAddress, workerCount) {
+	Sockets.listen(process.env.Port, bindAddress, workerCount);
 };
 
 if (require.main === module) {
