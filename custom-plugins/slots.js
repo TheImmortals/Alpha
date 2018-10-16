@@ -106,3 +106,4 @@ exports.commands = {
 		'Mewtwo: 27 bucks' + '\n' +
 		'Use "/slots spin" to play the game.',
 	],
+};
