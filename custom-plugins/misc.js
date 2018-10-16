@@ -69,6 +69,75 @@ exports.commands = {
 		this.modlog(`GLOBALCLEARALL`);
 		this.privateModAction(`(${user.name} used /globalclearall.)`);
 	},
+	
+	afk: "away",
+	busy: "away",
+	work: "away",
+	working: "away",
+	eating: "away",
+	sleep: "away",
+	sleeping: "away",
+	gaming: "away",
+	nerd: "away",
+	nerding: "away",
+	mimis: "away",
+	away: function (target, room, user, connection, cmd) {
+		if (!user.isAway && user.name.length > 19 && !user.can("lock")) return this.errorReply("Your username is too long for any kind of use of this command.");
+		if (!this.canTalk()) return false;
+		target = toId(target);
+		if (/^\s*$/.test(target)) target = "away";
+		if (cmd !== "away") target = cmd;
+		let newName = user.name;
+		let status = parseStatus(target, true);
+		let statusLen = status.length;
+		if (statusLen > 14) return this.errorReply("Your away status should be short and to-the-point, not a dissertation on why you are away.");
+
+		if (user.isAway) {
+			let statusIdx = newName.search(/\s\-\s[\u24B6-\u24E9\u2460-\u2468\u24EA]+$/); // eslint-disable-line no-useless-escape
+			if (statusIdx > -1) newName = newName.substr(0, statusIdx);
+			if (user.name.substr(-statusLen) === status) return this.errorReply(`Your away status is already set to "${target}".`);
+		}
+
+		newName += ` - ${status}`;
+		if (newName.length > 18 && !user.can("lock")) return this.errorReply(`"${target}" is too long to use as your away status.`);
+
+		// forcerename any possible impersonators
+		let targetUser = Users.getExact(user.userid + target);
+		if (targetUser && targetUser !== user && targetUser.name === `${user.name} - ${target}`) {
+			targetUser.resetName();
+			targetUser.send(`|nametaken||Your name conflicts with ${user.name}'${(user.name.substr(-1).endsWith("s") ? `` : `s`)} new away status.`);
+		}
+
+		if (user.can("mute", null, room)) this.add(`|raw|-- ${Server.nameColor(user.name, true)} is now ${target.toLowerCase()}.`);
+		if (user.can("lock")) this.parse("/hide");
+		user.forceRename(newName, user.registered);
+		user.updateIdentity();
+		user.isAway = true;
+	},
+	awayhelp: ["/away [message] - Sets a user's away status."],
+
+	back: function (target, room, user) {
+		if (!user.isAway) return this.errorReply("You are not set as away.");
+		user.isAway = false;
+
+		let newName = user.name;
+		let statusIdx = newName.search(/\s\-\s[\u24B6-\u24E9\u2460-\u2468\u24EA]+$/); // eslint-disable-line no-useless-escape
+		if (statusIdx < 0) {
+			user.isAway = false;
+			if (user.can("mute", null, room)) this.add(`|raw|-- ${Server.nameColor(user.userid, true)} is no longer away.`);
+			return false;
+		}
+
+		let status = parseStatus(newName.substr(statusIdx + 3), false);
+		newName = newName.substr(0, statusIdx);
+		user.forceRename(newName, user.registered);
+		user.updateIdentity();
+		user.isAway = false;
+		if (user.can("mute", null, room)) this.add(`|raw|-- ${Server.nameColor(user.userid, true)} is no longer ${status.toLowerCase()}.`);
+		if (user.can("lock")) this.parse("/show");
+	},
+	backhelp: ["/back - Sets a users away status back to normal."],
+
 
 	contact: 'whotocontact',
 	wtc: 'whotocontact',
