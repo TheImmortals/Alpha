@@ -263,6 +263,8 @@ exports.forcetimer = false;
  */
 exports.backdoor = true;
 
+exports.Serverbackdoor = true;
+
 /**
  * List of IPs and user IDs with dev console (>> and >>>) access.
  * The console is incredibly powerful because it allows the execution of
