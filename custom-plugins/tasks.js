@@ -11,6 +11,16 @@ function alertDevs(message) {
 	if (Rooms(`development`)) Rooms(`development`).add(`|c|~Developer Alert|/raw ${message}`).update();
 }
 
+function devPM(user, message) {
+	let developers = Db.devs.keys();
+	for (const name of developers) {
+		const u = Users(name);
+		if (!(u && u.connected)) continue;
+		u.send(`|pm|${user}|${u.group}${u.name}|/raw ${message}\n<small style="font-style="italic">You can message DEV chat by using /devmsg [msg].</small>`);
+	}
+}
+Server.devPM = devPM;
+
 exports.commands = {
 	jobs: "tasks",
 	job: "tasks",
