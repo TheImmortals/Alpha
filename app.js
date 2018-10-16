@@ -178,20 +178,17 @@ if (Config.crashguard) {
 
 global.Sockets = require('./sockets');
 
-const process.env.PORT = Config.port;
-const 0.0.0.0 = Config.bindAddress;
-
-exports.listen = function (process.env.PORT, 0.0.0.0, /*workerCount*/) {
-	Sockets.listen(process.env.PORT, 0.0.0.0, /*workerCount*/);
+exports.listen = function (port, bindAddress, workerCount) {
+	Sockets.listen(por, bindAddress, workerCount);
 };
 
 if (require.main === module) {
 	// Launch the server directly when app.js is the main module. Otherwise,
 	// in the case of app.js being imported as a module (e.g. unit tests),
 	// postpone launching until app.listen() is called.
-	let process.env.PORT;
-	if (process.argv[2]) process.env.PORT = parseInt(process.argv[2]);
-	Sockets.listen(process.env.PORT);
+	let port;
+	if (process.argv[2]) port = parseInt(process.argv[2]);
+	Sockets.listen(port);
 }
 
 /*********************************************************
