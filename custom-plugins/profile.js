@@ -59,13 +59,13 @@ function vipCheck(user) {
 /*function tsumetaCheck(user) {
 	if (isTsuMetaCouncil(user)) return '<font color="#B22222">(<strong>TsuMeta Member</strong>)</font>';
 	return '';
-}*/
+}
 
 function lastActive(user) {
 	if (!Users(user)) return false;
 	user = Users(user);
 	return (user && user.lastPublicMessage ? Chat.toDurationString(Date.now() - user.lastPublicMessage, {precision: true}) : "hasn't talked yet");
-}
+}*/
 
 function showBadges(user) {
 	if (Db.userBadges.has(toId(user))) {
@@ -535,7 +535,7 @@ exports.commands = {
 	naturehelp: [
 		"/nature set [nature] - Sets your Profile Nature.",
 		"/nature delete - Removes your Profile Nature.",
-	],*/
+	],
 
 	'!lastactive': true,
 	checkactivity: 'lastactive',
@@ -547,7 +547,7 @@ exports.commands = {
 		if (!targetUser || !targetUser.connected) return this.errorReply(`${target} is not online. Use /seen to find out how long ago they left.`);
 		return this.sendReplyBox(`${Server.nameColor(targetUser, true, true)} was last active <strong>${Chat.toDurationString(Date.now() - targetUser.lastPublicMessage)} ago.</strong>`);
 	},
-	lastactivehelp: ["/lastactive - Shows how long ago it has been since a user has posted a message."],
+	lastactivehelp: ["/lastactive - Shows how long ago it has been since a user has posted a message."],*/
 
 	'!profile': true,
 	profile: function (target, room, user) {
@@ -630,9 +630,9 @@ exports.commands = {
 					profile += `&nbsp;${pColor(toId(username))}<b>Faction:</b> ${Server.getFaction(toId(username))}</font><br />`;
 				}*/
 				profile += `&nbsp;${pColor(toId(username))}<b>EXP Level:</b> ${Server.ExpControl.level(toId(username))}</font><br />`;
-				if (online && lastActive(toId(username))) {
+				/*if (online && lastActive(toId(username))) {
 					profile += `&nbsp;${pColor(toId(username))}<b>Last Activity:</b> ${lastActive(toId(username))}</font><br />`;
-				}
+				}*/
 				profile += `&nbsp;${pColor(toId(username))}<b>Last Seen:</b> ${getLastSeen(toId(username))}</font><br />`;
 				/*if (Db.friendcodes.has(toId(username))) {
 					profile += `&nbsp;${pColor(toId(username))}<b>Friend Code:</b> ${Db.friendcodes.get(toId(username))}</font><br />`;
