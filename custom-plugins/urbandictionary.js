@@ -2,6 +2,9 @@
 
 const http = require('http');
 
+let udCache = {};
+let defCache = {};
+
 exports.commands = {
 	"!define": true,
 	def: "define",
