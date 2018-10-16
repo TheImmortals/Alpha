@@ -34,6 +34,21 @@ const asciiMap = new Map([
 	["\u2460", "1"], ["\u2461", "2"], ["\u2462", "3"], ["\u2463", "4"], ["\u2464", "5"], ["\u2465", "6"], ["\u2466", "7"], ["\u2467", "8"], ["\u2468", "9"], ["\u24EA", "0"],
 ]);
 
+function parseStatus(text, encoding) {
+	if (encoding) {
+		text = text
+			.split("")
+			.map(char => bubbleLetterMap.get(char))
+			.join("");
+	} else {
+		text = text
+			.split("")
+			.map(char => asciiMap.get(char))
+			.join("");
+	}
+	return text;
+}
+
 function getMonData(target) {
 	let returnData = null;
 	if (!monData) return 'Data not found';
