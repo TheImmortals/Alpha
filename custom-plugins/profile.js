@@ -594,7 +594,7 @@ exports.commands = {
 
 		function background(user) {
 			let bg = Db.backgrounds.get(user);
-			if (!Db.backgrounds.has(user)) return `<div style="max-height: 250px; overflow-y: scroll">`;
+			if (!Db.backgrounds.has(user)) return `<div style="max-height: 250px; overflow-y: auto">`;
 			return `<div style="background:url(${bg}); background-size: cover">`;
 		}
 
@@ -614,7 +614,7 @@ exports.commands = {
 		function showProfile() {
 			Economy.readMoney(toId(username), currency => {
 				let profile = ``;
-				profile += `<div style="max-height: 200px; overflow: auto">${background(toId(username))} ${showBadges(toId(username))}`;
+				profile += `<div style="max-height: 175px; overflow: auto">${background(toId(username))} ${showBadges(toId(username))}`;
 				profile += `<div style="display: inline-block; width: 6.5em; height: 100%; vertical-align: top"><img src="${avatar}" height="80" width="80" align="left"></div>`;
 				profile += `<div style="display: inline-block">&nbsp;${pColor(toId(username))}<b>Name:</b></font> ${Server.nameColor(username, true)}&nbsp; ${getFlag(toId(username))} ${showTitle(username)}<br />`;
 				profile += `&nbsp;${pColor(toId(username))}<b>Group:</b> ${userGroup}</font> ${devCheck(username)} ${vipCheck(username)} <br />`;
