@@ -4,7 +4,7 @@ const http = require('http');
 
 let udCache = {};
 let defCache = {};
-
+let word = 'word';
 exports.commands = {/*
 	"!define": true,
 	def: "define",
@@ -67,8 +67,6 @@ exports.commands = {/*
 		if (!this.runBroadcast()) return;
 		if (!target) return this.parse("/help urbandefine");
 		if (target.toString() > 50) return this.errorReply("Phrase can not be longer than 50 characters.");
-		// define word
-		const word = word;
 
 		if (toId(target) !== "constructor" && udCache[toId(target)]) {
 			this.sendReplyBox(udCache[toId(target)]);
