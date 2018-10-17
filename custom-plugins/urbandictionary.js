@@ -1,4 +1,4 @@
-"use strict";
+/*"use strict";
 
 const http = require('http');
 
@@ -114,4 +114,4 @@ exports.commands = {
 		});
 	},
 	urbandefinehelp: ["/u [word] - Gives the Urban Definition for a word."],
-};
+};*/
