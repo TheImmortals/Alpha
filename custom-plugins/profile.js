@@ -338,7 +338,7 @@ exports.commands = {
 		/fc help - Shows this command.`,
 	],*/
 
-	/*favoritetype: 'type',
+	favoritetype: 'type',
 	type: {
 		add: "set",
 		set: function (target, room, user) {
@@ -365,7 +365,7 @@ exports.commands = {
 	typehelp: [
 		"/type set [type] - Sets your Favorite Type.",
 		"/type delete - Removes your Favorite Type.",
-	],*/
+	],
 
 	profilecolor: 'pcolor',
 	pcolor: {
@@ -510,7 +510,7 @@ exports.commands = {
 		"/pokemon delete - Removes your Favorite Pokemon.",
 	],
 
-	/*natures: "nature",
+	natures: "nature",
 	nature: {
 		add: "set",
 		set: function (target, room, user) {
@@ -538,7 +538,7 @@ exports.commands = {
 	naturehelp: [
 		"/nature set [nature] - Sets your Profile Nature.",
 		"/nature delete - Removes your Profile Nature.",
-	],
+	],/*
 
 	'!lastactive': true,
 	checkactivity: 'lastactive',
@@ -623,12 +623,12 @@ exports.commands = {
 				if (Db.pokemon.has(toId(username))) {
 					profile += `&nbsp;${pColor(toId(username))}<b>Favorite Pokemon:</b> ${Db.pokemon.get(toId(username))}</font><br />`;
 				}
-				/*if (Db.type.has(toId(username))) {
+				if (Db.type.has(toId(username))) {
 					profile += `&nbsp;${pColor(toId(username))}<b>Favorite Type:</b></font> <img src="https://www.serebii.net/pokedex-bw/type/${Db.type.get(toId(username))}.gif"><br />`;
-				}*/
-				/*if (Db.nature.has(toId(username))) {
-					profile += `&nbsp;${pColor(toId(username))}<b>Nature:</b> ${Db.nature.get(toId(username))}</font><br />`;
 				}
+				if (Db.nature.has(toId(username))) {
+					profile += `&nbsp;${pColor(toId(username))}<b>Nature:</b> ${Db.nature.get(toId(username))}</font><br />`;
+				}/*
 				if (Server.getFaction(toId(username))) {
 					profile += `&nbsp;${pColor(toId(username))}<b>Faction:</b> ${Server.getFaction(toId(username))}</font><br />`;
 				}*/
