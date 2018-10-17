@@ -8,6 +8,21 @@ class RandomSeasonalRegStaffTeams extends RandomTeams {
 		let variant = this.random(2);
 		let sets = {
 			// Admins.
+			'~Prince Sky': {
+				species: 'Necrozma-Ultra',
+				ability: 'Ultra Neuroforce',
+				item: 'Dragonium Z',
+				gender: 'M',
+				moves: ['Dark Pulse', 'Earth Power', 'Dragon Pulse',
+				],
+				signatureMove: "travisfix",
+				evs: {
+					spa: 252,
+					spe: 252,
+					hp: 4,
+				},
+				nature: 'Timid',
+			},
 			'~HoeenHero': {
 				species: 'Ludicolo',
 				ability: 'Programmer\'s Domain',
