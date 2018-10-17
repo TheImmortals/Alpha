@@ -1,6 +1,29 @@
 "use strict";
 
 exports.BattleMovedex = {
+	// Prince Sky
+	travisfix: {
+		accuracy: 100,
+		basePower: 100,
+		category: "Special",
+		id: "travisfix",
+		isNonstandard: true,
+		name: "Travis Fix",
+		pp: 10,
+		priority: 0,
+		target: "normal",
+		type: "Dragon",
+		secondary: {
+			chance: 30,
+			status: 'par',
+		},
+		desc: "30% chance to paralise the foes and fixes travis errors.",
+		onPrepareHit: function (target, source) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Charge", target);
+			this.add('-anim', source, "Photon Geyser", target);
+		},
+	},
 	// HoeenHero
 	scripting: {
 		category: "Status",
