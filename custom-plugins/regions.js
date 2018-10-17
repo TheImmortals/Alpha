@@ -66,7 +66,7 @@ function leaguePM(message, league) {
 	if (!leagues[leagueid]) return;
 	for (let u in leagues[leagueid].users) {
 		if (!Users(leagues[leagueid].users[u]) || !Users(leagues[leagueid].users[u]).connected) continue;
-		Users(leagues[leagueid].users[u]).send("|pm|~Surge Master|~|/raw " + message);
+		Users(leagues[leagueid].users[u]).send("|pm|~" + serverName + " Master|~|/raw " + message);
 	}
 }
 
@@ -717,6 +717,7 @@ exports.commands = {
 				},
 			};
 			save();
+			fs.writeFile('./logs/leagues/' + leagueid + '.log');
 			log(user.name + " has created the region '" + leagueName + "'.");
 			this.sendReply("You've created the region \"" + leagueName + "\".");
 		},
