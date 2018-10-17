@@ -67,6 +67,8 @@ exports.commands = {/*
 		if (!this.runBroadcast()) return;
 		if (!target) return this.parse("/help urbandefine");
 		if (target.toString() > 50) return this.errorReply("Phrase can not be longer than 50 characters.");
+		// define word
+		const word = word;
 
 		if (toId(target) !== "constructor" && udCache[toId(target)]) {
 			this.sendReplyBox(udCache[toId(target)]);
@@ -98,12 +100,12 @@ exports.commands = {/*
 					if (room) room.update();
 					return;
 				} else {
-					if (!definitions[0][`${target}`] || !definitions[0][`definition`]) {
+					if (!definitions[0][`word`] || !definitions[0][`definition`]) {
 						this.sendReplyBox(`No results for <strong>"${target}"</strong>.`);
 						if (room) room.update();
 						return;
 					}
-					let output = `<strong>${definitions[0][`${target}`]}</strong> ${definitions[0][`definition`].replace(/\r\n/g, `<br />`).replace(/\n/g, ` `)}`;
+					let output = `<strong>${definitions[0][`word`]}</strong> ${definitions[0][`definition`].replace(/\r\n/g, `<br />`).replace(/\n/g, ` `)}`;
 					if (output.length > 400) output = output.slice(0, 400) + `...`;
 					this.sendReplyBox(output);
 					udCache[toId(target)] = output;
