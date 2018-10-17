@@ -614,7 +614,7 @@ exports.commands = {
 		function showProfile() {
 			Economy.readMoney(toId(username), currency => {
 				let profile = ``;
-				profile += `${background(toId(username))} ${showBadges(toId(username))}`;
+				profile += `<div style="max-height: 200px; overflow: auto">${background(toId(username))} ${showBadges(toId(username))}`;
 				profile += `<div style="display: inline-block; width: 6.5em; height: 100%; vertical-align: top"><img src="${avatar}" height="80" width="80" align="left"></div>`;
 				profile += `<div style="display: inline-block">&nbsp;${pColor(toId(username))}<b>Name:</b></font> ${Server.nameColor(username, true)}&nbsp; ${getFlag(toId(username))} ${showTitle(username)}<br />`;
 				profile += `&nbsp;${pColor(toId(username))}<b>Group:</b> ${userGroup}</font> ${devCheck(username)} ${vipCheck(username)} <br />`;
@@ -644,7 +644,7 @@ exports.commands = {
 					profile += `&nbsp;${pColor(toId(username))}<strong>Switch Friend Code:</strong> SW-${Db.switchfc.get(toId(username))}</font><br />`;
 				}*/
 				profile += `&nbsp;${song(toId(username))}`;
-				profile += `&nbsp;</div>`;
+				profile += `&nbsp;</div></div>`;
 				profile += `<br clear="all">`;
 				self.sendReplyBox(profile);
 			});
