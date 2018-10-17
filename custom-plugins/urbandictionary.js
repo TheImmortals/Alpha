@@ -98,12 +98,12 @@ exports.commands = {/*
 					if (room) room.update();
 					return;
 				} else {
-					if (!definitions[0][`word`] || !definitions[0][`definition`]) {
+					if (!definitions[0][`${target}`] || !definitions[0][`definition`]) {
 						this.sendReplyBox(`No results for <strong>"${target}"</strong>.`);
 						if (room) room.update();
 						return;
 					}
-					let output = `<strong>${definitions[0][`word`]}</strong> ${definitions[0][`definition`].replace(/\r\n/g, `<br />`).replace(/\n/g, ` `)}`;
+					let output = `<strong>${definitions[0][`${target}`]}</strong> ${definitions[0][`definition`].replace(/\r\n/g, `<br />`).replace(/\n/g, ` `)}`;
 					if (output.length > 400) output = output.slice(0, 400) + `...`;
 					this.sendReplyBox(output);
 					udCache[toId(target)] = output;
