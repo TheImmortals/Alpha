@@ -611,21 +611,6 @@ let Formats = [
 		},
 	},
 	{
-	    
-		name: "[Gen 7] Pokemon Mystery Dungeon",
-
-		mod: 'pmd',
-		team: 'randomPmd',
-		ruleset: ['HP Percentage Mod', 'Cancel Mod'],
-		onBegin: function () {
-			let allPokemon = this.p1.pokemon.concat(this.p2.pokemon);
-			for (let i = 0, len = allPokemon.length; i < len; i++) {
-				allPokemon[i].maxhp *= 3;
-				allPokemon[i].hp = allPokemon[i].maxhp;
-			}
-		},
-	},
-	{
 		name: "[Gen 7] Super Staff Bros Free For All",
 		desc: ['Duke it out with other users custom made pokemon.',
 			'Make your own as well! Get started with <button class="button" name="send" value="/ssb edit">/ssb edit</button>.',
