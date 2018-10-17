@@ -67,6 +67,7 @@ exports.commands = {
 			let moves = Db.ssbdata.get([target, 'moves']);
 			let smove = Db.ssbdata.get([target, 'smove']);
 			let smdesc = Db.ssbdata.get([target, 'smdesc']);
+			if (Db.ssbdata.has(target)) {
 			this.sendReplyBox(
 				'<b>Pokèmon:</b> ' + pokemon + '  @' + item + '' +
 				'<b>Evs:</b> ' + evs + '' +
@@ -75,6 +76,8 @@ exports.commands = {
 				'<b>Moves:</b> ' + moves + '' +
 				'<b>Signature Move:</b> ' + smove + '  [' + smdesc + ']'
 			);
+			} else 
+				this.sendReply('Data not found');
 		},
 
 		'': 'help',
