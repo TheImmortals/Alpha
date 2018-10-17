@@ -67,7 +67,7 @@ exports.commands = {
 			let moves = Db.ssbdata.get([target, 'moves']);
 			let smove = Db.ssbdata.get([target, 'smove']);
 			let smdesc = Db.ssbdata.get([target, 'smdesc']);
-			if (Db.ssbdata.has(target)) {
+			if (!Db.ssbdata.has(target)) {
 			this.sendReplyBox(
 				'<b>Pokèmon:</b> ' + pokemon + '  @' + item + '' +
 				'<b>Evs:</b> ' + evs + '' +
