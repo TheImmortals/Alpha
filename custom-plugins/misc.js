@@ -311,7 +311,7 @@ exports.commands = {
 		let popup = "|html|" + "<font size=5 color=#0066ff><u>" + serverName + " Credits</b></u></font><br />" +
 			"<br />" +
 			"<u><b>Server Maintainers:</u></b><br />" +
-			"- " + Server.nameColor('PrinceSky', true) + " (Host, Policy Admin, Technical Admin)<br />" +
+			"- " + Server.nameColor('PrinceSky', true) + " (Repository, Policy Admin, Technical Admin)<br />" +
 			"- " + Server.nameColor('Pokem9n', true) + " (Owner, Sysadmin)<br />" +
 			"<br />" +
 			"<u><b>Major Contributors:</b></u><br />" +
