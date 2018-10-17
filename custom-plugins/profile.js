@@ -595,7 +595,7 @@ exports.commands = {
 		function background(user) {
 			let bg = Db.backgrounds.get(user);
 			if (!Db.backgrounds.has(user)) return `<div style="max-height: 250px; overflow-y: scroll">`;
-			return `<div style="background:url(${bg}); background-size: 100% 100%; height: 250px">`;
+			return `<div style="background:url(${bg}); background-size: cover">`;
 		}
 
 		function pColor(user) {
@@ -643,7 +643,7 @@ exports.commands = {
 				/*if (Db.switchfc.has(toId(username))) {
 					profile += `&nbsp;${pColor(toId(username))}<strong>Switch Friend Code:</strong> SW-${Db.switchfc.get(toId(username))}</font><br />`;
 				}*/
-				profile += `&nbsp;${song(toId(username))}<br />`;
+				profile += `&nbsp;${song(toId(username))}`;
 				profile += `&nbsp;</div>`;
 				profile += `<br clear="all">`;
 				self.sendReplyBox(profile);
