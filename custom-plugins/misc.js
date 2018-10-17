@@ -311,11 +311,12 @@ exports.commands = {
 		let popup = "|html|" + "<font size=5 color=#0066ff><u>" + serverName + " Credits</b></u></font><br />" +
 			"<br />" +
 			"<u><b>Server Maintainers:</u></b><br />" +
-			"- " + Server.nameColor('PrinceSky', true) + " (Admin, Policy Admin, Technical Admin)<br />" +
+			"- " + Server.nameColor('PrinceSky', true) + " (Repository, Policy Admin, Technical Admin)<br />" +
 			"- " + Server.nameColor('Pokem9n', true) + " (Owner, Sysadmin)<br />" +
 			"<br />" +
 			"<u><b>Major Contributors:</b></u><br />" +
 			"- " + Server.nameColor('A Helpful Rayquaza', true) + " (Community Admin, Development)<br />" +
+			"- " + Server.nameColor('SparkyHeliolisk', true) + " (SSB, Development)<br />" +
 			/*"- " + Server.nameColor('Kraken Mare', true) + " (Community Admin, Development)<br />" +
 			"- " + Server.nameColor('MechSteelix', true) + " (Policy Leader)<br/>" +
 			"- " + Server.nameColor('Electric Z', true) + " (Policy Admin)<br />" +
