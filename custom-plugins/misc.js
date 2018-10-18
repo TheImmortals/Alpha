@@ -317,10 +317,10 @@ exports.commands = {
 			"<br />" +
 			"<u><b>Major Contributors:</b></u><br />" +
 			"- " + Server.nameColor('Shivay', true) + " (Technical Admin, Development)<br />" +
-			"- " + Server.nameColor('A Helpful Rayquaza', true) + " (Community Admin, Development)<br />" +
+			"- " + Server.nameColor('A Flying Phantom', true) + " (Community Admin, Development)<br />" +
 			"- " + Server.nameColor('SparkyHeliolisk', true) + " (SSB, Development)<br />" +
-			/*"- " + Server.nameColor('Kraken Mare', true) + " (Community Admin, Development)<br />" +
-			"- " + Server.nameColor('MechSteelix', true) + " (Policy Leader)<br/>" +
+			"- " + Server.nameColor('A Helpful Rayquaza', true) + " (Community Admin, Development)<br />" +
+			/*"- " + Server.nameColor('MechSteelix', true) + " (Policy Leader)<br/>" +
 			"- " + Server.nameColor('Electric Z', true) + " (Policy Admin)<br />" +
 			"- " + Server.nameColor('Opple', true) + " (Community Leader)<br />" +
 			"- " + Server.nameColor('Perison', true) + " (Community Admin)<br/>" +
