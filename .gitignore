@@ -1,13 +1,9 @@
-/config/*
-!/config/formats.js
-/logs/*
 /node_modules
 /eslint-cache
 /chat-plugins/private.js
 /chat-plugins/*-private.js
 npm-debug.log
 .eslintcache
-package-lock.json
 
 # visual studio live share
 .vs
