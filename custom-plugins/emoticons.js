@@ -121,7 +121,7 @@ exports.commands = {
 		rm: function (target, room, user) {
 			if (!this.can("emotes")) return false;
 			if (!target) return this.parse("/emoticonshelp");
-			Db.emanager.removr(target);
+			Db.emanager.remove(target);
 			this.sendReply(`${target} has been removed as emoticons manager.`);
 		},
 
