@@ -953,6 +953,7 @@ class Tournament {
 					}
 					Economy.logTransaction(Chat.escapeHTML(winner) + ' has won ' + firstMoney + ' ' + (firstMoney === 1 ? global.currencyName : global.currencyPlural) + ' from a tournament.');
 				});
+				Server.ExpControl.addExp(wid, this.room, 10);
 			});
 			this.room.addRaw("<b><font color='" + color + "'>" + Chat.escapeHTML(winner) + "</font> has won " + "<font color='" + color + "'>" + firstMoney + " </font>" + (firstMoney === 1 ? global.currencyName : global.currencyPlural) + " for winning the tournament!</b>");
 
@@ -965,8 +966,10 @@ class Tournament {
 						Economy.logTransaction(Chat.escapeHTML(runnerUp) + ' has won ' + secondMoney + ' ' + (secondMoney === 1 ? global.currencyName : global.currencyPlural) + ' from a tournament.');
 					});
 				});
+				Server.ExpControl.addExp(rid, this.room, 5);
 				this.room.addRaw("<b><font color='" + color + "'>" + Chat.escapeHTML(runnerUp) + "</font> has won " + "<font color='" + color + "'>" + secondMoney + "</font>" + (firstMoney === 1 ? global.currencyName : global.currencyPlural) + " for winning the tournament!</b>");
 			}
+			
 
 			/*if (WL.getFaction(winner)) {
 				let factionName = WL.getFaction(winner);

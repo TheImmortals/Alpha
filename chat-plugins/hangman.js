@@ -9,7 +9,7 @@ const maxMistakes = 6;
 
 class Hangman extends Rooms.RoomGame {
 	/**
-	 * @param {ChatRoom | GameRoom} room
+	 * @param {ChatRoom} room
 	 * @param {User} user
 	 * @param {string} word
 	 * @param {string?} [hint]
@@ -171,6 +171,7 @@ class Hangman extends Rooms.RoomGame {
 			}
 			if (result === 2) {
 				output += Chat.html`<br />Winner: ${this.lastGuesser}`;
+				Server.ExpControl.addExp(this.lastGuesser, this.room, 5);
 			} else if (this.guesses[this.guesses.length - 1].length === 1) {
 				// last guess was a letter
 				output += Chat.html` <small>&ndash; ${this.lastGuesser}</small>`;
@@ -216,6 +217,9 @@ class Hangman extends Rooms.RoomGame {
 		delete this.room.game;
 	}
 }
+
+/** @typedef {(this: CommandContext, target: string, room: ChatRoom, user: User, connection: Connection, cmd: string, message: string) => (void)} ChatHandler */
+/** @typedef {{[k: string]: ChatHandler | string | true | string[] | ChatCommands}} ChatCommands */
 
 /** @type {ChatCommands} */
 const commands = {
