@@ -5,7 +5,7 @@ const http = require('http');
 let udCache = {};
 let defCache = {};
 let word = 'word';
-exports.commands = {/*
+exports.commands = {
 	"!define": true,
 	def: "define",
 	define: function (target, room, user) {
@@ -58,7 +58,7 @@ exports.commands = {/*
 			});
 		});
 	},
-	definehelp: ["/define [word] - Gives the definition to a word."],*/
+	definehelp: ["/define [word] - Gives the definition to a word."],
 
 	"!urbandefine": true,
 	u: "urbandefine",
