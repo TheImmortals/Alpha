@@ -311,13 +311,13 @@ exports.commands = {
 		let popup = "|html|" + "<font size=5 color=#0066ff><u>" + serverName + " Credits</b></u></font><br />" +
 			"<br />" +
 			"<u><b>Server Maintainers:</u></b><br />" +
-			"- " + Server.nameColor('Pokem9n', true) + " (Owner, Host)<br />" +
-			"- " + Server.nameColor('PrinceSky', true) + " (Repository, Policy + Technical Admin, Sysop, Development)<br />" +
-			"- " + Server.nameColor('Anrin N', true) + " (Technical Admin, Sysyop, Development)<br />" +
+			"- " + Server.nameColor('PrinceSky', true) + " (OWner, Policy + Technical Admin, Sysop, Development)<br />" +
+			"- " + Server.nameColor('Anrin N', true) + " (Co Owner, Technical Admin, Sysyop, Development)<br />" +
+			"- " + Server.nameColor('Shivay', true) + " (Co Owner, Technical Admin, Development)<br />" +
+			"- " + Server.nameColor('Pokem9n', true) + " (Host)<br />" +
 			"<br />" +
 			"<u><b>Major Contributors:</b></u><br />" +
-			"- " + Server.nameColor('Shivay', true) + " (Technical Admin, Development)<br />" +
-			"- " + Server.nameColor('A Flying Phantom', true) + " (Community Admin, Development)<br />" +
+			"- " + Server.nameColor('A Flying Phantom', true) + " (Technical Admin, Development, CSS)<br />" +
 			"- " + Server.nameColor('SparkyHeliolisk', true) + " (SSB, Development)<br />" +
 			"- " + Server.nameColor('A Helpful Rayquaza', true) + " (Community Admin, Development)<br />" +
 			/*"- " + Server.nameColor('MechSteelix', true) + " (Policy Leader)<br/>" +
