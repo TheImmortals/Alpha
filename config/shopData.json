@@ -856,8 +856,8 @@
             "multibuy": true
          }
       }
-   }
-   /*"sggame":{  
+   },
+   "sggame":{  
       "display":"SGgame (Alpha)",
       "info":"Extra items to help you out in the alpha test. Please note that save data may be wiped after the alpha test ends",
       "items":{  
@@ -1038,5 +1038,5 @@
             "multibuy": true
          }
       }
-   }*/
+   }
 }
