@@ -70,7 +70,7 @@ exports.commands = {
 	emotes: "emoticon",
 	emoticon: {
 		add: function (target, room, user) {
-			if (!this.can(`emotes`)) return false;
+			if (!this.can(`emotes`) && Db.emanager.has(user)) return false;
 			if (!target) return this.parse("/emoticonshelp");
 
 			let targetSplit = target.split(",");
@@ -90,14 +90,14 @@ exports.commands = {
 
 			this.sendReply(`|raw|The emoticon ${Chat.escapeHTML(targetSplit[0])} has been added: <img src="${targetSplit[1]}" width="${size}" height="${size}">`);
 			if (Rooms("upperstaff")) Rooms("upperstaff").add(`|raw|${Server.nameColor(user.name, true)} has added the emoticon ${Chat.escapeHTML(targetSplit[0])}: <img src="${targetSplit[1]}" width="${size}" height="${size}">`);
-			Server.messageSeniorStaff(`/html ${Server.nameColor(user.name, true)} has added the emoticon ${Chat.escapeHTML(targetSplit[0])}: <img src="${targetSplit[1]}" width="${size}" height="${size}">`);
+			//Server.messageSeniorStaff(`/html ${Server.nameColor(user.name, true)} has added the emoticon ${Chat.escapeHTML(targetSplit[0])}: <img src="${targetSplit[1]}" width="${size}" height="${size}">`);
 		},
 
 		delete: "del",
 		remove: "del",
 		rem: "del",
 		del: function (target, room, user) {
-			if (!this.can(`emotes`)) return false;
+			if (!this.can(`emotes`) && Db.emanager.has(user)) return false;
 			if (!target) return this.parse("/emoticonshelp");
 			if (!emoticons[target]) return this.errorReply("That emoticon does not exist.");
 
@@ -106,7 +106,23 @@ exports.commands = {
 
 			this.sendReply("That emoticon has been removed.");
 			if (Rooms("upperstaff")) Rooms("upperstaff").add(`|raw|${Server.nameColor(user.name, true)} has removed the emoticon ${Chat.escapeHTML(target)}.`);
-			Server.messageSeniorStaff(`/html ${Server.nameColor(user.name, true)} has removed the emoticon ${Chat.escapeHTML(target)}.`);
+			//Server.messageSeniorStaff(`/html ${Server.nameColor(user.name, true)} has removed the emoticon ${Chat.escapeHTML(target)}.`);
+		},
+		
+		addmanager: "am",
+		am: function (target, room, user) {
+			if (!this.can("emotes")) return false;
+			if (!target) return this.parse("/emoticonshelp");
+			Db.emanager.set(target, 1);
+			this.sendReply(`${target} has been added as emoticons manager.`);
+		},
+		
+		removemanager: "rm",
+		rm: function (target, room, user) {
+			if (!this.can("emotes")) return false;
+			if (!target) return this.parse("/emoticonshelp");
+			Db.emanager.removr(target);
+			this.sendReply(`${target} has been removed as emoticons manager.`);
 		},
 
 		toggle: function (target, room, user) {
