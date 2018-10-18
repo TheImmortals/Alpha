@@ -439,6 +439,11 @@ class GlobalRoom extends BasicRoom {
 				isPrivate: true,
 				staffRoom: true,
 				staffAutojoin: true,
+			}, {
+			    title: 'Development',
+			    isPrivate: true,
+			    staffRoom: true,
+			    staffAutojoin: true,
 			}];
 		}
 
