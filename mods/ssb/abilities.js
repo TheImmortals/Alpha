@@ -29,6 +29,30 @@ exports.BattleAbilities = {
 			this.setTerrain('');
 		},
 	},
+	// Prince Sky
+	ultraneuroforce: {
+		id: "ultraneuroforce",
+		name: "Ultra Neuroforce",
+		desc: "Adaptability + Neuroforce",
+		onModifyMove: function (move) {
+			move.stab = 2;
+		},
+		onModifyDamage: function (damage, source, target, move) {
+			if (move && move.typeMod > 0) {
+				this.chainModify([0x1333, 0x1000]);
+			}
+		},
+	},
+	//Stabby the Krabby
+	readytostab: {
+		id: "readytostab",
+		name: "Ready to Stab",
+		desc: "Boosts user's Atk and Spe by 2 stages",
+		onStart: function (pokemon) {
+			this.boost({atk: 2, spe: 2});
+		},
+	},
+
 	//Desokoro
 	wavecall: {
 		id: "wavecall",
