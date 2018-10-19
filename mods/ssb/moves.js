@@ -1,28 +1,148 @@
 "use strict";
 
 exports.BattleMovedex = {
-	// Prince Sky
-	travisfix: {
-		accuracy: 100,
-		basePower: 100,
-		category: "Special",
-		id: "travisfix",
+	// Xirizu
+	highestjumpkick: {
+		category: "Physical",
+		accuracy: 98.5,
+		basePower: 120,
+		id: "highestjumpkick",
 		isNonstandard: true,
-		name: "Travis Fix",
-		pp: 10,
+		name: "Highest Jump Kick",
+		pp: 8,
+		noPPBoosts: true,
 		priority: 0,
+		selfdestruct: "no",
+		self: {
+			boosts: {
+				spe: 1,
+			},
+		},
+		onPrepareHit: function (target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Dragon Dance", target);
+			this.add('-anim', source, "High Jump Kick", target);
+		},
+		target: "normal",
+		type: "Fighting",
+	},
+	// Insane Assasin
+	assassinsrevenge: {
+		category: "Physical",
+		accuracy: 100,
+		basePower: 130,
+		id: "assassinsrevenge",
+		isNonstandard: true,
+		name: "Assassin's Revenge",
+		pp: 5,
+		noPPBoosts: true,
+		priority: 0,
+		selfdestruct: "no",
+		self: {
+			boosts: {
+				atk: 1,
+				spe: 1,
+			},
+		},
+		onPrepareHit: function (target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Morning Sun", target);
+			this.add('-anim', source, "Earthquake", target);
+		},
+		target: "normal",
+		type: "Dark",
+	},
+	// A Helpful Rayquaza
+	rayquazaroar: {
+		category: "Physical",
+		accuracy: true,
+		basePower: 130,
+		id: "rayquazaroar",
+		isNonstandard: true,
+		name: "Rayquaza Roar",
+		pp: 5,
+		noPPBoosts: true,
+		priority: 0,
+		selfdestruct: "no",
+		onPrepareHit: function (target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Roar", target);
+		},
+		desc: "No Effect.",
+		onHit: function (target, source, move) {
+			this.add('c|@A Helpful Rayquaza|Take the Roar of Dragon!');
+		},
 		target: "normal",
 		type: "Dragon",
-		secondary: {
-			chance: 30,
-			status: 'par',
-		},
-		desc: "30% chance to paralise the foes and fixes travis errors.",
-		onPrepareHit: function (target, source) {
+	},
+	// NoPat
+	shadowhunter: {
+		category: "Special",
+		accuracy: true,
+		basePower: 130,
+		id: "shadowhunter",
+		isNonstandard: true,
+		name: "Shadow Hunter",
+		pp: 5,
+		noPPBoosts: true,
+		priority: 0,
+		selfdestruct: "no",
+		onPrepareHit: function (target, source, move) {
 			this.attrLastMove('[still]');
-			this.add('-anim', source, "Charge", target);
-			this.add('-anim', source, "Photon Geyser", target);
+			this.add('-anim', source, "Shadow Ball", target);
 		},
+		desc: "No Effect.",
+		onHit: function (target, source, move) {
+			this.add('c|%NoPat|feelsgd');
+		},
+		target: "normal",
+		type: "Ghost",
+	},
+	// Surge BoT
+	kill: {
+		category: "Special",
+		accuracy: true,
+		basePower: 100000000000000000000000000000000000000000000000000000000000000000000000000000000,
+		id: ".kill",
+		isNonstandard: true,
+		name: ".Kill",
+		pp: 1,
+		noPPBoosts: true,
+		priority: 5,
+		selfdestruct: "always",
+		onPrepareHit: function (target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Explosion", target);
+		},
+		desc: "No Effect.",
+		onHit: function (target, source, move) {
+			this.add('c|*Surge BoT|KILL BYE Surge BoT');
+		},
+		target: "normal",
+		type: "Electric",
+	},
+	// SparkyHeliolisk
+	ultrafroststorm: {
+		category: "Special",
+		accuracy: true,
+		basePower: 130,
+		id: "ultrafroststorm",
+		isNonstandard: true,
+		name: "Ultra Frost Storm",
+		pp: 5,
+		noPPBoosts: true,
+		priority: 0,
+		selfdestruct: "no",
+		onPrepareHit: function (target, source, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Blizzard", target);
+		},
+		desc: "No Effect.",
+		onHit: function (target, source, move) {
+			this.add('c|@SparkyHeliolisk|Let me just PR that real quick!');
+		},
+		target: "normal",
+		type: "Ice",
 	},
 	// HoeenHero
 	scripting: {
@@ -50,7 +170,6 @@ exports.BattleMovedex = {
 			this.add('-anim', source, "Geomancy", target);
 		},
 		target: "normal",
-		accuracy: true,
 		type: "Psychic",
 	},
 	// Almighty Bronzong
@@ -75,8 +194,48 @@ exports.BattleMovedex = {
 		},
 		drain: [7, 20], //35%
 		target: "self",
-		accuracy: true,
 		type: "Fire",
+	},
+	// Snorlax Slam
+	snorlaxslam: {
+	    accuracy: 100,
+	    basePower: 110,
+	    category: "Physical",
+	    id: "snorlaxslam",
+	    name: "Snorlax Slam",
+	    isNonstandard: true,
+	    priority: 0,
+	    pp: 5,
+	    sleepUsable: true,
+	    target: "normal",
+	    type: "Normal",
+	    desc: "Lazy Move That Always Hits Last",
+	    onPrepareHit: function (target, source) {
+	    this.add('-anim', source, "Body Slam", target);
+	    },
+	},
+	// Prince Sky
+	travisfix: {
+		accuracy: 100,
+		basePower: 100,
+		category: "Special",
+		id: "travisfix",
+		isNonstandard: true,
+		name: "Travis Fix",
+		pp: 10,
+		priority: 0,
+		target: "normal",
+		type: "Dragon",
+		secondary: {
+			chance: 30,
+			status: 'par',
+		},
+		desc: "30% chance to paralise the foes and fixes travis errors.",
+		onPrepareHit: function (target, source) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Charge", target);
+			this.add('-anim', source, "Photon Geyser", target);
+		},
 	},
 	// Kraken Mare
 	revengeofkrakenmare: {
@@ -101,87 +260,23 @@ exports.BattleMovedex = {
 		target: "normal",
 		type: "Water",
 	},
-	// C733937 123
-	shatterbreak: {
-		category: "Physical",
-		accuracy: 100,
-		basePower: 60,
-		basePowerCallback: function (pokemon, target, move) {
-			return move.basePower + 10 * pokemon.positiveBoosts();
-		},
-		id: "shatterbreak",
-		desc: "Base Power is calculated like stored power. Raises one stat randomly on ko. +Fighting.",
-		isNonstandard: true,
-		name: "Shatter Break",
-		pp: 12,
-		noPPBoosts: true,
-		priority: 0,
-		flags: {protect: 1, mirror: 1},
-		secondary: false,
-		onHit: function (target, pokemon) {
-			pokemon.addVolatile('shatterbreak');
-		},
-		effect: {
-			duration: 1,
-			onAfterMoveSecondarySelf: function (pokemon, target, move) {
-				if (!target || target.fainted || target.hp <= 0) {
-					let stats = [];
-					for (let stat in target.boosts) {
-						if (stat !== 'accuracy' && stat !== 'evasion' && target.boosts[stat] < 6) {
-							stats.push(stat);
-						}
-					}
-					if (stats.length) {
-						let randomStat = stats[this.random(stats.length)];
-						let boost = {};
-						boost[randomStat] = 1;
-						this.boost(boost, pokemon, pokemon, move);
-					} else {
-						return false;
-					}
-				}
-				pokemon.removeVolatile('shatterbreak');
-			},
-		},
-		onEffectiveness: function (typeMod, type, move) {
-			// @ts-ignore
-			return typeMod + this.getEffectiveness('Fighting', type);
-		},
-		onPrepareHit: function (target, source, move) {
-			this.attrLastMove('[still]');
-			this.add('-anim', source, "Twinkle Tackle", target);
-		},
-		target: "normal",
-		type: "Fairy",
-	},
-	// Serperiorater
-	saberstrike: {
+	// Anrin N
+	neoblast: {
 		category: "Special",
-		basePower: 120,
-		id: "saberstrike",
+		basePower: 130,
+		id: "neoblast",
 		isNonstandard: true,
-		name: "Saber Strike",
-		secondary: {
-			chance: 100,
-			self: {
-				boosts: {
-					spa: 2,
-				},
-				heal: [1, 5],
-			},
-		},
-		flags: {protect: 1, mirror: 1},
-		desc: "Boosts user's SpA by 2 stages, and heals health by 1/5 maximum HP",
-		pp: 10,
+		name: "Neo Blast",
+		desc: "A Powerful Blast attack.",
+		pp: 5,
 		priority: 0,
-		onPrepareHit: function (target, source, move) {
+		onPrepareHit: function (target, source) {
 			this.attrLastMove('[still]');
-			this.add('-anim', target, "Glare", target);
-			this.add('-anim', source, "Leaf Storm", target);
+			this.add('-anim', source, "Flare Blitz", source);
+			this.add('-anim', source, "Mach Punch", target);
 		},
 		target: "normal",
-		accuracy: 100,
-		type: "Grass",
+		type: "Psychic",
 	},
 	// Ashley the Pikachu
 	rocketpunch: {
@@ -195,7 +290,6 @@ exports.BattleMovedex = {
 		desc: "No additional effects",
 		priority: 1,
 		target: "normal",
-		flags: {protect: 1, mirror: 1},
 		type: "Fire",
 		onPrepareHit: function (target, source) {
 			this.attrLastMove('[still]');
@@ -217,15 +311,13 @@ exports.BattleMovedex = {
 			volatileStatus: ['flinch', 'confusion',
 			],
 		},
-		flags: {protect: 1, mirror: 1, contact: 1},
 		desc: "30% chance to paralyze, and/or flinch, or confuse foe.",
-		priority: 2,
+		priority: 0,
 		onPrepareHit: function (target, source) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Thrash", target);
 		},
 		target: "normal",
-		accuracy: 100,
 		type: "Normal",
 	},
 	// Mystifi
@@ -247,30 +339,25 @@ exports.BattleMovedex = {
 			this.add('-anim', source, "Charm", source);
 		},
 		target: "self",
-		accuracy: true,
 		type: "Fairy",
 	},
 	// Auction
-	magnetflare: {
+	zeobash: {
 		category: "Physical",
-		basePower: 95,
-		id: "magnetflare",
+		basePower: 90,
+		id: "zeobash",
 		isNonstandard: true,
-		name: "Magnet Flare",
+		name: "Zeo-Bash",
 		pp: 15,
 		priority: 0,
 		onPrepareHit: function (target, source, move) {
 			this.attrLastMove('[still]');
-			this.add('-anim', source, "Fusion Flare", source);
+			this.add('-anim', source, "Focus Energy", source);
 			this.add('-anim', source, "Head Smash", target);
 		},
-		flags: {protect: 1, mirror: 1, contact: 1},
-		secondary: {
-			chance: 30,
-			Status: 'brn',
-		},
-		accuracy: 95,
-		desc: "30% chance burn",
+		accuracy: 100,
+		desc: "No additional effects",
+		zMovePower: 150,
 		target: "normal",
 		type: "Steel",
 	},
@@ -294,8 +381,28 @@ exports.BattleMovedex = {
 		},
 		desc: "Raises user's Attack and Speed by 1 stage, and heals health by 5/20 maximum HP",
 		target: "self",
-		accuracy: true,
 		type: "Dragon",
+	},
+	// ducktown
+	duckpower: {
+		category: "Status",
+		id: "duckpower",
+		isNonstandard: true,
+		name: "Duck Power",
+		pp: 5,
+		priority: 0,
+		boosts: {
+			spa: 8,
+			spd: 8,
+		},
+		desc: "Boosts user's SpA and SpD by 8 stages, and sets Rain Dance",
+		onPrepareHit: function (target, source) {
+			this.attrLastMove('[still]');
+			this.add('-anim', source, "Calm Mind", source);
+		},
+		weather: 'raindance',
+		target: "self",
+		type: "Water",
 	},
 	// Admewn
 	mewtation: {
@@ -308,7 +415,7 @@ exports.BattleMovedex = {
 		secondary: false,
 		self: {
 			boosts: {
-				spa: 1,
+				evasion: 1,
 			},
 		},
 		priority: 0,
@@ -318,18 +425,18 @@ exports.BattleMovedex = {
 			this.add('-anim', source, "Psychic", target);
 			this.add('-anim', source, "Night Shade", target);
 		},
-		flags: {protect: 1, mirror: 1, reflectable: 1, snatch: 1},
 		onHit: function (target, source) {
 			target.trySetStatus('tox', source);
 		},
-		desc: "Boosts SpA by 1 and badly poisons target.",
+		desc: "Boosts evasion by 1 and badly poisons target.",
+		shortDesc: "Boosts evasion by 1 and badly poisons target.",
 		target: "normal",
 		type: "Dark",
 	},
 	// Desokoro
 	tsunamicrash: {
 		category: "Physical",
-		basePower: 135,
+		basePower: 150,
 		id: "tsunamicrash",
 		isViable: true,
 		isNonstandard: true,
@@ -342,44 +449,14 @@ exports.BattleMovedex = {
 			this.add('c|~Desokoro|You best hope the waves I ride have mercy on your soul!');
 		},
 		pp: 5,
-		flags: {protect: 1, mirror: 1, contact: 1},
 		priority: 0,
-		desc: "35% chance flinch",
 		onPrepareHit: function (target, source, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Water Pledge", source);
 			this.add('-anim', source, "Waterfall", target);
 		},
 		target: "Normal",
-		accuracy: true,
 		type: "Water",
-	},
-	//Tidal Wave Bot
-	serverguardian: {
-		category: "Status",
-		id: "serverguardian",
-		isViable: true,
-		accuracy: true,
-		isNonstandard: true,
-		name: "Server Guardian",
-		pp: 10,
-		priority: 2,
-		boosts: {
-			def: 2,
-			spd: 2,
-		},
-		onPrepareHit: function (target, source, move) {
-			this.attrLastMove('[still]');
-			this.add('-anim', source, "Bulk Up", source);
-			this.add('-anim', source, "Safeguard", source);
-		},
-		onHit: function (target) {
-			this.add('c|*Tidal Wave Bot|Initiating Sustainability Protocol...standby.');
-		},
-		heal: [1, 2],
-		flags: {},
-		target: "self",
-		type: "Normal",
 	},
 	// CelestialTater
 	shellbreak: {
@@ -387,7 +464,6 @@ exports.BattleMovedex = {
 		id: "shellbreak",
 		isNonstandard: true,
 		name: "Shell Break",
-		flags: {mirror: 1, snatch: 1},
 		boosts: {
 			spa: 2,
 			atk: 2,
@@ -398,79 +474,86 @@ exports.BattleMovedex = {
 		},
 		desc: "Boosts SpA, Atk, Spe by 2 stages, Acc by 1 stage, Lowers Def and SpD by 1 stage",
 		pp: 5,
-		priority: 2,
+		priority: 1,
 		onPrepareHit: function (target, source) {
 			this.attrLastMove('[still]');
 			this.add('-anim', source, "Brick Break", source);
 			this.add('-anim', source, "Shell Smash", source);
 		},
 		target: "self",
-		accuracy: true,
 		type: "Water",
 	},
-	// SSBN-640
-	"foolishdestruction": {
-		accuracy: true,
+	// Lycanium Z
+	"finishthem": {
+		accuracy: 100,
 		basePower: 0,
-		category: "Status",
-		shortDesc: "Attempts to pick a random move 3 times",
-		id: "foolishdestruction",
-		name: "Foolish Destruction",
-		pp: 30,
-		priority: 0,
-		flags: {},
-		sleepUsable: true,
-		noMetronome: ['banefulbunker', 'foolishdestruction', 'afteryou', 'assist', 'belch', 'bestow', 'celebrate', 'copycat', 'counter', 'covet', 'craftyshield', 'destinybond', 'detect', 'endure', 'focuspunch', 'followme', 'happyhour', 'helpinghand', 'holdhands', 'hyperspacefury', 'kingsshield', 'matblock', 'mefirst', 'metronome', 'mimic', 'mirrorcoat', 'mirrormove', 'naturepower', 'protect', 'quash', 'quickguard', 'ragepowder', 'sketch', 'sleeptalk', 'snarl', 'snatch', 'snore', 'spikyshield', 'struggle', 'switcheroo', 'thief', 'trick', 'wideguard'],
-		onPrepareHit: function (target, source, move) {
+		damage: 1,
+		category: "Physical",
+		desc: "OHKOs the target as long as it hasnt taken damage before the move hits. %10 chance to lower all stats by 1",
+		id: "finishthem",
+		name: "FINISH THEM",
+		pp: 5,
+		noPPBoosts: true,
+		flags: {protect: 1, mirror: 1},
+		secondary: {
+			chance: 10,
+			self: {
+				boosts: {
+					atk: -1,
+					def: -1,
+					spa: -1,
+					spd: -1,
+					spe: -1,
+				},
+			},
+		},
+		priority: -3,
+		onPrepareHit: function (target, source) {
 			this.attrLastMove('[still]');
-			this.add('-anim', source, "Quiver Dance", source);
-			this.add('-anim', source, "Nasty Plot", source);
+			this.add('-anim', source, "Extreme Evoboost", source);
+			this.add('-anim', source, "Fusion Flare", target);
+			this.add('-anim', source, "Splintered Stormshards", target);
 		},
-		onHit: function (target, source, effect) {
-			let moves = [];
-			for (let i in exports.BattleMovedex) {
-				let move = exports.BattleMovedex[i];
-				if (i !== move.id) continue;
-				if (move.isZ || move.isNonstandard) continue;
-				// @ts-ignore
-				if (effect.noMetronome.includes(move.id)) continue;
-				if (this.getMove(i).gen > this.gen) continue;
-				moves.push(move);
-			}
-			let r1 = '';
-			let r2 = '';
-			let r3 = '';
-			if (moves.length) {
-				moves.sort((a, b) => a.num - b.num);
-				r1 = this.sample(moves).id;
-				r2 = this.sample(moves).id;
-				r3 = this.sample(moves).id;
-			}
-			if (!r1 || !r2 || !r3) {
-				return false;
-			}
-			this.useMove(r1, target);
-			this.useMove(r2, target);
-			this.useMove(r3, target);
+		onModifyMove: function (move, target) {
+			move.damage = target.maxhp;
 		},
-		secondary: false,
-		target: "self",
-		type: "Normal",
-		contestType: "Cute",
+		beforeTurnCallback: function (pokemon) {
+			pokemon.addVolatile('finishthem');
+		},
+		beforeMoveCallback: function (pokemon) {
+			if (pokemon.volatiles['finishthem'] && pokemon.volatiles['finishthem'].lostFocus) {
+				this.add('cant', pokemon, 'FINISH THEM', 'FINISH THEM');
+				return true;
+			}
+		},
+		effect: {
+			duration: 1,
+			onStart: function (pokemon) {
+				this.add('-singleturn', pokemon, 'move: FINISH THEM');
+			},
+			onHit: function (pokemon, source, move) {
+				if (move.category !== 'Status') {
+					pokemon.volatiles['finishthem'].lostFocus = true;
+				}
+			},
+		},
+		target: "normal",
+		type: "Rock",
+		zMovePower: 180,
+		contestType: "Tough",
 	},
 	//Stabby the Krabby
 	"stabstab": {
 		category: "Physical",
-		basePower: 60,
-		accuracy: 100,
-		desc: 'Hits twice, 20% chance to flinch.',
+		basePower: 100,
+		accuracy: true,
+		desc: 'Always hits, hits twice, 25% chance to flinch.',
 		id: "stabstab",
 		isViable: true,
-		flags: {protect: 1, contact: 1, mirror: 1},
 		isNonstandard: true,
 		name: "Stab Stab",
 		secondary: {
-			chance: 20,
+			chance: 25,
 			volatileStatus: 'flinch',
 		},
 		onHit: function (target) {
@@ -487,12 +570,12 @@ exports.BattleMovedex = {
 		target: "normal",
 		type: "Steel",
 	},
-	// Volco
+	// Arrays
 	"invisiblepunch": {
 		id: "invisiblepunch",
 		name: "Invisible Punch",
 		desc: "Heals 1/4 of the damage dealt.",
-		basePower: 100,
+		basePower: 90,
 		accuracy: 100,
 		drain: [1, 4],
 		pp: 10,
@@ -502,7 +585,7 @@ exports.BattleMovedex = {
 			this.add('-anim', source, "Shadow punch", target);
 		},
 		onHit: function (target, source, move) {
-			this.add('c|&Volco|You cant see this punch. It\'s very spooky!');
+			this.add('c|%Arrays|A punch from the world of code! Sadly it\'s forced to be spooky because code doesn\'t actually exist in the real world!');
 		},
 		secondary: false,
 		flags: {protect: 1, contact: 1, mirror: 1, punch: 1},
@@ -576,17 +659,15 @@ exports.BattleMovedex = {
 		target: "Normal",
 		type: "Dark",
 	},
-	// MechSteelix
+	// iSteelX
 	deepsleep: {
-		accuracy: true,
 		category: "Status",
 		id: "deepsleep",
 		isNonstandard: true,
 		name: "Deep Sleep",
 		pp: 10,
-		desc: "Rest + raises spd 2 stages. Asleep for 3 turns",
 		priority: 0,
-		flags: {mirror: 1, snatch: 1},
+		flags: {protect: 1, mirror: 1},
 		onHit: function (target) {
 			if (target.hp >= target.maxhp) return false;
 			if (!target.setStatus('slp')) return false;
@@ -594,14 +675,14 @@ exports.BattleMovedex = {
 			target.statusData.startTime = 3;
 			this.heal(target.maxhp); //Aeshetic only as the healing happens after you fall asleep in-game
 			this.add('-status', target, 'slp', '[from] move: Deep Sleep');
-			this.add('c|&MechSteelix|Witness my true power!');
+			this.add('c|&iSteelX|Witness my true power!');
 			this.add('-anim', target, "Protect", target);
 		},
 		secondary: {
 			chance: 100,
 			self: {
 				boosts: {
-					spd: 2,
+					spd: 3,
 				},
 			},
 		},
@@ -617,23 +698,46 @@ exports.BattleMovedex = {
 		},
 		id: "everlastingannoyingness",
 		isViable: true,
-		accuracy: 100,
 		isNonstandard: true,
 		name: "Everlasting Annoyingness",
 		pp: 5,
 		noPPBoosts: true,
 		priority: 0,
-		desc: "Hits 2-5 times. heals damage dealt. user gains aqua ring.",
 		flags: {protect: 1, mirror: 1},
+		volatileStatus: 'partiallytrapped',
 		secondary: {
 			chance: 100,
 			self: {
 				volatileStatus: 'aquaring',
+				effect: {
+					onStart: function (pokemon) {
+						this.add('-start', pokemon, 'Everlasting Annoyingness');
+					},
+					onResidualOrder: 6,
+					onResidual: function (pokemon) {
+						this.heal(pokemon.maxhp / 16);
+					},
+				},
 			},
 		},
-		onPrepareHit: function (target, source) {
-			this.attrLastMove('[still]');
-			this.add('-anim', source, "Bullet Seed", target);
+		self: {
+			volatileStatus: 'ingrain',
+			effect: {
+				onStart: function (pokemon) {
+					this.add('-start', pokemon, 'move: Everlasting Annoyingness');
+				},
+				onResidualOrder: 7,
+				onResidual: function (pokemon) {
+					this.heal(pokemon.maxhp / 16);
+				},
+				onTrapPokemon: function (pokemon) {
+					pokemon.tryTrap();
+				},
+				onDragOut: function (pokemon) {
+					this.add('-activate', pokemon, 'move: Everlasting Annoyingness');
+					return null;
+				},
+			},
 		},
 		onHit: function (target) {
 			this.add('c|@TheRittz|Feel the annoyingness!');
@@ -643,7 +747,7 @@ exports.BattleMovedex = {
 		target: "normal",
 		type: "Grass",
 	},
-	//Perison
+	//Tsunami Prince
 	overpower: {
 		category: "Status",
 		accuracy: 100,
@@ -657,7 +761,7 @@ exports.BattleMovedex = {
 		flags: {protect: 1, reflectable: 1, mirror: 1},
 		status: 'slp',
 		secondary: {
-			chance: 50,
+			chance: 100,
 			self: {
 				boosts: {
 					atk: 1,
@@ -669,7 +773,7 @@ exports.BattleMovedex = {
 			},
 		},
 		onHit: function (target) {
-			this.add('c|~Wavelength Prince|Witness my true power, my true strength, the feeling of fear, and your team\'s demise.');
+			this.add('c|~Tsunami Prince|Witness my true power, my true strength, the feeling of fear, and your team\'s demise.');
 		},
 		onPrepareHit: function (target, source, move) {
 			this.attrLastMove('[still]');
@@ -677,7 +781,6 @@ exports.BattleMovedex = {
 			this.add('-anim', source, "Future Sight", target);
 			this.add('-anim', source, "Psycho Boost", source);
 		},
-		desc: "50% chance to raise all stats by 1 and opponent falls asleep.",
 		target: "normal",
 		type: "Dark",
 		zMoveEffect: "heal",
@@ -686,17 +789,17 @@ exports.BattleMovedex = {
 	kittycrush: {
 		category: "Physical",
 		accuracy: 95,
-		basePower: 70,
+		basePower: 95,
 		id: "kittycrush",
 		isViable: true,
 		isNonstandard: true,
 		name: "Kitty Crush",
 		pp: 5,
 		noPPBoosts: true,
-		priority: 2,
-		flags: {protect: 1, mirror: 1, contact: 1},
+		priority: 1,
+		flags: {protect: 1, mirror: 1},
 		secondary: {
-			chance: 60,
+			chance: 100,
 			self: {
 				boosts: {
 					def: 1,
@@ -717,130 +820,46 @@ exports.BattleMovedex = {
 			this.add('-anim', source, "Bulk Up", source);
 			this.add('-anim', source, "Crush Claw", target);
 		},
-		desc: "Rock, steel and ghost types take normal damage. 60% chance to Boost def and spd by 1.",
 		target: "normal",
 		type: "Normal",
 	},
-	//bunnery5
-	bunneryhatesyouseed: {
-		category: "Status",
-		id: "bunneryhatesyouseed",
-		name: "Bunnery Hates You Seed",
-		accuracy: 100,
-		basePower: 0,
-		isViable: true,
-		desc: "Leech seed and gains priority boost for 7 turns.",
-		isNonstandard: true,
-		pp: 6,
-		noPPBoosts: true,
-		priority: 2,
-		flags: {mirror: 1, protect: 1},
-		volatileStatus: 'leechseed',
-		effect: {
-			onStart: function (target) {
-				this.add('-start', target, 'move: Leech Seed');
-			},
-			onResidualOrder: 8,
-			onResidual: function (pokemon) {
-				let target = this.effectData.source.side.active[pokemon.volatiles['leechseed'].sourcePosition];
-				if (!target || target.fainted || target.hp <= 0) {
-					this.debug('Nothing to leech into');
-					return;
-				}
-				let damage = this.damage(pokemon.maxhp / 8, pokemon, target);
-				if (damage) {
-					this.heal(damage, target, pokemon);
-				}
-			},
-		},
-		onPrepareHit: function (target, source, move) {
-			this.attrLastMove('[still]');
-			this.add('-anim', source, "Leech Seed", target);
-		},
-		onTryHit: function (target) {
-			if (target.hasType('Grass')) {
-				this.add('-immune', target, '[msg]');
-				return null;
-			}
-		},
-		onHit: function (target) {
-			this.add('c|+bunnery5|People think they are good lol.');
-		},
-		self: {
-			volatileStatus: 'priorityboost',
-		},
-		target: "normal",
-		type: "Grass",
-	},
-	// Alfastorm
-	"darkspiral": {
+	//wgc
+	"hazereborn": {
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
-		shortDesc: "The target cannot switch out and cursed.",
-		id: "darkspiral",
-		name: "Dark Spiral",
-		pp: 5,
+		desc: "Inverts the target's stat stages and a 40% chance to freeze.",
+		id: "hazereborn",
+		name: "Haze Reborn",
+		pp: 20,
 		priority: 0,
-		flags: {reflectable: 1, mirror: 1, authentic: 1},
-		onPrepareHit: function (target, source, move) {
-			this.attrLastMove('[still]');
-			this.add('-anim', source, "Night Shade", target);
-		},
-		onHit: function (target, source, move) {
-			target.addVolatile('Curse', source);
-			target.addVolatile('trapped', source, move, 'trapper');
-		},
-		secondary: false,
-		target: "normal",
-		type: "Normal",
-		zMoveBoost: {spd: 1},
-		contestType: "Beautiful",
-	},
-	//SnorlaxTheRain
-	"snorlaxslam": {
-		accuracy: 95,
-		basePower: 120,
-		category: "Physical",
-		desc: "120BP, 95% Accuracy, and can be used while sleeping.",
-		id: "snorlaxslam",
-		name: "Snorlax Slam",
-		pp: 5,
-		priority: 0,
-		//Stolen from Sleep Talk
-		flags: {protect: 1, mirror: 1},
-		sleepUsable: true,
-		onPrepareHit: function (target, source, move) {
-			this.attrLastMove('[still]');
-			this.add('-anim', source, "Body Slam", target);
-		},
+		flags: {protect: 1, reflectable: 1, mirror: 1, mystery: 1},
 		onHit: function (target) {
-			this.add('c|+SnorlaxTheRain|Beware of the biggest body slam u will ever seen!');
+			let success = false;
+			for (let i in target.boosts) {
+				if (target.boosts[i] === 0) continue;
+				target.boosts[i] = -target.boosts[i];
+				success = true;
+			}
+			if (!success) return false;
+			this.add('-invertboost', target, '[from] move: Haze Reborn');
 		},
-		target: "normal",
-		type: "Normal",
-	},
-	//The Dazzler Joe
-	"kingscurse": {
-		accuracy: 100,
-		basePower: 100,
-		category: "Physical",
-		desc: "Traps Opponent for 4-5 turns.",
-		id: "kingscurse",
-		isViable: true,
-		name: "King's Curse",
-		pp: 5,
-		priority: 0,
-		flags: {protect: 1, mirror: 1},
+		secondary: {
+			chance: 40,
+			status: 'frz',
+		},
 		onPrepareHit: function (target, source, move) {
 			this.attrLastMove('[still]');
-			this.add('-anim', source, "Sand Tomb", target);
-			this.add('-anim', source, "Stone Edge", target);
+			this.add('-anim', source, "Glaciate", source);
+			this.add('-anim', source, "Dark Void", target);
 		},
-		volatileStatus: 'partiallytrapped',
 		target: "normal",
-		type: "Rock",
-		zMovePower: 185,
-		contestType: "Tough",
+		type: "Ice",
+		zMoveBoost: {spa: 1},
+		contestType: "Clever",
 	},
+
 };
+
+		
+	
