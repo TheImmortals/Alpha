@@ -479,6 +479,7 @@ exports.grouplist = [
 		globalonly: true,
 		gamemanagement: true,
 		exportinputlog: true,
+		hotpatch: true,
 		// Custom
 		customcolor: true,
 		badge: true,
@@ -488,7 +489,7 @@ exports.grouplist = [
 		icon: true,
 		customtitle: true,
 	},
-	{
+	/**{
 		symbol: '^',
 		id: "captain",
 		name: "Captain",
@@ -516,6 +517,7 @@ exports.grouplist = [
 		psgo: true,
 		ssb: true,
 	},
+	*/
 	{
 		symbol: '#',
 		id: "owner",
@@ -575,6 +577,7 @@ exports.grouplist = [
 		jurisdiction: 'u',
 		ban: true,
 		modchat: true,
+		roomdriver: true,
 		roomvoice: true,
 		forcerename: true,
 		ip: true,
