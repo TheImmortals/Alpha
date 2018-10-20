@@ -187,61 +187,6 @@ exports.commands = {
 			);
 		},
 	},
-	
-	pteam: 'profileteam',
-	profileteam: {
-		add: 'set',
-		set: function (target, room, user) {
-			if (!Db.hasteam.has(user.userid)) return this.errorReply('You don\'t have access to edit your team.');
-			if (!target) return this.parse('/profileteam help');
-			let parts = target.split(',');
-			let mon = parts[1].trim();
-			let slot = parts[0];
-			if (!parts[1]) return this.parse('/profileteam help');
-			let acceptable = ['one', 'two', 'three', 'four', 'five', 'six'];
-			if (!acceptable.includes(slot)) return this.parse('/profileteam help');
-			if (slot === 'one' || slot === 'two' || slot === 'three' || slot === 'four' || slot === 'five' || slot === 'six') {
-				Db.teams.set([user.userid, slot], mon);
-				this.sendReply('You have added this pokemon to your team.');
-			}
-		},
-
-		give: function (target, room, user) {
-			if (!this.can('ban')) return false;
-			if (!target) return this.parse('/profileteam help');
-			let targetId = toId(target);
-			Db.hasteam.set(targetId, 1);
-			this.sendReply(target + ' has been given the ability to set their team.');
-			Users(target).popup('You have been given the ability to set your profile team.');
-		},
-
-		take: function (target, room, user) {
-			if (!this.can('ban')) return false;
-			if (!target) return this.parse('/profileteam help');
-			if (!Db.hasteam.has(user)) return this.errorReply('This user does not have the ability to set their team.');
-			Db.hasteam.remove(user);
-			return this.sendReply('This user has had their ability to change their team away.');
-		},
-
-		'': 'help',
-		help: function (target, room, user) {
-			if (!this.runBroadcast()) return;
-			this.sendReplyBox(
-				'<center><strong>Profile Team Commands</strong><br />' +
-				'All commands are nestled under namespace <code>pteam</code></center><br />' +
-				'<hr width="100%">' +
-				'<code>add (slot), (dex number)</code>: The dex number must be the actual dex number of the pokemon you want.<br />' +
-				'Slot - we mean what slot you want the pokemon to be. valid entries for this are: one, two, three, four, five, six.<br />' +
-				'Chosing the right slot is crucial because if you chose a slot that already has a pokemon, it will overwrite that data and replace it. This can be used to replace / reorder what pokemon go where.<br />' +
-				'If the Pokemon is in the first 99 Pokemon, do 0(number), and for Megas do (dex number)-m, -mx for mega , -my for mega Y.<br>' +
-				'For example: Mega Venusaur would be 003-m<br />' +
-				'<code>give</code>: Global staff can give user\'s ability to set their own team.<br />' +
-				'<code>take</code>: Global staff can take user\'s ability to set their own team.<br />' +
-				'<code>help</code>: Displays this command.'
-			);
-		},
-	},
-
 
 	title: 'customtitle',
 	customtitle: {
@@ -665,58 +610,6 @@ exports.commands = {
 			let title = Db.music.get(user)['title'];
 			return `<acronym title="${title}"><br /><audio src="${song}" controls="" style="width:100%;"></audio></acronym>`;
 		}
-		
-		function showTeam(user) {
-			let teamcss = 'float:center;border:none;background:none;';
-
-			let noSprite = '<img src=http://play.pokemonshowdown.com/sprites/bwicons/0.png>';
-			let one = Db.teams.get([user, 'one']);
-			let two = Db.teams.get([user, 'two']);
-			let three = Db.teams.get([user, 'three']);
-			let four = Db.teams.get([user, 'four']);
-			let five = Db.teams.get([user, 'five']);
-			let six = Db.teams.get([user, 'six']);
-			if (!Db.teams.has(user)) return '<div style="' + teamcss + '" >' + noSprite + noSprite + noSprite + noSprite + noSprite + noSprite + '</div>';
-
-			function iconize(link) {
-				return '<button id="kek" style="background:transparent;border:none;"><img src="https://serebii.net/pokedex-sm/icon/' + link + '.png"></button>';
-			}
-
-			let teamDisplay = '<center><div style="' + teamcss + '">';
-			if (Db.teams.has([user, 'one'])) {
-				teamDisplay += iconize(one);
-			} else {
-				teamDisplay += noSprite;
-			}
-			if (Db.teams.has([user, 'two'])) {
-				teamDisplay += iconize(two);
-			} else {
-				teamDisplay += noSprite;
-			}
-			if (Db.teams.has([user, 'three'])) {
-				teamDisplay += iconize(three);
-			} else {
-				teamDisplay += noSprite;
-			}
-			if (Db.teams.has([user, 'four'])) {
-				teamDisplay += iconize(four);
-			} else {
-				teamDisplay += noSprite;
-			}
-			if (Db.teams.has([user, 'five'])) {
-				teamDisplay += iconize(five);
-			} else {
-				teamDisplay += noSprite;
-			}
-			if (Db.teams.has([user, 'six'])) {
-				teamDisplay += iconize(six);
-			} else {
-				teamDisplay += noSprite;
-			}
-
-			teamDisplay += '</div></center>';
-			return teamDisplay;
-		}
 
 		function showProfile() {
 			Economy.readMoney(toId(username), currency => {
@@ -750,7 +643,6 @@ exports.commands = {
 				/*if (Db.switchfc.has(toId(username))) {
 					profile += `&nbsp;${pColor(toId(username))}<strong>Switch Friend Code:</strong> SW-${Db.switchfc.get(toId(username))}</font><br />`;
 				}*/
-				profile +=`${showTeam(toId(username))}<br />`;
 				profile += `&nbsp;${song(toId(username))}`;
 				profile += `&nbsp;</div></div>`;
 				profile += `<br clear="all">`;
@@ -764,10 +656,10 @@ exports.commands = {
 		/pcolor help - Shows profile color commands.
 		/pokemon set [Pokemon] - Set your Favorite Pokemon onto your profile.
 		/pokemon delete - Delete your Favorite Pokemon from your profile.
-		~~/type set [type] - Set your favorite type.~~
-		~~/type delete - Delete your favorite type.~~
-		~~/nature set [nature] - Set your nature.~~
-		~~/nature delete - Delete your nature.~~
+		/type set [type] - Set your favorite type.
+		/type delete - Delete your favorite type.
+		/nature set [nature] - Set your nature.
+		/nature delete - Delete your nature.
 		/music set [user], [song], [title] - Sets a user's profile song. Requires % or higher.
 		/music take [user] - Removes a user's profile song. Requires % or higher.
 		/bg set [user], [link] - Sets the user's profile background. Requires % or higher.
