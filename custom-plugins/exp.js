@@ -9,7 +9,7 @@ const DEFAULT_AMOUNT = 0;
 let DOUBLE_XP = false;
 
 const minLevelExp = 15;
-const multiply = 1.5;
+const multiply = 1.9;
 
 function isExp(exp) {
 	let numExp = Number(exp);
@@ -153,9 +153,9 @@ class ExpFunctions {
 						reward = `a Roomshop. To claim your Roomshop, use the command /usetoken roomshop, [room for room shop].`;
 						break;
 					default:
-						Economy.writeMoney(user.userid, Math.ceil(level * 1));
-						Economy.logTransaction(`${user.name} has received ${Math.ceil(level * 1)} ${(Math.ceil(level * 1) === 1 ? currencyName : currencyPlural)} for reaching level ${level}.`);
-						reward = `${Math.ceil(level * 1)} ${(Math.ceil(level * 1) === 1 ? currencyName : currencyPlural)}.`;
+						Economy.writeMoney(user.userid, Math.ceil(level * 0.7));
+						Economy.logTransaction(`${user.name} has received ${Math.ceil(level * 0.7)} ${(Math.ceil(level * 0.7) === 1 ? currencyName : currencyPlural)} for reaching level ${level}.`);
+						reward = `${Math.ceil(level * 0.7)} ${(Math.ceil(level * 0.7) === 1 ? currencyName : currencyPlural)}.`;
 					}
 					user.sendTo(room, `|html|<center><font size=4><strong><i>Level Up!</i></strong></font><br />You have reached level ${level}, and have earned ${reward}</strong></center>`);
 				}
