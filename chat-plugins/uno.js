@@ -674,6 +674,7 @@ class UnoGame extends Rooms.RoomGame {
 			Server.ExpControl.addExp(this.players[i].userid, this.room, 20);
 		}
 		if (this.room.isOfficial) {
+			Server.ExpControl.addExp(targetUserid, this.room, 10);
 			Economy.writeMoney(targetUserid, prize, newAmount => {
 				if (Users(targetUserid) && Users(targetUserid).connected) {
 					Users.get(targetUserid).popup('You have received ' + prize + ' ' + (prize === 1 ? global.currencyName : global.currencyPlural) + ' from winning the game of UNO.');
