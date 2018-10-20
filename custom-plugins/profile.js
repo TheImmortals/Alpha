@@ -188,12 +188,6 @@ exports.commands = {
 		},
 	},
 	
-		"": "help",
-		help: function (target, room, user) {
-			this.parse('/help type');
-		},
-	},
-	
 	pteam: 'profileteam',
 	profileteam: {
 		add: 'set',
