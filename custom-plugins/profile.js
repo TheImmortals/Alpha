@@ -131,7 +131,7 @@ exports.commands = {
 				'<hr width="100%">' +
 				'<code>give [username]</code>: Gives <code>username</code> DEV status. Requires: & ~' +
 				'<br />' +
-				'<code>take [username]</code>: Takes <code>username</code>\'s DEV status. Requires: & ~' +
+				'<code>take [username]</code>: Takes <code>username</code>\'s DEV status. Requires: & ~.' +
 				'<br />' +
 				'<code>list</code>: Shows the list of users with DEV Status.' +
 				'</div>'
