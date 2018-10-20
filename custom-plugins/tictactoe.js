@@ -117,7 +117,7 @@ var TicTacToe = (function () {
 		var message = '|html|<center><b>Draw between ' + this.p1.name + ' and ' + this.p2.name + '!</b><br>' + this.getGrid(true);
 		// Give Back Bucks.
 		Db.currency.set(this.p1.userid, Db.currency.get(this.p1.userid, 0) + 3);
-		Db.currency.set(this.p2.userid, Db.currency.get(this.p2.userid, 0) + 3);*/
+		Db.currency.set(this.p2.userid, Db.currency.get(this.p2.userid, 0) + 3);
 		this.players.forEach(function (user) {
 			user.popup(message);
 		});
