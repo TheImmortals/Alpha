@@ -175,13 +175,17 @@ class PassTheBomb extends Rooms.RoomGame {
 	}
 	getWinner() {
 		let winner = this.getSurvivors()[0][1].name;
-	//	let prize = 4;
-		let msg = '|html|<div class = "broadcast-green"><center>Congratulations to ' + Server.nameColor(winner, true) + ' for winning the game of pass the bomb!</center>';
+		let prize = 2;
+		let msg = '|html|<div class = "broadcast-green"><center>Congratulations to ' + Server.nameColor(winner, true) + ' for winning the game of pass the bomb.</center>';
 		this.room.add(msg).update();
 		if (this.room.isOfficial) {
 		    Server.ExpControl.addExp(winner, this.room, 5);
-		    
-		    Users(winner).popup('You have received 5 exp for winning the game of pass the bomb.');
+			
+			Economy.writeMoney(winner, 2);
+			Economy.logTransaction(`${winner} has won 2 ${currencyPlural} for winning the game of pass the bomb.`);
+			Users(winner).popup('You have received 5 exp for winning the game of pass the bomb.');
+			
+			this.room.add(`${Server.nameColor(winner, true)} has won 2 ${currencyPlural} for winning the game of pass the bomb.`);
 		}
 		 /*Economy.writeMoney(winner, 2);
 		Economy.logTransaction(`${winner} has won 4 ${currencyPlural} for winning the game of pass the bomb.`);
