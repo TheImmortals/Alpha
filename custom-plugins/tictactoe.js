@@ -209,11 +209,11 @@ var cmds = {
 	acc: 'accept',
 	accept: function (target, room, user, connection, cmd) {
 		if (!target || !target.trim()) return this.sendReply('|html|/ttt ' + cmd + ' <em>User</em> - Accepts a Tic-Tac-Toe challenge from a user.');
-		/*if (Db.currency.get(user.userid, 0) >= 3) {
+		if (Db.currency.get(user.userid, 0) >= 3) {
 		    Db.currency.set(user.userid, Db.currency.get(user.id, 0) + 3);
 		} else {
 		    return this.errorReply('You don\'t have enough bucks to accept the challenge.');
-		}*/
+		}
 		var game = tttgames[tttplayers[user.userid]];
 		var targetUser = (Users.get(target) ? Users.get(target).name : target);
 		target = Users.get(target);
