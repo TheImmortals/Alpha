@@ -116,7 +116,7 @@ var TicTacToe = (function () {
 	TicTacToe.prototype.declareDraw = function () {
 		var message = '|html|<center><b>Draw between ' + this.p1.name + ' and ' + this.p2.name + '!</b><br>' + this.getGrid(true);
 		// Give Back Bucks.
-		/*Db.currency.set(this.p1.userid, Db.currency.get(this.p1.userid, 0) + 3);
+		Db.currency.set(this.p1.userid, Db.currency.get(this.p1.userid, 0) + 3);
 		Db.currency.set(this.p2.userid, Db.currency.get(this.p2.userid, 0) + 3);*/
 		this.players.forEach(function (user) {
 			user.popup(message);
@@ -125,7 +125,8 @@ var TicTacToe = (function () {
 	};
 
 	TicTacToe.prototype.declareWinner = function () {
-		var message = '|html|<center><b>' + this.currentPlayer.name + ' has won the game!</b><br/>' + this.getGrid(true);
+		Db.currency.set(this.currentPlayer.name, 6);
+		var message = '|html|<center><b>' + this.currentPlayer.name + ' has won the game.</b><br/>' + this.getGrid(true);
 		this.players.forEach(function (user) {
 			user.popup(message);
 		});
@@ -175,11 +176,11 @@ var cmds = {
 	play: 'c',
 	c: function (target, room, user, connection, cmd) {
 		if (!target || !target.trim()) return this.sendReply('|html|/ttt ' + cmd + ' <em>User</em> - Challenges a user to a game of Tic-Tac-Toe.');
-		/*if (Db.currency.get(user.userid, 0) >= 3) {
+		if (Db.currency.get(user.userid, 0) >= 3) {
 		    Db.currency.set(user.userid, Db.currency.get(user.userid, 0) - 3);
 		} else {
 		    return this.errorReply('You don\'t have bucks to challenge.');
-		}*/
+		}
 		var targetUser = (Users.get(target) ? Users.get(target).name : target);
 		target = Users.get(target);
 		if (!target || !target.connected) return this.sendReply('User ' + targetUser + ' is offline.');
