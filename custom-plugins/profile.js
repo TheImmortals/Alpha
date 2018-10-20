@@ -193,11 +193,7 @@ exports.commands = {
 			this.parse('/help type');
 		},
 	},
-	typehelp: [
-		"/ptype set [type] - Sets your Favorite Type.",
-		"/ptype delete - Removes your Favorite Type.",
-	],
-
+	
 	pteam: 'profileteam',
 	profileteam: {
 		add: 'set',
