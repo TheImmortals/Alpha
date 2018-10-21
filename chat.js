@@ -282,21 +282,22 @@ class CommandContext {
 	}
 
 	/**
-	 * @param {any} [message]
+	 * @param {string} [msg]
 	 * @return {any}
 	 */
-	parse(message) {
-		if (message) {
+	parse(msg) {
+		if (typeof msg === 'string') {
 			// spawn subcontext
 			let subcontext = new CommandContext(this);
 			subcontext.recursionDepth++;
 			if (subcontext.recursionDepth > MAX_PARSE_RECURSION) {
 				throw new Error("Too much command recursion");
 			}
-			subcontext.message = message;
+			subcontext.message = msg;
 			return subcontext.parse();
 		}
-		message = this.message;
+		/** @type {any} */
+		let message = this.message;
 
 		let commandHandler = this.splitCommand(message);
 
@@ -517,13 +518,12 @@ class CommandContext {
 			// @ts-ignore
 			result = commandHandler.call(this, this.target, this.room, this.user, this.connection, this.cmd, this.message);
 		} catch (err) {
-			require('./lib/crashlogger')(err, 'A chat command', {
+			Monitor.crashlog(err, 'A chat command', {
 				user: this.user.name,
 				room: this.room && this.room.id,
 				pmTarget: this.pmTarget && this.pmTarget.name,
 				message: this.message,
 			});
-			Rooms.global.reportCrash(err);
 			this.sendReply(`|html|<div class="broadcast-red"><b>Pokemon Showdown crashed!</b><br />Don't worry, we're working on fixing it.</div>`);
 		}
 		if (result === undefined) result = false;
