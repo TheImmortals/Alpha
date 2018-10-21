@@ -568,7 +568,7 @@ let Formats = [
 			if (move && !this.getImmunity(move, type)) return 2;
 		},
 	},
-	{
+	/*{
 		name: "[Gen 7] Super Staff Bros",
 
 		mod: 'ssb',
@@ -631,7 +631,7 @@ let Formats = [
 		onSwitchIn: function (pokemon) {
 			if (!pokemon.template.isMega) pokemon.canMegaEvo = this.canMegaEvo(pokemon);
 		},
-	},
+	},*/
 
 	// Other Metagames
 	///////////////////////////////////////////////////////////////////
