@@ -954,5 +954,382 @@
         "id": "alphaticket",
         "name": "Alpha Ticket",
         "slot": "keyitems"
+        }
+    },
+    "abomasite": {
+        "id": "abomasite",
+        "name": "Abomastie",
+        "slot": "items",
+        "use": {
+            "noBattle": true
+        }
+    },
+    "absolite": {
+        "id": "absolite",
+        "name": "Absolite",
+        "slot": "items",
+        "use": {
+            "noBattle": true
+        }
+    },
+    "aerodactylite": {
+        "id": "aerodactylite",
+        "name": "Aerodactylite",
+        "slot": "items",
+        "use": {
+            "noBattle": true
+        }
+    },
+    "aggronite": {
+        "id": "aggronite",
+        "name": "Aggronite",
+        "slot": "items",
+        "use": {
+            "noBattle": true
+        }
+    },
+    "alakazite": {
+        "id": "alakazite",
+        "name": "Alakazite",
+        "slot": "items",
+        "use": {
+            "noBattle": true
+        }
+    },
+    "altarianite": {
+        "id": "altarianite",
+        "name": "Altarianite",
+        "slot": "items",
+        "use": {
+            "noBattle": true
+        }
+    },
+    "ampharosite": {
+        "id": "ampharosite",
+        "name": "Ampharosite",
+        "slot": "items",
+        "use": {
+            "noBattle": true
+        }
+    },
+    "audinite": {
+        "id": "audinite",
+        "name": "Audinite",
+        "slot": "items",
+        "use": {
+            "noBattle": true
+        }
+    },
+    "banettite": {
+        "id": "banettite",
+        "name": "Banettite",
+        "slot": "items",
+        "use": {
+            "noBattle": true
+        }
+    },
+    "beedrillite": {
+        "id": "beedrillite",
+        "name": "Beedrillite",
+        "slot": "items",
+        "use": {
+            "noBattle": true
+        }
+    },
+    "blastoisinite": {
+        "id": "blastoisinite",
+        "name": "Blastoisinite",
+        "slot": "items",
+        "use": {
+            "noBattle": true
+        }
+    }, 
+    "blazikenite": {
+        "id": "blazikenite",
+        "name": "Blazikenite",
+        "slot": "items",
+        "use": {
+            "noBattle": true
+        }
+    },
+    "cameruptite": {
+        "id": "cameruptite",
+        "name": "Cameruptite",
+        "slot": "items",
+        "use": {
+            "noBattle": true
+        }
+    },
+    "charizarditex": {
+        "id": "charizarditex",
+        "name": "Chatrizardite X",
+        "slot": "items",
+        "use": {
+            "noBattle": true
+        }
+    },
+    "charizarditey": {
+        "id": "charizarditey",
+        "name": "Chatrizardite Y",
+        "slot": "items",
+        "use": {
+            "noBattle": true
+        }
+    },
+    "crucibellite": {
+        "id": "crucibellite",
+        "name": "Crucibellite",
+        "slot": "items",
+        "use": {
+            "noBattle": true
+        }
+    },
+    "diancite": {
+        "id": "diancite",
+        "name": "Diancite",
+        "slot": "items",
+        "use": {
+            "noBattle": true
+        }
+    },
+    "galladite": {
+        "id": "galladite",
+        "name": "Galladite",
+        "slot": "items",
+        "use": {
+            "noBattle": true
+        }
+    },
+    "garchompite": {
+        "id": "garchompite",
+        "name": "Garchompite",
+        "slot": "items",
+        "use": {
+            "noBattle": true
+        }
+    },
+    "gardevoirite": {
+        "id": "gardevoirite",
+        "name": "Gardevoirite",
+        "slot": "items",
+        "use": {
+            "noBattle": true
+        }
+    },
+    "gengarite": {
+        "id": "gengarite",
+        "name": "Gengarite",
+        "slot": "items",
+        "use": {
+            "noBattle": true
+        }
+    }, 
+    "glalitite": {
+        "id": "glalitite",
+        "name": "Glalitite",
+        "slot": "items",
+        "use": {
+            "noBattle": true
+        }
+    },
+     "gyaradosite": {
+        "id": "gyaradosite",
+        "name": "Gyaradosite",
+        "slot": "items",
+        "use": {
+            "noBattle": true
+        }
+    },
+     "heracronite": {
+        "id": "heracronite",
+        "name": "Heracronite",
+        "slot": "items",
+        "use": {
+            "noBattle": true
+        }
+    },
+     "houndoominite": {
+        "id": "houndoominite",
+        "name": "Houndoominite",
+        "slot": "items",
+        "use": {
+            "noBattle": true
+        }
+    },
+     "kangaskhanite": {
+        "id": "kangaskhanite",
+        "name": "Kangaskhanite",
+        "slot": "items",
+        "use": {
+            "noBattle": true
+        }
+    },
+     "latiasite": {
+        "id": "latiasite",
+        "name": "Latiasite",
+        "slot": "items",
+        "use": {
+            "noBattle": true
+        }
+    },
+     "latiosite": {
+        "id": "latiosite",
+        "name": "Latiosite",
+        "slot": "items",
+        "use": {
+            "noBattle": true
+        }
+    },
+     "lopunnite": {
+        "id": "lopunnite",
+        "name": "Lopunnite",
+        "slot": "items",
+        "use": {
+            "noBattle": true
+        }
+    },
+     "lucarionite": {
+        "id": "lucarionite",
+        "name": "Lucarionite",
+        "slot": "items",
+        "use": {
+            "noBattle": true
+        }
+    },
+     "manectite": {
+        "id": "manectite",
+        "name": "Manectite",
+        "slot": "items",
+        "use": {
+            "noBattle": true
+        }
+    },
+     "mawilite": {
+        "id": "mawilite",
+        "name": "Mawilite",
+        "slot": "items",
+        "use": {
+            "noBattle": true
+        }
+    },
+     "medichamite": {
+        "id": "medichamite",
+        "name": "Medichamite",
+        "slot": "items",
+        "use": {
+            "noBattle": true
+        }
+    },
+     "metagrossite": {
+        "id": "metagrossite",
+        "name": "Metagrossite",
+        "slot": "items",
+        "use": {
+            "noBattle": true
+        }
+    },
+     "mewtwonitex": {
+        "id": "mewtwonitex",
+        "name": "Mewtwonite X",
+        "slot": "items",
+        "use": {
+            "noBattle": true
+        }
+    },
+     "mewtwonitey": {
+        "id": "mewtwonitey",
+        "name": "Mewtwonite Y",
+        "slot": "items",
+        "use": {
+            "noBattle": true
+        }
+    },
+     "pinsirite": {
+        "id": "pinsirite",
+        "name": "Pinsirite",
+        "slot": "items",
+        "use": {
+            "noBattle": true
+        }
+    },
+     "sablenite": {
+        "id": "sablenite",
+        "name": "Sablenite",
+        "slot": "items",
+        "use": {
+            "noBattle": true
+        }
+    },
+     "salamencite": {
+        "id": "salamencite",
+        "name": "Salamencite",
+        "slot": "items",
+        "use": {
+            "noBattle": true
+        }
+    },
+     "sceptilite": {
+        "id": "sceptilite",
+        "name": "Sceptilite",
+        "slot": "items",
+        "use": {
+            "noBattle": true
+        }
+    },
+     "scizorite": {
+        "id": "scizorite",
+        "name": "Scizorite",
+        "slot": "items",
+        "use": {
+            "noBattle": true
+        }
+    },
+     "sharpedonite": {
+        "id": "sharpedonite",
+        "name": "Sharpedonite",
+        "slot": "items",
+        "use": {
+            "noBattle": true
+        }
+    },
+     "slowbronite": {
+        "id": "slowbronite",
+        "name": "Slowbronite",
+        "slot": "items",
+        "use": {
+            "noBattle": true
+        }
+    },
+     "steelixite": {
+        "id": "steelixite",
+        "name": "Steelixite",
+        "slot": "items",
+        "use": {
+            "noBattle": true
+        }
+    },
+     "swampertite": {
+        "id": "swampertite",
+        "name": "Swampertite",
+        "slot": "items",
+        "use": {
+            "noBattle": true
+        }
+    },
+     "tyranitarite": {
+        "id": "tyranitarite",
+        "name": "Tyranitarite",
+        "slot": "items",
+        "use": {
+            "noBattle": true
+        }
+    },
+     "venusaurite": {
+        "id": "venusaurite",
+        "name": "Venusaurite",
+        "slot": "items",
+        "use": {
+            "noBattle": true
+        }
     }
-}
+
