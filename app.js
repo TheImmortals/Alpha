@@ -122,7 +122,10 @@ global.sqlite3 = require('sqlite3');
 
 // Additional Database
 global.Ad = require('origindb')('./config/Ad');
- 
+
+// SGgame
+global.Console = require('./console.js');
+
 // Custom Globals End
 
 global.Dex = require('./sim/dex');

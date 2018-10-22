@@ -729,9 +729,20 @@ class User {
 			if (userid === this.userid) break;
 			const game = Rooms(roomid).game;
 			if (!game || game.ended) continue; // should never happen
+			// SGgame
+			if (game.format && game.format === 'gen7wildpokemonalpha') {
+				this.popup(`You can't change your name right now because you're in the middle of a wild pokemon encounter.`);
+				return false;
+			}
 			if (game.allowRenames || !this.named) continue;
 			this.popup(`You can't change your name right now because you're in ${game.title}, which doesn't allow renaming.`);
 			return false;
+			// SGgame
+			if (this.console) {
+			// Shutdown on rename
+			this.sendTo(this.console.room, '|uhtmlchange|console' + this.userid + this.consoleId + '|');
+			delete this.console;
+		}
 		}
 
 		let challenge = '';
@@ -1559,6 +1570,8 @@ function pruneInactive(threshold) {
 	let now = Date.now();
 	for (const user of users.values()) {
 		if (user.connected) continue;
+		// SGgame
+		if (user.userid === 'sgserver') continue; // Dont delete the COM!
 		if ((now - user.lastConnected) > threshold) {
 			user.destroy();
 		}

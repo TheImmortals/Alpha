@@ -12,6 +12,7 @@ const Data = require('./dex-data');
 const PRNG = require('./prng');
 const Side = require('./side');
 const Pokemon = require('./pokemon');
+const Server = require('./Server.js').Server;
 
 /**
  * An object representing a Pokemon that has fainted
@@ -1253,6 +1254,11 @@ class Battle extends Dex.ModdedDex {
 		if (this.p1.isChoiceDone() && this.p2.isChoiceDone()) {
 			throw new Error(`Choices are done immediately after a request`);
 		}
+		// SGgame
+		if ((this.p1.name === 'SG Server' || this.p2.name === 'SG Server') && (this.getFormat().isWildEncounter || this.getFormat().isTrainerBattle) && !this[(this.p1.name === 'SG Server' ? "p1" : "p2")].isChoiceDone()) {
+			Server.decideCOM(this, (this.p1.name === 'SG Server' ? "p1" : "p2"), (this.getFormat().isWildEncounter ? "random" : "trainer"));
+			this.checkActions();
+		}
 	}
 
 	tiebreak() {
@@ -1397,6 +1403,10 @@ class Battle extends Dex.ModdedDex {
 		if (sourceEffect) this.log[this.log.length - 1] += `|[from]${sourceEffect.fullname}`;
 		this.insertQueue({pokemon: pokemon, choice: 'runUnnerve'});
 		this.insertQueue({pokemon: pokemon, choice: 'runSwitch'});
+		// SGgame
+		let foe = this[(side.id === 'p1' ? 'p2' : 'p1')].pokemon[0];
+		if (side.battled[foe.slot].indexOf(pokemon.slot) < 0) side.battled[foe.slot].push(pokemon.slot);
+		if (foe.side.battled[pokemon.slot].indexOf(foe.slot) < 0) foe.side.battled[pokemon.slot].push(foe.slot);
 	}
 
 	/**
@@ -1765,6 +1775,16 @@ class Battle extends Dex.ModdedDex {
 		this.add('turn', this.turn);
 
 		this.makeRequest('move');
+		// SGgame
+		if (this.getFormat().isWildEncounter) {
+			let balls = ['pokeball', 'greatball', 'ultraball', 'masterball'];
+			let buttons = '';
+			for (let i = 0; i < balls.length; i++) {
+				buttons += '<button name="send" value="/throwpokeball ' + balls[i] + '" style="background:transparent;border:none;"><img src="http://www.serebii.net/itemdex/sprites/pgl/' + balls[i] + '.png" width="30" height="30"></button>&nbsp;&nbsp;';
+			}
+			this.add('raw', buttons);
+			this.add('');
+		 }
 	}
 
 	start() {
@@ -2514,6 +2534,14 @@ class Battle extends Dex.ModdedDex {
 				faintData.target.isActive = false;
 				faintData.target.isStarted = false;
 				faintData.target.side.faintedThisTurn = true;
+				// SGgame
+				if (this.getFormat().useSGgame && !this.getFormat().noExp && ((faintData.source && faintData.source.side.name !== 'SG Server') || faintData.target.side.name === 'SG Server')) {
+					// Award Experience
+					// If the source of the KO is a falsey value, use the current foe for calculating EXP. This can happen with things such as sandstorm.
+					if (!faintData.source) faintData.source = this[faintData.target.side.foe.id].pokemon[0];
+					let out = Server.onFaint(faintData.source.side.name, this, faintData);
+					this.send('updateExp', out.substring(0, out.length - 1));
+				}
 			}
 		}
 
@@ -2569,6 +2597,8 @@ class Battle extends Dex.ModdedDex {
 			let priorities = {
 				'beforeTurn': 100,
 				'beforeTurnMove': 99,
+				'pokeball': 98,
+				'useItem': 97,
 				'switch': 7,
 				'runUnnerve': 7.3,
 				'runSwitch': 7.2,
@@ -2843,6 +2873,85 @@ class Battle extends Dex.ModdedDex {
 			// we return here because the update event would crash since there are no active pokemon yet
 			return;
 		}
+		
+		// SGgame
+		case 'pokeball':
+			this.add('message', `${action.side.name} threw a ${(action.ball.charAt(0).toUpperCase() + action.ball.slice(1))}!`);
+			let result = Server.throwPokeball(action.ball, action.target);
+			let count = result;
+			if (count === true) count = 3;
+			let msgs = ['Oh no! The pokemon broke free', 'Aww! It appeared to be caught!', 'Aargh! Almost had it!', 'Gah! It was so close too!', 'Gotcha! ' + (action.target.name || action.target.species) + ' was caught!'];
+			for (count; count > 0; count--) {
+				this.add('message', '...');
+			}
+			this.send('takeitem', toId(action.side.name) + '|' + action.ball + '|' + action.side.active[0].slot);
+			if (result === true) {
+				this.add('message', msgs[msgs.length - 1]);
+				// Giving the newly caught pokemon handled in the main process.
+				this.send('caught', toId(action.side.name) + '|' + action.ball);
+				if (this.getFormat().useSGgame && !this.getFormat().noExp && action.side.name !== 'SG Server') {
+					// Award Experience
+					let out = Server.onFaint(toId(action.side.name), this, {source: action.side.active[0], target: action.target});
+					this.send('updateExp', out.substring(0, out.length - 1));
+				}
+				this.win(action.side);
+				return true;
+			} else {
+				this.add('message', msgs[result]);
+				this.add('');
+			}
+			break;
+			case 'useItem':
+			let hadEffect = false;
+			if (action.item.use.healHP) {
+				let heal = 0;
+				if (typeof action.item.use.healHP === 'string') {
+					heal = action.target.maxhp * (Number(action.item.use.healHP.substring(0, action.item.use.healHP.length - 1)) * 0.01);
+				} else if (action.item.use.healHP === true) {
+					heal = action.target.maxhp - action.target.hp;
+				} else {
+					heal = action.item.use.healHP;
+				}
+				if (action.target.hp + heal > action.target.maxhp) heal = action.target.maxhp - action.target.hp;
+				if (heal > 0) {
+					this.heal(heal, action.target, null, {fullname: action.item.name});
+					hadEffect = true;
+				}
+			}
+			if (action.item.use.healStatus) {
+				if (action.target.status || action.target.volatiles['confusion']) {
+					if (action.item.use.healStatus === true) {
+						action.target.cureStatus();
+						action.target.removeVolatile('confusion');
+						hadEffect = true;
+					} else {
+						let canHeal = action.item.use.healStatus.split('|');
+						if (canHeal.indexOf(action.target.status) > -1) {
+							action.target.cureStatus();
+							hadEffect = true;
+						}
+						if (canHeal.indexOf('confusion') > -1 && ('confusion' in action.target.volatiles)) {
+							action.target.removeVolatile('confusion');
+							hadEffect = true;
+						}
+					}
+				}
+			}
+			if (action.item.use.healPP) {
+				let move = action.target.moveset[action.move];
+				if (move.pp < move.maxpp) {
+					move.pp += action.item.use.healPP;
+					if (move.pp > move.maxpp) move.pp = move.maxpp;
+					hadEffect = true;
+					this.add('', (action.target.name || action.target.species) + "'s " + move.id + " had its PP restored by " + action.item.use.healPP + "!");
+				}
+			}
+			if (hadEffect) {
+				this.add('message', action.side.name + " used a " + action.item.name + "!");
+				this.send('takeitem', toId(action.side.name) + "|" + action.item.id + "|" + action.target.slot);
+				this.add('');
+			}
+			break;
 
 		case 'pass':
 			return;

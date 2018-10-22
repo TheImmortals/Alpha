@@ -6,6 +6,8 @@
  */
 'use strict';
 
+const Server = require('./Server.js').Server;
+
 /**
  * An object representing a Pokemon's move
  *
@@ -26,11 +28,13 @@ class Pokemon {
 	 * @param {string | AnyObject} set
 	 * @param {Side} side
 	 */
-	constructor(set, side) {
+	constructor(set, side, slot) {
 		/**@type {Side} */
 		this.side = side;
 		/**@type {Battle} */
 		this.battle = side.battle;
+		
+		this.slot = slot;
 
 		let pokemonScripts = this.battle.data.Scripts.pokemon;
 		if (pokemonScripts) Object.assign(this, pokemonScripts);
@@ -181,6 +185,10 @@ class Pokemon {
 		if (this.gender === 'N') this.gender = '';
 		this.happiness = typeof set.happiness === 'number' ? this.battle.clampIntRange(set.happiness, 0, 255) : 255;
 		this.pokeball = this.set.pokeball || 'pokeball';
+		// SGgame
+		if  (this.battle.getFormat().useSGgame) this.exp = this.set.exp || Server.calcExp(this.speciesid, this.level);
+		this.slot = (!slot && slot !== 0 ? this.side.pokemon.length - 1 : slot);
+
 
 		this.fullname = this.side.id + ': ' + this.name;
 		this.details = this.species + (this.level === 100 ? '' : ', L' + this.level) + (this.gender === '' ? '' : ', ' + this.gender) + (this.set.shiny ? ', shiny' : '');
@@ -1307,7 +1315,8 @@ class Pokemon {
 
 			this.battle.singleEvent('Eat', item, this.itemData, this, source, sourceEffect);
 			this.battle.runEvent('EatItem', this, null, null, item);
-
+			// SGgame
+			if (this.battle.getFormat().takeItems) this.battle.send('takeitem', toId(this.side.name) + "|" + toId(this.item) + "|" + this.slot + "|1");
 			this.lastItem = this.item;
 			this.item = '';
 			this.itemData = {id: '', target: this};
@@ -1343,6 +1352,8 @@ class Pokemon {
 			}
 
 			this.battle.singleEvent('Use', item, this.itemData, this, source, sourceEffect);
+			// SGgame
+			if (this.battle.getFormat().takeItems) this.battle.send('takeitem', toId(this.side.name) + "|" + toId(this.item) + "|" + this.slot + "|1");
 
 			this.lastItem = this.item;
 			this.item = '';

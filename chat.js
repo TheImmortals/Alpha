@@ -1329,6 +1329,7 @@ Chat.loadPlugins = function () {
 	if (Config.nicknamefilter) Chat.nicknamefilters.push(Config.nicknamefilter);
 
 	// Install plug-in commands and chat filters
+	Object.assign(commands, require('./console.js').commands);
 
 	// info always goes first so other plugins can shadow it
 	let files = FS('chat-plugins/').readdirSync();
@@ -1352,6 +1353,16 @@ Chat.loadPlugins = function () {
 		if (file.substr(-3) !== '.js') continue;
 		const cp = require(`./custom-plugins/${file}`);
 		Object.assign(commands, cp.commands);
+	}
+	// SGgame
+		// Load games for Console
+	Server.gameList = {};
+	for (let file of FS('game-cards').readdirSync()) {
+		if (file.substr(-3) !== '.js') continue;
+		const gamecard = require(`./game-cards/${file}`);
+		Object.assign(commands, gamecard.commands);
+		if (gamecard.box && gamecard.box.name) gamecard.box.id = toId(gamecard.box.name);
+		Server.gameList[gamecard.box.id] = gamecard.box;
 	}
 };
 

@@ -2962,7 +2962,13 @@ const commands = {
 
 				Chat.uncache('./chat');
 				Chat.uncache('./chat-commands');
+				Chat.uncacheDir('./custom-plugins');
+				Chat.uncache('./console');
+				Chat.uncacheDir('./game-cards');
+				Chat.uncache('./Server');
 				Chat.uncacheDir('./chat-plugins');
+				global.Server = require('./Server.js').Server;
+				global.Console = require('./console');
 				global.Chat = require('./chat');
 
 				let runningTournaments = Tournaments.tournaments;
@@ -3905,6 +3911,9 @@ const commands = {
 		if (!room.game || !room.game.timer) {
 			return this.errorReply(`You can only set the timer from inside a battle room.`);
 		}
+		// SGgame
+		if (toId(room.battle.format) === 'gen7wildpokemonalpha') return this.errorReply('You can\'t start the timer during a Wild Pokemon Encounter.');
+		
 		const timer = room.game.timer;
 		if (!timer.timerRequesters) {
 			return this.sendReply(`This game's timer is managed by a different command.`);
