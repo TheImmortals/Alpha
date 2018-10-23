@@ -33,6 +33,8 @@ function isVIP(user) {
 	return false;
 }
 
+Server.isVIP = isVIP;
+
 /*function isTsuMetaCouncil(user) {
 	if (!user) return;
 	if (typeof user === 'object') user = user.userid;
@@ -621,7 +623,7 @@ exports.commands = {
 				profile += `&nbsp;${pColor(toId(username))}<b>Registered:</b> ${regdate}</font><br />`;
 				profile += `&nbsp;${pColor(toId(username))}<b>${currencyPlural}:</b> ${currency}</font><br />`;
 				if (Db.pokemon.has(toId(username))) {
-					profile += `&nbsp;${pColor(toId(username))}<b>Favorite Pokemon:</b> ${Db.pokemon.get(toId(username))}</font><br />`;
+					profile += `&nbsp;${pColor(toId(username))}<b>Favorite Pokemon:</b> https://www.serebii.net/pokedex-xy/icon/${Db.pokemon.get(toId(username))}.png</font><br />`;
 				}
 				if (Db.type.has(toId(username))) {
 					profile += `&nbsp;${pColor(toId(username))}<b>Favorite Type:</b></font> <img src="https://www.serebii.net/pokedex-bw/type/${Db.type.get(toId(username))}.gif"><br />`;
