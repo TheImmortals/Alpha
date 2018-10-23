@@ -917,8 +917,8 @@ exports.commands = {
 				output += '<tr>';
 				output += '<td class="gangtd" style="box-shadow: 0px 0px 10px white inset"><img src="' + curLeague.icon + '" width="33px" height="33px"> ' + Chat.escapeHTML(curLeague.name) + '</td>';
 				output += '<td class="gangtd" style="box-shadow: 0px 0px 1px white inset">' + Autolinker.link(desc.replace(/&#x2f;/g, '/'), {stripPrefix: false, phone: false, twitter: false}) + '</td>';
-				output += '<td class="gangtd" style="box-shadow: 0px 0px 10px white inset">' + '<button name="send" value="/guild points log ' + curLeague.id + '">' + curLeague.points + '</button></td>';
-				output += '<td class="gangtd" style="box-shadow: 0px 0px 10px white inset">' + '<button name="send" value="/guild members ' + curLeague.id + '">' + curLeague.users.length + '</button></td>';
+				output += '<td class="gangtd" style="box-shadow: 0px 0px 10px white inset">' + '<button name="send" class="gangbtn" value="/guild points log ' + curLeague.id + '">' + curLeague.points + '</button></td>';
+				output += '<td class="gangtd" style="box-shadow: 0px 0px 10px white inset">' + '<button name="send" class="gangbtn" value="/guild members ' + curLeague.id + '">' + curLeague.users.length + '</button></td>';
 				output += '</tr>';
 			}
 			output += '</table></center>';
