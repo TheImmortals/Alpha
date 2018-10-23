@@ -488,9 +488,9 @@ exports.commands = {
 		add: "set",
 		set: function (target, room, user) {
 			if (!target) return this.parse("/pokemonhelp");
-			let pkmn = Dex.getTemplate(target);
-			if (!pkmn.exists) return this.errorReply('Not a Pokemon. Check your spelling?');
-			Db.pokemon.set(user.userid, pkmn.species);
+			//let pkmn = Dex.getTemplate(target);
+			//if (!pkmn.exists) return this.errorReply('Not a Pokemon. Check your spelling?');
+			Db.pokemon.set(user.userid, target);
 			return this.sendReply(`You have successfully set your favorite Pokemon as ${pkmn}.`);
 		},
 
