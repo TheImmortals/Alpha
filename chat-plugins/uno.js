@@ -230,7 +230,7 @@ class UnoGame extends Rooms.RoomGame {
 	 * @return {false | void}
 	 */
 	onStart() {
-		if (this.playerCount < 2) return false;
+		if (this.playerCount < 4) return false;
 		if (this.autostartTimer) clearTimeout(this.autostartTimer);
 		this.sendToRoom(`|uhtmlchange|uno-${this.room.gameNumber}|<div class="infobox"><p>The game of UNO has started.</p>${(this.suppressMessages ? `<p style="font-size: 6pt">Game messages will be shown to only players.  If you would like to spectate the game, use <strong>/uno spectate</strong></p>` : '')}</div>`, true);
 		this.state = 'play';
@@ -671,10 +671,10 @@ class UnoGame extends Rooms.RoomGame {
 		if (Users(targetUserid).unoBoost) prize *= 2;
 		if (Users(targetUserid).gameBoost) prize *= 2;
 		for (let i in this.players) {
-			Server.ExpControl.addExp(this.players[i].userid, this.room, 20);
+			Server.ExpControl.addExp(this.players[i].userid, this.room, 2);
 		}
 		if (this.room.isOfficial) {
-			Server.ExpControl.addExp(targetUserid, this.room, 5);
+			Server.ExpControl.addExp(targetUserid, this.room, 8);
 			Economy.writeMoney(targetUserid, prize, newAmount => {
 				if (Users(targetUserid) && Users(targetUserid).connected) {
 					Users.get(targetUserid).popup('You have received ' + prize + ' ' + (prize === 1 ? global.currencyName : global.currencyPlural) + ' from winning the game of UNO.');
