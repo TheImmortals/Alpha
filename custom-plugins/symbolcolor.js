@@ -48,7 +48,7 @@ exports.commands = {
 			for (let u in target) target[u] = target[u].trim();
 			if (target.length !== 2) return this.parse("/help sc");
 			if (toId(target[0]).length > 19) return this.errorReply("Usernames are not this long...");
-			if (icons[toId(target[0])]) return this.errorReply("This user already has a custom symbol color.  Do /sc delete [user] and then set their new symbol color.");
+			if (!sc[toId(target[0])]) return this.errorReply("This user already has a custom symbol color.  Do /sc delete [user] and then set their new symbol color.");
 			this.sendReply(`|raw|You have given ${Server.nameColor(target[0], true)} an symbol color.`);
 			Monitor.log(`${target[0]} has received an symbol color from ${user.name}.`);
 			this.privateModAction(`|raw|(${target[0]} has received symbol color: "${target[1]} from ${user.name}.)`);
