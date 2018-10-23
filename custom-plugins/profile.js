@@ -488,10 +488,10 @@ exports.commands = {
 		add: "set",
 		set: function (target, room, user) {
 			if (!target) return this.parse("/pokemonhelp");
-			//let pkmn = Dex.getTemplate(target);
-			//if (!pkmn.exists) return this.errorReply('Not a Pokemon. Check your spelling?');
+			let pkmn = Dex.getTemplate(target);
+			if (!pkmn.exists) return this.errorReply('Not a Pokemon. Check your spelling?');
 			Db.pokemon.set(user.userid, target);
-			return this.sendReply(`You have successfully set your favorite Pokemon as ${target}.`);
+			return this.sendReply(`You have successfully set your favorite Pokemon as ${pkmn}.`);
 		},
 
 		del: "delete",
@@ -623,7 +623,7 @@ exports.commands = {
 				profile += `&nbsp;${pColor(toId(username))}<b>Registered:</b> ${regdate}</font><br />`;
 				profile += `&nbsp;${pColor(toId(username))}<b>${currencyPlural}:</b> ${currency}</font><br />`;
 				if (Db.pokemon.has(toId(username))) {
-					profile += `&nbsp;${pColor(toId(username))}<b>Favorite Pokemon:</b> <img src="https://www.serebii.net/pokedex-xy/icon/${Db.pokemon.get(toId(username))}.png"></font><br />`;
+					profile += `&nbsp;${pColor(toId(username))}<b>Favorite Pokemon:</b> ${Db.pokemon.get(toId(username))}</font><br />`;
 				}
 				if (Db.type.has(toId(username))) {
 					profile += `&nbsp;${pColor(toId(username))}<b>Favorite Type:</b></font> <img src="https://www.serebii.net/pokedex-bw/type/${Db.type.get(toId(username))}.gif"><br />`;
