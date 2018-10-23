@@ -647,7 +647,7 @@ exports.commands = {
 				}*/
 				profile += `&nbsp;${song(toId(username))}`;
 				profile += `&nbsp;</div></div>`;
-				profile += `<br clear="all">`;
+				//profile += `<br clear="all">`;
 				self.sendReplyBox(profile);
 			});
 		}
