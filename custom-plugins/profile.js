@@ -528,7 +528,7 @@ exports.commands = {
 		let username = (targetUser ? targetUser.name : target);
 		let userid = (targetUser ? targetUser.userid : toId(target));
 		let profile = Db.profile.get(userid, {data: {title: {}, music: {}}});
-		let avatar = (targetUser ? (isNaN(targetUser.avatar) ? `http://${serverIp}/avatars/${targetUser.avatar}` : `http://play.pokemonshowdown.com/sprites/trainers/${targetUser.avatar}.png`) : (Config.customavatars[userid] ? `http://${serverIp}:${Config.port}/avatars/${Config.customavatars[userid]}` : `http://play.pokemonshowdown.com/sprites/trainers/1.png`));
+		let avatar = (targetUser ? (isNaN(targetUser.avatar) ? `http://${serverIp}/avatars/${targetUser.avatar}` : `http://play.pokemonshowdown.com/sprites/trainers/${targetUser.avatar}.png`) : (Config.customavatars[userid] ? `http://${serverIp}/avatars/${Config.customavatars[userid]}` : `http://play.pokemonshowdown.com/sprites/trainers/1.png`));
 		if (targetUser && targetUser.avatar[0] === "#") avatar = `http://play.pokemonshowdown.com/sprites/trainers/${targetUser.avatar.substr(1)}.png`;
 		let userSymbol = (Users.usergroups[userid] ? Users.usergroups[userid].substr(0, 1) : "Regular User");
 		let userGroup = (Config.groups[userSymbol] ? `Global ${Config.groups[userSymbol].name}` : `Regular User`);
@@ -544,9 +544,9 @@ exports.commands = {
 
 		let profileData = ``;
 		if (profile.background) {
-			profileData += `<div style="background:url(${profile.background}); background-size: 100% 100%; height: 150px; overflow: auto">`;
+			profileData += `<div style="background:url(${profile.background}); background-size: 100% 100%; height: 150px; overflow-y: auto">`;
 		} else {
-			profileData += `<div style="max-height: 150px; overflow-y: auto">`;
+			profileData += `<div style="max-height: 250px; overflow-y: auto">`;
 		}
 		profileData += `<div style="display: inline-block; width: 6.5em; height: 100%; vertical-align: top"><img src="${avatar}" height="80" width="80" align="left"></div>`;
 		profileData += `<div style="display: inline-block">&nbsp;${pColor(userid)}<strong>Name:</strong></font> ${Server.nameColor(username, true)}&nbsp;`;
