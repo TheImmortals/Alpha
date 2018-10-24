@@ -62,8 +62,8 @@ class Panagram {
 
 	guess(user, guess) {
 		if (guess.species === this.answer.species) {
-			this.room.add(`|html|${Server.nameColor(user.name, true)} guessed <strong>${guess.species}</strong>, which was the correct answer! This user has also won 1 ${moneyName}!`);
-			Economy.writeMoney(user.userid, 1);
+			this.room.add(`|html|${Server.nameColor(user.name, true)} guessed <strong>${guess.species}</strong>, which was the correct answer! This user has also won 1 exp!`);
+			ExpControl.addExp(user.userid, this.room, 1);
 			this.end();
 		} else {
 			this.room.add(`|html|${Server.nameColor(user.name, true)} guessed <strong>${guess.species}</strong>, but was not the correct answer...`);
@@ -103,7 +103,7 @@ exports.commands = {
 	panagram: function (target, room, user, connection, cmd) {
 		if (pGames[room.id]) return this.errorReply("There is currently a game of panagram going on in this room.");
 		if (!this.can('declare', null, room)) return this.errorReply("You must be ranked # or higher to start a game of panagram in this room.");
-		if (room.id !== 'casino') return this.sendReply('|html|You can only start a game of Panagram in the <button name = "send" value = "/join casino">Casino</button>');
+		if (room.id !== 'gamingclub') return this.sendReply('|html|You can only start a game of Panagram in the <button name = "send" value = "/join casino">Casino</button>');
 		if (!target || isNaN(target)) return this.errorReply("Usage: /panagram [number of sessions]");
 		if (target < 150) return this.errorReply("The minimum number of sessions you can have at a time is 150.");
 		if (~target.indexOf('.')) return this.errorReply("The number of sessions cannot be a decimal value.");
