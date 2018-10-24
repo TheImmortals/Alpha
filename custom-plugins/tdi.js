@@ -48,7 +48,7 @@ class TDI {
 		this.room.add(`|uhtmlchange|tdi-${this.tdiNumber}|<div><strong><p style= 14pt>A new season of Total Drama Island has begun airing.</p></strong></div>`);
 		this.state = "started";
 		this.prizeMoney = this.players.length * 100;
-		this.room.add(`The prize money has been locked in at a total of ${this.prizeMoney} ${moneyPlural}.`);
+		this.room.add(`The prize money has been locked in at a total of ${this.prizeMoney} ${currencyPlural}.`);
 		this.decideTeams();
 	}
 
