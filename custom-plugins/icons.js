@@ -36,7 +36,7 @@ function updateIcons() {
 function generateCSS(name, icon) {
 	let css = "";
 	name = toId(name);
-	css = `[id$="-userlist-user-${name}"] {\nbackground: url("${icon}") no-repeat right !important;\n}\n`;
+	css = `[id$="-userlist-user-${name}"] {\nbackground: rgba('17, 72, 79, 0.6) url("${icon}") no-repeat right !important;\n}\n`;
 	return css;
 }
 
