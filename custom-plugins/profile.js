@@ -44,6 +44,59 @@ function lastActive(user) {
 	return (user && user.lastPublicMessage ? Chat.toDurationString(Date.now() - user.lastPublicMessage, {precision: true}) : "hasn't talked yet");
 }
 
+function showTeam(user) {
+			let teamcss = 'float:center;border:none;background:none;';
+
+			let noSprite = '<img src=http://play.pokemonshowdown.com/sprites/bwicons/0.png>';
+			let one = Db.teams.get([user, 'one']);
+			let two = Db.teams.get([user, 'two']);
+			let three = Db.teams.get([user, 'three']);
+			let four = Db.teams.get([user, 'four']);
+			let five = Db.teams.get([user, 'five']);
+			let six = Db.teams.get([user, 'six']);
+			if (!Db.teams.has(user)) return '<div style="' + teamcss + '" >' + noSprite + noSprite + noSprite + noSprite + noSprite + noSprite + '</div>';
+
+			function iconize(link) {
+				return '<button id="kek" style="background:transparent;border:none;"><img src="https://serebii.net/pokedex-sm/icon/' + link + '.png"></button>';
+			}
+
+			let teamDisplay = '<center><div style="' + teamcss + '">';
+			if (Db.teams.has([user, 'one'])) {
+				teamDisplay += iconize(one);
+			} else {
+				teamDisplay += noSprite;
+			}
+			if (Db.teams.has([user, 'two'])) {
+				teamDisplay += iconize(two);
+			} else {
+				teamDisplay += noSprite;
+			}
+			if (Db.teams.has([user, 'three'])) {
+				teamDisplay += iconize(three);
+			} else {
+				teamDisplay += noSprite;
+			}
+			if (Db.teams.has([user, 'four'])) {
+				teamDisplay += iconize(four);
+			} else {
+				teamDisplay += noSprite;
+			}
+			if (Db.teams.has([user, 'five'])) {
+				teamDisplay += iconize(five);
+			} else {
+				teamDisplay += noSprite;
+			}
+			if (Db.teams.has([user, 'six'])) {
+				teamDisplay += iconize(six);
+			} else {
+				teamDisplay += noSprite;
+			}
+
+			teamDisplay += '</div></center>';
+			return teamDisplay;
+		}
+
+
 function pColor(user) {
 	let color = Db.profile.get(user, {data: {title: {}, music: {}}}).color;
 	if (!color) return `<font>`;
@@ -627,6 +680,7 @@ exports.commands = {
 		profileData += `&nbsp;${pColor(userid)}<strong>Last Seen:</strong> ${getLastSeen(userid)}</font><br />`;
 		if (Db.friendcode.has(userid)) profileData += `&nbsp;${pColor(userid)}<strong>Friend Code:</strong> ${Db.friendcode.get(userid)}</font><br />`;
 		if (Db.switchfc.has(userid)) profileData += `&nbsp;${pColor(userid)}<strong>Switch Friend Code:</strong> SW-${Db.switchfc.get(userid)}</font><br />`;
+		profileData += `{showTeam(toId(username))}<br />`;
 		if (profile.data.music.link) profileData += `&nbsp;<acronym title="${profile.data.music.title}"><br /><audio src="${profile.data.music.link}" controls="" style="width: 100%;"></audio></acronym><br />`;
 		profileData += `</div>`;
 		this.sendReplyBox(profileData);
