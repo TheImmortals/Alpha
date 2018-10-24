@@ -562,7 +562,7 @@ exports.commands = {
 		//if (Server.isGenner(userid)) profileData += ` <font color="#F48C04"><strong>Genner</strong></font>`;
 		profileData += `<br />`;
 		profileData += `&nbsp;${pColor(userid)}<strong>Registered:</strong> ${regdate}</font><br />`;
-		profileData += `&nbsp;${pColor(userid)}<strong>${moneyPlural}:</strong> ${Economy.readMoney(userid).toLocaleString()}</font><br />`;
+		profileData += `&nbsp;${pColor(userid)}<strong>${currencyPlural}:</strong> ${Economy.readMoney(userid).toLocaleString()}</font><br />`;
 		if (profile.pokemon) profileData += `&nbsp;${pColor(userid)}<strong>Favorite Pokemon:</strong> ${profile.pokemon}</font><br />`;
 		if (profile.type) profileData += `&nbsp;${pColor(userid)}<strong>Favorite Type:</strong></font> <img src="https://www.serebii.net/pokedex-bw/type/${profile.type}.gif"><br />`;
 		if (profile.nature) profileData += `&nbsp;${pColor(userid)}<strong>Nature:</strong> ${profile.nature}</font><br />`;
