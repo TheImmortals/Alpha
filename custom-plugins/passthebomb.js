@@ -21,7 +21,7 @@ class PassTheBomb extends Rooms.RoomGame {
 			'<button name = "send" value = "/ptb join">Join!</button></center></div>'
 		);
 		this.timer = setTimeout(() => {
-			if (this.players.size < 2) {
+			if (this.players.size < 4) {
 				this.room.add('|uhtmlchange|bomb' + this.room.bombCount + this.round + '|<div class = "hangman-blue"><center>This game of Pass the Bomb has been ended due to the lack of players.</center></div>').update();
 				return this.end();
 			}
