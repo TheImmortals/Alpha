@@ -394,6 +394,60 @@ exports.commands = {
 		/bg delete [user] - Removes [user]'s profile background. Requires %, @, &, ~
 		/bg help - Displays the help command for Profile Backgrounds.`,
 	],
+	
+	pteam: 'profileteam',
+	profileteam: {
+		add: 'set',
+		set: function (target, room, user) {
+			if (!Db.hasteam.has(user.userid)) return this.errorReply('You don\'t have access to edit your team.');
+			if (!target) return this.parse('/profileteam help');
+			let parts = target.split(',');
+			let mon = parts[1].trim();
+			let slot = parts[0];
+			if (!parts[1]) return this.parse('/profileteam help');
+			let acceptable = ['one', 'two', 'three', 'four', 'five', 'six'];
+			if (!acceptable.includes(slot)) return this.parse('/profileteam help');
+			if (slot === 'one' || slot === 'two' || slot === 'three' || slot === 'four' || slot === 'five' || slot === 'six') {
+				Db.teams.set([user.userid, slot], mon);
+				this.sendReply('You have added this pokemon to your team.');
+			}
+		},
+
+		give: function (target, room, user) {
+			if (!this.can('ban')) return false;
+			if (!target) return this.parse('/profileteam help');
+			let targetId = toId(target);
+			Db.hasteam.set(targetId, 1);
+			this.sendReply(target + ' has been given the ability to set their team.');
+			Users(target).popup('You have been given the ability to set your profile team.');
+		},
+
+		take: function (target, room, user) {
+			if (!this.can('ban')) return false;
+			if (!target) return this.parse('/profileteam help');
+			if (!Db.hasteam.has(user)) return this.errorReply('This user does not have the ability to set their team.');
+			Db.hasteam.remove(user);
+			return this.sendReply('This user has had their ability to change their team away.');
+		},
+
+		'': 'help',
+		help: function (target, room, user) {
+			if (!this.runBroadcast()) return;
+			this.sendReplyBox(
+				'<center><strong>Profile Team Commands</strong><br />' +
+				'All commands are nestled under namespace <code>pteam</code></center><br />' +
+				'<hr width="100%">' +
+				'<code>add (slot), (dex number)</code>: The dex number must be the actual dex number of the pokemon you want.<br />' +
+				'Slot - we mean what slot you want the pokemon to be. valid entries for this are: one, two, three, four, five, six.<br />' +
+				'Chosing the right slot is crucial because if you chose a slot that already has a pokemon, it will overwrite that data and replace it. This can be used to replace / reorder what pokemon go where.<br />' +
+				'If the Pokemon is in the first 99 Pokemon, do 0(number), and for Megas do (dex number)-m, -mx for mega , -my for mega Y.<br>' +
+				'For example: Mega Venusaur would be 003-m<br />' +
+				'<code>give</code>: Global staff can give user\'s ability to set their own team.<br />' +
+				'<code>take</code>: Global staff can take user\'s ability to set their own team.<br />' +
+				'<code>help</code>: Displays this command.'
+			);
+		},
+	},
 
 	song: "music",
 	music: {
