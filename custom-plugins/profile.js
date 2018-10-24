@@ -1,101 +1,60 @@
-
 /****************************************************************************
- * Profiles for Pokemon Showdown															 *
- * Displays to users a profile of a given user.										 *
- * For order's sake:														 					 *
- * - vip, dev, custom title, friend code, and profile were placed in here.	 *
- * Updated and restyled by Mystifi and Insist										 *
- * Main Profile credit goes out to panpawn/jd/other contributors.				 *
+ * Profiles for Pokemon Showdown											*
+ * Displays to users a profile of a given user.								*
+ * For order's sake:														*
+ * - vip, dev, custom title, friend code, and profile were placed in here.	*
+ * Updated and restyled by Mystifi and Insist								*
+ * Main Profile credit goes out to panpawn/jd/other contributors.			*
  ****************************************************************************/
 
-'use strict';
+"use strict";
 
-let geoip = require('geoip-lite-country');
+let geoip = require("geoip-lite-country");
 
 // fill your server's IP in your config.js for exports.serverIp
 const serverIp = Config.serverIp;
 
 function isDev(user) {
 	if (!user) return;
-	if (typeof user === 'object') user = user.userid;
+	if (typeof user === "object") user = user.userid;
 	let dev = Db.devs.get(toId(user));
 	if (dev === 1) return true;
 	return false;
 }
-
 Server.isDev = isDev;
 
 function isVIP(user) {
 	if (!user) return;
-	if (typeof user === 'object') user = user.userid;
+	if (typeof user === "object") user = user.userid;
 	let vip = Db.vips.get(toId(user));
 	if (vip === 1) return true;
 	return false;
 }
 
-Server.isVIP = isVIP;
-
-/*function isTsuMetaCouncil(user) {
-	if (!user) return;
-	if (typeof user === 'object') user = user.userid;
-	let council = Db.councilmember.get(toId(user));
-	if (council === 1) return true;
-	return false;
-}*/
-
-function showTitle(userid) {
-	userid = toId(userid);
-	if (Db.customtitles.has(userid)) {
-		return `<font color="${Db.customtitles.get(userid)[1]}">(<strong>${Db.customtitles.get(userid)[0]}</strong>)</font>`;
-	}
-	return '';
-}
-
-function devCheck(user) {
-	if (isDev(user)) return '<font color="#009320">(<strong>Developer</strong>)</font>';
-	return '';
-}
-
-function vipCheck(user) {
-	if (isVIP(user)) return '<font color="#6390F0">(<strong>VIP User</strong>)</font>';
-	return '';
-}
-
-/*function tsumetaCheck(user) {
-	if (isTsuMetaCouncil(user)) return '<font color="#B22222">(<strong>TsuMeta Member</strong>)</font>';
-	return '';
+function getLastSeen(userid) {
+	if (Users(userid) && Users(userid).connected) return `<font color = "limegreen"><strong>Currently Online</strong></font>`;
+	let seen = Db.seen.get(userid);
+	if (!seen) return `<font color = "red"><strong>Never</strong></font>`;
+	return Chat.toDurationString(Date.now() - seen, {precision: true}) + " ago.";
 }
 
 function lastActive(user) {
 	if (!Users(user)) return false;
 	user = Users(user);
 	return (user && user.lastPublicMessage ? Chat.toDurationString(Date.now() - user.lastPublicMessage, {precision: true}) : "hasn't talked yet");
-}*/
-function showBadges(user) {
-	if (Db.userBadges.has(toId(user))) {
-		let badges = Db.userBadges.get(toId(user));
-		let css = 'border:none;background:none;padding:0;';
-		if (typeof badges !== 'undefined' && badges !== null) {
-			let output = '<td><div style="float: right; background: rgba(69, 76, 80, 0.4); text-align: center; border-radius: 12px; box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2) inset; margin: 0px 3px;">';
-			output += ' <table style="' + css + '"> <tr>';
-			for (let i = 0; i < badges.length; i++) {
-				if (i !== 0 && i % 4 === 0) output += '</tr> <tr>';
-				output += '<td><button style="' + css + '" name="send" value="/badges info, ' + badges[i] + '">' +
-				'<img src="' + Db.badgeData.get(badges[i])[1] + '" height="16" width="16" alt="' + badges[i] + '" title="' + badges[i] + '" >' + '</button></td>';
-			}
-			output += '</tr> </table></div></td>';
-			return output;
-		}
-	}
-	return '';
 }
 
+function pColor(user) {
+	let color = Db.profile.get(user, {data: {title: {}, music: {}}}).color;
+	if (!color) return `<font>`;
+	return `<font color="${color}">`;
+}
 
 exports.commands = {
 	dev: {
 		give: function (target, room, user) {
-			if (!this.can('customtitle')) return false;
-			if (!target) return this.parse('/help', true);
+			if (!this.can("hotpatch")) return false;
+			if (!target) return this.parse("/help", true);
 			let devUsername = toId(target);
 			if (devUsername.length > 18) return this.errorReply("Usernames cannot exceed 18 characters.");
 			if (isDev(devUsername)) return this.errorReply(`${target} is already a DEV user.`);
@@ -105,8 +64,8 @@ exports.commands = {
 		},
 
 		take: function (target, room, user) {
-			if (!this.can('customtitle')) return false;
-			if (!target) return this.parse('/help', true);
+			if (!this.can("hotpatch")) return false;
+			if (!target) return this.parse("/help", true);
 			let devUsername = toId(target);
 			if (devUsername.length > 18) return this.errorReply("Usernames cannot exceed 18 characters.");
 			if (!isDev(devUsername)) return this.errorReply(`${target} isn't a DEV user.`);
@@ -115,36 +74,32 @@ exports.commands = {
 			if (Users.get(devUsername)) Users(devUsername).popup(`|html|You have been demoted from DEV status by ${Server.nameColor(user.name, true)}.`);
 		},
 
-		users: 'list',
+		users: "list",
 		list: function () {
-			if (!Db.devs.keys().length) return this.errorReply('There seems to be no user with DEV status.');
+			if (!Db.devs.keys().length) return this.errorReply("There seems to be no user(s) with DEV status.");
 			let display = [];
 			Db.devs.keys().forEach(devUser => {
 				display.push(Server.nameColor(devUser, (Users(devUser) && Users(devUser).connected)));
 			});
-			this.popupReply(`|html|<strong><u><font size="3"><center>DEV Users:</center></font></u></strong>${display.join(',')}`);
+			this.popupReply(`|html|<strong><u><font size="3"><center>DEV Users:</center></font></u></strong>${Chat.toListString(display)}`);
 		},
 
-		'': 'help',
+		"": "help",
 		help: function () {
-			this.sendReplyBox(
-				'<div style="padding: 3px 5px;"><center>' +
-				'<code>/dev</code> commands.<br />These commands are nestled under the namespace <code>dev</code>.</center>' +
-				'<hr width="100%">' +
-				'<code>give [username]</code>: Gives <code>username</code> DEV status. Requires: & ~' +
-				'<br />' +
-				'<code>take [username]</code>: Takes <code>username</code>\'s DEV status. Requires: & ~.' +
-				'<br />' +
-				'<code>list</code>: Shows the list of users with DEV Status.' +
-				'</div>'
-			);
+			this.parse(`/help dev`);
 		},
 	},
+	devhelp: [
+		`/dev give [user] - Gives [user] DEV status. Requires &, ~
+		/dev take [user] - Takes away [user]'s DEV status. Requires &, ~
+		/dev list - Displays the list of user's with DEV status.
+		/dev help - Displays the list of Dev commands.`,
+	],
 
 	vip: {
 		give: function (target, room, user) {
-			if (!this.can('customtitle')) return false;
-			if (!target) return this.parse('/help', true);
+			if (!this.can("profile")) return false;
+			if (!target) return this.parse("/help", true);
 			let vipUsername = toId(target);
 			if (vipUsername.length > 18) return this.errorReply("Usernames cannot exceed 18 characters.");
 			if (isVIP(vipUsername)) return this.errorReply(`${target} is already a VIP user.`);
@@ -154,8 +109,8 @@ exports.commands = {
 		},
 
 		take: function (target, room, user) {
-			if (!this.can('customtitle')) return false;
-			if (!target) return this.parse('/help', true);
+			if (!this.can("profile")) return false;
+			if (!target) return this.parse("/help", true);
 			let vipUsername = toId(target);
 			if (vipUsername.length > 18) return this.errorReply("Usernames cannot exceed 18 characters.");
 			if (!isVIP(vipUsername)) return this.errorReply(`${target} isn't a VIP user.`);
@@ -164,91 +119,76 @@ exports.commands = {
 			if (Users.get(vipUsername)) Users(vipUsername).popup(`|html|You have been demoted from VIP status by ${Server.nameColor(user.name, true)}.`);
 		},
 
-		users: 'list',
-		list: function (target, room, user) {
-			if (!Db.vips.keys().length) return this.errorReply('There seems to be no user(s) with VIP status.');
+		users: "list",
+		list: function () {
+			if (!Db.vips.keys().length) return this.errorReply("There seems to be no user(s) with VIP status.");
 			let display = [];
 			Db.vips.keys().forEach(vipUser => {
 				display.push(Server.nameColor(vipUser, (Users(vipUser) && Users(vipUser).connected)));
 			});
-			this.popupReply(`|html|<strong><u><font size="3"><center>VIP Users:</center></font></u></strong>${display.join(',')}`);
+			this.popupReply(`|html|<strong><u><font size="3"><center>VIP Users:</center></font></u></strong>${Chat.toListString(display)}`);
 		},
 
-		'': 'help',
-		help: function (target, room, user) {
-			this.sendReplyBox(
-				'<div style="padding: 3px 5px;"><center>' +
-				'<code>/vip</code> commands.<br />These commands are nestled under the namespace <code>vip</code>.</center>' +
-				'<hr width="100%">' +
-				'<code>give [username]</code>: Gives <code>username</code> VIP status. Requires: & ~' +
-				'<br />' +
-				'<code>take [username]</code>: Takes <code>username</code>\'s VIP status. Requires: & ~' +
-				'<br />' +
-				'<code>list</code>: Shows list of users with VIP Status.' +
-				'</div>'
-			);
+		"": "help",
+		help: function () {
+			this.parse(`/help vip`);
 		},
 	},
+	viphelp: [
+		`/vip give [user] - Gives [user] VIP status. Requires %, @, &, ~
+		/vip take [user] - Takes away [user]'s VIP status. Requires %, @, &, ~
+		/vip list - Displays the list of user's with VIP status.
+		/vip help - Displays the list of VIP commands.`,
+	],
 
-	title: 'customtitle',
+	title: "customtitle",
 	customtitle: {
-		set: 'give',
+		set: "give",
 		give: function (target, room, user) {
-			if (!this.can('customtitle')) return false;
-			target = target.split(',');
-			if (!target || target.length < 3) return this.parse('/help', true);
-			let userid = toId(target[0]);
-			let targetUser = Users.getExact(userid);
-			let title = target[1].trim();
-			if (Db.customtitles.has(userid) && Db.titlecolors.has(userid)) {
-				return this.errorReply(`${userid} already has a custom title.`);
-			}
-			let color = target[2].trim();
-			if (color.charAt(0) !== '#') return this.errorReply(`The color needs to be a hex starting with "#".`);
-			Db.customtitles.set(userid, [title, color]);
-			if (Users.get(targetUser)) {
-				Users(targetUser).popup(`|html|You have received a custom title from ${Server.nameColor(user.name, true)}.<br />Title: ${showTitle(toId(targetUser))}<br />Title Hex Color: ${color}`);
-			}
-			this.privateModAction(`${user.name} set a custom title to ${target[0]}'s profile.`);
-			Monitor.log(`${user.name} set a custom title to ${target[0]}'s profile.`);
-			return this.sendReply(`Title "${title}" and color "${color}" for ${target[0]}'s custom title have been set.`);
+			if (!this.can("profile")) return false;
+			let [userid, titleName, color] = target.split(",").map(p => { return p.trim(); });
+			if (!color) return this.parse("/help", true);
+			userid = toId(userid);
+			let profile = Db.profile.get(userid, {data: {title: {}, music: {}}});
+			if (color.charAt(0) !== "#") return this.errorReply(`The color needs to be a hex starting with "#".`);
+			profile.data.title.title = titleName;
+			profile.data.title.color = color;
+			Db.profile.set(userid, profile);
+			if (Users(userid)) Users(userid).popup(`|html|You have received a custom title from ${Server.nameColor(user.name, true)}.<br />Title: <font color="${color}">(<strong>${titleName}</strong>)</font><br />Title Hex Color: ${color}`);
+			this.privateModAction(`${user.name} set a custom title to ${userid}'s profile.`);
+			Monitor.log(`${user.name} set a custom title to ${userid}'s profile.`);
+			return this.sendReply(`Title "${titleName}" and color "${color}" for ${userid}'s custom title have been set.`);
 		},
 
-		delete: 'remove',
-		take: 'remove',
+		delete: "remove",
+		take: "remove",
 		remove: function (target, room, user) {
-			if (!this.can('customtitle')) return false;
-			if (!target) return this.parse('/help', true);
+			if (!this.can("profile")) return false;
+			if (!target) return this.parse("/help", true);
 			let userid = toId(target);
-			if (!Db.customtitles.has(userid) && !Db.titlecolors.has(userid)) {
-				return this.errorReply(`${target} does not have a custom title set.`);
-			}
-			Db.titlecolors.remove(userid);
-			Db.customtitles.remove(userid);
-			if (Users.get(userid)) {
-				Users(userid).popup(`|html|${Server.nameColor(user.name, true)} has removed your custom title.`);
-			}
+			let profile = Db.profile.get(userid, {data: {title: {}, music: {}}});
+			if (!(profile.data.title.title || profile.data.title.color)) return this.errorReply(`${target} doesn't have a custom title yet.`);
+			delete profile.data.title.title;
+			delete profile.data.title.color;
+			Db.profile.set(userid, profile);
+			if (Users(userid)) Users(userid).popup(`|html|${Server.nameColor(user.name, true)} has removed your custom title.`);
 			this.privateModAction(`${user.name} removed ${target}'s custom title.`);
 			Monitor.log(`${user.name} removed ${target}'s custom title.`);
-			return this.sendReply(`${target}'s custom title and title color were removed from the server memory.`);
+			return this.sendReply(`${target}'s custom title and title color was removed from the server memory.`);
 		},
 
-		'': 'help',
-		help: function (target, room, user) {
-			if (!user.autoconfirmed) return this.errorReply("You need to be autoconfirmed to use this command.");
-			if (!this.canTalk()) return this.errorReply("You cannot do this while unable to talk.");
-			if (!this.runBroadcast()) return;
-			return this.sendReplyBox(
-				'<center><code>/customtitle</code> commands<br />' +
-				'All commands are nestled under the namespace <code>customtitle</code>.</center>' +
-				'<hr width="100%">' +
-				'- <code>[set|give] [username], [title], [hex color]</code>: Sets a user\'s custom title. Requires: & ~' +
-				'- <code>[take|remove|delete] [username]</code>: Removes a user\'s custom title and erases it from the server. Requires: & ~'
-			);
+		"": "help",
+		help: function () {
+			this.parse(`/help customtitle`);
 		},
 	},
+	customtitlehelp: [
+		`/customtitle set [user], [title], [hex code] - Sets the [user]'s title as [title] with the hex code [hex code]. Requires %, @, &, ~
+		/customtitle take [user] - Deletes the [user]'s custom title. Requires %, @, &, ~
+		/customtitle help - Displays a list of help commands about custom titles.`,
+	],
 
-	/*fc: 'friendcode',
+	fc: "friendcode",
 	friendcode: {
 		switch: "nintendoswitch",
 		nintendoswitch: {
@@ -258,8 +198,8 @@ exports.commands = {
 				if (!user.autoconfirmed) return this.errorReply("You must be autoconfirmed to use this command.");
 				if (!target) return this.parse("/friendcodehelp");
 				let fc = target;
-				fc = fc.replace(/-/g, '');
-				fc = fc.replace(/ /g, '');
+				fc = fc.replace(/-/g, "");
+				fc = fc.replace(/ /g, "");
 				if (isNaN(fc)) {
 					return this.errorReply("Your Switch friend code needs to contain only numerical characters (the SW- will be automatically added).");
 				}
@@ -278,16 +218,16 @@ exports.commands = {
 					Db.switchfc.remove(user.userid);
 					return this.sendReply("Your Switch friend code has been deleted from the server.");
 				} else {
-					if (!this.can('lock')) return false;
+					if (!this.can("profile")) return false;
 					let userid = toId(target);
 					if (!Db.switchfc.has(userid)) return this.errorReply(`${target} hasn't set a friend code.`);
 					Db.switchfc.remove(userid);
 					return this.sendReply(`${target}'s Switch friend code has been deleted from the server.`);
 				}
 			},
-		},*/
+		},
 
-		/*"2ds": "ds",
+		"2ds": "ds",
 		"3ds": "ds",
 		nintendods: "ds",
 		nintendo3ds: "ds",
@@ -299,8 +239,8 @@ exports.commands = {
 				if (!user.autoconfirmed) return this.errorReply("You must be autoconfirmed to use this command.");
 				if (!target) return this.parse("/friendcodehelp");
 				let fc = target;
-				fc = fc.replace(/-/g, '');
-				fc = fc.replace(/ /g, '');
+				fc = fc.replace(/-/g, "");
+				fc = fc.replace(/ /g, "");
 				if (isNaN(fc)) {
 					return this.errorReply("Your friend code needs to contain only numerical characters.");
 				}
@@ -310,7 +250,7 @@ exports.commands = {
 				return this.sendReply(`Your friend code: ${fc} has been saved to the server.`);
 			},
 
-			remove: 'delete',
+			remove: "delete",
 			delete: function (target, room, user) {
 				if (room.battle) return this.errorReply("Please use this command outside of battle rooms.");
 				if (!user.autoconfirmed) return this.errorReply("You must be autoconfirmed to use this command.");
@@ -319,7 +259,7 @@ exports.commands = {
 					Db.friendcode.remove(user.userid);
 					return this.sendReply("Your friend code has been deleted from the server.");
 				} else {
-					if (!this.can('lock')) return false;
+					if (!this.can("profile")) return false;
 					let userid = toId(target);
 					if (!Db.friendcode.has(userid)) return this.errorReply(`${target} hasn't set a friend code.`);
 					Db.friendcode.remove(userid);
@@ -329,7 +269,7 @@ exports.commands = {
 		},
 
 		"": "help",
-		help: function (target, room, user) {
+		help: function () {
 			this.parse("/friendcodehelp");
 		},
 	},
@@ -338,188 +278,208 @@ exports.commands = {
 		/fc [switch|ds] delete - Deletes your friend code off the server of the specified console.
 		/fc [switch|ds] delete [target] - Deletes the specified user's friend code for the specified console. Requires Global % or higher.
 		/fc help - Shows this command.`,
-	],*/
+	],
 
-	favoritetype: 'type',
+	favoritetype: "type",
 	type: {
 		add: "set",
 		set: function (target, room, user) {
 			if (!target) return this.parse("/help type");
+			let profile = Db.profile.get(user.userid, {data: {title: {}, music: {}}});
 			let type = Dex.getType(target);
-			if (!type.exists) return this.errorReply('Not a type. Check your spelling?');
-			Db.type.set(user.userid, toId(type));
-			return this.sendReply(`Your favorite type has been set to "${type}".`);
+			if (!type.exists) return this.errorReply("Not a type. Check your spelling?");
+			profile.type = toId(type);
+			Db.profile.set(user.userid, profile);
+			return this.sendReply(`Your favorite type has been set to "${target}".`);
 		},
 
 		del: "delete",
 		remove: "delete",
 		delete: function (target, room, user) {
-			if (!Db.type.has(user.userid)) return this.errorReply("Your Favorite Type hasn't been set.");
-			Db.type.remove(user.userid);
+			let profile = Db.profile.get(user.userid, {data: {title: {}, music: {}}});
+			if (!profile.type) return this.errorReply(`Your profile type hasn't been set yet.`);
+			delete profile.type;
+			Db.profile.set(user.userid, profile);
 			return this.sendReply("Your favorite type has been deleted from your profile.");
 		},
 
 		"": "help",
-		help: function (target, room, user) {
-			this.parse('/help type');
+		help: function () {
+			this.parse("/help type");
 		},
 	},
 	typehelp: [
-		"/type set [type] - Sets your Favorite Type.",
-		"/type delete - Removes your Favorite Type.",
+		`/type set [type] - Sets your Favorite Type.
+		/type delete - Removes your Favorite Type.
+		/type help - Displays a list of type commands.`,
 	],
 
-	profilecolor: 'pcolor',
+	profilecolor: "pcolor",
 	pcolor: {
-		set: 'add',
+		set: "add",
 		add: function (target, room, user) {
-			if (!target) return this.parse('/pcolor help');
+			if (!target) return this.parse("/pcolor help");
+			let profile = Db.profile.get(user.userid, {data: {title: {}, music: {}}});
 			let color = target.trim();
-			if (color.charAt(0) !== '#') return this.errorReply(`The color needs to be a hex starting with "#".`);
-			Db.profilecolor.set(user, color);
+			if (color.charAt(0) !== "#") return this.errorReply(`The color needs to be a hex starting with "#".`);
+			profile.color = color;
+			Db.profile.set(user.userid, profile);
 			this.sendReply(`You have set your profile color to "${color}".`);
 		},
 
-		delete: 'remove',
+		delete: "remove",
 		remove: function (target, room, user) {
-			if (!this.can('customtitle')) return false;
-			let userid = (toId(target));
-			if (!target) return this.parse('/pcolor help');
-			if (!Db.profilecolor.has(userid)) return this.errorReply(`${userid} does not have a profile color set.`);
-			Db.profilecolor.remove(userid);
-			if (Users.get(userid)) {
-				Users(userid).popup(`|html|${Server.nameColor(user.name, true)} has removed your profile color.`);
-			}
+			if (!this.can("profile")) return false;
+			let userid = toId(target);
+			let profile = Db.profile.get(userid, {data: {title: {}, music: {}}});
+			if (!target) return this.parse("/pcolor help");
+			if (!profile.color) return this.errorReply(`${target} does not have a profile color set.`);
+			delete profile.color;
+			Db.profile.set(userid, profile);
+			if (Users(userid)) Users(userid).popup(`|html|${Server.nameColor(user.name, true)} has removed your profile color.`);
 			this.sendReply(`You have removed ${target}'s profile color.`);
 		},
 
-		'': 'help',
-		help: function (target, room, user) {
-			if (!user.autoconfirmed) return this.errorReply("You need to be autoconfirmed to use this command.");
-			if (!this.canTalk()) return this.errorReply("You cannot do this while unable to talk.");
-			if (!this.runBroadcast()) return;
-			return this.sendReplyBox(
-				'<center><code>/profilecolor</code> commands<br />' +
-				'All commands are nestled under the namespace <code>pcolor</code>.</center>' +
-				'<hr width="100%">' +
-				'- <code>[set|add] [hex color]</code>: set your profile color.' +
-				'- <code>[remove|delete] [username]</code>: Removes a user\'s profile color and erases it from the server. Requires: % or higher.'
-			);
+		"": "help",
+		help: function () {
+			this.parse(`/help pcolor`);
 		},
 	},
+	pcolorhelp: [
+		`/pcolor set [hex code] - Sets your profile color as [hex code].
+		/pcolor take [user] - Removes [user]'s profile color. Requires %, @, &, ~
+		/pcolor help - Displays the profile color commands.`,
+	],
 
-	bg: 'background',
+	bg: "background",
 	background: {
-		set: 'setbg',
-		setbackground: 'setbg',
-		setbg: function (target, room, user) {
-			if (!this.can('lock')) return false;
-			let parts = target.split(',');
-			if (!parts[1]) return this.parse('/backgroundhelp');
-			let targ = toId(parts[0]);
-			let link = parts[1].trim();
-			Db.backgrounds.set(targ, link);
-			this.sendReply(`This user's background has been set to : `);
-			this.parse(`/profile ${targ}`);
+		set: "setbg",
+		setbackground: "setbg",
+		setbg: function (target) {
+			if (!this.can("profile")) return false;
+			let [userid, link] = target.split(",").map(p => { return p.trim(); });
+			userid = toId(userid);
+			let profile = Db.profile.get(userid, {data: {title: {}, music: {}}});
+			if (!link) return this.parse(`/help background`);
+			if (![".png", ".gif", ".jpg"].includes(link.slice(-4))) return this.errorReply(`Backgrounds must end in an extension like .png, .gif, or .jpg.`);
+			profile.background = link;
+			Db.profile.set(userid, profile);
+			this.sendReplyBox(`This user's background has been set as:<br /><img src="${link}">`);
 		},
 
-		removebg: 'deletebg',
-		remove: 'deletebg',
-		deletebackground: 'deletebg',
-		takebg: 'deletebg',
-		take: 'deletebg',
-		delete: 'deletebg',
-		deletebg: function (target, room, user) {
-			if (!this.can('lock')) return false;
+		removebg: "deletebg",
+		remove: "deletebg",
+		deletebackground: "deletebg",
+		takebg: "deletebg",
+		take: "deletebg",
+		delete: "deletebg",
+		deletebg: function (target) {
+			if (!this.can("profile")) return false;
 			let targ = toId(target);
-			if (!target) return this.parse('/backgroundhelp');
-			if (!Db.backgrounds.has(targ)) return this.errorReply('This user does not have a custom background.');
-			Db.backgrounds.remove(targ);
-			return this.sendReply('This user\'s background has been deleted.');
+			if (!targ) return this.parse("/backgroundhelp");
+			let profile = Db.profile.get(targ, {data: {title: {}, music: {}}});
+			if (!profile.background) return this.errorReply(`${target} doesn't have a custom background.`);
+			delete profile.background;
+			Db.profile.set(targ, profile);
+			return this.sendReply(`${target}'${target.endsWith("s") ? `` : `s`} custom background was removed.`);
 		},
 
-		'': 'help',
-		help: function (target, room, user) {
-			this.parse("/backgroundhelp");
+		"": "help",
+		help: function () {
+			this.parse("/help background");
 		},
 	},
 	backgroundhelp: [
-		"/bg set [user], [link] - Sets the user's profile background.",
-		"/bg delete [user] - Removes the user's profile background.",
+		`/bg set [user], [link] - Sets [user]'s profile background as [link]. Requires %, @, &, ~
+		/bg delete [user] - Removes [user]'s profile background. Requires %, @, &, ~
+		/bg help - Displays the help command for Profile Backgrounds.`,
 	],
 
+	song: "music",
 	music: {
 		add: "set",
 		give: "set",
-		set: function (target, room, user) {
-			if (!this.can('lock')) return false;
-			let parts = target.split(',');
-			let targ = parts[0].toLowerCase().trim();
-			if (!parts[2]) return this.errorReply('/musichelp');
-			let link = parts[1].trim();
-			let title = parts[2].trim();
-			Db.music.set(targ, {'link': link, 'title': title});
-			this.sendReply(`${targ}'s song has been set to: `);
-			this.parse(`/profile ${targ}`);
+		set: function (target) {
+			if (!this.can("profile")) return false;
+			let [userid, link, title] = target.split(",").map(p => { return p.trim(); });
+			userid = toId(userid);
+			let profile = Db.profile.get(userid, {data: {title: {}, music: {}}});
+			if (!title) return this.parse("/musichelp");
+			if (![".mp3", ".mp4", ".m4a"].includes(link.slice(-4))) return this.errorReply(`Music links must end in an extension like .mp3, .mp4, or .m4a.`);
+			profile.data.music.link = link;
+			profile.data.music.title = title;
+			Db.profile.set(userid, profile);
+			this.sendReplyBox(`${userid}'${userid.endsWith("s") ? `` : `s`} song has been set.<br /><acronym title="${profile.data.music.title}"><br /><audio src="${profile.data.music.link}" controls="" style="width:100%;"></audio></acronym>`);
 		},
 
 		take: "delete",
 		remove: "delete",
-		delete: function (target, room, user) {
-			if (!this.can('lock')) return false;
-			let targ = target.toLowerCase();
-			if (!target) return this.parse('/musichelp');
-			if (!Db.music.has(targ)) return this.errorReply('This user does not have any music on their profile.');
-			Db.music.remove(targ);
-			return this.sendReply('This user\'s profile music has been deleted.');
+		delete: function (target) {
+			if (!this.can("profile")) return false;
+			target = toId(target);
+			let profile = Db.profile.get(target, {data: {title: {}, music: {}}});
+			if (!target) return this.parse("/musichelp");
+			if (!(profile.data.music.link || profile.data.music.title)) return this.errorReply(`${target} does not have any profile music.`);
+			delete profile.data.music.link;
+			delete profile.data.music.title;
+			Db.profile.set(target, profile);
+			return this.sendReply(`You have removed ${target}'${target.endsWith("s") ? `` : `s`} profile music.`);
 		},
 
-		'': 'help',
-		help: function (target, room, user) {
-			this.parse('/musichelp');
+		"": "help",
+		help: function () {
+			this.parse("/musichelp");
 		},
 	},
 	musichelp: [
-		"/music set [user], [link], [title of song] - Sets a user's profile music.",
-		"/music take [user] - Removes a user's profile music.",
+		`/music set [user], [link], [title of song] - Sets a [user]'s profile music as [link] titled [title]. Requires %, @, &, ~
+		/music take [user] - Removes a [user]'s profile music. Requires %, @, &, ~
+		/music help - Displays help on the profile music commands.`,
 	],
 
 	pokemon: {
 		add: "set",
 		set: function (target, room, user) {
 			if (!target) return this.parse("/pokemonhelp");
+			let profile = Db.profile.get(user.userid, {data: {title: {}, music: {}}});
 			let pkmn = Dex.getTemplate(target);
-			if (!pkmn.exists) return this.errorReply('Not a Pokemon. Check your spelling?');
-			Db.pokemon.set(user.userid, target);
-			return this.sendReply(`You have successfully set your favorite Pokemon as ${pkmn}.`);
+			if (!pkmn.exists) return this.errorReply("Not a Pokemon. Check your spelling?");
+			profile.pokemon = pkmn.species;
+			Db.profile.set(user.userid, profile);
+			return this.sendReply(`You have successfully set your favorite Pokemon as "${pkmn.species}".`);
 		},
 
 		del: "delete",
 		remove: "delete",
 		delete: function (target, room, user) {
-			if (!Db.pokemon.has(user.userid)) return this.errorReply("Your favorite Pokemon hasn't been set.");
-			Db.pokemon.remove(user.userid);
+			let profile = Db.profile.get(user.userid, {data: {title: {}, music: {}}});
+			if (!profile.pokemon) return this.errorReply("Your favorite Pokemon hasn't been set.");
+			delete profile.pokemon;
+			Db.profile.set(user.userid, profile);
 			return this.sendReply("Your favorite Pokemon has been deleted from your profile.");
 		},
 
 		"": "help",
-		help: function (target, room, user) {
-			this.parse('/pokemonhelp');
+		help: function () {
+			this.parse("/pokemonhelp");
 		},
 	},
 	pokemonhelp: [
-		"/pokemon set [Pokemon] - Sets your Favorite Pokemon.",
-		"/pokemon delete - Removes your Favorite Pokemon.",
+		`/pokemon set [Pokemon] - Sets your Favorite Pokemon.
+		/pokemon delete - Removes your Favorite Pokemon.
+		/pokemon help - Displays information on Pokemon commands.`,
 	],
 
 	natures: "nature",
 	nature: {
 		add: "set",
 		set: function (target, room, user) {
-			if (!target) this.parse("/naturehelp");
+			let profile = Db.profile.get(user.userid, {data: {title: {}, music: {}}});
+			if (!target) return this.parse("/naturehelp");
 			let nature = Dex.getNature(target);
 			if (!nature.exists) return this.errorReply("This is not a nature. Check your spelling?");
-			Db.nature.set(user.userid, nature.name);
+			profile.nature = nature.name;
+			Db.profile.set(user.userid, profile);
 			return this.sendReply("You have successfully set your nature onto your profile.");
 		},
 
@@ -527,23 +487,26 @@ exports.commands = {
 		take: "delete",
 		remove: "delete",
 		delete: function (target, room, user) {
-			if (!Db.nature.has(user.userid)) return this.errorReply("Your nature has not been set.");
-			Db.nature.remove(user.userid);
+			let profile = Db.profile.get(user.userid, {data: {title: {}, music: {}}});
+			if (!profile.nature) return this.errorReply("Your nature has not been set.");
+			delete profile.nature;
+			Db.profile.set(user.userid, profile);
 			return this.sendReply("Your nature has been deleted from your profile.");
 		},
 
 		"": "help",
-		help: function (target, room, user) {
+		help: function () {
 			this.parse("/naturehelp");
 		},
 	},
 	naturehelp: [
-		"/nature set [nature] - Sets your Profile Nature.",
-		"/nature delete - Removes your Profile Nature.",
-	],/*
+		`/nature set [nature] - Sets your Profile Nature.
+		/nature delete - Removes your Profile Nature.
+		/nature help - Displays information about Profile Nature commands.`,
+	],
 
-	'!lastactive': true,
-	checkactivity: 'lastactive',
+	"!lastactive": true,
+	checkactivity: "lastactive",
 	lastactive: function (target, room, user) {
 		if (!target) target = user.userid;
 		if (target.length > 18) return this.errorReply("Usernames cannot exceed 18 characters.");
@@ -552,105 +515,67 @@ exports.commands = {
 		if (!targetUser || !targetUser.connected) return this.errorReply(`${target} is not online. Use /seen to find out how long ago they left.`);
 		return this.sendReplyBox(`${Server.nameColor(targetUser, true, true)} was last active <strong>${Chat.toDurationString(Date.now() - targetUser.lastPublicMessage)} ago.</strong>`);
 	},
-	lastactivehelp: ["/lastactive - Shows how long ago it has been since a user has posted a message."],*/
+	lastactivehelp: ["/lastactive - Shows how long ago it has been since a user has posted a message."],
 
-	'!profile': true,
+	"!profile": true,
 	profile: function (target, room, user) {
 		target = toId(target);
 		if (!target) target = user.name;
 		if (target.length > 18) return this.errorReply("Usernames cannot exceed 18 characters.");
 		if (!this.runBroadcast()) return;
-		let self = this;
 		let targetUser = Users.get(target);
 		let online = (targetUser ? targetUser.connected : false);
 		let username = (targetUser ? targetUser.name : target);
 		let userid = (targetUser ? targetUser.userid : toId(target));
-		let avatar = (targetUser ? (isNaN(targetUser.avatar) ? `http://${serverIp}/avatars/${targetUser.avatar}` : `http://play.pokemonshowdown.com/sprites/trainers/${targetUser.avatar}.png`) : (Config.customavatars[userid] ? `http://${serverIp}:${Config.port}/avatars/${Config.customavatars[userid]}` : `http://play.pokemonshowdown.com/sprites/trainers/1.png`));
-		if (targetUser && targetUser.avatar[0] === '#') avatar = `http://play.pokemonshowdown.com/sprites/trainers/${targetUser.avatar.substr(1)}.png`;
+		let profile = Db.profile.get(userid, {data: {title: {}, music: {}}});
+		let avatar = (targetUser ? (isNaN(targetUser.avatar) ? `http://${serverIp}:${Config.port}/avatars/${targetUser.avatar}` : `http://play.pokemonshowdown.com/sprites/trainers/${targetUser.avatar}.png`) : (Config.customavatars[userid] ? `http://${serverIp}:${Config.port}/avatars/${Config.customavatars[userid]}` : `http://play.pokemonshowdown.com/sprites/trainers/1.png`));
+		if (targetUser && targetUser.avatar[0] === "#") avatar = `http://play.pokemonshowdown.com/sprites/trainers/${targetUser.avatar.substr(1)}.png`;
 		let userSymbol = (Users.usergroups[userid] ? Users.usergroups[userid].substr(0, 1) : "Regular User");
 		let userGroup = (Config.groups[userSymbol] ? `Global ${Config.groups[userSymbol].name}` : `Regular User`);
-		let regdate = '(Unregistered)';
+		let ip = (Users(userid) ? geoip.lookup(Users(userid).latestIp) : false);
+		let regdate = "(Unregistered)";
 		Server.regdate(userid, date => {
 			if (date) {
 				let d = new Date(date);
-				let MonthNames = ["January", "February", "March", "April", "May", "June",
-					"July", "August", "September", "October", "November", "December",
-				];
-				regdate = MonthNames[d.getUTCMonth()] + ' ' + d.getUTCDate() + ", " + d.getUTCFullYear();
+				let MonthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+				regdate = `${MonthNames[d.getUTCMonth()]} ${d.getUTCDate()}, ${d.getUTCFullYear()}`;
 			}
-			showProfile();
 		});
 
-		function getLastSeen(userid) {
-			if (Users(userid) && Users(userid).connected) return '<font color = "limegreen"><strong>Currently Online</strong></font>';
-			let seen = Db.seen.get(userid);
-			if (!seen) return '<font color = "red"><strong>Never</strong></font>';
-			return Chat.toDurationString(Date.now() - seen, {precision: true}) + " ago.";
+		let profileData = ``;
+		if (profile.background) {
+			profileData += `<div style="background:url(${profile.background}); background-size: 100% 100%; height: 250px">`;
+		} else {
+			profileData += `<div style="max-height: 250px; overflow-y: scroll">`;
 		}
-
-		function getFlag(userid) {
-			let ip = (Users(userid) ? geoip.lookup(Users(userid).latestIp) : false);
-			if (!ip || ip === null) return '';
-			return `<img src="http://flags.fmcdn.net/data/flags/normal/${ip.country.toLowerCase()}.png" alt="${ip.country}" title="${ip.country}" width="20" height="10">`;
+		profileData += `<div style="display: inline-block; width: 6.5em; height: 100%; vertical-align: top"><img src="${avatar}" height="80" width="80" align="left"></div>`;
+		profileData += `<div style="display: inline-block">&nbsp;${pColor(userid)}<strong>Name:</strong></font> ${Server.nameColor(username, true)}&nbsp;`;
+		if (Users(userid) && ip && ip !== null) {
+			profileData += ` <img src="http://flags.fmcdn.net/data/flags/normal/${ip.country.toLowerCase()}.png" alt="${ip.country}" title="${ip.country}" width="20" height="10">`;
 		}
-
-		function background(user) {
-			let bg = Db.backgrounds.get(user);
-			if (!Db.backgrounds.has(user)) return `<div style="max-height: 250px; overflow-y: auto">`;
-			return `<div style="background:url(${bg}); background-size: cover">`;
-		}
-
-		function pColor(user) {
-			let color = Db.profilecolor.get(user);
-			if (!Db.profilecolor.has(user)) return '<font>';
-			return `<font color="${color}">`;
-		}
-
-		function song(user) {
-			if (!Db.music.has(user)) return '';
-			let song = Db.music.get(user)['link'];
-			let title = Db.music.get(user)['title'];
-			return `<acronym title="${title}"><br /><audio src="${song}" controls="" style="width:100%;"></audio></acronym>`;
-		}
-
-		function showProfile() {
-			Economy.readMoney(toId(username), currency => {
-				let profile = ``;
-				profile += `<div style="max-height: 175px; overflow: auto">${background(toId(username))} ${showBadges(toId(username))}`;
-				profile += `<div style="display: inline-block; width: 6.5em; height: 100%; vertical-align: top"><img src="${avatar}" height="80" width="80" align="left"></div>`;
-				profile += `<div style="display: inline-block">&nbsp;${pColor(toId(username))}<b>Name:</b></font> ${Server.nameColor(username, true)}&nbsp; ${getFlag(toId(username))} ${showTitle(username)}<br />`;
-				profile += `&nbsp;${pColor(toId(username))}<b>Group:</b> ${userGroup}</font> ${devCheck(username)} ${vipCheck(username)} <br />`;
-				profile += `&nbsp;${pColor(toId(username))}<b>Registered:</b> ${regdate}</font><br />`;
-				profile += `&nbsp;${pColor(toId(username))}<b>${currencyPlural}:</b> ${currency}</font><br />`;
-				if (Db.pokemon.has(toId(username))) {
-					profile += `&nbsp;${pColor(toId(username))}<b>Favorite Pokemon:</b> ${Db.pokemon.get(toId(username))}</font><br />`;
-				}
-				if (Db.type.has(toId(username))) {
-					profile += `&nbsp;${pColor(toId(username))}<b>Favorite Type:</b></font> <img src="https://www.serebii.net/pokedex-bw/type/${Db.type.get(toId(username))}.gif"><br />`;
-				}
-				if (Db.nature.has(toId(username))) {
-					profile += `&nbsp;${pColor(toId(username))}<b>Nature:</b> ${Db.nature.get(toId(username))}</font><br />`;
-				}/*
-				if (Server.getFaction(toId(username))) {
-					profile += `&nbsp;${pColor(toId(username))}<b>Faction:</b> ${Server.getFaction(toId(username))}</font><br />`;
-				}*/
-				profile += `&nbsp;${pColor(toId(username))}<b>EXP Level:</b> ${Server.ExpControl.level(toId(username))}</font><br />`;
-				/*if (online && lastActive(toId(username))) {
-					profile += `&nbsp;${pColor(toId(username))}<b>Last Activity:</b> ${lastActive(toId(username))}</font><br />`;
-				}*/
-				profile += `&nbsp;${pColor(toId(username))}<b>Last Seen:</b> ${getLastSeen(toId(username))}</font><br />`;
-				/*if (Db.friendcodes.has(toId(username))) {
-					profile += `&nbsp;${pColor(toId(username))}<b>Friend Code:</b> ${Db.friendcodes.get(toId(username))}</font><br />`;
-				}*/
-				/*if (Db.switchfc.has(toId(username))) {
-					profile += `&nbsp;${pColor(toId(username))}<strong>Switch Friend Code:</strong> SW-${Db.switchfc.get(toId(username))}</font><br />`;
-				}*/
-				profile += `&nbsp;${song(toId(username))}`;
-				profile += `&nbsp;</div></div>`;
-				//profile += `<br clear="all">`;
-				self.sendReplyBox(profile);
-			});
-		}
+		if (profile.data.title.title) profileData += ` <font color="${profile.data.title.color}">(<strong>${profile.data.title.title}</strong>)</font>`;
+		profileData += `<br />`;
+		profileData += `&nbsp;${pColor(userid)}<strong>Group:</strong> ${userGroup}</font>`;
+		if (isDev(userid)) profileData += ` <font color="#009320"><strong>Developer</strong></font>`;
+		if (isVIP(userid)) profileData += ` <font color="#6390F0"><strong>VIP</strong></font>`;
+		if (Server.isCouncilMember(userid)) profileData += ` <font color="#B22222"><strong>Council Member</strong></font>`;
+		if (Server.isGenner(userid)) profileData += ` <font color="#F48C04"><strong>Genner</strong></font>`;
+		profileData += `<br />`;
+		profileData += `&nbsp;${pColor(userid)}<strong>Registered:</strong> ${regdate}</font><br />`;
+		profileData += `&nbsp;${pColor(userid)}<strong>${moneyPlural}:</strong> ${Economy.readMoney(userid).toLocaleString()}</font><br />`;
+		if (profile.pokemon) profileData += `&nbsp;${pColor(userid)}<strong>Favorite Pokemon:</strong> ${profile.pokemon}</font><br />`;
+		if (profile.type) profileData += `&nbsp;${pColor(userid)}<strong>Favorite Type:</strong></font> <img src="https://www.serebii.net/pokedex-bw/type/${profile.type}.gif"><br />`;
+		if (profile.nature) profileData += `&nbsp;${pColor(userid)}<strong>Nature:</strong> ${profile.nature}</font><br />`;
+		if (Server.getFaction(userid)) profileData += `&nbsp;${pColor(userid)}<strong>Faction:</strong> ${Server.getFaction(userid)}</font><br />`;
+		if (Server.getChannel(userid)) profileData += `&nbsp;${pColor(userid)}<strong>DewTube Channel:</strong> ${Server.getChannel(userid)}</font><br />`;
+		profileData += `&nbsp;${pColor(userid)}<strong>EXP Level:</strong> ${Server.ExpControl.level(userid)}</font><br />`;
+		if (online && lastActive(userid)) profileData += `&nbsp;${pColor(userid)}<strong>Last Activity:</strong> ${lastActive(userid)}</font><br />`;
+		profileData += `&nbsp;${pColor(userid)}<strong>Last Seen:</strong> ${getLastSeen(userid)}</font><br />`;
+		if (Db.friendcode.has(userid)) profileData += `&nbsp;${pColor(userid)}<strong>Friend Code:</strong> ${Db.friendcode.get(userid)}</font><br />`;
+		if (Db.switchfc.has(userid)) profileData += `&nbsp;${pColor(userid)}<strong>Switch Friend Code:</strong> SW-${Db.switchfc.get(userid)}</font><br />`;
+		if (profile.data.music.link) profileData += `&nbsp;<acronym title="${profile.data.music.title}"><br /><audio src="${profile.data.music.link}" controls="" style="width: 100%;"></audio></acronym>`;
+		profileData += `</div>`;
+		this.sendReplyBox(profileData);
 	},
 
 	profilehelp: [
@@ -666,8 +591,8 @@ exports.commands = {
 		/music take [user] - Removes a user's profile song. Requires % or higher.
 		/bg set [user], [link] - Sets the user's profile background. Requires % or higher.
 		/bg delete [user] - Removes the user's profile background. Requires % or higher.
-		~~/fc [switch|ds] set [friend code] - Sets your Friend Code.~~
-		~~/fc [switch|ds] delete [friend code] - Removes your Friend Code.~~
+		/fc [switch|ds] set [friend code] - Sets your Friend Code.
+		/fc [switch|ds] delete [friend code] - Removes your Friend Code.
 		/dev give [user] - Gives a user Dev Status. Requires & or higher.
 		/dev take [user] - Removes a user's Dev Status. Requires & or higher.
 		/vip give [user] - Gives a user VIP Status. Requires & or higher.
