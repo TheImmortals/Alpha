@@ -569,11 +569,11 @@ exports.commands = {
 		//if (Server.getFaction(userid)) profileData += `&nbsp;${pColor(userid)}<strong>Faction:</strong> ${Server.getFaction(userid)}</font><br />`;
 		//if (Server.getChannel(userid)) profileData += `&nbsp;${pColor(userid)}<strong>DewTube Channel:</strong> ${Server.getChannel(userid)}</font><br />`;
 		profileData += `&nbsp;${pColor(userid)}<strong>EXP Level:</strong> ${Server.ExpControl.level(userid)}</font><br />`;
-		if (online && lastActive(userid)) profileData += `&nbsp;${pColor(userid)}<strong>Last Activity:</strong> ${lastActive(userid)}</font><br />`;
+		//if (online && lastActive(userid)) profileData += `&nbsp;${pColor(userid)}<strong>Last Activity:</strong> ${lastActive(userid)}</font><br />`;
 		profileData += `&nbsp;${pColor(userid)}<strong>Last Seen:</strong> ${getLastSeen(userid)}</font><br />`;
 		if (Db.friendcode.has(userid)) profileData += `&nbsp;${pColor(userid)}<strong>Friend Code:</strong> ${Db.friendcode.get(userid)}</font><br />`;
 		if (Db.switchfc.has(userid)) profileData += `&nbsp;${pColor(userid)}<strong>Switch Friend Code:</strong> SW-${Db.switchfc.get(userid)}</font><br />`;
-		if (profile.data.music.link) profileData += `&nbsp;<acronym title="${profile.data.music.title}"><br /><audio src="${profile.data.music.link}" controls="" style="width: 100%;"></audio></acronym>`;
+		if (profile.data.music.link) profileData += `&nbsp;<acronym title="${profile.data.music.title}"><br /><audio src="${profile.data.music.link}" controls="" style="width: 100%;"></audio></acronym><br />`;
 		profileData += `</div>`;
 		this.sendReplyBox(profileData);
 	},
