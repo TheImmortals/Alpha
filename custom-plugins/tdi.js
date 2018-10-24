@@ -117,7 +117,7 @@ exports.commands = {
 		new: function (target, room, user) {
 			if (!this.can("ban", null, room)) return false;
 			if (!this.canTalk()) return this.errorReply("You cannot use this while unable to speak.");
-			if (room.id !== "totaldramaisland") return this.errorReply("This command only works in Total Drama Island.");
+			if (room.id !== "gamingclub") return this.errorReply("This command only works in Total Drama Island.");
 			if (room.tdi) return this.errorReply("There is an ongoing season of Total Drama Island in here.");
 			room.tdi = new TDI(room);
 		},
@@ -218,12 +218,12 @@ exports.commands = {
 	},
 
 	tdihelp: [
-		`/tdi new - Creates a Total Drama Island game. Requires Room Moderator or higher in the Total Drama Island room.
-		/tdi start - Starts the Total Drama Island game. Requires Room Moderator or higher in the Total Drama Island room.
-		/tdi autostart [amount of seconds until start] - Sets the auto-start timer. Requires Room Voice or higher in the Total Drama Island room.
-		/tdi dq [user] - Disqualifies a user from the session of Total Drama Island. Requires Room Moderator or higher in the Total Drama Island room.
-		/tdi mv [team1|team2] - Requires the specified team to vote to cast out one of their teammates. Requires Room Moderator or higher in the Total Drama Island.
-		/tdi end - Ends the season of Total Drama Island. Requires Room Moderator or higher in the Total Drama Island room.
+		`/tdi new - Creates a Total Drama Island game. Requires Room Moderator or higher in the Gaming Club room.
+		/tdi start - Starts the Total Drama Island game. Requires Room Moderator or higher in the Gaming Club room.
+		/tdi autostart [amount of seconds until start] - Sets the auto-start timer. Requires Room Voice or higher in the Gaming Club room.
+		/tdi dq [user] - Disqualifies a user from the session of Total Drama Island. Requires Room Moderator or higher in the Gaming Club room.
+		/tdi mv [team1|team2] - Requires the specified team to vote to cast out one of their teammates. Requires Room Moderator or higher in the Gaming Club.
+		/tdi end - Ends the season of Total Drama Island. Requires Room Moderator or higher in the Gaming Club room.
 		/tdi join - Joins the season of Total Drama Island. Must be non-muted/locked and registered.
 		/tdi leave - Leaves a season of Total Drama Island.
 		/tdi players - Lists the players in the season of Total Drama Island.
