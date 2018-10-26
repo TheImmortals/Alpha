@@ -5,3 +5,4 @@ node_modules/
 custom-plugins/shop-private.js
 custom-plugins/tictactoe.js
 custom-plugins/eShop.js
+custom-plugins/passthebomb.js
