@@ -105,7 +105,7 @@ global.serverName = Config.serverName;
 
 //replace URL with your MongoDB Url.
 //https://mongodb.com provide free MobgoDB Hosting ( 512MB ).
-//global.Db = require('nef')(require('nef-mongo')('<URL'));
+//global.Db = require('nef')(require('nef-mongo')('URL'));
 
 // Store data locally ( Disable local storage, If you want to use cloud storage. )
 const nef = require('nef');
