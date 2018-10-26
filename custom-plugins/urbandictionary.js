@@ -3,7 +3,6 @@
 const http = require('http');
 
 let udCache = {};
-let word = 'word';
 
 exports.commands = {
 	"!urbandefine": true,

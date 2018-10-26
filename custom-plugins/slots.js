@@ -47,10 +47,10 @@ function display(result, user, slotOne, slotTwo, slotThree) {
 	'<center><img style="padding: 3px; border: 1px inset gold; border-radius: 5px; box-shadow: inset 1px 1px 5px white;" src="' + slotsTrozei[slotOne] + '">&nbsp;&nbsp;&nbsp;' + '<img style="padding: 3px; border: 1px inset gold; border-radius: 5px; box-shadow: inset 1px 1px 5px white;" src="' + slotsTrozei[slotTwo] + '">&nbsp;&nbsp;&nbsp;' + '<img style="padding: 3px; border: 1px inset gold; border-radius: 5px; box-shadow: inset 1px 1px 5px white;" src="' + slotsTrozei[slotThree] + '"></center>' +
 	'<font style="color: white;"><br />';
 	if (!result) {
-		display += 'Aww... bad luck, <b>' + WL.nameColor(user.name, true) + '. Better luck next time!</font>';
+		display += 'Aww... bad luck, <b>' + Server.nameColor(user.name, true) + '. Better luck next time!</font>';
 	}
 	if (result) {
-		display += 'Congratulations, ' + WL.nameColor(user.name, true) + '. You have won ' + slots[slotOne] + ' bucks!!</font>';
+		display += 'Congratulations, ' + Server.nameColor(user.name, true) + '. You have won ' + slots[slotOne] + ' bucks!!</font>';
 	}
 	return display + '</div>';
 }

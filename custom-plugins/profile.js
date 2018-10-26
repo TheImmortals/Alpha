@@ -45,56 +45,56 @@ function lastActive(user) {
 }
 
 function showTeam(user) {
-			let teamcss = 'float:center;border:none;background:none;';
+	let teamcss = 'float:center;border:none;background:none;';
 
-			let noSprite = '<img src=http://play.pokemonshowdown.com/sprites/bwicons/0.png>';
-			let one = Db.teams.get([user, 'one']);
-			let two = Db.teams.get([user, 'two']);
-			let three = Db.teams.get([user, 'three']);
-			let four = Db.teams.get([user, 'four']);
-			let five = Db.teams.get([user, 'five']);
-			let six = Db.teams.get([user, 'six']);
-			if (!Db.teams.has(user)) return '<div style="' + teamcss + '" >' + noSprite + noSprite + noSprite + noSprite + noSprite + noSprite + '</div>';
+	let noSprite = '<img src=http://play.pokemonshowdown.com/sprites/bwicons/0.png>';
+	let one = Db.teams.get([user, 'one']);
+	let two = Db.teams.get([user, 'two']);
+	let three = Db.teams.get([user, 'three']);
+	let four = Db.teams.get([user, 'four']);
+	let five = Db.teams.get([user, 'five']);
+	let six = Db.teams.get([user, 'six']);
+	if (!Db.teams.has(user)) return '<div style="' + teamcss + '" >' + noSprite + noSprite + noSprite + noSprite + noSprite + noSprite + '</div>';
 
-			function iconize(link) {
-				return '<button id="kek" style="background:transparent;border:none;"><img src="https://serebii.net/pokedex-sm/icon/' + link + '.png"></button>';
-			}
+	function iconize(link) {
+		return '<button id="kek" style="background:transparent;border:none;"><img src="https://serebii.net/pokedex-sm/icon/' + link + '.png"></button>';
+	}
 
-			let teamDisplay = '<center><div style="' + teamcss + '">';
-			if (Db.teams.has([user, 'one'])) {
-				teamDisplay += iconize(one);
-			} else {
-				teamDisplay += noSprite;
-			}
-			if (Db.teams.has([user, 'two'])) {
-				teamDisplay += iconize(two);
-			} else {
-				teamDisplay += noSprite;
-			}
-			if (Db.teams.has([user, 'three'])) {
-				teamDisplay += iconize(three);
-			} else {
-				teamDisplay += noSprite;
-			}
-			if (Db.teams.has([user, 'four'])) {
-				teamDisplay += iconize(four);
-			} else {
-				teamDisplay += noSprite;
-			}
-			if (Db.teams.has([user, 'five'])) {
-				teamDisplay += iconize(five);
-			} else {
-				teamDisplay += noSprite;
-			}
-			if (Db.teams.has([user, 'six'])) {
-				teamDisplay += iconize(six);
-			} else {
-				teamDisplay += noSprite;
-			}
+	let teamDisplay = '<center><div style="' + teamcss + '">';
+	if (Db.teams.has([user, 'one'])) {
+		teamDisplay += iconize(one);
+	} else {
+		teamDisplay += noSprite;
+	}
+	if (Db.teams.has([user, 'two'])) {
+		teamDisplay += iconize(two);
+	} else {
+		teamDisplay += noSprite;
+	}
+	if (Db.teams.has([user, 'three'])) {
+		teamDisplay += iconize(three);
+	} else {
+		teamDisplay += noSprite;
+	}
+	if (Db.teams.has([user, 'four'])) {
+		teamDisplay += iconize(four);
+	} else {
+		teamDisplay += noSprite;
+	}
+	if (Db.teams.has([user, 'five'])) {
+		teamDisplay += iconize(five);
+	} else {
+		teamDisplay += noSprite;
+	}
+	if (Db.teams.has([user, 'six'])) {
+		teamDisplay += iconize(six);
+	} else {
+		teamDisplay += noSprite;
+	}
 
-			teamDisplay += '</div></center>';
-			return teamDisplay;
-		}
+	teamDisplay += '</div></center>';
+	return teamDisplay;
+}
 
 
 function pColor(user) {
@@ -447,7 +447,7 @@ exports.commands = {
 		/bg delete [user] - Removes [user]'s profile background. Requires %, @, &, ~
 		/bg help - Displays the help command for Profile Backgrounds.`,
 	],
-	
+
 	pteam: 'profileteam',
 	profileteam: {
 		add: 'set',

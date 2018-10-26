@@ -16,7 +16,7 @@ class TDI {
 		this.tdiNumber = room.tdiNumber;
 		this.state = "signups";
 		this.prizeMoney = 0;
-		this.room.add(`|uhtml|tdi-${this.tdiNumber}|<div class="broadcast-green"><center><p style="font-size: 14pt">Do you wanna be famous?</p><br /><p style="font-size: 10pt><strong>A new Total Drama Island season is casting!</strong></p><br /><p style="font-size: 9pt"><button name="send" value="/tdi join">Yeah!</button><br /></p><small><p>Every user that joins raises the prize money by 100 ${moneyPlural}.<br />Disclaimer: Seasons of Total Drama Island may take a(n) hour(s) to complete.</div>`, true);
+		this.room.add(`|uhtml|tdi-${this.tdiNumber}|<div class="broadcast-green"><center><p style="font-size: 14pt">Do you wanna be famous?</p><br /><p style="font-size: 10pt><strong>A new Total Drama Island season is casting!</strong></p><br /><p style="font-size: 9pt"><button name="send" value="/tdi join">Yeah!</button><br /></p><small><p>Every user that joins raises the prize money by 100 ${currencyPlural}.<br />Disclaimer: Seasons of Total Drama Island may take a(n) hour(s) to complete.</div>`, true);
 		this.timer = setTimeout(() => {
 			if (this.players.length < 2) {
 				this.room.add(`|uhtmlchange|tdi-${this.tdiNumber}|<div class="broadcast-red"><p style="text-align: center; font-size: 14pt>This season of Total Drama Island has been cancelled.</p></div>`);

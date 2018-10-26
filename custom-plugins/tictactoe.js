@@ -2,13 +2,13 @@
 'use strict';
 
 if (!global.ttt) global.ttt = [{}, {}];
-var tttgames = global.ttt[0];
-var tttplayers = global.ttt[1];
+let tttgames = global.ttt[0];
+let tttplayers = global.ttt[1];
 
 const EXPIRATION_TIME = 90 * 1000;
 const INACTIVE_KICK_TIME = 30 * 1000;
 
-var TicTacToe = (function () {
+let TicTacToe = (function () {
 	function TicTacToe(user1, user2, gameNo) {
 		this.gameNo = gameNo;
 		this.p1 = user1;
@@ -30,7 +30,7 @@ var TicTacToe = (function () {
 			'6': 6,
 			'7': 7,
 			'8': 8,
-			'9': 9
+			'9': 9,
 		};
 		this.markedCount = 0;
 		this.phase = 'waiting';
@@ -42,7 +42,7 @@ var TicTacToe = (function () {
 		this.currentPlayer = this.players[Math.floor(Math.random() * 2)];
 		this.phase = 'started';
 		this.resetTimer();
-		var message = 'If you accidentally close out, use <em>/ttt open</em> to reopen the game.';
+		let message = 'If you accidentally close out, use <em>/ttt open</em> to reopen the game.';
 		this.updateUser(this.p1, message);
 		this.updateUser(this.p2, message);
 	};
@@ -53,13 +53,13 @@ var TicTacToe = (function () {
 	};
 
 	TicTacToe.prototype.getGrid = function (gameOver) {
-		var marked = [];
-		for (var i in this.boxes) {
+		let marked = [];
+		for (let i in this.boxes) {
 			if (typeof this.boxes[i] === 'string') marked.push(this.boxes[i]);
 			else marked.push('<button style = "height: 80px%; width: 80px; font-size: 20pt" name = "send" value = "/ttt markbox ' + i + '"><b>' + i + '</b></button>');
 		}
-		var style = 'width: 100px; height: 100px; font-size: 20pt; ';
-		var grid = '<table cellspacing = "0">' +
+		let style = 'width: 100px; height: 100px; font-size: 20pt; ';
+		let grid = '<table cellspacing = "0">' +
 			//row 1
 			'<tr><th style = "' + style + ' border-right: 3px solid; border-bottom: 3px solid;"><center>' + marked[0] + '</center></td>' +
 			'<th style = "' + style + ' border-bottom: 3px solid;"><center>' + marked[1] + '</center></th>' +
@@ -90,14 +90,14 @@ var TicTacToe = (function () {
 	};
 
 	TicTacToe.prototype.update = function () {
-		var message = '|html|<center><b>' + this.currentPlayer.name + '\'s turn!</b><br/>' + this.getGrid();
+		let message = '|html|<center><b>' + this.currentPlayer.name + '\'s turn!</b><br/>' + this.getGrid();
 		this.players.forEach(function (user) {
 			user.popup(message);
 		});
 	};
 
 	TicTacToe.prototype.updateUser = function (user, issue) {
-		var message = '|html|<center><b>' + this.currentPlayer.name + '\'s turn!</b><br>' +
+		let message = '|html|<center><b>' + this.currentPlayer.name + '\'s turn!</b><br>' +
 			this.getGrid() + (issue ? '<br>' + issue : '');
 		user.popup(message);
 	};
@@ -114,7 +114,7 @@ var TicTacToe = (function () {
 	};
 
 	TicTacToe.prototype.declareDraw = function () {
-		var message = '|html|<center><b>Draw between ' + this.p1.name + ' and ' + this.p2.name + '!</b><br>' + this.getGrid(true);
+		let message = '|html|<center><b>Draw between ' + this.p1.name + ' and ' + this.p2.name + '!</b><br>' + this.getGrid(true);
 		// Give Back Bucks.
 		//Db.currency.set(this.p1.userid, Db.currency.get(this.p1.userid, 0) + 3);
 		//Db.currency.set(this.p2.userid, Db.currency.get(this.p2.userid, 0) + 3);
@@ -126,7 +126,7 @@ var TicTacToe = (function () {
 
 	TicTacToe.prototype.declareWinner = function () {
 		//Db.currency.set(this.currentPlayer.name, 6);
-		var message = '|html|<center><b>' + this.currentPlayer.name + ' has won the game.</b><br/>' + this.getGrid(true);
+		let message = '|html|<center><b>' + this.currentPlayer.name + ' has won the game.</b><br/>' + this.getGrid(true);
 		this.players.forEach(function (user) {
 			user.popup(message);
 		});
@@ -159,7 +159,7 @@ var TicTacToe = (function () {
 	return TicTacToe;
 })();
 
-var cmds = {
+let cmds = {
 	'': 'help',
 	help: function (target, room, user) {
 		this.sendReplyBox('<b>Tic-Tac-Toe commands</b><br>' +
@@ -181,7 +181,7 @@ var cmds = {
 		//} else {
 		    //return this.errorReply('You don\'t have bucks to challenge.');
 		//}
-		var targetUser = (Users.get(target) ? Users.get(target).name : target);
+		let targetUser = (Users.get(target) ? Users.get(target).name : target);
 		target = Users.get(target);
 		if (!target || !target.connected) return this.sendReply('User ' + targetUser + ' is offline.');
 		if (user.userid === target.userid) return this.sendReply('You can\'t play Tic-Tac-Toe with yourself!');
@@ -196,13 +196,12 @@ var cmds = {
 			if (game.checkPlayer(user)) return this.sendReply(game.checkPlayer(user) + ' has already sent you a request...');
 			return this.sendReply(target.name + ' has already asked someone else for a game of Tic-Tac-Toe.');
 		}
-		for (var i in tttgames)
-			if (tttgames[i].checkPlayer(user)) return this.sendReply('You were sent a game request by ' + tttgames[i].checkPlayer(user) + '. First respond to that request before challenging someone else.');
+		for (let i in tttgames) { if (tttgames[i].checkPlayer(user)) return this.sendReply('You were sent a game request by ' + tttgames[i].checkPlayer(user) + '. First respond to that request before challenging someone else.'); }
 		target.send('|pm|' + user.getIdentity() + '|' + target.getIdentity() + '|/html ' + user.getIdentity() + ' wants to play Tic-Tac-Toe!<br>' +
 			'<button name = "send" value = "/ttt accept ' + user.userid + '">Accept</button> <button name = "send" value = "/ttt decline ' + user.userid + '">Decline</button>'
 		);
 		user.send('|pm|' + target.getIdentity() + '|' + user.getIdentity() + '|/html You have challenged ' + target.getIdentity() + ' to a game of Tic-Tac-Toe. Waiting for their response...');
-		var gameId = tttplayers[user.userid] = (Object.keys(tttgames).length ? Object.keys(tttgames).length - 1 : 0);
+		let gameId = tttplayers[user.userid] = (Object.keys(tttgames).length ? Object.keys(tttgames).length - 1 : 0);
 		tttgames[gameId] = new TicTacToe(user, target, gameId);
 	},
 
@@ -214,8 +213,8 @@ var cmds = {
 		//} else {
 		    //return this.errorReply('You don\'t have enough bucks to accept the challenge.');
 		//}
-		var game = tttgames[tttplayers[user.userid]];
-		var targetUser = (Users.get(target) ? Users.get(target).name : target);
+		let game = tttgames[tttplayers[user.userid]];
+		let targetUser = (Users.get(target) ? Users.get(target).name : target);
 		target = Users.get(target);
 		if (!target || !target.connected) return this.sendReply('User ' + targetUser + ' is offline.');
 		if (user.userid in tttplayers) {
@@ -235,11 +234,11 @@ var cmds = {
 	dec: 'decline',
 	decline: function (target, room, user, connection, cmd) {
 		if (!target || !target.trim()) return this.sendReply('|html|/ttt ' + cmd + ' <em>User</em> - Declines a Tic-Tac-Toe challenge from a user.');
-		var targetUser = (Users.get(target) ? Users.get(target).name : target);
+		let targetUser = (Users.get(target) ? Users.get(target).name : target);
 		target = Users.get(target);
 		if (!target || !target.connected) return this.sendReply('User ' + targetUser + ' is offline.');
 		if (user.userid === target.userid) return this.sendReply('You can\'t use this command on yourself.');
-		var game = tttgames[tttplayers[toId(targetUser)]];
+		let game = tttgames[tttplayers[toId(targetUser)]];
 		if (!(target.userid in tttplayers) || !game.checkPlayer(target)) return this.sendReply(target + ' has not challenged you to a game of Tic-Tac-Toe.');
 		if (game.checkPlayer(target) && game.phase == 'started') return this.sendReply('You are playing with ' + game.checkPlayer(user) + ' right now. If you want to end the game, use /ttt end.');
 
@@ -252,7 +251,7 @@ var cmds = {
 	mark: 'markbox',
 	markbox: function (target, room, user, connection, cmd) {
 		if (!(user.userid in tttplayers)) return this.sendReply('You aren\'t playing a game of Tic-Tac-Toe right now.');
-		var game = tttgames[tttplayers[user.userid]];
+		let game = tttgames[tttplayers[user.userid]];
 		if (game.phase === 'waiting') return this.sendReply('The request has not been accepted yet. You can only use this command in an active game.');
 		game.markBox(user, target);
 	},
@@ -262,7 +261,7 @@ var cmds = {
 	show: 'see',
 	see: function (target, room, user) {
 		if (!(user.userid in tttplayers)) return this.sendReply('You aren\'t playing a game of Tic-Tac-Toe right now.');
-		var game = tttgames[tttplayers[user.userid]];
+		let game = tttgames[tttplayers[user.userid]];
 		if (game.phase === 'waiting') return this.sendReply('The request has not been accepted yet. You can only use this command in an active game.');
 		game.update();
 	},
@@ -271,15 +270,15 @@ var cmds = {
 	leave: 'end',
 	end: function (target, room, user) {
 		if (!(user.userid in tttplayers)) return this.sendReply('You aren\'t playing a game of Tic-Tac-Toe right now.');
-		var game = tttgames[tttplayers[user.userid]];
+		let game = tttgames[tttplayers[user.userid]];
 		if (game.phase === 'waiting') game.end('The request was withdrawn.');
 		else game.end(user.name + ' has decided to leave the game midway.');
-	}
+	},
 };
 
 exports.commands = {
 	ttt: 'tictactoe',
 	tictactoe: cmds,
 	tttend: 'endttt',
-	endttt: cmds.end	
-}
+	endttt: cmds.end,
+};

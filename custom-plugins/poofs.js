@@ -1,8 +1,8 @@
 'use strict';
 
 const messages = [
-    "ventured into Shrek's Swamp.",
-    "disrespected the OgreLord!",
+	"ventured into Shrek's Swamp.",
+	"disrespected the OgreLord!",
 	"used Explosion!",
 	"was swallowed up by the Earth!",
 	"was eaten by Lex!",

@@ -108,7 +108,7 @@ exports.commands = {
 			if (Rooms("upperstaff")) Rooms("upperstaff").add(`|raw|${Server.nameColor(user.name, true)} has removed the emoticon ${Chat.escapeHTML(target)}.`);
 			//Server.messageSeniorStaff(`/html ${Server.nameColor(user.name, true)} has removed the emoticon ${Chat.escapeHTML(target)}.`);
 		},
-		
+
 		addmanager: "am",
 		am: function (target, room, user) {
 			if (!this.can("emotes")) return false;
@@ -116,7 +116,7 @@ exports.commands = {
 			Db.emanager.set(target, 1);
 			this.sendReply(`${target} has been added as emoticons manager.`);
 		},
-		
+
 		removemanager: "rm",
 		rm: function (target, room, user) {
 			if (!this.can("emotes")) return false;

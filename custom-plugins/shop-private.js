@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 /*********************************************
  * Interactive multi-shop interface by Lights *
@@ -50,12 +50,12 @@ function loadShops() {
 		Server.shopData = JSON.parse(fs.readFileSync('config/shopData.json', 'utf8'));
 	} catch (e) {
 		Server.shopData = {
-			closed: true
+			closed: true,
 		};
 	}
 	if (!Server.shopData.closed) buildShop(Server.shopData);
 }
-setTimeout(function() {
+setTimeout(function () {
 	loadShops();
 }, 2000);
 
@@ -84,7 +84,7 @@ function getItems(obj, objname) {
 				price: obj[name].price,
 				multibuy: obj[name].multibuy,
 				currency: obj[name].currency,
-				onbuy: obj[name].onbuy
+				onbuy: obj[name].onbuy,
 			};
 			Server.itemList.push(shopItem);
 			if (Server.currencies.indexOf(shopItem.currency) === -1) Server.currencies.push(shopItem.currency);
@@ -93,7 +93,7 @@ function getItems(obj, objname) {
 }
 
 function drawMain(output) {
-	let shopData = Server.shopData
+	let shopData = Server.shopData;
 	output += '<div><center><table border=0>';
 	let arr = Object.getOwnPropertyNames(shopData);
 	let outputArr = [];
@@ -185,7 +185,7 @@ function setupPrice(item, stardust) {
 
 function scaleImage(url, callback) {
 	if (url) {
-		size(url, function(err, dimensions, length) {
+		size(url, function (err, dimensions, length) {
 			let width = dimensions.width;
 			let height = dimensions.height;
 			if (height >= 120) {
@@ -196,12 +196,12 @@ function scaleImage(url, callback) {
 			let arr = [url, width, height];
 			return callback(arr);
 		});
-	} else return callback(false);
+	} else { return callback(false); }
 }
 
 exports.commands = {
 
-	shop: function(target, room, user) {
+	shop: function (target, room, user) {
 		let shopData = Server.shopData;
 		if (shopData.closed) return this.sendReply("The shop is currently closed; check back later.");
 		if (room.battle) return this.errorReply("The shop isn't meant to be used in battles.");
@@ -257,7 +257,7 @@ exports.commands = {
 							}
 							marquee = shopData[match].info;
 							if (selectionType == '1') {
-								output += '<center><table border=0>'
+								output += '<center><table border=0>';
 								for (let x = 0; x < outputArr.length; x++) {
 									let name = outputArr[x].display;
 									let button = match + '.' + arr[x];
@@ -326,7 +326,7 @@ exports.commands = {
 					if (match && prog == length && length == path.length) {
 						if (isUpdate == '1') {
 							if (selectionType == '1') {
-								output += '<center><table border=0>'
+								output += '<center><table border=0>';
 								for (let x = 0; x < outputArr.length; x++) {
 									let last = '';
 									let back = '';
@@ -436,7 +436,7 @@ exports.commands = {
 		}
 	},
 
-	redeem: function(target, room, user) {
+	redeem: function (target, room, user) {
 		let shopData = Server.shopData;
 		let err = "Invalid target; this command is not meant to be used manually.";
 		if (!target) return this.errorReply(err);
@@ -454,123 +454,123 @@ exports.commands = {
 		let self = this;
 		Economy.readMoney(user.userid, stardust => {
 			switch (match.name) {
-				case 'customsymbol':
-					money = setupPrice(match, stardust);
-					success = runTransaction(money, match, user);
-					if (success) {
-						user.canCustomSymbol = true;
-						successfulTransaction(match, success, user, room);
-					} else {
-						failedTransaction(user, match, money, room);
-					}
-					user.shopCache = false;
-					break;
-				case 'globaldeclare':
-					if (user.tokens.declare) return self.errorReply('You already have this purchased! Use it first with /usetoken declare, [message]');
-					money = setupPrice(match, stardust);
-					success = runTransaction(money, match, user);
-					if (success) {
-						//Server.messageSeniorStaff(user.name + " has purchased a Global Declare. Please contact this user to run their Global Declare.");
-						user.tokens.declare = true;
-						successfulTransaction(match, success, user, room);
-					} else {
-						failedTransaction(user, match, money, room);
-					}
-					user.shopCache = false;
-					break;
+			case 'customsymbol':
+				money = setupPrice(match, stardust);
+				success = runTransaction(money, match, user);
+				if (success) {
+					user.canCustomSymbol = true;
+					successfulTransaction(match, success, user, room);
+				} else {
+					failedTransaction(user, match, money, room);
+				}
+				user.shopCache = false;
+				break;
+			case 'globaldeclare':
+				if (user.tokens.declare) return self.errorReply('You already have this purchased! Use it first with /usetoken declare, [message]');
+				money = setupPrice(match, stardust);
+				success = runTransaction(money, match, user);
+				if (success) {
+					//Server.messageSeniorStaff(user.name + " has purchased a Global Declare. Please contact this user to run their Global Declare.");
+					user.tokens.declare = true;
+					successfulTransaction(match, success, user, room);
+				} else {
+					failedTransaction(user, match, money, room);
+				}
+				user.shopCache = false;
+				break;
 		    	case 'customavatar':
-					if (user.tokens.avatar) return self.errorReply('You already have this purchased! Use it first with /usetoken avatar, [image]');
-					money = setupPrice(match, stardust);
-					success = runTransaction(money, match, user);
-					if (success) {
-						//Server.messageSeniorStaff(user.name + " has purchased a Custom Avatar. Please contact this user to setup their Custom Avatar.");
-						//inventory.addItem('avatartoken', user);
-						user.tokens.avatar = true;
-						successfulTransaction(match, success, user, room);
-					} else {
-						failedTransaction(user, match, money, room);
-					}
-					user.shopCache = false;
-					break;
-				case 'customcolor':
-					if (user.tokens.color) return self.errorReply('You already have this purchased! Use it first with /usetoken color, [hex code]');
-					money = setupPrice(match, stardust);
-					success = runTransaction(money, match, user);
-					if (success) {
-						//Server.messageSeniorStaff(user.name + " has purchased a Custom Color. Please contact this user to setup their Custom Color.");
-						//inventory.addItem('colortoken', user);
-						user.tokens.color = true;
-						successfulTransaction(match, success, user, room);
-					} else {
-						failedTransaction(user, match, money, room);
-					}
-					user.shopCache = false;
-					break;
-				case 'title':
-					if (user.tokens.title) return self.errorReply('You already have this purchased! Use it first with /usetoken title, [title], [hex color]');
-					money = setupPrice(match, stardust);
-					success = runTransaction(money, match, user);
-					if (success) {
-						//Server.messageSeniorStaff(user.name + " has purchased a Custom Title. Please contact this user to setup their Custom Color.");
-						user.tokens.title = true;
-						successfulTransaction(match, success, user, room);
-					} else {
-						failedTransaction(user, match, money, room);
-					}
-					break;
-				case 'icon':
-					if (user.tokens.icon) return self.errorReply('You already have this purchased! Use it first with /usetoken icon, [image]');
-					money = setupPrice(match, stardust);
-					success = runTransaction(money, match, user);
-					if (success) {
-						//Server.messageSeniorStaff(user.name + " has purchased a Userlit Icon. Please contact this user to setup their Userlist Icon.");
-						//inventory.addItem('icontoken', user);
-						user.tokens.icon = true;
-						successfulTransaction(match, success, user, room);
-					} else {
-						failedTransaction(user, match, money, room);
-					}
-					user.shopCache = false;
-					break;
-				case 'emote':
-					if (user.tokens.emote) return self.errorReply('You already have this purchased! Use it first with /usetoken emote, [name], [image]');
-					money = setupPrice(match, stardust);
-					success = runTransaction(money, match, user);
-					if (success) {
-						//Server.messageSeniorStaff(user.name + " has purchased an Emote. Please contact this user to setup their Emote.");
-						user.tokens.emote = true;
-						successfulTransaction(match, success, user, room);
-					} else {
-						failedTransaction(user, match, money, room);
-					}
-					user.shopCache = false;
-					break;
-				case 'profileteam':
-					money = setupPrice(match, stardust);
-					success = runTransaction(money, match, user);
-					if (success) {
-						//Server.messageSeniorStaff(user.name + " has purchased a room. Please contact this user to setup their room.");
-						user.tokens.profileteam = true;
-						successfulTransaction(match, success, user, room);
-					} else {
-						failedTransaction(user, match, money, room);
-					}
-					user.shopCache = false;
-					break;
-				case 'profilemusic':
-					money = setupPrice(match, stardust);
-					success = runTransaction(money, match, user);
-					if (success) {
-						//Server.messageSeniorStaff(user.name + " has purchased a profile music. Please contact this user to setup their pmusic.");
-						user.tokens.profilemusic = true;
+				if (user.tokens.avatar) return self.errorReply('You already have this purchased! Use it first with /usetoken avatar, [image]');
+				money = setupPrice(match, stardust);
+				success = runTransaction(money, match, user);
+				if (success) {
+					//Server.messageSeniorStaff(user.name + " has purchased a Custom Avatar. Please contact this user to setup their Custom Avatar.");
+					//inventory.addItem('avatartoken', user);
+					user.tokens.avatar = true;
+					successfulTransaction(match, success, user, room);
+				} else {
+					failedTransaction(user, match, money, room);
+				}
+				user.shopCache = false;
+				break;
+			case 'customcolor':
+				if (user.tokens.color) return self.errorReply('You already have this purchased! Use it first with /usetoken color, [hex code]');
+				money = setupPrice(match, stardust);
+				success = runTransaction(money, match, user);
+				if (success) {
+					//Server.messageSeniorStaff(user.name + " has purchased a Custom Color. Please contact this user to setup their Custom Color.");
+					//inventory.addItem('colortoken', user);
+					user.tokens.color = true;
+					successfulTransaction(match, success, user, room);
+				} else {
+					failedTransaction(user, match, money, room);
+				}
+				user.shopCache = false;
+				break;
+			case 'title':
+				if (user.tokens.title) return self.errorReply('You already have this purchased! Use it first with /usetoken title, [title], [hex color]');
+				money = setupPrice(match, stardust);
+				success = runTransaction(money, match, user);
+				if (success) {
+					//Server.messageSeniorStaff(user.name + " has purchased a Custom Title. Please contact this user to setup their Custom Color.");
+					user.tokens.title = true;
+					successfulTransaction(match, success, user, room);
+				} else {
+					failedTransaction(user, match, money, room);
+				}
+				break;
+			case 'icon':
+				if (user.tokens.icon) return self.errorReply('You already have this purchased! Use it first with /usetoken icon, [image]');
+				money = setupPrice(match, stardust);
+				success = runTransaction(money, match, user);
+				if (success) {
+					//Server.messageSeniorStaff(user.name + " has purchased a Userlit Icon. Please contact this user to setup their Userlist Icon.");
+					//inventory.addItem('icontoken', user);
+					user.tokens.icon = true;
+					successfulTransaction(match, success, user, room);
+				} else {
+					failedTransaction(user, match, money, room);
+				}
+				user.shopCache = false;
+				break;
+			case 'emote':
+				if (user.tokens.emote) return self.errorReply('You already have this purchased! Use it first with /usetoken emote, [name], [image]');
+				money = setupPrice(match, stardust);
+				success = runTransaction(money, match, user);
+				if (success) {
+					//Server.messageSeniorStaff(user.name + " has purchased an Emote. Please contact this user to setup their Emote.");
+					user.tokens.emote = true;
+					successfulTransaction(match, success, user, room);
+				} else {
+					failedTransaction(user, match, money, room);
+				}
+				user.shopCache = false;
+				break;
+			case 'profileteam':
+				money = setupPrice(match, stardust);
+				success = runTransaction(money, match, user);
+				if (success) {
+					//Server.messageSeniorStaff(user.name + " has purchased a room. Please contact this user to setup their room.");
+					user.tokens.profileteam = true;
+					successfulTransaction(match, success, user, room);
+				} else {
+					failedTransaction(user, match, money, room);
+				}
+				user.shopCache = false;
+				break;
+			case 'profilemusic':
+				money = setupPrice(match, stardust);
+				success = runTransaction(money, match, user);
+				if (success) {
+					//Server.messageSeniorStaff(user.name + " has purchased a profile music. Please contact this user to setup their pmusic.");
+					user.tokens.profilemusic = true;
 				        Db.hasmusic.set(user, 1);
 				        Users(user).popup('You have purchased profile music. use /pmusic set [user], [link], [title of song] to set your profile Music. Can be used only once.');
 				    } else {
-						failedTransaction(user, match, money, room);
-					}
-					user.shopCache = false;
-					break;
-				case 'profilebackground':
+					failedTransaction(user, match, money, room);
+				}
+				user.shopCache = false;
+				break;
+			case 'profilebackground':
 				    money = setupPrice(match, stardust);
 				    success = runTransaction(money, match, user);
 				    if (success) {
@@ -582,373 +582,373 @@ exports.commands = {
 				    }
 				    user.shopCache = false;
 				    break;
-				case 'roomshop':
-					money = setupPrice(match, stardust);
-					success = runTransaction(money, match, user);
-					if (success) {
-						//Server.messageSeniorStaff(user.name + " has purchased a roomshop. Please contact this user to setup their roomshop.");
-						user.tokens.roomshop = true;
-						successfulTransaction(match, success, user, room);
-					} else {
-						failedTransaction(user, match, money, room);
-					}
-					user.shopCache = false;
-					break;
+			case 'roomshop':
+				money = setupPrice(match, stardust);
+				success = runTransaction(money, match, user);
+				if (success) {
+					//Server.messageSeniorStaff(user.name + " has purchased a roomshop. Please contact this user to setup their roomshop.");
+					user.tokens.roomshop = true;
+					successfulTransaction(match, success, user, room);
+				} else {
+					failedTransaction(user, match, money, room);
+				}
+				user.shopCache = false;
+				break;
 
-					//SSBFFA
-				case 'shiny':
-					if (!Server.ssb[user.userid]) return this.sendReply('You need to run /ssb edit at least once before you can buy this.');
-					if (Server.ssb[user.userid].canShiny) return this.sendReply('You already own this.');
-					money = setupPrice(match, stardust);
-					success = runTransaction(money, match, user);
-					if (success) {
-						Server.ssb[user.userid].canShiny = true;
-						writeSSB();
-						successfulTransaction(match, success, user, room);
-					} else {
-						failedTransaction(user, match, money, room);
-					}
-					user.shopCache = false;
-					break;
-				case 'ffacustomsymbol':
-					if (!Server.ssb[user.userid]) return this.sendReply('You need to run /ssb edit at least once before you can buy this.');
-					if (Server.ssb[user.userid].cSymbol) return this.sendReply('You already own this.');
-					if (user.isStaff || user.group === '+') {
-						//give free
-						Server.ssb[user.userid].cSymbol = true;
-						writeSSB();
-						return this.sendReply('Because you have global auth you have been given this for free!');
-					}
-					money = setupPrice(match, stardust);
-					success = runTransaction(money, match, user);
-					if (success) {
-						Server.ssb[user.userid].cSymbol = true;
-						writeSSB();
-						successfulTransaction(match, success, user, room);
-					} else {
-						failedTransaction(user, match, money, room);
-					}
-					user.shopCache = false;
-					break;
-				case 'customitem':
-					if (!Server.ssb[user.userid]) return this.sendReply('You need to run /ssb edit at least once before you can buy this.');
-					if (Server.ssb[user.userid].bought.cItem) return this.sendReply('You already own this.');
-					money = setupPrice(match, stardust);
-					success = runTransaction(money, match, user);
-					if (success) {
-						Server.ssb[user.userid].bought.cItem = true;
-						writeSSB();
-						Server.messageSeniorStaff(user.name + " has purchased a Custom Item. Please contact this user to get details on what custom item they want.");
-						successfulTransaction(match, success, user, room);
-					} else {
-						failedTransaction(user, match, money, room);
-					}
-					user.shopCache = false;
-					break;
-				case 'customability':
-					if (!Server.ssb[user.userid]) return this.sendReply('You need to run /ssb edit at least once before you can buy this.');
-					if (Server.ssb[user.userid].bought.cAbility) return this.sendReply('You already own this.');
-					money = setupPrice(match, stardust);
-					success = runTransaction(money, match, user);
-					if (success) {
-						Server.ssb[user.userid].bought.cAbility = true;
-						writeSSB();
-						Server.messageSeniorStaff(user.name + " has purchased a Custom Ability. Please contact this user to get details on what custom ability they want.");
-						successfulTransaction(match, success, user, room);
-					} else {
-						failedTransaction(user, match, money, room);
-					}
-					user.shopCache = false;
-					break;
-				case 'custommove':
-					if (!Server.ssb[user.userid]) return this.sendReply('You need to run /ssb edit at least once before you can buy this.');
-					if (Server.ssb[user.userid].bought.cMove) return this.sendReply('You already own this.');
-					money = setupPrice(match, stardust);
-					success = runTransaction(money, match, user);
-					if (success) {
-						Server.ssb[user.userid].bought.cMove = true;
-						writeSSB();
-						Server.messageSeniorStaff(user.name + " has purchased a Custom Move. Please contact this user to get details on what custom move they want.");
-						successfulTransaction(match, success, user, room);
-					} else {
-						failedTransaction(user, match, money, room);
-					}
-					user.shopCache = false;
-					break;
-				case 'berry1':
-					if (!sggame) return this.sendReply('You need to start SGgame before buying this.');
-					money = setupPrice(match, stardust);
-					success = runTransaction(money, match, user);
-					if (success) {
-						let berries1 = ["cheriberry", "pechaberry", "rawstberry", "chestoberry", "aspearberry", "persimberry", "oranberry", "sitrusberry", "lumberry", "leppaberry"];
-						for (let c = 0; c < 30; c++) {
-							let b = Server.getItem(berries1[Math.floor(Math.random() * berries1.length)]);
-							if (!sggame.bag[b.slot][b.id]) sggame.bag[b.slot][b.id] = 0;
-							sggame.bag[b.slot][b.id]++;
-						}
-						successfulTransaction(match, success, user, room);
-					} else {
-						failedTransaction(user, match, money, room);
-					}
-					user.shopCache = false;
-					break;
-				case 'berry2':
-					if (!sggame) return this.sendReply('You need to start SGgame before buying this.');
-					money = setupPrice(match, stardust);
-					success = runTransaction(money, match, user);
-					if (success) {
-						let berries2 = ["aguavberry", "apicotberry", "babiriberry", "chartiberry", "chilanberry", "chopleberry", "cobaberry", "colburberry", "custapberry", "enigmaberry", "figyberry", "ganlonberry", "habanberry", "iapapaberry", "jabocaberry", "kasibberry", "kebiaberry", "keeberry", "lansatberry", "liechiberry", "magoberry", "marangaberry", "micleberry", "occaberry", "passhoberry", "payapaberry", "petayaberry", "rindoberry", "roseliberry", "rowapberry", "salacberry", "shucaberry", "starfberry", "tangaberry", "wacanberry", "wikiberry", "yacheberry"];
-						for (let c = 0; c < 30; c++) {
-							let b = Server.getItem(berries2[Math.floor(Math.random() * berries2.length)]);
-							if (!sggame.bag[b.slot][b.id]) sggame.bag[b.slot][b.id] = 0;
-							sggame.bag[b.slot][b.id]++;
-						}
-						successfulTransaction(match, success, user, room);
-					} else {
-						failedTransaction(user, match, money, room);
-					}
-					user.shopCache = false;
-					break;
-				case 'pokeball':
-					if (!sggame) return this.sendReply('You need to start SGgame before buying this.');
-					money = setupPrice(match, stardust);
-					success = runTransaction(money, match, user);
-					if (success) {
-						let b = Server.getItem(match.name);
-						if (!sggame.bag[b.slot][b.id]) sggame.bag[b.slot][b.id] = 0;
-						sggame.bag[b.slot][b.id] += 30;
-						successfulTransaction(match, success, user, room);
-					} else {
-						failedTransaction(user, match, money, room);
-					}
-					user.shopCache = false;
-					break;
-				case 'potion':
-				case 'greatball':
-					if (!sggame) return this.sendReply('You need to start SGgame before buying this.');
-					money = setupPrice(match, stardust);
-					success = runTransaction(money, match, user);
-					if (success) {
-						let b = Server.getItem(match.name);
-						if (!sggame.bag[b.slot][b.id]) sggame.bag[b.slot][b.id] = 0;
-						sggame.bag[b.slot][b.id] += 15;
-						successfulTransaction(match, success, user, room);
-					} else {
-						failedTransaction(user, match, money, room);
-					}
-					user.shopCache = false;
-					break;
-				case 'parlyzheal':
-				case 'antidote':
-				case 'burnheal':
-				case 'iceheal':
-				case 'awakening':
-					if (!sggame) return this.sendReply('You need to start SGgame before buying this.');
-					money = setupPrice(match, stardust);
-					success = runTransaction(money, match, user);
-					if (success) {
-						let b = Server.getItem(match.name);
-						if (!sggame.bag[b.slot][b.id]) sggame.bag[b.slot][b.id] = 0;
-						sggame.bag[b.slot][b.id] += 10;
-						successfulTransaction(match, success, user, room);
-					} else {
-						failedTransaction(user, match, money, room);
-					}
-					user.shopCache = false;
-					break;
-				case 'ultraball':
-					if (!sggame) return this.sendReply('You need to start SGgame before buying this.');
-					money = setupPrice(match, stardust);
-					success = runTransaction(money, match, user);
-					if (success) {
-						let b = Server.getItem(match.name);
-						if (!sggame.bag[b.slot][b.id]) sggame.bag[b.slot][b.id] = 0;
-						sggame.bag[b.slot][b.id] += 7;
-						successfulTransaction(match, success, user, room);
-					} else {
-						failedTransaction(user, match, money, room);
-					}
-					user.shopCache = false;
-					break;
-				case 'superpotion':
-				case 'fullheal':
-					if (!sggame) return this.sendReply('You need to start SGgame before buying this.');
-					money = setupPrice(match, stardust);
-					success = runTransaction(money, match, user);
-					if (success) {
-						let b = Server.getItem(match.name);
-						if (!sggame.bag[b.slot][b.id]) sggame.bag[b.slot][b.id] = 0;
-						sggame.bag[b.slot][b.id] += 6;
-						successfulTransaction(match, success, user, room);
-					} else {
-						failedTransaction(user, match, money, room);
-					}
-					user.shopCache = false;
-					break;
-				case 'hyperpotion':
-					if (!sggame) return this.sendReply('You need to start SGgame before buying this.');
-					money = setupPrice(match, stardust);
-					success = runTransaction(money, match, user);
-					if (success) {
-						let b = Server.getItem(match.name);
-						if (!sggame.bag[b.slot][b.id]) sggame.bag[b.slot][b.id] = 0;
-						sggame.bag[b.slot][b.id] += 4;
-						successfulTransaction(match, success, user, room);
-					} else {
-						failedTransaction(user, match, money, room);
-					}
-					user.shopCache = false;
-					break;
-				case 'maxpotion':
-					if (!sggame) return this.sendReply('You need to start SGgame before buying this.');
-					money = setupPrice(match, stardust);
-					success = runTransaction(money, match, user);
-					if (success) {
-						let b = Server.getItem(match.name);
-						if (!sggame.bag[b.slot][b.id]) sggame.bag[b.slot][b.id] = 0;
-						sggame.bag[b.slot][b.id] += 3;
-						successfulTransaction(match, success, user, room);
-					} else {
-						failedTransaction(user, match, money, room);
-					}
-					user.shopCache = false;
-					break;
-				case 'fullrestore':
-					if (!sggame) return this.sendReply('You need to start SGgame before buying this.');
-					money = setupPrice(match, stardust);
-					success = runTransaction(money, match, user);
-					if (success) {
-						let b = Server.getItem(match.name);
-						if (!sggame.bag[b.slot][b.id]) sggame.bag[b.slot][b.id] = 0;
-						sggame.bag[b.slot][b.id] += 2;
-						successfulTransaction(match, success, user, room);
-					} else {
-						failedTransaction(user, match, money, room);
-					}
-					user.shopCache = false;
-					break;
-				case 'hpup':
-				case 'protein':
-				case 'iron':
-				case 'calcium':
-				case 'zinc':
-				case 'carbos':
-					if (!sggame) return this.sendReply('You need to start SGgame before buying this.');
-					money = setupPrice(match, stardust);
-					success = runTransaction(money, match, user);
-					if (success) {
-						let b = Server.getItem(match.name);
+				//SSBFFA
+			case 'shiny':
+				if (!Server.ssb[user.userid]) return this.sendReply('You need to run /ssb edit at least once before you can buy this.');
+				if (Server.ssb[user.userid].canShiny) return this.sendReply('You already own this.');
+				money = setupPrice(match, stardust);
+				success = runTransaction(money, match, user);
+				if (success) {
+					Server.ssb[user.userid].canShiny = true;
+					writeSSB();
+					successfulTransaction(match, success, user, room);
+				} else {
+					failedTransaction(user, match, money, room);
+				}
+				user.shopCache = false;
+				break;
+			case 'ffacustomsymbol':
+				if (!Server.ssb[user.userid]) return this.sendReply('You need to run /ssb edit at least once before you can buy this.');
+				if (Server.ssb[user.userid].cSymbol) return this.sendReply('You already own this.');
+				if (user.isStaff || user.group === '+') {
+					//give free
+					Server.ssb[user.userid].cSymbol = true;
+					writeSSB();
+					return this.sendReply('Because you have global auth you have been given this for free!');
+				}
+				money = setupPrice(match, stardust);
+				success = runTransaction(money, match, user);
+				if (success) {
+					Server.ssb[user.userid].cSymbol = true;
+					writeSSB();
+					successfulTransaction(match, success, user, room);
+				} else {
+					failedTransaction(user, match, money, room);
+				}
+				user.shopCache = false;
+				break;
+			case 'customitem':
+				if (!Server.ssb[user.userid]) return this.sendReply('You need to run /ssb edit at least once before you can buy this.');
+				if (Server.ssb[user.userid].bought.cItem) return this.sendReply('You already own this.');
+				money = setupPrice(match, stardust);
+				success = runTransaction(money, match, user);
+				if (success) {
+					Server.ssb[user.userid].bought.cItem = true;
+					writeSSB();
+					Server.messageSeniorStaff(user.name + " has purchased a Custom Item. Please contact this user to get details on what custom item they want.");
+					successfulTransaction(match, success, user, room);
+				} else {
+					failedTransaction(user, match, money, room);
+				}
+				user.shopCache = false;
+				break;
+			case 'customability':
+				if (!Server.ssb[user.userid]) return this.sendReply('You need to run /ssb edit at least once before you can buy this.');
+				if (Server.ssb[user.userid].bought.cAbility) return this.sendReply('You already own this.');
+				money = setupPrice(match, stardust);
+				success = runTransaction(money, match, user);
+				if (success) {
+					Server.ssb[user.userid].bought.cAbility = true;
+					writeSSB();
+					Server.messageSeniorStaff(user.name + " has purchased a Custom Ability. Please contact this user to get details on what custom ability they want.");
+					successfulTransaction(match, success, user, room);
+				} else {
+					failedTransaction(user, match, money, room);
+				}
+				user.shopCache = false;
+				break;
+			case 'custommove':
+				if (!Server.ssb[user.userid]) return this.sendReply('You need to run /ssb edit at least once before you can buy this.');
+				if (Server.ssb[user.userid].bought.cMove) return this.sendReply('You already own this.');
+				money = setupPrice(match, stardust);
+				success = runTransaction(money, match, user);
+				if (success) {
+					Server.ssb[user.userid].bought.cMove = true;
+					writeSSB();
+					Server.messageSeniorStaff(user.name + " has purchased a Custom Move. Please contact this user to get details on what custom move they want.");
+					successfulTransaction(match, success, user, room);
+				} else {
+					failedTransaction(user, match, money, room);
+				}
+				user.shopCache = false;
+				break;
+			case 'berry1':
+				if (!sggame) return this.sendReply('You need to start SGgame before buying this.');
+				money = setupPrice(match, stardust);
+				success = runTransaction(money, match, user);
+				if (success) {
+					let berries1 = ["cheriberry", "pechaberry", "rawstberry", "chestoberry", "aspearberry", "persimberry", "oranberry", "sitrusberry", "lumberry", "leppaberry"];
+					for (let c = 0; c < 30; c++) {
+						let b = Server.getItem(berries1[Math.floor(Math.random() * berries1.length)]);
 						if (!sggame.bag[b.slot][b.id]) sggame.bag[b.slot][b.id] = 0;
 						sggame.bag[b.slot][b.id]++;
-						successfulTransaction(match, success, user, room);
-					} else {
-						failedTransaction(user, match, money, room);
 					}
-					user.shopCache = false;
-					break;
+					successfulTransaction(match, success, user, room);
+				} else {
+					failedTransaction(user, match, money, room);
+				}
+				user.shopCache = false;
+				break;
+			case 'berry2':
+				if (!sggame) return this.sendReply('You need to start SGgame before buying this.');
+				money = setupPrice(match, stardust);
+				success = runTransaction(money, match, user);
+				if (success) {
+					let berries2 = ["aguavberry", "apicotberry", "babiriberry", "chartiberry", "chilanberry", "chopleberry", "cobaberry", "colburberry", "custapberry", "enigmaberry", "figyberry", "ganlonberry", "habanberry", "iapapaberry", "jabocaberry", "kasibberry", "kebiaberry", "keeberry", "lansatberry", "liechiberry", "magoberry", "marangaberry", "micleberry", "occaberry", "passhoberry", "payapaberry", "petayaberry", "rindoberry", "roseliberry", "rowapberry", "salacberry", "shucaberry", "starfberry", "tangaberry", "wacanberry", "wikiberry", "yacheberry"];
+					for (let c = 0; c < 30; c++) {
+						let b = Server.getItem(berries2[Math.floor(Math.random() * berries2.length)]);
+						if (!sggame.bag[b.slot][b.id]) sggame.bag[b.slot][b.id] = 0;
+						sggame.bag[b.slot][b.id]++;
+					}
+					successfulTransaction(match, success, user, room);
+				} else {
+					failedTransaction(user, match, money, room);
+				}
+				user.shopCache = false;
+				break;
+			case 'pokeball':
+				if (!sggame) return this.sendReply('You need to start SGgame before buying this.');
+				money = setupPrice(match, stardust);
+				success = runTransaction(money, match, user);
+				if (success) {
+					let b = Server.getItem(match.name);
+					if (!sggame.bag[b.slot][b.id]) sggame.bag[b.slot][b.id] = 0;
+					sggame.bag[b.slot][b.id] += 30;
+					successfulTransaction(match, success, user, room);
+				} else {
+					failedTransaction(user, match, money, room);
+				}
+				user.shopCache = false;
+				break;
+			case 'potion':
+			case 'greatball':
+				if (!sggame) return this.sendReply('You need to start SGgame before buying this.');
+				money = setupPrice(match, stardust);
+				success = runTransaction(money, match, user);
+				if (success) {
+					let b = Server.getItem(match.name);
+					if (!sggame.bag[b.slot][b.id]) sggame.bag[b.slot][b.id] = 0;
+					sggame.bag[b.slot][b.id] += 15;
+					successfulTransaction(match, success, user, room);
+				} else {
+					failedTransaction(user, match, money, room);
+				}
+				user.shopCache = false;
+				break;
+			case 'parlyzheal':
+			case 'antidote':
+			case 'burnheal':
+			case 'iceheal':
+			case 'awakening':
+				if (!sggame) return this.sendReply('You need to start SGgame before buying this.');
+				money = setupPrice(match, stardust);
+				success = runTransaction(money, match, user);
+				if (success) {
+					let b = Server.getItem(match.name);
+					if (!sggame.bag[b.slot][b.id]) sggame.bag[b.slot][b.id] = 0;
+					sggame.bag[b.slot][b.id] += 10;
+					successfulTransaction(match, success, user, room);
+				} else {
+					failedTransaction(user, match, money, room);
+				}
+				user.shopCache = false;
+				break;
+			case 'ultraball':
+				if (!sggame) return this.sendReply('You need to start SGgame before buying this.');
+				money = setupPrice(match, stardust);
+				success = runTransaction(money, match, user);
+				if (success) {
+					let b = Server.getItem(match.name);
+					if (!sggame.bag[b.slot][b.id]) sggame.bag[b.slot][b.id] = 0;
+					sggame.bag[b.slot][b.id] += 7;
+					successfulTransaction(match, success, user, room);
+				} else {
+					failedTransaction(user, match, money, room);
+				}
+				user.shopCache = false;
+				break;
+			case 'superpotion':
+			case 'fullheal':
+				if (!sggame) return this.sendReply('You need to start SGgame before buying this.');
+				money = setupPrice(match, stardust);
+				success = runTransaction(money, match, user);
+				if (success) {
+					let b = Server.getItem(match.name);
+					if (!sggame.bag[b.slot][b.id]) sggame.bag[b.slot][b.id] = 0;
+					sggame.bag[b.slot][b.id] += 6;
+					successfulTransaction(match, success, user, room);
+				} else {
+					failedTransaction(user, match, money, room);
+				}
+				user.shopCache = false;
+				break;
+			case 'hyperpotion':
+				if (!sggame) return this.sendReply('You need to start SGgame before buying this.');
+				money = setupPrice(match, stardust);
+				success = runTransaction(money, match, user);
+				if (success) {
+					let b = Server.getItem(match.name);
+					if (!sggame.bag[b.slot][b.id]) sggame.bag[b.slot][b.id] = 0;
+					sggame.bag[b.slot][b.id] += 4;
+					successfulTransaction(match, success, user, room);
+				} else {
+					failedTransaction(user, match, money, room);
+				}
+				user.shopCache = false;
+				break;
+			case 'maxpotion':
+				if (!sggame) return this.sendReply('You need to start SGgame before buying this.');
+				money = setupPrice(match, stardust);
+				success = runTransaction(money, match, user);
+				if (success) {
+					let b = Server.getItem(match.name);
+					if (!sggame.bag[b.slot][b.id]) sggame.bag[b.slot][b.id] = 0;
+					sggame.bag[b.slot][b.id] += 3;
+					successfulTransaction(match, success, user, room);
+				} else {
+					failedTransaction(user, match, money, room);
+				}
+				user.shopCache = false;
+				break;
+			case 'fullrestore':
+				if (!sggame) return this.sendReply('You need to start SGgame before buying this.');
+				money = setupPrice(match, stardust);
+				success = runTransaction(money, match, user);
+				if (success) {
+					let b = Server.getItem(match.name);
+					if (!sggame.bag[b.slot][b.id]) sggame.bag[b.slot][b.id] = 0;
+					sggame.bag[b.slot][b.id] += 2;
+					successfulTransaction(match, success, user, room);
+				} else {
+					failedTransaction(user, match, money, room);
+				}
+				user.shopCache = false;
+				break;
+			case 'hpup':
+			case 'protein':
+			case 'iron':
+			case 'calcium':
+			case 'zinc':
+			case 'carbos':
+				if (!sggame) return this.sendReply('You need to start SGgame before buying this.');
+				money = setupPrice(match, stardust);
+				success = runTransaction(money, match, user);
+				if (success) {
+					let b = Server.getItem(match.name);
+					if (!sggame.bag[b.slot][b.id]) sggame.bag[b.slot][b.id] = 0;
+					sggame.bag[b.slot][b.id]++;
+					successfulTransaction(match, success, user, room);
+				} else {
+					failedTransaction(user, match, money, room);
+				}
+				user.shopCache = false;
+				break;
 
-				case 'ancientorigins':
-				case 'aquapolis':
-				case 'arceus':
-				case 'breakpoint':
-				case 'breakthrough':
-				case 'bwblackstarpromos':
-				case 'base':
-				case 'baseset2':
-				case 'blackwhite':
-				case 'boundariescrossed':
-				case 'burningshadows':
-				case 'calloflegends':
-				case 'crystalguardians':
-				case 'darkexplorers':
-				case 'deltaspecies':
-				case 'deoxys':
-				case 'diamondpearl':
-				case 'doublecrisis':
-				case 'dragon':
-				case 'dragonfrontiers':
-				case 'dragonvault':
-				case 'dragonsexalted':
-				case 'emerald':
-				case 'emergingpowers':
-				case 'evolutions':
-				case 'expeditionbaseset':
-				case 'fatescollide':
-				case 'fireredleafgreen':
-				case 'flashfire':
-				case 'fossil':
-				case 'furiousfists':
-				case 'generations':
-				case 'greatencounters':
-				case 'guardiansrising':
-				case 'gymchallenge':
-				case 'gymheroes':
-				case 'hstriumphant':
-				case 'hsundaunted':
-				case 'hsunleashed':
-				case 'heartgoldsoulsilver':
-				case 'hiddenlegends':
-				case 'holonphantoms':
-				case 'jungle':
-				case 'kalosstarterset':
-				case 'legendmaker':
-				case 'legendarycollection':
-				case 'legendarytreasures':
-				case 'legendsawakened':
-				case 'majesticdawn':
-				case 'mysterioustreasures':
-				case 'neodestiny':
-				case 'neodiscovery':
-				case 'neogenesis':
-				case 'neorevelation':
-				case 'nextdestinies':
-				case 'noblevictories':
-				case 'popseries1':
-				case 'popseries2':
-				case 'popseries3':
-				case 'popseries4':
-				case 'popseries5':
-				case 'popseries6':
-				case 'popseries7':
-				case 'popseries8':
-				case 'popseries9':
-				case 'phantomforces':
-				case 'plasmablast':
-				case 'plasmafreeze':
-				case 'plasmastorm':
-				case 'platinum':
-				case 'powerkeepers':
-				case 'primalclash':
-				case 'risingrivals':
-				case 'roaringskies':
-				case 'rubysapphire':
-				case 'smblackstarpromos':
-				case 'sandstorm':
-				case 'secretwonders':
-				case 'shininglegends':
-				case 'skyridge':
-				case 'steamsiege':
-				case 'stormfront':
-				case 'sunmoon':
-				case 'supremevictors':
-				case 'teammagmavsteamaqua':
-				case 'teamrocket':
-				case 'teamrocketreturns':
-				case 'unseenforces':
-				case 'wizardsblackstarpromos':
-				case 'xy':
-				case 'xyblackstarpromos':
-					money = setupPrice(match, stardust);
-					success = runTransaction(money, match, user);
-					if (success) {
-						Db.userpacks.set(user.userid, Db.userpacks.get(user.userid, []).concat([match.display]));
-						successfulTransaction(match, success, user, room);
-					} else {
-						failedTransaction(user, match, money, room);
-					}
-					user.shopCache = false;
-					break;
-					
+			case 'ancientorigins':
+			case 'aquapolis':
+			case 'arceus':
+			case 'breakpoint':
+			case 'breakthrough':
+			case 'bwblackstarpromos':
+			case 'base':
+			case 'baseset2':
+			case 'blackwhite':
+			case 'boundariescrossed':
+			case 'burningshadows':
+			case 'calloflegends':
+			case 'crystalguardians':
+			case 'darkexplorers':
+			case 'deltaspecies':
+			case 'deoxys':
+			case 'diamondpearl':
+			case 'doublecrisis':
+			case 'dragon':
+			case 'dragonfrontiers':
+			case 'dragonvault':
+			case 'dragonsexalted':
+			case 'emerald':
+			case 'emergingpowers':
+			case 'evolutions':
+			case 'expeditionbaseset':
+			case 'fatescollide':
+			case 'fireredleafgreen':
+			case 'flashfire':
+			case 'fossil':
+			case 'furiousfists':
+			case 'generations':
+			case 'greatencounters':
+			case 'guardiansrising':
+			case 'gymchallenge':
+			case 'gymheroes':
+			case 'hstriumphant':
+			case 'hsundaunted':
+			case 'hsunleashed':
+			case 'heartgoldsoulsilver':
+			case 'hiddenlegends':
+			case 'holonphantoms':
+			case 'jungle':
+			case 'kalosstarterset':
+			case 'legendmaker':
+			case 'legendarycollection':
+			case 'legendarytreasures':
+			case 'legendsawakened':
+			case 'majesticdawn':
+			case 'mysterioustreasures':
+			case 'neodestiny':
+			case 'neodiscovery':
+			case 'neogenesis':
+			case 'neorevelation':
+			case 'nextdestinies':
+			case 'noblevictories':
+			case 'popseries1':
+			case 'popseries2':
+			case 'popseries3':
+			case 'popseries4':
+			case 'popseries5':
+			case 'popseries6':
+			case 'popseries7':
+			case 'popseries8':
+			case 'popseries9':
+			case 'phantomforces':
+			case 'plasmablast':
+			case 'plasmafreeze':
+			case 'plasmastorm':
+			case 'platinum':
+			case 'powerkeepers':
+			case 'primalclash':
+			case 'risingrivals':
+			case 'roaringskies':
+			case 'rubysapphire':
+			case 'smblackstarpromos':
+			case 'sandstorm':
+			case 'secretwonders':
+			case 'shininglegends':
+			case 'skyridge':
+			case 'steamsiege':
+			case 'stormfront':
+			case 'sunmoon':
+			case 'supremevictors':
+			case 'teammagmavsteamaqua':
+			case 'teamrocket':
+			case 'teamrocketreturns':
+			case 'unseenforces':
+			case 'wizardsblackstarpromos':
+			case 'xy':
+			case 'xyblackstarpromos':
+				money = setupPrice(match, stardust);
+				success = runTransaction(money, match, user);
+				if (success) {
+					Db.userpacks.set(user.userid, Db.userpacks.get(user.userid, []).concat([match.display]));
+					successfulTransaction(match, success, user, room);
+				} else {
+					failedTransaction(user, match, money, room);
+				}
+				user.shopCache = false;
+				break;
+
 					/* Keep this for later
 			    	targetRoom.update();
 		    		targetRoom.shop = {};
@@ -960,19 +960,19 @@ exports.commands = {
 			}
 		});
 	},
-	rebuy: function(target, room, user) {
+	rebuy: function (target, room, user) {
 		if (!target) return false;
 		target = target.trim();
 		user.shopCache = '';
 		return this.parse('/redeem ' + target);
 	},
-	loadshop: function(target, room, user, connection) {
+	loadshop: function (target, room, user, connection) {
 		if (!user.hasConsoleAccess(connection)) return this.errorReply("/dev - Access Denied.");
 		loadShops();
 	},
 
 	receipt: 'receipts',
-	receipts: function(target, room, user) {
+	receipts: function (target, room, user) {
 		let options;
 		let receipts = fs.readFileSync('logs/transactions.log', 'utf8').split('\n').reverse();
 		if (!target) {
