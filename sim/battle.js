@@ -2873,7 +2873,7 @@ class Battle extends Dex.ModdedDex {
 			// we return here because the update event would crash since there are no active pokemon yet
 			return;
 		}
-		
+
 		// SGgame
 		case 'pokeball':
 			this.add('message', `${action.side.name} threw a ${(action.ball.charAt(0).toUpperCase() + action.ball.slice(1))}!`);
@@ -2901,7 +2901,7 @@ class Battle extends Dex.ModdedDex {
 				this.add('');
 			}
 			break;
-			case 'useItem':
+		case 'useItem':
 			let hadEffect = false;
 			if (action.item.use.healHP) {
 				let heal = 0;

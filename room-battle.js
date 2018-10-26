@@ -643,7 +643,7 @@ class Battle {
 			this.checkActive();
 			break;
 			// SGgame
-			case 'caught':
+		case 'caught':
 			lines[1] = lines[1].split('|');
 			let curTeam = Db.players.get(lines[1][0]);
 			let newSet = Users.get('sgserver').wildTeams[lines[1][0]];
@@ -682,7 +682,7 @@ class Battle {
 			Db.players.set(raw[0], player);
 			if (!raw[3] && Users(raw[0]).console.curPane === 'bag') Chat.parse("/sggame bag " + item.slot + ", " + item.id, Rooms(this.id), Users(raw[0]), Users(raw[0]).connections[0]);
 			break;
-			case 'updateExp':
+		case 'updateExp':
 			let data = lines[1].split(']');
 			let userid = data.shift();
 			let user = Users(userid);

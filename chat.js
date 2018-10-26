@@ -333,7 +333,7 @@ class CommandContext {
 
 		// Output the message
 
-	/*	if (message && message !== true && typeof message.then !== 'function') {
+		/*	if (message && message !== true && typeof message.then !== 'function') {
 			if (this.pmTarget) {
 				Chat.sendPM(message, this.user, this.pmTarget);
 			} else {
@@ -345,7 +345,7 @@ class CommandContext {
 
 		return message;
 	}*/
-	if (message && message !== true && typeof message.then !== 'function') {
+		if (message && message !== true && typeof message.then !== 'function') {
 			if (this.pmTarget) {
 				Chat.sendPM(message, this.user, this.pmTarget);
 			} else {
@@ -1360,7 +1360,7 @@ Chat.loadPlugins = function () {
 		Object.assign(commands, cp.commands);
 	}
 	// SGgame
-		// Load games for Console
+	// Load games for Console
 	Server.gameList = {};
 	for (let file of FS('game-cards').readdirSync()) {
 		if (file.substr(-3) !== '.js') continue;

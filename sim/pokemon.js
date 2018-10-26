@@ -33,7 +33,7 @@ class Pokemon {
 		this.side = side;
 		/**@type {Battle} */
 		this.battle = side.battle;
-		
+
 		this.slot = slot;
 
 		let pokemonScripts = this.battle.data.Scripts.pokemon;
@@ -186,7 +186,7 @@ class Pokemon {
 		this.happiness = typeof set.happiness === 'number' ? this.battle.clampIntRange(set.happiness, 0, 255) : 255;
 		this.pokeball = this.set.pokeball || 'pokeball';
 		// SGgame
-		if  (this.battle.getFormat().useSGgame) this.exp = this.set.exp || Server.calcExp(this.speciesid, this.level);
+		if (this.battle.getFormat().useSGgame) this.exp = this.set.exp || Server.calcExp(this.speciesid, this.level);
 		this.slot = (!slot && slot !== 0 ? this.side.pokemon.length - 1 : slot);
 
 
