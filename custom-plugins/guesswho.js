@@ -42,9 +42,9 @@ class GuessWho {
 		if (this.guesses === 7 && this.hints.length < 2) return false;
 		if (this.guesses === 3 && this.hints.length < 3) return false;
 		if (guess.species === this.answer.species) {
-			this.room.add(`|html|${Server.nameColor(user.name, true)} guessed <strong>${guess.species}</strong>, which was the correct answer! ${Server.nameColor(user.name, true)} has also won 5 ${moneyPlural}! ${Server.nameColor(user.name, true)} has also won 5 EXP!`);
+			this.room.add(`|html|${Server.nameColor(user.name, true)} guessed <strong>${guess.species}</strong>, which was the correct answer! ${Server.nameColor(user.name, true)} has also won 5 ${currencyPlural}! ${Server.nameColor(user.name, true)} has also won 5 EXP!`);
 			Economy.writeMoney(user.userid, prizeMoney);
-			Economy.logTransaction(`${user.name} has won ${prizeMoney} ${moneyPlural} from playing a session of Guess Who.`);
+			Economy.logTransaction(`${user.name} has won ${prizeMoney} ${currencyPlural} from playing a session of Guess Who.`);
 			Server.ExpControl.addExp(user.userid, this.room, 5);
 			this.end();
 		} else {
@@ -53,9 +53,9 @@ class GuessWho {
 			this.guesses--;
 			this.room.add(`|html|${Server.nameColor(user.name, true)} guessed <strong>${guess.species}</strong>, but that was not the correct answer. <strong>${this.guesses} guesses are left.</strong>`);
 			if (this.guesses < 1) {
-				this.room.add(`|html|Sorry, the guessers have lost this round. Congratulations to the ${Server.nameColor(this.questionee, true)}! Their Pokemon was ${this.answer.species}! ${Server.nameColor(this.questionee, true)} has won ${this.prize} ${moneyPlural}! ${Server.nameColor(this.questionee, true)} has also won 5 EXP!`);
+				this.room.add(`|html|Sorry, the guessers have lost this round. Congratulations to the ${Server.nameColor(this.questionee, true)}! Their Pokemon was ${this.answer.species}! ${Server.nameColor(this.questionee, true)} has won ${this.prize} ${currencyPlural}! ${Server.nameColor(this.questionee, true)} has also won 5 EXP!`);
 				Economy.writeMoney(this.questionee, prizeMoney);
-				Economy.logTransaction(`${this.questionee} has won ${prizeMoney} ${moneyPlural} from playing a session of Guess Who.`);
+				Economy.logTransaction(`${this.questionee} has won ${prizeMoney} ${currencyPlural} from playing a session of Guess Who.`);
 				Server.ExpControl.addExp(this.questionee, this.room, 5);
 				this.end();
 			}

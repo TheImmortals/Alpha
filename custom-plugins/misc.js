@@ -10,13 +10,13 @@
 
 let FS = require('../lib/fs');
 
-let monData;
+/*let monData;
 
 try {
 	monData = FS("data/wlssb-data.txt").readIfExistsSync().toString().split("\n\n");
 } catch (e) {
 	console.error(e);
-}
+}*/
 
 const bubbleLetterMap = new Map([
 	["a", "\u24D0"], ["b", "\u24D1"], ["c", "\u24D2"], ["d", "\u24D3"], ["e", "\u24D4"], ["f", "\u24D5"], ["g", "\u24D6"], ["h", "\u24D7"], ["i", "\u24D8"], ["j", "\u24D9"], ["k", "\u24DA"], ["l", "\u24DB"], ["m", "\u24DC"],
@@ -49,7 +49,7 @@ function parseStatus(text, encoding) {
 	return text;
 }
 
-function getMonData(target) {
+/*function getMonData(target) {
 	let returnData = null;
 	if (!monData) return 'Data not found';
 	monData.forEach(function (data) {
@@ -60,7 +60,7 @@ function getMonData(target) {
 		}
 	});
 	return returnData;
-}
+}*/
 
 function clearRoom(room) {
 	let len = (room.log.log && room.log.log.length) || 0;
@@ -212,7 +212,7 @@ exports.commands = {
 			if (targets.length < 2) return this.parse('/chatcolor help');
 			if (!Db.chatcolors.has(user.userid)) return this.errorReply('You dont have ability to use chat colors.');
 			if (!this.canTalk()) return this.errorReply("You may not use this command while unable to speak.");
-			this.add('|raw|' + "<small>" + group + "</small>" + "<button name='parseCommand' value='/user " + user.name + "' style='background: none ; border: 0 ; padding: 0 5px 0 0 ; font-family: &quot;verdana&quot; , &quot;helvetica&quot; , &quot;arial&quot; , sans-serif ; font-size: 9pt ; cursor: pointer'>" + WL.nameColor(user.name, true) + ":</button>" + '<b><font color="' + targets[0].toLowerCase().replace(/[^#a-z0-9]+/g, '') + '">' + Chat.escapeHTML(targets.slice(1).join(",")) + '</font></b>');
+			this.add('|raw|' + "<small>" + group + "</small>" + "<button name='parseCommand' value='/user " + user.name + "' style='background: none ; border: 0 ; padding: 0 5px 0 0 ; font-family: &quot;verdana&quot; , &quot;helvetica&quot; , &quot;arial&quot; , sans-serif ; font-size: 9pt ; cursor: pointer'>" + Server.nameColor(user.name, true) + ":</button>" + '<b><font color="' + targets[0].toLowerCase().replace(/[^#a-z0-9]+/g, '') + '">' + Chat.escapeHTML(targets.slice(1).join(",")) + '</font></b>');
 		},
 		'': 'help',
 		help: function (target, user, room) {

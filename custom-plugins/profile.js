@@ -31,6 +31,8 @@ function isVIP(user) {
 	return false;
 }
 
+Server.isVIP = isVIP;
+
 function getLastSeen(userid) {
 	if (Users(userid) && Users(userid).connected) return `<font color = "limegreen"><strong>Currently Online</strong></font>`;
 	let seen = Db.seen.get(userid);
@@ -38,11 +40,11 @@ function getLastSeen(userid) {
 	return Chat.toDurationString(Date.now() - seen, {precision: true}) + " ago.";
 }
 
-function lastActive(user) {
+/*function lastActive(user) {
 	if (!Users(user)) return false;
 	user = Users(user);
 	return (user && user.lastPublicMessage ? Chat.toDurationString(Date.now() - user.lastPublicMessage, {precision: true}) : "hasn't talked yet");
-}
+}*/
 
 function showTeam(user) {
 	let teamcss = 'float:center;border:none;background:none;';
