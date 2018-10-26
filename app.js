@@ -116,7 +116,7 @@ global.Db = nef(nefFs('./config/Db'));
 global.sqlite3 = require('sqlite3');
 
 // Additional Database  ( Remove this, if you don't want to use additional database )
-//global.Ad = require('origindb')('./config/Ad');
+global.Ad = require('origindb')('./config/Ad');
 
 // Make Console global for SGgame
 global.Console = require('./console.js');
