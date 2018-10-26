@@ -140,7 +140,7 @@ Maintainers
 
 Owner
 
-- [FlamePrince-PS]: https://github.com/FlamePrince-PS
+- FlamePrince-PS
 
 Major Contributors
 
