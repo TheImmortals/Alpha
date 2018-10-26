@@ -527,15 +527,15 @@ let Formats = [
 		// no restrictions, for serious (other than team preview)
 		ruleset: ['Team Preview', 'Cancel Mod'],
 	},
-	
+
 	// Custom Formats.
 	////////////////////////////////////////////////////////////////////
-	
+
 	{
 		section: '' + Config.serverName + ' Metagames',
 		column: 2,
 	},
-		{
+	{
 		name: "[Gen 7] Random Metronome Battle",
 		desc: ["&bullet; Metronome battles format: 6v6 singles, Only move allowed is metronome, all healing items/abilities are banned, Ubers (and mega rayquaza) are banned, immunites dont exist in this format (ex normal is not very effective on ghost instead of x0)"],
 		ruleset: ['PotD', 'Pokemon', 'Sleep Clause Mod', 'HP Percentage Mod', 'Cancel Mod'],
@@ -995,7 +995,7 @@ let Formats = [
 		ruleset: ['Pokemon', 'Standard NEXT', 'Team Preview'],
 		banlist: ['Uber'],
 	},
-	
+
 	// SGgame Formats
 	////////////////////////////////////////////////////////////////////
  	{
@@ -1029,7 +1029,7 @@ let Formats = [
 		banlist: ['CAP'],
 	},
 	{
-		
+
 		name: "[Gen 7] [SGgame] Anything Goes",
 		desc: ["Anything Goes rules with the teams you build in SGgame."],
 		rated: false,
