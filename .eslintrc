@@ -16,7 +16,8 @@
 		"Users": false, "Punishments": false, "Rooms": false, "Verifier": false, "Chat": false,
 		"Tournaments": false, "Dnsbl": false, "Sockets": false, "TeamValidator": false,
 		"TeamValidatorAsync": false, "Ladders": false, "serverName": false, "Db": false, "Ad": false, "Server": false,
-		"currencyName": false, "currencyPlural": false, "sqlite": false
+		"currencyName": false, "currencyPlural": false, "sqlite3": false, "Economy": false, "rankLadder": false,
+		"Tells": false, "Ontime": false, "ExpControl": false
 	},
 	"extends": "eslint:recommended",
 	"rules": {
