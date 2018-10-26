@@ -1397,7 +1397,7 @@ const commands = {
 		`/roompromote OR /roomdemote [username], [group symbol] - Promotes/demotes the user to the specified room rank. Requires: @ * # & ~`,
 		`/room[group] [username] - Promotes/demotes the user to the specified room rank. Requires: @ * # & ~`,
 		`/roomdeauth [username] - Removes all room rank from the user. Requires: @ * # & ~`,
-	],/*
+	], /*
 
 	'!roomauth': true,
 	roomstaff: 'roomauth',
@@ -1443,11 +1443,11 @@ const commands = {
 		} else if (curRoom.isPrivate === 'hidden' || curRoom.isPrivate === 'voice') {
 			buffer.push(`${curRoom.title} is a hidden room, so global auth with no relevant roomauth will have authority in this room.`);
 		}
-		
+
 		if (targetRoom.founder) {
 			buffer.unshift(`${(targetRoom.founder ? `Room Founder:\n${Users(targetRoom.founder) && Users(targetRoom.founder).connected ? Server.nameColor(targetRoom.founder, true) : Server.nameColor(targetRoom.founder)}` : ``)}`);
 		}
-		
+
 		if (targetRoom !== room) buffer.unshift(`${targetRoom.title} room auth:`);
 		connection.popup(`${buffer.join("\n\n")}${userLookup}`);
 	},*/
@@ -1506,7 +1506,7 @@ const commands = {
 		if (targetRoom !== room) buffer.unshift(`${targetRoom.title} room auth:`);
 		connection.send(`|popup||html|${buffer.join("\n\n")}${userLookup}`);
 	},
-	
+
 
 	'!userauth': true,
 	userauth: function (target, room, user, connection) {
@@ -3914,7 +3914,7 @@ const commands = {
 		}
 		// SGgame
 		if (toId(room.battle.format) === 'gen7wildpokemonalpha') return this.errorReply('You can\'t start the timer during a Wild Pokemon Encounter.');
-		
+
 		const timer = room.game.timer;
 		if (!timer.timerRequesters) {
 			return this.sendReply(`This game's timer is managed by a different command.`);

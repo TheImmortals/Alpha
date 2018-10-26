@@ -740,9 +740,9 @@ class User {
 			// SGgame
 			if (this.console) {
 			// Shutdown on rename
-			this.sendTo(this.console.room, '|uhtmlchange|console' + this.userid + this.consoleId + '|');
-			delete this.console;
-		}
+				this.sendTo(this.console.room, '|uhtmlchange|console' + this.userid + this.consoleId + '|');
+				delete this.console;
+			}
 		}
 
 		let challenge = '';

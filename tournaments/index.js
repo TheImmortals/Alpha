@@ -912,7 +912,7 @@ class Tournament {
 		this.room.add(`|tournament|end|${JSON.stringify(update)}`);
 		this.isEnded = true;
 		if (this.autoDisqualifyTimer) clearTimeout(this.autoDisqualifyTimer);
-				//
+		//
 		// Tournament Winnings
 		//
 
@@ -970,7 +970,7 @@ class Tournament {
 				Server.ExpControl.addExp(rid, this.room, 5);
 				this.room.addRaw("<b><font color='" + color + "'>" + Chat.escapeHTML(runnerUp) + "</font> has won " + "<font color='" + color + "'>" + secondMoney + "</font>" + (firstMoney === 1 ? global.currencyName : global.currencyPlural) + " for winning the tournament!</b>");
 			}
-			
+
 
 			/*if (WL.getFaction(winner)) {
 				let factionName = WL.getFaction(winner);

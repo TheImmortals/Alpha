@@ -611,8 +611,8 @@ if (cluster.isMaster) {
 		sockets.set(socketid, socket);/*
 
 		let socketip = socket.remoteAddress;*/
-		// Ip conflict fix 
-		let socketip = socket.remoteAddress === '127.0.0.1' ? socket.headers["x-forwarded-for"].split(",")[0]: socket.remoteAddress;
+		// Ip conflict fix
+		let socketip = socket.remoteAddress === '127.0.0.1' ? socket.headers["x-forwarded-for"].split(",")[0] : socket.remoteAddress;
 		if (isTrustedProxyIp(socketip)) {
 			let ips = (socket.headers['x-forwarded-for'] || '')
 				.split(',')
