@@ -8,8 +8,6 @@
  */
 'use strict';
 
-let FS = require('../lib/fs');
-
 /*let monData;
 
 try {

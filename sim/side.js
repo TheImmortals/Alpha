@@ -841,7 +841,7 @@ class Side {
 			side: this,
 			target: this.foe.active[0],
 		});
- 		if (this.battle.LEGACY_API_DO_NOT_USE && !this.battle.checkDecisions()) return this;
+		if (this.battle.LEGACY_API_DO_NOT_USE && !this.battle.checkDecisions()) return this;
 		return true;
 	}
 	/**
@@ -864,7 +864,7 @@ class Side {
 			target: target || this.active[0], // TODO
 			move: parseInt(data[2]) || null,
 		});
- 		if (this.battle.LEGACY_API_DO_NOT_USE && !this.battle.checkDecisions()) return this;
+		if (this.battle.LEGACY_API_DO_NOT_USE && !this.battle.checkDecisions()) return this;
 		return true;
 	}
 
