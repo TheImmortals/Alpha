@@ -1,26 +1,26 @@
-Pokémon Showdown
+Impulse Server @ Pokémon Showdown
 ========================================================================
 
 Navigation: [Website][1] | **Server repository** | [Client repository][2] | [Dex repository][3]
 
-  [1]: http://pokemonshowdown.com/
+  [1]: http://impulse.psim.us
   [2]: https://github.com/Zarel/Pokemon-Showdown-Client
   [3]: https://github.com/Zarel/Pokemon-Showdown-Dex
 
-[![Build Status](https://api.travis-ci.com/Zarel/Pokemon-Showdown.svg)](https://travis-ci.com/Zarel/Pokemon-Showdown)
-[![Dependency Status](https://david-dm.org/zarel/Pokemon-Showdown.svg)](https://david-dm.org/zarel/Pokemon-Showdown)
-[![devDependency Status](https://david-dm.org/zarel/Pokemon-Showdown/dev-status.svg)](https://david-dm.org/zarel/Pokemon-Showdown?type=dev)
+[![Build Status](https://api.travis-ci.com/FlamePrince-PS/PokemonShowdown-Impulse.svg)](https://travis-ci.com/FlamePrince-PS/PokemonShowdown-Impulse)
+[![Dependency Status](https://david-dm.org/FlamePrince-PS/PokemonShowdown-Impulse.svg)](https://david-dm.org/FlamePrince-PS/PokemonShowdown-Impulse)
+[![devDependency Status](https://david-dm.org/FlamePrince-PS/PokemonShowdown-Impulse/dev-status.svg)](https://david-dm.org/FlamePrince-PS/PokemonShowdown-Impulse?type=dev)
 
 Introduction
 ------------------------------------------------------------------------
 
-This is the source code for the game server of [Pokémon Showdown][4], a website for Pokémon battling. Pokémon Showdown simulates singles, doubles and triples battles in all the games out so far (Generations 1 through 7).
+This is the source code for the game server of [Impulse][4], a website for Pokémon battling. Pokémon Showdown simulates singles, doubles and triples battles in all the games out so far (Generations 1 through 7).
 
 This repository contains the files needed to set up your own Pokémon Showdown server. Note that to set up a server, you'll also need a server computer.
 
 You can use your own computer as a server, but for other people to connect to your computer, you'll need to expose a port (default is 8000 but you can choose a different one) to connect to, which sometimes requires [port forwarding][5]. Note that some internet providers don't let you host a server at all, in which case you'll have to rent a VPS to use as a server.
 
-  [4]: http://pokemonshowdown.com/
+  [4]: http://impulse.psim.us
   [5]: http://en.wikipedia.org/wiki/Port_forwarding
 
 
@@ -37,21 +37,21 @@ Detailed installation instructions
 
 Pokémon Showdown requires you to have [Node.js][6] installed, 8.x or later (7.7 or later can work, but you might as well be on the latest stable).
 
-Next, obtain a copy of Pokémon Showdown. If you're reading this outside of GitHub, you've probably already done this. If you're reading this in GitHub, there's a "Clone or download" button near the top right (it's green). I recommend the "Open in Desktop" method - you need to install GitHub Desktop which is more work than "Download ZIP", but it makes it much easier to update in the long run (it lets you use the `/updateserver` command).
+Next, obtain a copy of Pokémon Showdown Impulse. If you're reading this outside of GitHub, you've probably already done this. If you're reading this in GitHub, there's a "Clone or download" button near the top right (it's green). I recommend the "Open in Desktop" method - you need to install GitHub Desktop which is more work than "Download ZIP", but it makes it much easier to update in the long run (it lets you use the `/updateserver` command).
 
 Pokémon Showdown is installed and run using a command line. In Mac OS X, open `Terminal` (it's in Utilities). In Windows, open `Command Prompt` (type `cmd` into the Start menu and it should be the first result). Type this into the command line:
 
     cd LOCATION
 
-Replace `LOCATION` with the location Pokémon Showdown is in (ending up with, for instance, `cd "~/Downloads/Pokemon-Showdown"` or `cd "C:\Users\Bob\Downloads\Pokemon-Showdown\"`).
+Replace `LOCATION` with the location Pokémon Showdown Impulse is in (ending up with, for instance, `cd "~/Downloads/PokemonShowdown-Impulse"` or `cd "C:\Users\Bob\Downloads\PokemonShowdown-Impulse\"`).
 
-This will set your command line's location to Pokémon Showdown's folder. You'll have to do this each time you open a command line to run commands for Pokémon Showdown.
+This will set your command line's location to Pokémon Showdown-Impulse's folder. You'll have to do this each time you open a command line to run commands for Pokémon Showdown.
 
 Copy `config/config-example.js` into `config/config.js`, and edit as you please.
 
 Congratulations, you're done setting up Pokémon Showdown.
 
-Now, to start Pokémon Showdown, run the command:
+Now, to start Pokémon Showdown. run the command:
 
     node pokemon-showdown
 
@@ -135,49 +135,17 @@ Pokémon Showdown's server is distributed under the terms of the [MIT License][1
   [10]: https://github.com/Zarel/Pokemon-Showdown/blob/master/LICENSE
 
 
-Credits
+Maintainers
 ------------------------------------------------------------------------
 
 Owner
 
-- Guangcong Luo [Zarel] - Development, Design, Sysadmin
-
-Staff
-
-- Chris Monsanto [chaos] - Sysadmin
-- Leonardo Julca [Slayer95] - Development
-- Mathieu Dias-Martins [Marty-D] - Research (game mechanics), Development
-- [The Immortal] - Development
-
-Retired Staff
-
-- Bill Meltsner [bmelts] - Development, Sysadmin
-- Cathy J. Fitzpatrick [cathyjf] - Development, Sysadmin
-- Hugh Gordon [V4] - Research (game mechanics), Development
-- Juanma Serrano [Joim] - Development, Sysadmin
+- [FlamePrince-PS]: https://github.com/FlamePrince-PS
 
 Major Contributors
 
-- Bär Halberkamp [bumbadadabum] - Development
-- Kevin Lau [Ascriptmaster] - Development, Art (battle animations)
-- Konrad Borowski [xfix] - Development
-- Quinton Lee [sirDonovan] - Development
+**All respectable custom-plugins & SGgame creators.**
 
-Contributors
-
-- Andrew Goodsell [Zracknel] - Art (battle weather backdrops)
-- Avery Zimmer [Lyren, SolarisFox] - Development
-- Ben Davies [Morfent] - Development
-- Ben Frengley [TalkTakesTime] - Development
-- Cody Thompson [Rising_Dusk] - Development
-- [Honko] - Development
-- Ian Clail [Layell] - Art (battle graphics, sprites)
-- Jeremy Piemonte [panpawn] - Development
-- Kris Johnson [Kris] - Development
-- Neil Rashbrook [urkerab] - Development
-- Robin Vandenbrande [Quinella] - Development
-- [Ridaz] - Art (battle animations)
-- Tobias Mann [asgdf] - Development
 
 Special thanks
 
