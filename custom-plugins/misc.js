@@ -263,8 +263,7 @@ exports.commands = {
 				}
 				if (curRoom.isPrivate) {
 					privateRoom.push('<a href="/' + toId(curRoom.title) + '" class="ilink">' + Chat.escapeHTML(curRoom.title) + '</a> (' + curRoom.userCount + ')');
-					continue;
-				}
+					continue;				}
 			}
 			if (curRoom.type !== 'battle') nonOfficial.push('<a href="/' + toId(curRoom.title) + '" class="ilink">' + curRoom.title + '</a> (' + curRoom.userCount + ')');
 		}
@@ -312,11 +311,10 @@ exports.commands = {
 			"- " + Server.nameColor('PrinceSky', true) + " (Owner, Policy + Technical Admin, Development)<br />" +
 			"- " + Server.nameColor('Anrin N', true) + " (Owner, Technical Admin, Development)<br />" +
 			"- " + Server.nameColor('Shivay', true) + " (Technical Admin, Development)<br />" +
-			"- " + Server.nameColor('Pokem9n', true) + " (Admin, Development)<br />" +
+			"- " + Server.nameColor('A Flying Phantom', true) + " (Technical Admin, Development, CSS)<br />" +
 			"<br />" +
 			"<u><b>Contributors:</b></u><br />" +
-			"- " + Server.nameColor('A Flying Phantom', true) + " (Technical Admin, Development, CSS)<br />" +
-			"- " + Server.nameColor('SparkyHeliolisk', true) + " (SSB, Development)<br />" +
+			"- " + Server.nameColor('Pokem9n', true) + " (Admin)<br />" +
 			"- " + Server.nameColor('A Helpful Rayquaza', true) + " (Admin, Development)<br />" +
 			/*"- " + Server.nameColor('MechSteelix', true) + " (Policy Leader)<br/>" +
 			"- " + Server.nameColor('Electric Z', true) + " (Policy Admin)<br />" +
