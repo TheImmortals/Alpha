@@ -540,9 +540,9 @@ exports.commands = {
 
 		let profileData = ``;
 		if (profile.background) {
-			profileData += `<div style="background:url(${profile.background}); background-size: 100% 100%; height: 150px; overflow-y: auto">`;
+			profileData += `<div style="background:url(${profile.background}); background-size: 100% 100%; height: 160px; padding: 5px; border: 2px dashed; overflow-y: auto">`;
 		} else {
-			profileData += `<div style="max-height: 250px; overflow-y: auto">`;
+			profileData += `<div style="max-height: 160px; overflow-y: auto">`;
 		}
 		profileData += `<div style="display: inline-block; width: 6.5em; height: 100%; vertical-align: top"><img src="${avatar}" height="80" width="80" align="left"></div>`;
 		profileData += `<div style="display: inline-block">&nbsp;${pColor(userid)}<strong>Name:</strong></font> ${Server.nameColor(username, true)}&nbsp;`;
