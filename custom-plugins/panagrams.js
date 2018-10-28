@@ -38,8 +38,8 @@ class Panagram {
 		} while (this.mixed === toId(this.answer.species));
 
 		this.room.add(
-			`|html|<div class = "broadcast-green"><center>A game of Panagram was started! Scrambled Pokemon: <strong>${this.mixed}</strong><br /> (Remaining Sessions: ${this.sessions})<br />` +
-			`<small>Use /gp [pokemon] to guess!</small></center>`
+			`|html|<div class="broadcast-green"><center>A game of Panagram was started! Scrambled Pokemon: <strong>${this.mixed}</strong><br /> (Remaining Sessions: ${this.sessions})<br />` +
+			`<small>Use /pg [pokemon] to guess!</small></center></div>`
 		);
 		this.guessed = {};
 		this.hint = [
@@ -94,7 +94,7 @@ exports.commands = {
 			'<code>/panagramend</code> OR <code>/endp</code> - Ends a game of panagram. Requires @ or higher.<br />' +
 			'<code>/panagramskip</code> OR <code>/pskip</code> - Skips the current session of the game of panagram. Requires @ or higher.<br />' +
 			'<code>/panagramhint</code> OR <code>/ph</code> - Gives a hint to the answer.<br />' +
-			'<code>/gp</code> - Guesses the answer.<br />' +
+			'<code>/pg</code> - Guesses the answer.<br />' +
 			'Users can guess answers by simply typing them into the chat as well.'
 		);
 	},
@@ -108,7 +108,7 @@ exports.commands = {
 		if (target < 20) return this.errorReply("The minimum number of sessions you can have at a time is 20.");
 		if (~target.indexOf('.')) return this.errorReply("The number of sessions cannot be a decimal value.");
 		this.privateModAction(`${user.name} has started a game of panagrams set for ${target} sessions.`);
-		Rooms(`lobby`).add(`|raw|<div class="broadcast-purple"><center>A session of <strong>Panagrams</strong> in <button name="joinRoom" value="${room.id}">"${room.title}"</button> has commenced for "${target}" games!</center></div>`);
+		Rooms(`lobby`).add(`|raw|<div class="broadcast-green"><center>A session of <strong>Panagrams</strong> in <button name="joinRoom" value="${room.id}">"${room.title}"</button> has commenced for "${target}" games!</center></div>`);
 		Rooms(`lobby`).update();
 		pGames[room.id] = new Panagram(room, Number(target));
 	},
@@ -121,9 +121,9 @@ exports.commands = {
 		this.sendReplyBox(`Panagram Hint:<br />${pGames[room.id].hint}`);
 	},
 
-	guesspanagram: 'gp',
-	guessp: 'gp',
-	gp: function (target, room, user, connection, cmd) {
+	panagramguess: 'pg',
+	pguess: 'pg',
+	pg: function (target, room, user, connection, cmd) {
 		if (!pGames[room.id]) return this.errorReply("There is no game of panagram going on in this room.");
 		if (!this.canTalk()) return;
 
