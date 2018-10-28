@@ -185,7 +185,7 @@ class PassTheBomb extends Rooms.RoomGame {
 			Economy.logTransaction(`${winner} has won 2 ${currencyPlural} for winning the game of pass the bomb.`);
 			Users(winner).popup('You have received 5 exp for winning the game of pass the bomb.');
 
-			this.room.add(`${Server.nameColor(winner, true)} has won 2 ${currencyPlural} for winning the game of pass the bomb.`);
+			this.room.add(`|html|${Server.nameColor(winner, true)} has won 2 ${currencyPlural} for winning the game of pass the bomb.`);
 		}
 		 /*Economy.writeMoney(winner, 2);
 		Economy.logTransaction(`${winner} has won 4 ${currencyPlural} for winning the game of pass the bomb.`);
