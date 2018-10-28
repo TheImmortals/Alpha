@@ -63,7 +63,7 @@ class Panagram {
 	guess(user, guess) {
 		if (guess.species === this.answer.species) {
 			this.room.add(`|html|${Server.nameColor(user.name, true)} guessed <strong>${guess.species}</strong>, which was the correct answer! This user has also won 1 exp!`);
-			ExpControl.addExp(user.userid, this.room, 1);
+			Server.ExpControl.addExp(user.userid, this.room, 1);
 			this.end();
 		} else {
 			this.room.add(`|html|${Server.nameColor(user.name, true)} guessed <strong>${guess.species}</strong>, but was not the correct answer...`);
