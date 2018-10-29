@@ -488,7 +488,7 @@ exports.grouplist = [
 		faction: true,
 		icon: true,
 		customtitle: true,
-		profile: true
+		profile: true,
 	},
 	/**{
 		symbol: '^',
@@ -588,7 +588,6 @@ exports.grouplist = [
 		// Custom
 		news: true,
 		roomshop: true,
-		profile: true
 	},
 	{
 		symbol: '%',
