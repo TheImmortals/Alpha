@@ -501,18 +501,6 @@ exports.commands = {
 		/nature help - Displays information about Profile Nature commands.`,
 	],
 
-	"!lastactive": true,
-	checkactivity: "lastactive",
-	lastactive: function (target, room, user) {
-		if (!target) target = user.userid;
-		if (target.length > 18) return this.errorReply("Usernames cannot exceed 18 characters.");
-		if (!this.runBroadcast()) return;
-		let targetUser = Users.get(toId(target));
-		if (!targetUser || !targetUser.connected) return this.errorReply(`${target} is not online. Use /seen to find out how long ago they left.`);
-		return this.sendReplyBox(`${Server.nameColor(targetUser, true, true)} was last active <strong>${Chat.toDurationString(Date.now() - targetUser.lastPublicMessage)} ago.</strong>`);
-	},
-	lastactivehelp: ["/lastactive - Shows how long ago it has been since a user has posted a message."],
-
 	"!profile": true,
 	profile: function (target, room, user) {
 		target = toId(target);
@@ -554,18 +542,13 @@ exports.commands = {
 		profileData += `&nbsp;${pColor(userid)}<strong>Group:</strong> ${userGroup}</font>`;
 		if (isDev(userid)) profileData += ` || <font color="#009320"><strong>Developer</strong></font>`;
 		if (isVIP(userid)) profileData += ` || <font color="#6390F0"><strong>VIP</strong></font>`;
-		//if (Server.isCouncilMember(userid)) profileData += ` <font color="#B22222"><strong>Council Member</strong></font>`;
-		//if (Server.isGenner(userid)) profileData += ` <font color="#F48C04"><strong>Genner</strong></font>`;
 		profileData += `<br />`;
 		profileData += `&nbsp;${pColor(userid)}<strong>Registered:</strong> ${regdate}</font><br />`;
 		profileData += `&nbsp;${pColor(userid)}<strong>${currencyPlural}:</strong> ${Economy.readMoney(userid).toLocaleString()}</font><br />`;
 		if (profile.pokemon) profileData += `&nbsp;${pColor(userid)}<strong>Favorite Pokemon:</strong> ${profile.pokemon}</font><br />`;
 		if (profile.type) profileData += `&nbsp;${pColor(userid)}<strong>Favorite Type:</strong></font> <img src="https://www.serebii.net/pokedex-bw/type/${profile.type}.gif"><br />`;
 		if (profile.nature) profileData += `&nbsp;${pColor(userid)}<strong>Nature:</strong> ${profile.nature}</font><br />`;
-		//if (Server.getFaction(userid)) profileData += `&nbsp;${pColor(userid)}<strong>Faction:</strong> ${Server.getFaction(userid)}</font><br />`;
-		//if (Server.getChannel(userid)) profileData += `&nbsp;${pColor(userid)}<strong>DewTube Channel:</strong> ${Server.getChannel(userid)}</font><br />`;
 		profileData += `&nbsp;${pColor(userid)}<strong>EXP Level:</strong> ${Server.ExpControl.level(userid)}</font><br />`;
-		//if (online && lastActive(userid)) profileData += `&nbsp;${pColor(userid)}<strong>Last Activity:</strong> ${lastActive(userid)}</font><br />`;
 		profileData += `&nbsp;${pColor(userid)}<strong>Last Seen:</strong> ${getLastSeen(userid)}</font><br />`;
 		if (Db.friendcode.has(userid)) profileData += `&nbsp;${pColor(userid)}<strong>Friend Code:</strong> ${Db.friendcode.get(userid)}</font><br />`;
 		if (Db.switchfc.has(userid)) profileData += `&nbsp;${pColor(userid)}<strong>Switch Friend Code:</strong> SW-${Db.switchfc.get(userid)}</font><br />`;
@@ -574,24 +557,23 @@ exports.commands = {
 		this.sendReplyBox(profileData);
 	},
 
-	profilehelp: [
-		`/profile [user] - Shows a user's profile. Defaults to yourself.
-		/pcolor help - Shows profile color commands.
-		/pokemon set [Pokemon] - Set your Favorite Pokemon onto your profile.
-		/pokemon delete - Delete your Favorite Pokemon from your profile.
-		/type set [type] - Set your favorite type.
-		/type delete - Delete your favorite type.
-		/nature set [nature] - Set your nature.
-		/nature delete - Delete your nature.
-		/music set [user], [song], [title] - Sets a user's profile song. Requires % or higher.
-		/music take [user] - Removes a user's profile song. Requires % or higher.
-		/bg set [user], [link] - Sets the user's profile background. Requires % or higher.
-		/bg delete [user] - Removes the user's profile background. Requires % or higher.
-		/fc [switch|ds] set [friend code] - Sets your Friend Code.
-		/fc [switch|ds] delete [friend code] - Removes your Friend Code.
-		/dev give [user] - Gives a user Dev Status. Requires & or higher.
-		/dev take [user] - Removes a user's Dev Status. Requires & or higher.
-		/vip give [user] - Gives a user VIP Status. Requires & or higher.
-		/vip take [user] - Removes a user's VIP Status. Requires & or higher.`,
-	],
+	profilehelp: [`/profile [user] - Shows a user's profile. Defaults to yourself.
+/pcolor help - Shows profile color commands.
+/pokemon set [Pokemon] - Set your Favorite Pokemon onto your profile.
+/pokemon delete - Delete your Favorite Pokemon from your profile.
+/type set [type] - Set your favorite type.
+/type delete - Delete your favorite type.
+/nature set [nature] - Set your nature.
+/nature delete - Delete your nature.
+/music set [user], [song], [title] - Sets a user's profile song. Requires % or higher.
+/music take [user] - Removes a user's profile song. Requires % or higher.
+/bg set [user], [link] - Sets the user's profile background. Requires % or higher.
+/bg delete [user] - Removes the user's profile background. Requires % or higher.
+/fc [switch|ds] set [friend code] - Sets your Friend Code.
+/fc [switch|ds] delete [friend code] - Removes your Friend Code.
+/dev give [user] - Gives a user Dev Status. Requires & or higher.
+/dev take [user] - Removes a user's Dev Status. Requires & or higher.
+/vip give [user] - Gives a user VIP Status. Requires & or higher.
+/vip take [user] - Removes a user's VIP Status. Requires & or higher.`,
+					 ],
 };
