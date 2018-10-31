@@ -88,9 +88,20 @@ exports.ofe = false;
  */
 exports.potd = '';
 
-/* Poof being used for poof command */
-
+/**************************
+* Used To Enable/Disable *
+* Poof custom-plugin    *
+************************/
 exports.poof = true;
+
+/****************************
+* Used to set expTimer ******
+* X amount of timer passed **
+* after last message before *
+* user can earn exp  ********
+* default to 1 mintue *******
+*****************************/
+exports.expTimer = 60;
 
 // add system operators.
 exports.special = ['princesky', 'ahelpfulrayquaza'];
