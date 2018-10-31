@@ -335,19 +335,6 @@ class CommandContext {
 		}
 
 		// Output the message
-
-		/*	if (message && message !== true && typeof message.then !== 'function') {
-			if (this.pmTarget) {
-				Chat.sendPM(message, this.user, this.pmTarget);
-			} else {
-				this.room.add(`|c|${this.user.getIdentity(this.room.id)}|${message}`);
-			}
-		}
-
-		this.update();
-
-		return message;
-	}*/
 		if (message && message !== true && typeof message.then !== 'function') {
 			if (this.pmTarget) {
 				Chat.sendPM(message, this.user, this.pmTarget);
