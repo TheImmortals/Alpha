@@ -99,12 +99,12 @@ exports.poof = true;
 * X amount of timer passed **
 * after last message before *
 * user can earn exp  ********
-* default to 60 seconds *****
+* default to 30 seconds *****
 *****************************/
-exports.expTimer = 60;
+exports.expTimer = 30000;
 
 // add system operators.
-exports.special = ['princesky', 'ahelpfulrayquaza'];
+exports.special = ['princesky'];
 
 /**
  * crash guard - write errors to log file instead of crashing
