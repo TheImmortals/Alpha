@@ -299,6 +299,7 @@ class CommandContext {
 		/** @type {any} */
 		let message = this.message;
 
+		let giveExp = false;
 		let commandHandler = this.splitCommand(message);
 
 		if (typeof commandHandler === 'function') {
@@ -327,8 +328,10 @@ class CommandContext {
 					message = message.charAt(0) + message;
 				}
 			}
-
+			
+			let lastMessageTime = this.user.lastMessageTime;
 			message = this.canTalk(message);
+			if (message && Date.now() > (lastMessageTime + Config.expTimer)) giveExp = true;
 		}
 
 		// Output the message
@@ -383,6 +386,7 @@ class CommandContext {
 			}
 		}
 
+		if (this.user.registered && giveExp) Server.ExpControl.addExp(this.user.userid, this.room, 1);
 		this.update();
 
 		return message;
