@@ -187,10 +187,6 @@ class PassTheBomb extends Rooms.RoomGame {
 
 			this.room.add(`|html|${Server.nameColor(winner, true)} has won 2 ${currencyPlural} for winning the game of pass the bomb.`);
 		}
-		 /*Economy.writeMoney(winner, 2);
-		Economy.logTransaction(`${winner} has won 4 ${currencyPlural} for winning the game of pass the bomb.`);
-		Users(winner).popup('You have won 2 bucks for winning the game of pass the bomb.');
-		}*/
 		this.end();
 	}
 	end(user) {
