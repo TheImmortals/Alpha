@@ -99,7 +99,7 @@ exports.poof = true;
 * X amount of timer passed **
 * after last message before *
 * user can earn exp  ********
-* default to 1 mintue *******
+* default to 60 seconds *****
 *****************************/
 exports.expTimer = 60;
 
