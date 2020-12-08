@@ -243,17 +243,15 @@ exports.commands = {
 	showhelp: ["/show - Displays user's global rank. Requires: & ~"],
 
 	credits: function (target, room, user) {
-		let popup = "|html|" + "<font size=5 color=#0066ff><u>" + serverName + " Credits</b></u></font><br />" +
+		let popup = "|html|" + "<font size=5 color=#FF0068 ><u>" + serverName + " Credits</b></u></font><br />" +
 			"<br />" +
-			"<u><b>Server Maintainers:</u></b><br />" +
-			"- " + Server.nameColor('PrinceSky', true) + " (Owner, Policy + Technical Admin, Development)<br />" +
-			"- " + Server.nameColor('Anrin N', true) + " (Owner, Technical Admin, Development)<br />" +
-			"- " + Server.nameColor('Shivay', true) + " (Technical Admin, Development)<br />" +
-			"- " + Server.nameColor('A Flying Phantom', true) + " (Technical Admin, Development, CSS)<br />" +
+			"<u><b>Main Contributors:</u></b><br />" +
+			"- " + Server.nameColor('Astofolo', true) + " (Owner, Policy + Technical Admin, Development)<br />" +
+			"- " + Server.nameColor('Clown Posse 2', true) + " (Owner, Technical Admin, Development)<br />" +
 			"<br />" +
 			"<u><b>Contributors:</b></u><br />" +
-			"- " + Server.nameColor('Pokem9n', true) + " (Admin)<br />" +
-			"- " + Server.nameColor('A Helpful Rayquaza', true) + " (Admin, Development)<br />" +
+			"- " + Server.nameColor('Frostienana', true) + " (Admin, Helper, Technical Leader)<br />" +
+			"- " + Server.nameColor('Shade ZeRaNinja', true) + " (Policy Leader, Community Admin)<br />" +
 			/*"- " + Server.nameColor('MechSteelix', true) + " (Policy Leader)<br/>" +
 			"- " + Server.nameColor('Electric Z', true) + " (Policy Admin)<br />" +
 			"- " + Server.nameColor('Opple', true) + " (Community Leader)<br />" +
