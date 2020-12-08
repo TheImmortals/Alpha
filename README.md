@@ -1,9 +1,9 @@
-Impulse Server @ Pokémon Showdown
+Pluto @ Pokémon Showdown
 ========================================================================
 
 Navigation: [Website][1] | **Server repository** | [Client repository][2] | [Dex repository][3]
 
-  [1]: http://impulse.psim.us
+  [1]: http://branch-maize-pluto.glitch.me-80.psim.us/
   [2]: https://github.com/Zarel/Pokemon-Showdown-Client
   [3]: https://github.com/Zarel/Pokemon-Showdown-Dex
 
