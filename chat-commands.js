@@ -3391,7 +3391,7 @@ const commands = {
 			process.exit();
 		}, 10000);
 	},
-	killhelp: [`/kill - kills the server. Can't be done unless the server is in lockdown state. Requires: ~`],
+	killhelp: [`/kill - restarts the server. Can't be done unless the server is in lockdown state. Requires: ~`],
 
 	loadbanlist: function (target, room, user, connection) {
 		if (!this.can('hotpatch')) return false;
