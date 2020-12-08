@@ -104,7 +104,7 @@ exports.poof = true;
 exports.expTimer = 30000;
 
 // add system operators.
-exports.special = ['princesky'];
+exports.special = ['astofolo'];
 
 /**
  * crash guard - write errors to log file instead of crashing
@@ -604,6 +604,30 @@ exports.grouplist = [
 		symbol: '%',
 		id: "driver",
 		name: "Driver",
+		inherit: '$',
+		jurisdiction: 'u',
+		announce: true,
+		warn: '\u2606u',
+		kick: true,
+		mute: '\u2606u',
+		lock: true,
+		forcerename: true,
+		timer: true,
+		modlog: true,
+		alts: '%u',
+		bypassblocks: 'u%@&~',
+		receiveauthmessages: true,
+		gamemoderation: true,
+		jeopardy: true,
+		joinbattle: true,
+		minigame: true,
+		// Custom
+		lottery: true,
+	},
+	{
+		symbol: '$',
+		id: "op",
+		name: "Operator",
 		inherit: '+',
 		jurisdiction: 'u',
 		announce: true,
