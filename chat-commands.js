@@ -409,13 +409,21 @@ const commands = {
 	},
 	avatarhelp: [`/avatar [avatar number 1 to 293] - Change your trainer sprite.`],
 
-	'!logout': true,
-	signout: 'logout',
-	logout: function (target, room, user) {
-		user.resetName();
-	},
+	"!logout": true,
+  signout: "logout",
+  logout: function(target, room, user) {
+    user.resetName();
+  },
 
-	r: 'reply',
+  noreply(target, room, user) {
+    if (!target.startsWith("/")) return this.parse("/help noreply");
+    return this.parse(target, true);
+  },
+  noreplyhelp: [
+    `/noreply [command] - Runs the command without displaying the response.`
+  ],
+
+  r: "reply",
 	reply: function (target, room, user) {
 		if (!target) return this.parse('/help reply');
 		if (!user.lastPM) {
