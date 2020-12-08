@@ -2,7 +2,7 @@
 
 class SGgame extends Console.Console {
 	constructor(user, room, muted) {
-		super(user, room, 'background: linear-gradient(green, white); color: #000;', '<center><br/><br/><br/><br/><img src="http://i.imgur.com/tfYS6TN.png"/></center><!--split-->', '<center><!--mutebutton--><button name="send" value="/console sound" class="button">' + (muted ? 'Unmute' : 'Mute') + '</button><!--endmute-->  <button name="send" value="/console shift" class="button">Shift</button> <button class="button" name="send" value="/console kill">Power</button>', muted);
+		super(user, room, 'background: linear-gradient(aqua, #3DFF04); color: #000;', '<center><br/><br/><br/><br/><img src="https://play.pokemonshowdown.com/sprites/trainers-custom/zeroluxgiven.png"/></center><!--split-->', '<center><!--mutebutton--><button name="send" value="/console sound" class="button">' + (muted ? 'Unmute' : 'Mute') + '</button><!--endmute-->  <button name="send" value="/console shift" class="button">Shift</button> <button class="button" name="send" value="/console kill">Power</button>', muted);
 		// Lines of text to be displayed
 		this.gameId = 'SGgame';
 		this.version = '(Alpha) 1.0';
@@ -586,10 +586,10 @@ exports.commands = {
 			user.console.update('background-color: #6688AA;', htm, null);
 		} else if (cmd === 'confirmresetalpha') {
 			// New Game
-			user.console.queue = ["text|Welcome to the world of Pokemon!<br/>I'm HoeenHero, the creator and main programmer of this project. (Click the star to continue)",
-				"text|The developers have been working hard on this project, but we're still not even close to finished! We're only in " + user.console.version + ", after all!",
-				"text|Tell us what you think about it, and any ideas you come up with, too! We would love to hear them. Any help with the project is also appreciated; coding, spriting, or even just writing raw data when we need it.",
-				"text|Well, that's enough from me. Let's get you started!<br/>Pick a starter:"];
+			user.console.queue = ["text|Welcome to the world of Pokemon!<br/>I'm Astofolo, What's Up?. (Click the star to continue)",
+        "text|This is an exciting game which we hope you will like! You can catch pokemons and then battle others or SgGame Server.",
+        "text|Tell us what you think about it. So ready for your journey?",
+        "text|Ok. I guess you are ready.<br/>Pick up a starter:"];
 			let msg = '';
 			let starters = [['Bulbasaur', 'Chikorita', 'Treecko', 'Turtwig', 'Snivy', 'Chespin', 'Rowlet'], ['Charmander', 'Cyndaquil', 'Torchic', 'Chimchar', 'Tepig', 'Fennekin', 'Litten'], ['Squirtle', 'Totodile', 'Mudkip', 'Piplup', 'Oshawott', 'Froakie', 'Popplio'], ['Pikachu'], ['Eevee']];
 			for (let i = 0; i < starters.length; i++) {
