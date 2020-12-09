@@ -1,6 +1,6 @@
 'use strict';
 
-const ROOM_NAME = "YouBanistan";
+const ROOM_NAME = "ShadowBanRoom";
 let room = Rooms.get(toId(ROOM_NAME));
 if (!room) {
 	Rooms.global.addChatRoom(ROOM_NAME);
