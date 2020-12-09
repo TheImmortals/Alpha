@@ -143,9 +143,11 @@ Pokémon Showdown's server is distributed under the terms of the [MIT License][1
 Maintainers
 ------------------------------------------------------------------------
 
-Owner
+Owners:
 
-- FlamePrince-PS
+- Astofolo
+- Clown Posse 2
+- Prince Hoenn
 
 Major Contributors
 
