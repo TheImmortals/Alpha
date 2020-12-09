@@ -14,14 +14,19 @@ Navigation: [Website][1] | **Server repository** | [Client repository][2] | [Dex
 Introduction
 ------------------------------------------------------------------------
 
-This is the source code for the game server of [Impulse][4], a website for Pokémon battling. Pokémon Showdown simulates singles, doubles and triples battles in all the games out so far (Generations 1 through 7).
+Well, i just copied AllianceSky-PS/Impulse which was a very cool repo and everyone used it to make a server. Though, i made this project with some edits no one have to do it later. Like it has no ``/noreply`` glitch and config's name is already set, and more.
 
-This repository contains the files needed to set up your own Pokémon Showdown server. Note that to set up a server, you'll also need a server computer.
+Credits goes to:
 
-You can use your own computer as a server, but for other people to connect to your computer, you'll need to expose a port (default is 8000 but you can choose a different one) to connect to, which sometimes requires [port forwarding][5]. Note that some internet providers don't let you host a server at all, in which case you'll have to rent a VPS to use as a server.
+- Guangcong Luo [Zarel]- Main Code Owner, PS Owner
+- Other contributors in Pokemon Showdown (see [PS Credits][4] )
+- Akeash Kumar [Prince Sky]- [Impulse Repo][5] Owner.
+- Arjun Kumar [Astofolo]- Repo Owner
+- [Clown Posse 2]- Repo Owner, Helper
+- Ritik Gupta [Shade Ritik]- Helper (For whose support, i am so familiar with Pokemon Showdown, i can never forget their contributions)
 
-  [4]: http://branch-maize-pluto.glitch.me-80.psim.us/
-  [5]: http://en.wikipedia.org/wiki/Port_forwarding
+[4]: https://pokemonshowdown.com/credits
+[5]: https://github.com/AllianceSky-PS/Impulse
 
 
 Installing
