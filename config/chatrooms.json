@@ -7,7 +7,7 @@
     "autoTruncate": true,
     "reportJoins": true,
     "batchJoins": 0,
-    "introMessage": "<div style=\"background-image: url(&quot;https://i.ibb.co/g64d3KP/image.png&quot;)\"><center><img src=\"https://i.ibb.co/PCFDL2j/cooltext368880565333769.png\" alt=\"Trulli\" width=\"510\" height=\"180\"></center></div>",
+    "introMessage": "<div style=\"background-image: url(&quot;https://images.pexels.com/photos/998641/pexels-photo-998641.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940&quot;)\"><center><img src=\"https://i.ibb.co/PYfBxJD/image.png\" alt=\"Trulli\" width=\"485\" height=\"150\"></center></div>",
     "toursEnabled": "%",
     "mafiaEnabled": true,
     "filterEmojis": false,
