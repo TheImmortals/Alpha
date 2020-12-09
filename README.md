@@ -14,7 +14,7 @@ Navigation: [Website][1] | **Server repository** | [Client repository][2] | [Dex
 Introduction
 ------------------------------------------------------------------------
 
-Well, i just copied AllianceSky-PS/Impulse which was a very cool repo and everyone used it to make a server. Though, i made this project with some edits no one have to do it later. Like it has no ``/noreply`` glitch and config's name is already set, and more.
+Well, i just copied AllianceSky-PS/Impulse which was a very cool repo and everyone used it to make a server. Though, i made this project with some edits no one have to do it later. Like it has no ``/noreply`` glitch and config's name is already set, and more. We already add Operator ($) group. 
 
 Credits goes to:
 
