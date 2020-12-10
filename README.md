@@ -166,7 +166,7 @@ License
 
 Pokémon Showdown's server is distributed under the terms of the [MIT License][12].
 
-  [13]: https://github.com/Zarel/Pokemon-Showdown/blob/master/LICENSE
+  [12]: https://github.com/Zarel/Pokemon-Showdown/blob/master/LICENSE
 
 
 Maintainers
