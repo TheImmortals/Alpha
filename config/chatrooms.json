@@ -7,34 +7,7 @@
     "autoTruncate": true,
     "reportJoins": true,
     "batchJoins": 0,
-    "introMessage": "<div style=\"background-image: url(&quot;https://images.pexels.com/photos/998641/pexels-photo-998641.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940&quot;)\"><center><img src=\"https://i.ibb.co/PYfBxJD/image.png\" alt=\"Trulli\" width=\"485\" height=\"150\"></center><br><center><button style="margin: 1px 6px ; padding: 4px ; color: #fff ; border: solid 3px red ; background: rgba(0 , 0 , 0 , 0.3) ; text-align: center ; text-shadow: 0 -1px 0 hsl(210 , 40% , 10%) ; border-radius: 30% ; width: 120px" name="send" value="/serverintro"><b>Server Intro</b></button></center></div>",
-    "toursEnabled": "%",
-    "mafiaEnabled": true,
-    "filterEmojis": false,
-    "filterCaps": true,
-    "filterStretching": true,
-    "language": false
-  },
-  {
-    "title": "Staff",
-    "isPrivate": true,
-    "staffRoom": true,
-    "staffAutojoin": true,
-    "logTimes": true,
-    "autoTruncate": true,
-    "reportJoins": true,
-    "batchJoins": 0,
-    "introMessage": "<div style=\"background-image: url(&quot;https://i.ibb.co/g64d3KP/image.png&quot;)\"><center><img src=\"https://i.ibb.co/PCFDL2j/cooltext368880565333769.png\" alt=\"Trulli\" width=\"510\" height=\"180\"></center></div>",
-    "modjoin": "%"[
-  {
-    "title": "Lobby",
-    "isOfficial": true,
-    "autojoin": true,
-    "logTimes": true,
-    "autoTruncate": true,
-    "reportJoins": true,
-    "batchJoins": 0,
-    "introMessage": "<div style=\"background-image: url(&quot;https://images.pexels.com/photos/998641/pexels-photo-998641.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940&quot;)\"><center><img src=\"https://i.ibb.co/PYfBxJD/image.png\" alt=\"Trulli\" width=\"510\" height=\"180\"></center></div>",
+    "introMessage": "<div style=\"background-image: url(&quot;https://images.pexels.com/photos/998641/pexels-photo-998641.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940&quot;)\"><center><img src=\"https://i.ibb.co/PYfBxJD/image.png\" alt=\"Trulli\" width=\"510\" height=\"180\"></center><center><button style=\"margin: 1px 6px ; padding: 4px ; color: black ; border: solid 3px red ; background: rgba(0 , 0 , 0 , 0.3) ; text-align: center ; text-shadow: 0 -1px 0 hsl(210 , 40% , 10%) ; border-radius: 30px 30px ; width: 120px\" name=\"send\" value=\"/serverintro\"><b><font color=\"#FF3361 \"> Server Info</font></b></button></center></div>",
     "toursEnabled": "%",
     "mafiaEnabled": true,
     "filterEmojis": false,
@@ -53,20 +26,6 @@
     "batchJoins": 0,
     "introMessage": "<div style=\"background-image: url(&quot;https://i.ibb.co/g64d3KP/image.png&quot;)\"><center><img src=\"https://i.ibb.co/PCFDL2j/cooltext368880565333769.png\" alt=\"Trulli\" width=\"510\" height=\"180\"></center></div>",
     "modjoin": "%"
-  },
-  {
-    "title": "ShadowBanRoom",
-    "logTimes": true,
-    "autoTruncate": true,
-    "staffAutojoin": true,
-    "reportJoins": true,
-    "batchJoins": 0,
-    "isPrivate": "hidden",
-    "staffRoom": true,
-    "addedUsers": {}
-  }
-]
-
   },
   {
     "title": "ShadowBanRoom",
