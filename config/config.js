@@ -502,7 +502,7 @@ exports.grouplist = [
     profile: true
   },
   /**{
-		symbol: '^',
+		symbol: '$',
 		id: "captain",
 		name: "Captain",
 		inherit: '@',
