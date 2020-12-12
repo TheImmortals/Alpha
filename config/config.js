@@ -370,7 +370,7 @@ exports.ratedtours = false;
  * disciplinary actions on your section. You can also leave this blank, in
  * which case users won't be given any information on how to appeal.
  */
-exports.appealurl = '';
+exports.appealurl = "";
 
 /**
  * repl - whether repl sockets are enabled or not
@@ -378,7 +378,7 @@ exports.appealurl = '';
  * replsocketmode - the file mode bits to use for the repl sockets
  */
 exports.repl = true;
-exports.replsocketprefix = './logs/repl/';
+exports.replsocketprefix = "./logs/repl/";
 exports.replsocketmode = 0o600;
 
 /**
@@ -461,47 +461,47 @@ exports.disablehotpatchall = false;
  *     - roomshop: manage room shops
  */
 exports.grouplist = [
-	{
-		symbol: '~',
-		id: "admin",
-		name: "Administrator",
-		root: true,
-		globalonly: true,
-	},
-	{
-		symbol: '&',
-		id: "leader",
-		name: "Leader",
-		inherit: '@',
-		jurisdiction: 'u',
-		promote: 'u',
-		roomowner: true,
-		roombot: true,
-		roommod: true,
-		roomdriver: true,
-		forcewin: true,
-		declare: true,
-		modchatall: true,
-		rangeban: true,
-		makeroom: true,
-		editroom: true,
-		potd: true,
-		disableladder: true,
-		globalonly: true,
-		gamemanagement: true,
-		exportinputlog: true,
-		hotpatch: true,
-		// Custom
-		customcolor: true,
-		badge: true,
-		editshop: true,
-		exp: true,
-		faction: true,
-		icon: true,
-		customtitle: true,
-		profile: true,
-	},
-	/**{
+  {
+    symbol: "~",
+    id: "admin",
+    name: "Administrator",
+    root: true,
+    globalonly: true
+  },
+  {
+    symbol: "&",
+    id: "leader",
+    name: "Leader",
+    inherit: "@",
+    jurisdiction: "u",
+    promote: "u",
+    roomowner: true,
+    roombot: true,
+    roommod: true,
+    roomdriver: true,
+    forcewin: true,
+    declare: true,
+    modchatall: true,
+    rangeban: true,
+    makeroom: true,
+    editroom: true,
+    potd: true,
+    disableladder: true,
+    globalonly: true,
+    gamemanagement: true,
+    exportinputlog: true,
+    hotpatch: true,
+    // Custom
+    customcolor: true,
+    badge: true,
+    editshop: true,
+    exp: true,
+    faction: true,
+    icon: true,
+    customtitle: true,
+    profile: true
+  },
+  /**{
 		symbol: '^',
 		id: "captain",
 		name: "Captain",
@@ -530,122 +530,123 @@ exports.grouplist = [
 		ssb: true,
 	},
 	*/
-	{
-		symbol: '#',
-		id: "owner",
-		name: "Room Owner",
-		inherit: '@',
-		jurisdiction: 'u',
-		roombot: true,
-		roommod: true,
-		roomdriver: true,
-		editroom: true,
-		declare: true,
-		modchatall: true,
-		roomonly: true,
-		gamemanagement: true,
-		// Custom
-		draft: true,
-		masspm: true,
-	},
-	{
-		symbol: '\u2605',
-		id: "host",
-		name: "Host",
-		inherit: '@',
-		jurisdiction: 'u',
-		declare: true,
-		modchat: true,
-		roomonly: true,
-		gamemanagement: true,
-		joinbattle: true,
-	},
-	{
-		symbol: '\u2606',
-		id: "player",
-		name: "Player",
-		inherit: '+',
-		roomvoice: true,
-		modchat: true,
-		roomonly: true,
-		editroom: true,
-		joinbattle: true,
-		nooverride: true,
-	},
-	{
-		symbol: '*',
-		id: "bot",
-		name: "Bot",
-		inherit: '@',
-		jurisdiction: 'u',
-		declare: true,
-		addhtml: true,
-	},
-	{
-		symbol: '@',
-		id: "mod",
-		name: "Moderator",
-		inherit: '%',
-		jurisdiction: 'u',
-		ban: true,
-		modchat: true,
-		roomdriver: true,
-		roomvoice: true,
-		forcerename: true,
-		ip: true,
-		alts: '@u',
-		tournaments: true,
-		game: true,
-		// Custom
-		news: true,
-		roomshop: true,
-	},
-	{
-		symbol: '%',
-		id: "driver",
-		name: "Driver",
-		inherit: '$',
-		jurisdiction: 'u',
-		announce: true,
-		warn: '\u2606u',
-		kick: true,
-		mute: '\u2606u',
-		lock: true,
-		forcerename: true,
-		timer: true,
-		modlog: true,
-		alts: '%u',
-		bypassblocks: 'u%@&~',
-		receiveauthmessages: true,
-		gamemoderation: true,
-		jeopardy: true,
-		joinbattle: true,
-		minigame: true,
-		// Custom
-		lottery: true,
-	},
-	{
-		symbol: '+',
-		id: "voice",
-		name: "Voice",
-		inherit: ' ',
-		alts: 's',
-		broadcast: true,
-	},
-	{
-		symbol: ' ',
-		ip: 's',
-	},
-	{
-		name: 'Locked',
-		id: 'locked',
-		symbol: '\u203d',
-		punishgroup: 'LOCK',
-	},
-	{
-		name: 'Muted',
-		id: 'muted',
-		symbol: '!',
-		punishgroup: 'MUTE',
-	},
+  {
+    symbol: "#",
+    id: "owner",
+    name: "Room Owner",
+    inherit: "@",
+    jurisdiction: "u",
+    roombot: true,
+    roommod: true,
+    roomdriver: true,
+    editroom: true,
+    declare: true,
+    modchatall: true,
+    roomonly: true,
+    gamemanagement: true,
+    // Custom
+    draft: true,
+    masspm: true
+  },
+  {
+    symbol: "\u2605",
+    id: "host",
+    name: "Host",
+    inherit: "@",
+    jurisdiction: "u",
+    declare: true,
+    modchat: true,
+    roomonly: true,
+    gamemanagement: true,
+    joinbattle: true
+  },
+  {
+    symbol: "\u2606",
+    id: "player",
+    name: "Player",
+    inherit: "+",
+    roomvoice: true,
+    modchat: true,
+    roomonly: true,
+    editroom: true,
+    joinbattle: true,
+    nooverride: true
+  },
+  {
+    symbol: "*",
+    id: "bot",
+    name: "Bot",
+    inherit: "@",
+    jurisdiction: "u",
+    declare: true,
+    addhtml: true
+  },
+  {
+    symbol: "@",
+    id: "mod",
+    name: "Moderator",
+    inherit: "%",
+    jurisdiction: "u",
+    ban: true,
+    modchat: true,
+    roomdriver: true,
+    roomvoice: true,
+    forcerename: true,
+    ip: true,
+    alts: "@u",
+    tournaments: true,
+    game: true,
+    // Custom
+    news: true,
+    roomshop: true
+  },
+  {
+    symbol: "%",
+    id: "driver",
+    name: "Driver",
+    inherit: "+",
+    jurisdiction: "u",
+    announce: true,
+    warn: "\u2606u",
+    kick: true,
+    mute: "\u2606u",
+    lock: true,
+    forcerename: true,
+    timer: true,
+    modlog: true,
+    alts: "%u",
+    bypassblocks: "u%@&~",
+    receiveauthmessages: true,
+    gamemoderation: true,
+    jeopardy: true,
+    joinbattle: true,
+    minigame: true,
+    // Custom
+    lottery: true
+  },
+  {
+    symbol: "+",
+    id: "voice",
+    name: "Voice",
+    inherit: " ",
+    alts: "s",
+    broadcast: true
+  },
+  {
+    symbol: " ",
+    ip: "s"
+  },
+  {
+    name: "Locked",
+    id: "locked",
+    symbol: "\u203d",
+    punishgroup: "LOCK"
+  },
+  {
+    name: "Muted",
+    id: "muted",
+    symbol: "!",
+    punishgroup: "MUTE"
+  }
 ];
+
