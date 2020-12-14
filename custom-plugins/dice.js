@@ -9,17 +9,17 @@ const TAX = 0;
 function diceImg(num) {
 	switch (num) {
 	case 0:
-		return "http://i.imgur.com/nUbpLTD.png";
+		return "https://images-ext-2.discordapp.net/external/i13NMSZx_Uasb1GakPn1YsZ1uTf6_HlRGNr7BgPaznA/https/i.imgur.com/nUbpLTD.png";
 	case 1:
-		return "http://i.imgur.com/BSt9nfV.png";
+		return "https://images-ext-2.discordapp.net/external/8bh7I5k_YhclpoHHn_rFhQl8VgZKyZxhj63gmgdSHH0/https/i.imgur.com/BSt9nfV.png";
 	case 2:
-		return "http://i.imgur.com/eTQMVhY.png";
+		return "https://images-ext-2.discordapp.net/external/p24gmjl84Dfv-kYHwS7tqr75lsxnwhkijEtFAaFY4FY/https/i.imgur.com/eTQMVhY.png";
 	case 3:
-		return "http://i.imgur.com/3Y2hCAJ.png";
+		return "https://images-ext-1.discordapp.net/external/zzggvJulp7qujOmVVybWlIYEN8DO1oh8rE8l3FTAR9Q/https/i.imgur.com/3Y2hCAJ.png";
 	case 4:
-		return "http://i.imgur.com/KP3Za7O.png";
+		return "https://images-ext-1.discordapp.net/external/Blf2ZP42PvNpeyMxROKWq83ZClv7mKkIOXdaACDRhI4/https/i.imgur.com/KP3Za7O.png";
 	case 5:
-		return "http://i.imgur.com/lvi2ZZe.png";
+		return "https://images-ext-1.discordapp.net/external/tnbbKyKhiVPWV2g3jYicOvsqZHKeLAPZDW6xGTfOKFE/https/i.imgur.com/lvi2ZZe.png";
 	}
 }
 
@@ -36,8 +36,8 @@ class Dice {
 
 		let buck = (this.bet === 1 ? currencyName : currencyPlural);
 		this.startMessage = '<div class="infobox"><b style="font-size: 14pt; color: #24678d"><center>' + Server.nameColor(starter, true) + ' has started a game of dice for <span style = "color: green">' + amount + '</span> ' + buck + '!</center></b><br>' +
-			'<center><img style="margin-right: 30px;" src = "http://i.imgur.com/eywnpqX.png" width="80" height="80">' +
-			'<img style="transform:rotateY(180deg); margin-left: 30px;" src="http://i.imgur.com/eywnpqX.png" width="80" height="80"><br>' +
+			'<center><img style="margin-right: 30px;" src = "https://i.ibb.co/PtdXH64/eywnpqX.png" width="80" height="80">' +
+			'<img style="transform:rotateY(180deg); margin-left: 30px;" src="https://i.ibb.co/PtdXH64/eywnpqX.png" width="80" height="80"><br>' +
 			'<button name="send" value="/joindice">Click to join!</button></center>';
 		this.room.add('|uhtml|' + (++this.room.diceCount) + '|' + this.startMessage + '</div>').update();
 	}
