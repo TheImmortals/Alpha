@@ -983,7 +983,7 @@
       },
       "ultraball": {
         "display": "Ultraballs",
-        "price": 1,
+        "price": 20,
         "currency": "bucks",
         "onbuy": "You have purchased a pack of 7 Ultraballs for SGgame Alpha. The Ultraballs have been added to your bag, close and reopen your bag if its open to get them to display.<br/>",
         "info": "7 Ultraballs for SGgame Alpha.",
