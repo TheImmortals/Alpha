@@ -176,9 +176,8 @@ class Hangman extends Rooms.RoomGame {
       );
     }
 
-    if (this.hint)
-      output += Chat.html`<div>(Hint: ${this.hint})<br><br>[use /hangman guess (answer) to guess]</div>`;
-    output += `<p style="font-weight:bold;font-size:12pt;letter-spacing:3pt">${wordString}</p>`;
+    if (this.hint) output += Chat.html`<div>(Hint: ${this.hint})</div>`;
+    output += `<br><br>[use /hangman guess (answer) to guess]<p style="font-weight:bold;font-size:12pt;letter-spacing:3pt">${wordString}</p>`;
     if (this.guesses.length) {
       if (this.letterGuesses.length) {
         output +=
