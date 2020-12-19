@@ -9,7 +9,6 @@
 
 "use strict";
 
-let geoip = require("geoip-lite-country");
 
 // fill your server's IP in your config.js for exports.serverIp
 const serverIp = Config.serverIp;
