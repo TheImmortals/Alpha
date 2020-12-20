@@ -1212,7 +1212,7 @@ class BasicChatRoom extends BasicRoom {
 	 * @param {User} user
 	 */
 	getIntroMessage(user) {
-		let message = `\n|raw|<div class="infobox"> You joined ${this.title}`;
+		let message = `\n|raw|<div class="infobox"> Welcome to ${this.title}`;
 		if (this.modchat) {
 			message += ` [${this.modchat} or higher to talk]`;
 		}
