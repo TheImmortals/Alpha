@@ -1,0 +1,319 @@
+  {
+  "shadezeraninja": {
+    "game": "SGgame - Alpha",
+    "version": "(Alpha) 1.0",
+    "userid": "shadezeraninja",
+    "poke": 0,
+    "time": 9399,
+    "bag": {
+      "items": {
+        "leafstone": 1,
+        "firestone": 1,
+        "waterstone": 1,
+        "thunderstone": 1,
+        "linkcable": 5,
+        "icestone": 1
+      },
+      "medicine": {
+        "potion": 5,
+        "rarecandy": 3
+      },
+      "pokeballs": {
+        "pokeball": 50,
+        "greatball": 19,
+        "ultraball": 2,
+        "masterball": 1
+      },
+      "berries": {
+        "oranberry": 5,
+        "lumberry": 2
+      },
+      "tms": {},
+      "keyitems": {
+        "alphaticket": 1
+      }
+    },
+    "pc": [
+      [],
+      [],
+      [],
+      [],
+      [],
+      [],
+      [],
+      [],
+      [],
+      []
+    ],
+    "party": [
+      {
+        "name": "froakie",
+        "species": "froakie",
+        "item": "",
+        "ability": "Torrent",
+        "moves": [
+          "lick",
+          "quickattack",
+          "bubble",
+          "pound"
+        ],
+        "nature": "Brave",
+        "gender": "F",
+        "ivs": {
+          "hp": 20,
+          "atk": 23,
+          "def": 0,
+          "spa": 3,
+          "spd": 21,
+          "spe": 9
+        },
+        "level": 13,
+        "happiness": 70,
+        "hpType": "",
+        "pokeball": "pokeball",
+        "exp": 1545.5115317420023,
+        "ot": "shadezeraninja",
+        "evs": {
+          "hp": 3,
+          "atk": 0,
+          "def": 2,
+          "spa": 0,
+          "spd": 1,
+          "spe": 1
+        }
+      }
+    ],
+    "pokedex": {}
+  },
+  "astofolo": {
+    "game": "SGgame - Alpha",
+    "version": "(Alpha) 2.0",
+    "userid": "astofolo",
+    "poke": 0,
+    "time": 4363661,
+    "bag": {
+      "items": {
+        "leafstone": 1,
+        "firestone": 1,
+        "waterstone": 1,
+        "thunderstone": 1,
+        "linkcable": 5,
+        "icestone": 1
+      },
+      "medicine": {
+        "potion": 5,
+        "rarecandy": 3
+      },
+      "pokeballs": {
+        "pokeball": 50,
+        "greatball": 25,
+        "ultraball": 10,
+        "masterball": 1
+      },
+      "berries": {
+        "oranberry": 5,
+        "lumberry": 2
+      },
+      "tms": {},
+      "keyitems": {
+        "alphaticket": 1
+      }
+    },
+    "pc": [
+      [],
+      [],
+      [],
+      [],
+      [],
+      [],
+      [],
+      [],
+      [],
+      []
+    ],
+    "party": [
+      {
+        "name": "Groudon",
+        "species": "groudon",
+        "item": "Red Orb",
+        "ability": "Drought",
+        "shiny": "yes",
+        "moves": [
+          "Earthquake",
+          "Eruption",
+          "Solar beam",
+          "Swords dance"
+        ],
+        "nature": "Impish",
+        "gender": "M",
+        "ivs": {
+          "hp": 255,
+          "atk": 255,
+          "def": 255,
+          "spa": 255,
+          "spd": 255,
+          "spe": 255
+        },
+        "level": 100,
+        "happiness": 150,
+        "hpType": "",
+        "pokeball": "pokeball",
+        "exp": 1250000,
+        "ot": "astofolo",
+        "evs": {
+          "hp": 255,
+          "atk": 255,
+          "def": 255,
+          "spa": 255,
+          "spd": 255,
+          "spe": 25
+        }
+      },
+      {
+        "name": "Mew",
+        "species": "mew",
+        "item": "Mewnium Z",
+        "ability": "Synchronize",
+        "moves": [
+          "Psychic",
+          "Transform",
+          "Stealth rock",
+          "Toxic"
+        ],
+        "nature": "Lax",
+        "gender": "none",
+        "ivs": {
+          "hp": 250,
+          "atk": 250,
+          "def": 250,
+          "spa": 250,
+          "spd": 255,
+          "spe": 255
+        },
+        "level": 100,
+        "happiness": 150,
+        "hpType": "",
+        "pokeball": "masterball",
+        "exp": 4218.75,
+        "ot": "astofolo"
+      },
+      {
+        "name": "Xerneas",
+        "species": "xerneas",
+        "item": "wiki berry",
+        "ability": "Fairy aura",
+        "shiny": "yes",
+        "moves": [
+          "geomancy",
+          "moonblast",
+          "outrage",
+          "ingrain"
+        ],
+        "nature": "Modest",
+        "gender": "none",
+        "ivs": {
+          "hp": 255,
+          "atk": 255,
+          "def": 255,
+          "spa": 255,
+          "spd": 255,
+          "spe": 255
+        },
+        "level": 100,
+        "happiness": 150,
+        "hpType": "",
+        "pokeball": "pokeball",
+        "exp": 6141.25,
+        "ot": "astofolo"
+      },
+      {
+        "name": "Rayquaza",
+        "species": "rayquaza",
+        "item": "wiki berry",
+        "ability": "air lock",
+        "shiny": "yes",
+        "moves": [
+          "Dragon ascent",
+          "extreme speed",
+          "Dragon Dance",
+          "dragon pulse"
+        ],
+        "nature": "Relaxed",
+        "gender": "F",
+        "ivs": {
+          "hp": 255,
+          "atk": 255,
+          "def": 255,
+          "spa": 255,
+          "spd": 255,
+          "spe": 255
+        },
+        "level": 100,
+        "happiness": 150,
+        "hpType": "",
+        "pokeball": "ultraball",
+        "exp": 1663.75,
+        "ot": "astofolo"
+      },
+      {
+        "name": "Mewtwo",
+        "species": "mewtwo",
+        "item": "Mewtwonite X",
+        "ability": "Steadfast",
+        "shiny": "yes",
+        "moves": [
+          "Earthquake",
+          "Psychic",
+          "meteor mash",
+          "Flash cannon"
+        ],
+        "nature": "Sassy",
+        "gender": "F",
+        "ivs": {
+          "hp": 255,
+          "atk": 255,
+          "def": 255,
+          "spa": 255,
+          "spd": 255,
+          "spe": 255
+        },
+        "level": 100,
+        "happiness": 150,
+        "hpType": "",
+        "pokeball": "ultraball",
+        "exp": 3430,
+        "ot": "astofolo"
+      },
+      {
+        "name": "arceus",
+        "species": "arceus",
+        "item": "",
+        "ability": "multitype",
+        "shiny": "yes",
+        "moves": [
+          "earthpower",
+          "extremespeed",
+          "recover",
+          "hyperbeam"
+        ],
+        "nature": "Serious",
+        "gender": "M",
+        "ivs": {
+          "hp": 255,
+          "atk": 255,
+          "def": 255,
+          "spa": 255,
+          "spd": 255,
+          "spe": 255
+        },
+        "level": 100,
+        "happiness": 150,
+        "hpType": "",
+        "pokeball": "masterball",
+        "exp": 6141.25,
+        "ot": "astofolo"
+      }
+    ],
+    "pokedex": {}
+  }
+}
