@@ -469,6 +469,24 @@ exports.grouplist = [
     globalonly: true
   },
   {
+    symbol: "#",
+    id: "owner",
+    name: "Room Owner",
+    inherit: "&",
+    jurisdiction: "u",
+    roombot: true,
+    roommod: true,
+    roomdriver: true,
+    editroom: true,
+    declare: true,
+    modchatall: true,
+    roomonly: false,
+    gamemanagement: true,
+    // Custom
+    draft: true,
+    masspm: true
+  },
+  {
     symbol: "&",
     id: "leader",
     name: "Leader",
@@ -530,29 +548,12 @@ exports.grouplist = [
 		ssb: true,
 	},
 	*/
-  {
-    symbol: "#",
-    id: "owner",
-    name: "Room Owner",
-    inherit: "@",
-    jurisdiction: "u",
-    roombot: true,
-    roommod: true,
-    roomdriver: true,
-    editroom: true,
-    declare: true,
-    modchatall: true,
-    roomonly: true,
-    gamemanagement: true,
-    // Custom
-    draft: true,
-    masspm: true
-  },
+  
   {
     symbol: "\u2605",
     id: "host",
     name: "Host",
-    inherit: "@",
+    inherit: "$",
     jurisdiction: "u",
     declare: true,
     modchat: true,
@@ -560,6 +561,34 @@ exports.grouplist = [
     gamemanagement: true,
     joinbattle: true
   },
+  {
+		symbol: '$',
+		id: "captain",
+		name: "Captain",
+		inherit: '@',
+		jurisdiction: 'u',
+		globalonly: true,
+		declare: true,
+		gdeclare: true,
+		makeroom: true,
+		editroom: true,
+		roomowner: true,
+		roombot: true,
+		roommod: true,
+		roomdriver: true,
+		modchatall: true,
+		tourannouncements: true,
+		gamemanagement: true,
+		potd: true,
+		// Custom
+		draft: true,
+		masspm: true,
+		avatar: true,
+		economy: true,
+		emote: true,
+		psgo: true,
+		ssb: true,
+	},
   {
     symbol: "\u2606",
     id: "player",
@@ -649,4 +678,5 @@ exports.grouplist = [
     punishgroup: "MUTE"
   }
 ];
+
 
