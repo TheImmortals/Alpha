@@ -1693,10 +1693,10 @@ const commands = {
     if (!this.runBroadcast()) return;
     this.sendReplyBox(
       `Our Server is open source:<br />` +
-        `- Language: JavaScript (Glitch)<br />` +
-        `- <a href="https://glitch.com/~branch-maize-pluto">Server Files View</a><br />` +
-        `- <a href="https://docs.google.com/document/d/1irLrnZl0BxY-6nbeGybAIXOfeQS47H5V4E_n4JKTsRs/edit?usp=sharing">Server Doc Website</a><br />` +
-        `- <a href="https://github.com/TheImmortals/Alpha">Alpha Repo</a>`
+        	`- <a href="https://github.com/Zarel/Pokemon-Showdown/commits/master">What's new?</a><br />` +
+			`- <a href="https://github.com/TheImmortals/Alpha">Alpha GitHub Repository</a><br />` +
+			`- <a href="https://github.com/Zarel/Pokemon-Showdown-Client">Client source code</a><br />` +
+			`- <a href="https://github.com/Zarel/Pokemon-Showdown-Dex">Dex source code</a>`
     );
   },
   opensourcehelp: [
