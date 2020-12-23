@@ -6,7 +6,7 @@
 exports.port = 8000;
 
 /**
- * The server Namr - Being used to rename custom-plugins.
+ * The server Name - Being used to rename custom-plugins.
  */
 exports.serverName = 'Server';
 
@@ -460,7 +460,8 @@ exports.disablehotpatchall = false;
  *     - ssb: manage super staff bros free for all
  *     - roomshop: manage room shops
  */
-{
+exports.grouplist = [
+  {
     symbol: "~",
     id: "admin",
     name: "Administrator",
