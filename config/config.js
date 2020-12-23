@@ -460,8 +460,7 @@ exports.disablehotpatchall = false;
  *     - ssb: manage super staff bros free for all
  *     - roomshop: manage room shops
  */
-exports.grouplist = [
-  {
+{
     symbol: "~",
     id: "admin",
     name: "Administrator",
@@ -479,6 +478,7 @@ exports.grouplist = [
     roomdriver: true,
     editroom: true,
     declare: true,
+    guild: true,
     modchatall: true,
     roomonly: false,
     gamemanagement: true,
@@ -548,47 +548,19 @@ exports.grouplist = [
 		ssb: true,
 	},
 	*/
-  
+
   {
-    symbol: "\u2605",
-    id: "host",
-    name: "Host",
-    inherit: "$",
+    symbol: "$",
+    id: "captain",
+    name: "Captain",
+    inherit: "@",
     jurisdiction: "u",
     declare: true,
     modchat: true,
-    roomonly: true,
+    roomonly: false,
     gamemanagement: true,
     joinbattle: true
   },
-  {
-		symbol: '$',
-		id: "captain",
-		name: "Captain",
-		inherit: '@',
-		jurisdiction: 'u',
-		globalonly: true,
-		declare: true,
-		gdeclare: true,
-		makeroom: true,
-		editroom: true,
-		roomowner: true,
-		roombot: true,
-		roommod: true,
-		roomdriver: true,
-		modchatall: true,
-		tourannouncements: true,
-		gamemanagement: true,
-		potd: true,
-		// Custom
-		draft: true,
-		masspm: true,
-		avatar: true,
-		economy: true,
-		emote: true,
-		psgo: true,
-		ssb: true,
-	},
   {
     symbol: "\u2606",
     id: "player",
