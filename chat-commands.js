@@ -738,11 +738,11 @@ const commands = {
 		});
 		if (targetRoom) {
 			// The creator is a Room Owner in subroom groupchats and a Host otherwise..
-			targetRoom.auth[user.userid] = parent ? '#' : '\u2605';
+			targetRoom.auth[user.userid] = parent ? '#' : '$';
 			// Join after creating room. No other response is given.
 			user.joinRoom(targetRoom.id);
 			user.popup(`You've just made a groupchat; it is now your responsibility, regardless of whether or not you actively partake in the room. For more info, read your groupchat's staff intro.`);
-			if (parent) this.modlog('SUBROOMGROUPCHAT', null, title);
+				if (parent) this.modlog('SUBROOMGROUPCHAT', null, title);
 			return;
 		}
 		return this.errorReply(`An unknown error occurred while trying to create the room '${title}'.`);
