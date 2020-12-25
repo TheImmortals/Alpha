@@ -1202,13 +1202,13 @@ exports.commands = {
           Object.keys(Db.players.get(user.userid).pokedex).length +
           "</span></button>";
       htm +=
-        '<button name="send" value="/confirmresetalpha" style="display: block; border: 5px solid #AAA; background: #FFF; font-family: monospace; border-radius: 5px; width: 90%; text-align: left;"><b>NEW GAME</b></button></center>';
+        'Type <code>/confirmresetalpha</code> to restart your game. [Warning: this action is irreversible]</center>';
       user.console.init();
       user.console.update("background-color: #6688AA;", htm, null);
     } else if (cmd === "confirmresetalpha") {
       // New Game
       user.console.queue = [
-        "text|Welcome to the world of Pokemon!<br/>I'm Astofolo, What's Up?. (Click the star to continue)",
+        "text|Welcome to the world of Pokemon!<br/>I'm ImmortalsX, What's Up?. (Click the star to continue)",
         "text|This is an exciting game which we hope you will like! You can catch pokemons and then battle others or SgGame Server.",
         "text|Tell us what you think about it. So ready for your journey?",
         "text|Ok. I guess you are ready.<br/>Pick up a starter:"
