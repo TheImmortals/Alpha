@@ -1,0 +1,16 @@
+{
+  "immortalsx": {
+    "data": {
+      "title": {},
+      "music": {
+        "link": "https://cdn.glitch.com/6b50764c-7cde-49ae-9451-62dc6800ff13%2FPokemon%20X%20and%20Y%20V.S.%20XerneasYveltalZygarde%20Kalos%20Legendary%20Battle%20Theme%20Original.mp3",
+        "title": "Kalos"
+      }
+    },
+    "background": "https://img.cloudygif.com/full/f4953236356f9901.gif",
+    "color": "#F9052A",
+    "pokemon": "Umbreon",
+    "type": "dark",
+    "nature": "Naughty"
+  }
+}
