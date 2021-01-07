@@ -474,6 +474,7 @@ exports.grouplist = [
     name: "Room Owner",
     inherit: "&",
     jurisdiction: "u",
+    roomleader: true,
     roombot: true,
     roommod: true,
     roomdriver: true,
@@ -506,7 +507,7 @@ exports.grouplist = [
     editroom: true,
     potd: true,
     disableladder: true,
-    globalonly: true,
+    globalonly: false,
     gamemanagement: true,
     exportinputlog: true,
     hotpatch: true,
@@ -651,5 +652,3 @@ exports.grouplist = [
     punishgroup: "MUTE"
   }
 ];
-
-
