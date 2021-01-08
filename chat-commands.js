@@ -162,7 +162,7 @@ const commands = {
     if (!target) return this.parse("/help code");
     if (!this.canTalk()) return;
     if (target.startsWith("\n")) target = target.slice(1);
-    if (target.length >= 8192)
+    if (target.length >= 30000)
       return this.errorReply("Your code must be under 8192 characters long!");
     const separator = "\n";
     if (target.includes(separator) || target.length > 150) {
@@ -416,11 +416,29 @@ const commands = {
       bw2elesa: "#bw2elesa",
       teamrocket: "#teamrocket",
       yellow: "#yellow",
+      acexmas: "#acexmas",
+      immortals: "#albert",
+      nirdosh: "#analytic",
+      alfrond: "#alkov",
+      anusthan: "#bloo",
+      ansh: "#chaos",
+      astara: "astara",
+      averardo: "#averardo",
       zinnia: "#zinnia",
+      ashtwo: "#wcop2020uswest",
+      mechav: "#prince",
+      arceus: "#ransei",
+      pokeray: "#snaquaza",
+      blazingthunder: "#mgperson",
       clemont: "#clemont",
+      mybot: "#github",
       wally: "#wally",
+      mechrtx: "#yashgreninja",
+      finchinator: "#finchinator",
+      tapuj0j0: "#xshiba",
       aeonic: "#aeonic",
-      zeroluxgiven: "#zeroluxgiven"
+      zera: "#flare",
+      astofolo: "#zeroluxgiven"
     };
     if (avatarTable.hasOwnProperty(avatarid)) {
       avatar = avatarTable[avatarid];
