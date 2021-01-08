@@ -45,7 +45,7 @@ Server.showNews = function(userid, user) {
       delete notifiedUsers[userid];
     }, 60 * 60 * 1000);
     return user.send(
-      `|pm| Dronzer News|${user.getIdentity()}|/raw ${newsDisplay}`
+      `|pm| ${serverName} Server|${user.getIdentity()}|/raw ${newsDisplay}`
     );
   }
 };
