@@ -417,7 +417,8 @@ const commands = {
       teamrocket: "#teamrocket",
       yellow: "#yellow",
       acexmas: "#acexmas",
-      immortals: "#albert",
+      blackx: "#cicada",
+      immortal: "#albert",
       nirdosh: "#analytic",
       alfrond: "#alkov",
       anusthan: "#bloo",
@@ -436,7 +437,7 @@ const commands = {
       mechrtx: "#yashgreninja",
       finchinator: "#finchinator",
       tapuj0j0: "#xshiba",
-      aeonic: "#aeonic",
+      joker: "#aeonic",
       zera: "#flare",
       astofolo: "#zeroluxgiven"
     };
