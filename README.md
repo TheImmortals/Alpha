@@ -26,7 +26,7 @@ Credits goes to:
 - Ritik Gupta [Shade Ritik]- Helper (For whose support, i am so familiar with Pokemon Showdown, i can never forget their contributions)
 
 [4]: https://pokemonshowdown.com/credits
-[5]: https://github.com/AllianceSky-PS/Alpha
+[5]: https://github.com/AllianceSky-PS/Impulse
 
 How to make server on glitch:
 ------------------------------------------------------------------------
