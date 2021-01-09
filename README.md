@@ -7,9 +7,9 @@ Navigation: [Website][1] | **Server repository** | [Client repository][2] | [Dex
   [2]: https://github.com/Zarel/Pokemon-Showdown-Client
   [3]: https://github.com/Zarel/Pokemon-Showdown-Dex
 
-[![Build Status](https://travis-ci.org/FlamePrince-PS/PokemonShowdown-Impulse.svg?branch=master)](https://travis-ci.com/FlamePrince-PS/PokemonShowdown-Impulse)
-[![Dependency Status](https://david-dm.org/FlamePrince-PS/PokemonShowdown-Impulse.svg)](https://david-dm.org/FlamePrince-PS/PokemonShowdown-Impulse)
-[![devDependency Status](https://david-dm.org/FlamePrince-PS/PokemonShowdown-Impulse/dev-status.svg)](https://david-dm.org/FlamePrince-PS/PokemonShowdown-Impulse?type=dev)
+[![Build Status](https://travis-ci.org/FlamePrince-PS/PokemonShowdown-Alpha.svg?branch=master)](https://travis-ci.com/FlamePrince-PS/PokemonShowdown-Alpha)
+[![Dependency Status](https://david-dm.org/FlamePrince-PS/PokemonShowdown-Alpha.svg)](https://david-dm.org/FlamePrince-PS/PokemonShowdown-Alpha)
+[![devDependency Status](https://david-dm.org/FlamePrince-PS/PokemonShowdown-Alpha/dev-status.svg)](https://david-dm.org/FlamePrince-PS/PokemonShowdown-Alpha?type=dev)
 
 Introduction
 ------------------------------------------------------------------------
@@ -20,13 +20,13 @@ Credits goes to:
 
 - Guangcong Luo [Zarel]- Main Code Owner, PS Owner
 - Other contributors in Pokemon Showdown (see [PS Credits][4])
-- Akash Kumar [Prince Sky]- [Impulse Repo][5] Owner.
+- Akash Kumar [Prince Sky]- Impulse Repo][5] Owner.
 - Arjun Kumar [Astofolo]- Repo Owner
 - [Clown Posse 2]- Repo Owner, Helper
 - Ritik Gupta [Shade Ritik]- Helper (For whose support, i am so familiar with Pokemon Showdown, i can never forget their contributions)
 
 [4]: https://pokemonshowdown.com/credits
-[5]: https://github.com/AllianceSky-PS/Impulse
+[5]: https://github.com/AllianceSky-PS/Alpha
 
 How to make server on glitch:
 ------------------------------------------------------------------------
@@ -71,15 +71,15 @@ Detailed installation instructions
 
 Pokémon Showdown requires you to have [Node.js][8] installed, 8.x or later (7.7 or later can work, but you might as well be on the latest stable).
 
-Next, obtain a copy of Pokémon Showdown Impulse. If you're reading this outside of GitHub, you've probably already done this. If you're reading this in GitHub, there's a "Clone or download" button near the top right (it's green). I recommend the "Open in Desktop" method - you need to install GitHub Desktop which is more work than "Download ZIP", but it makes it much easier to update in the long run (it lets you use the `/updateserver` command).
+Next, obtain a copy of Pokémon Showdown Alpha. If you're reading this outside of GitHub, you've probably already done this. If you're reading this in GitHub, there's a "Clone or download" button near the top right (it's green). I recommend the "Open in Desktop" method - you need to install GitHub Desktop which is more work than "Download ZIP", but it makes it much easier to update in the long run (it lets you use the `/updateserver` command).
 
 Pokémon Showdown is installed and run using a command line. In Mac OS X, open `Terminal` (it's in Utilities). In Windows, open `Command Prompt` (type `cmd` into the Start menu and it should be the first result). Type this into the command line:
 
     cd LOCATION
 
-Replace `LOCATION` with the location Pokémon Showdown Impulse is in (ending up with, for instance, `cd "~/Downloads/PokemonShowdown-Impulse"` or `cd "C:\Users\Bob\Downloads\PokemonShowdown-Impulse\"`).
+Replace `LOCATION` with the location Pokémon Showdown Alpha is in (ending up with, for instance, `cd "~/Downloads/PokemonShowdown-Alpha"` or `cd "C:\Users\Bob\Downloads\PokemonShowdown-Alpha\"`).
 
-This will set your command line's location to Pokémon Showdown-Impulse's folder. You'll have to do this each time you open a command line to run commands for Pokémon Showdown.
+This will set your command line's location to Pokémon Showdown-Alpha's folder. You'll have to do this each time you open a command line to run commands for Pokémon Showdown.
 
 Copy `config/config-example.js` into `config/config.js`, and edit as you please.
 
