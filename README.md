@@ -7,9 +7,9 @@ Navigation: [Website][1] | **Server repository** | [Client repository][2] | [Dex
   [2]: https://github.com/Zarel/Pokemon-Showdown-Client
   [3]: https://github.com/Zarel/Pokemon-Showdown-Dex
 
-[![Build Status](https://travis-ci.org/TheImmortals/Alpha.svg?branch=master)](https://travis-ci.com/FlamePrince-PS/PokemonShowdown-Alpha)
-[![Dependency Status](https://david-dm.org/TheImmortals/Alpha.svg)](https://david-dm.org/FlamePrince-PS/PokemonShowdown-Alpha)
-[![devDependency Status](https://david-dm.org/FlamePrince-PS/PokemonShowdown-Alpha/dev-status.svg)](https://david-dm.org/FlamePrince-PS/PokemonShowdown-Alpha?type=dev)
+[![Build Status](https://travis-ci.org/FlamePrince-PS/PokemonShowdown-Impulse.svg?branch=master)](https://travis-ci.com/FlamePrince-PS/PokemonShowdown-Alpha)
+[![Dependency Status](https://david-dm.org/FlamePrince-PS/PokemonShowdown-Impulse.svg)](https://david-dm.org/FlamePrince-PS/PokemonShowdown-Alpha)
+[![devDependency Status](https://david-dm.org/FlamePrince-PS/PokemonShowdown-Impulse/dev-status.svg)](https://david-dm.org/FlamePrince-PS/PokemonShowdown-Alpha?type=dev)
 
 Introduction
 ------------------------------------------------------------------------
