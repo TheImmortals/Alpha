@@ -1084,7 +1084,7 @@ class Player {
       medicine: { potion: 5, rarecandy: 3 },
       pokeballs: { pokeball: 50, greatball: 25, ultraball: 10, masterball: 1 },
       berries: { oranberry: 5, lumberry: 2 },
-
+      tms: {},
       keyitems: { alphaticket: 1 }
     };
     // Array of boxes (arrays), max of 30 boxes, 30 pokemon per box, stored as strings
@@ -1202,7 +1202,7 @@ exports.commands = {
           Object.keys(Db.players.get(user.userid).pokedex).length +
           "</span></button>";
       htm +=
-        '<button name="send" value="/confirmresetalpha" style="display: block; border: 5px solid #AAA; background: #FFF; font-family: monospace; border-radius: 5px; width: 90%; text-align: left;"><b>NEW GAME</b></button></center>';
+        "Type <code>/confirmresetalpha</code> to restart your game. [Warning: this action is irreversible]</center>";
       user.console.init();
       user.console.update("background-color: #6688AA;", htm, null);
     } else if (cmd === "confirmresetalpha") {
