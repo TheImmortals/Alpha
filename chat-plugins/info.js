@@ -1642,7 +1642,9 @@ const commands = {
           `% <strong>Driver</strong> - The above, and they can mute and warn<br />` +
           `@ <strong>Moderator</strong> - The above, and they can room ban users<br />` +
           `* <strong>Bot</strong> - Like Moderator, but makes it clear that this user is a bot<br />` +
-          `# <strong>Room Owner</strong> - They are leaders of the room and can almost totally control it<br />`
+          `$ <strong>Captain</strong> - The above, and can take decisions for the room.<br />` +
+          `& <strong>Leader</strong> - Like Captain, and are like leaders of the room. They can change room settings.<br />` +
+          `# <strong>Room Owner</strong> - They are owners of the room and can almost totally control it<br />`
         : ``) +
         (showRoom && showGlobal ? `<br />` : ``) +
         (showGlobal
@@ -1651,7 +1653,9 @@ const commands = {
             `% <strong>Global Driver</strong> - The above, and they can also lock users and check for alts<br />` +
             `@ <strong>Global Moderator</strong> - The above, and they can globally ban users<br />` +
             `* <strong>Global Bot</strong> - Like Moderator, but makes it clear that this user is a bot<br />` +
+            `$ <strong>Global Captain</strong> - The above, and can take decisions for the server.<br />` +
             `&amp; <strong>Global Leader</strong> - The above, and they can promote to global moderator and force ties<br />` +
+            `# <strong>Global Owner</strong> - The above. Mostly given to admins and qualified leaders.<br />` +
             `~ <strong>Global Administrator</strong> -  They can do anything, like change what this message says`
           : ``)
     );
@@ -1668,6 +1672,7 @@ const commands = {
     this.sendReplyBox(
       `<strong>Room punishments</strong>:<br />` +
         `<strong>warn</strong> - Displays a popup with the rules.<br />` +
+        `<strong>Kick</strong> - Kicks a user out of the room. Can join again until its not a ban.<br />` +
         `<strong>mute</strong> - Mutes a user (makes them unable to talk) for 7 minutes.<br />` +
         `<strong>hourmute</strong> - Mutes a user for 60 minutes.<br />` +
         `<strong>ban</strong> - Bans a user (makes them unable to join the room) for 2 days.<br />` +
