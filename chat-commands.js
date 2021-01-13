@@ -5152,7 +5152,7 @@ const commands = {
     });
     if (success && success.errorip) {
       connection.popup(
-        `This server's request IP ${success.errorip} is not a registered server.`
+        `Congrats if you won! Sorry, you cant upload and share replay because ${success.errorip} is not a registered server. Still you can download replay and give link.`
       );
       return;
     }
