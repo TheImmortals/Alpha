@@ -1774,6 +1774,7 @@ exports.commands = {
 				"/guild invite [user] - Invites a user to join a guild.<br />" +
 				"/guild kick [user] - Kicks a user from a guild.<br />" +
 				"/guild desc [description] - Sets a description for your guild, visible on /guild list.<br />" +
+          "/guild icon [link] - Sets a icon for your guild, visible on /guild list.<br />" +
 				"/guild pm [message] - Mass PM's a message to all online guild members<br />" +
 				"/guild accept [guild name] - Accepts an invitation to join a guild.<br />" +
 				"/guild decline [guild name] - Declines an invitation to join a guild.<br />" +
