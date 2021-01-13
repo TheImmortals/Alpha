@@ -82,65 +82,176 @@ const cardImages = {
     ]
   },
   Blue: {
-    "0": ["https://images-ext-1.discordapp.net/external/shK3_JGH1rBdyImND7mgmK3KIfmuKEhc-z1en_HTByc/https/i.imgur.com/USxkz00.png", "https://images-ext-1.discordapp.net/external/7Miklg5owhMvKTEryIVtwQg2PTgdkQVIVl6pPO8xbns/https/i.imgur.com/uBpitT3.png"],
-    "1": ["https://images-ext-1.discordapp.net/external/Zlxlv3vqvMYHWjFWYA3-E0oBu9fTGe24ZVUtfbJ43So/https/i.imgur.com/UPQtfFS.png", "https://images-ext-1.discordapp.net/external/vo89K_ZYTfVIie2SkCBXS4uVwJU3pWNOFl8tXHCx67E/https/i.imgur.com/yhoJa5A.png"],
-    "2": ["https://images-ext-1.discordapp.net/external/c7MZ3Seq-udP8126YBEi1aCp1mISxtiVTz92gisvi4M/https/i.imgur.com/oda2Jgc.png", "https://images-ext-2.discordapp.net/external/GnqgKFzg7iQq1NVaO7Y8fe4KbuUadIt4cB7Xe2nYfv4/https/i.imgur.com/y8HkEWj.png"],
-    "3": ["https://images-ext-1.discordapp.net/external/0obUiCn9CueoPca7rx32vRLftJNbx6LRp_mOBsqepfo/https/i.imgur.com/GV1KoS8.png", "https://images-ext-1.discordapp.net/external/EqaK1boR36VU0Tmn4p8iyh_KWMRQP0eRHl63juCGA80/https/i.imgur.com/Y9dw9rH.png"],
-    "4": ["https://images-ext-2.discordapp.net/external/7e2WIB0RE_x0vYdD3JigQZFoTwAggDkBTUQpDe7K_QM/https/i.imgur.com/YbrUZZl.png", "https://images-ext-1.discordapp.net/external/kDuPiqvZLkK4AXCCCj9833jNHCbhDqWlOHnUncwiRws/https/i.imgur.com/2ZOG5cE.png"],
-    "5": ["https://images-ext-2.discordapp.net/external/6ltCZHYp7QIahBVcepGXW0UY-zIkxV4-7yImIixC0Cs/https/i.imgur.com/0LNEV9u.png", "https://images-ext-2.discordapp.net/external/ntvmDBtk1h5AtUGCbdfT6Strr6Gh0NaP9jxo_gco9Hs/https/i.imgur.com/ODF2g9a.png"],
-    "6": ["https://images-ext-2.discordapp.net/external/ld6FHvhijKyp6YHGT3kXG5UhWtouLCNOdlODDLu5Js8/https/i.imgur.com/sesxOUz.png", "https://images-ext-1.discordapp.net/external/sOAbQQiiHutb4SJYPtAMqg_ehr9gPlGCZ3kcyuTBxtk/https/i.imgur.com/DCXYkHE.png"],
-    "7": ["https://images-ext-1.discordapp.net/external/sOAbQQiiHutb4SJYPtAMqg_ehr9gPlGCZ3kcyuTBxtk/https/i.imgur.com/DCXYkHE.png", "https://images-ext-1.discordapp.net/external/Vq282ym_RP8uMXTOyOkYVFkO5hiWY5x6_youzQ8XFSw/https/i.imgur.com/vOKI7YE.png"],
-    "8": ["https://images-ext-1.discordapp.net/external/cllFkQ2MhGbWUDU3Z2UPSgKopYrixyUo2rJJrwJZTak/https/i.imgur.com/sr3ycsf.png", "https://images-ext-2.discordapp.net/external/R_78WRpDJTgbsxB33l6HPt7QmfjvqXIsDWyOXeXPTFI/https/i.imgur.com/DGDSpX2.png"],
-    "9": ["https://images-ext-1.discordapp.net/external/PRy8d-Co6hMN_F8907oczk6Blrxi9Q3yilIxLTO7oUs/https/i.imgur.com/ku26T44.png", "https://images-ext-1.discordapp.net/external/-opWzDJJnTg2haSNP-oSkSNfPNjTdry2bEmaGO_-trw/https/i.imgur.com/NoGcuFG.png"],
+    "0": [
+      "https://images-ext-1.discordapp.net/external/shK3_JGH1rBdyImND7mgmK3KIfmuKEhc-z1en_HTByc/https/i.imgur.com/USxkz00.png",
+      "https://images-ext-1.discordapp.net/external/7Miklg5owhMvKTEryIVtwQg2PTgdkQVIVl6pPO8xbns/https/i.imgur.com/uBpitT3.png"
+    ],
+    "1": [
+      "https://images-ext-1.discordapp.net/external/Zlxlv3vqvMYHWjFWYA3-E0oBu9fTGe24ZVUtfbJ43So/https/i.imgur.com/UPQtfFS.png",
+      "https://images-ext-1.discordapp.net/external/vo89K_ZYTfVIie2SkCBXS4uVwJU3pWNOFl8tXHCx67E/https/i.imgur.com/yhoJa5A.png"
+    ],
+    "2": [
+      "https://images-ext-1.discordapp.net/external/c7MZ3Seq-udP8126YBEi1aCp1mISxtiVTz92gisvi4M/https/i.imgur.com/oda2Jgc.png",
+      "https://images-ext-2.discordapp.net/external/GnqgKFzg7iQq1NVaO7Y8fe4KbuUadIt4cB7Xe2nYfv4/https/i.imgur.com/y8HkEWj.png"
+    ],
+    "3": [
+      "https://images-ext-1.discordapp.net/external/0obUiCn9CueoPca7rx32vRLftJNbx6LRp_mOBsqepfo/https/i.imgur.com/GV1KoS8.png",
+      "https://images-ext-1.discordapp.net/external/EqaK1boR36VU0Tmn4p8iyh_KWMRQP0eRHl63juCGA80/https/i.imgur.com/Y9dw9rH.png"
+    ],
+    "4": [
+      "https://images-ext-2.discordapp.net/external/7e2WIB0RE_x0vYdD3JigQZFoTwAggDkBTUQpDe7K_QM/https/i.imgur.com/YbrUZZl.png",
+      "https://images-ext-1.discordapp.net/external/kDuPiqvZLkK4AXCCCj9833jNHCbhDqWlOHnUncwiRws/https/i.imgur.com/2ZOG5cE.png"
+    ],
+    "5": [
+      "https://images-ext-2.discordapp.net/external/6ltCZHYp7QIahBVcepGXW0UY-zIkxV4-7yImIixC0Cs/https/i.imgur.com/0LNEV9u.png",
+      "https://images-ext-2.discordapp.net/external/ntvmDBtk1h5AtUGCbdfT6Strr6Gh0NaP9jxo_gco9Hs/https/i.imgur.com/ODF2g9a.png"
+    ],
+    "6": [
+      "https://images-ext-2.discordapp.net/external/ld6FHvhijKyp6YHGT3kXG5UhWtouLCNOdlODDLu5Js8/https/i.imgur.com/sesxOUz.png",
+      "https://images-ext-1.discordapp.net/external/sOAbQQiiHutb4SJYPtAMqg_ehr9gPlGCZ3kcyuTBxtk/https/i.imgur.com/DCXYkHE.png"
+    ],
+    "7": [
+      "https://images-ext-1.discordapp.net/external/sOAbQQiiHutb4SJYPtAMqg_ehr9gPlGCZ3kcyuTBxtk/https/i.imgur.com/DCXYkHE.png",
+      "https://images-ext-1.discordapp.net/external/Vq282ym_RP8uMXTOyOkYVFkO5hiWY5x6_youzQ8XFSw/https/i.imgur.com/vOKI7YE.png"
+    ],
+    "8": [
+      "https://images-ext-1.discordapp.net/external/cllFkQ2MhGbWUDU3Z2UPSgKopYrixyUo2rJJrwJZTak/https/i.imgur.com/sr3ycsf.png",
+      "https://images-ext-2.discordapp.net/external/R_78WRpDJTgbsxB33l6HPt7QmfjvqXIsDWyOXeXPTFI/https/i.imgur.com/DGDSpX2.png"
+    ],
+    "9": [
+      "https://images-ext-1.discordapp.net/external/PRy8d-Co6hMN_F8907oczk6Blrxi9Q3yilIxLTO7oUs/https/i.imgur.com/ku26T44.png",
+      "https://images-ext-1.discordapp.net/external/-opWzDJJnTg2haSNP-oSkSNfPNjTdry2bEmaGO_-trw/https/i.imgur.com/NoGcuFG.png"
+    ],
     Reverse: [
       "https://images-ext-2.discordapp.net/external/AD6GTRetb0eQrZXFg42s1t8nmvwkq8WKWtFGjCemoiw/https/i.imgur.com/73IKBT0.png",
       "https://images-ext-2.discordapp.net/external/3l7wexBjbdwKhyRlERmhf2XHLFKeTPGarhR6BxUbcns/https/i.imgur.com/1aqFEmr.png"
     ],
-    Skip: ["https://images-ext-1.discordapp.net/external/c9qEjvOwjCfaDT9T6NN8_L5mKNu-W_5iipj9HAFXaUQ/https/i.imgur.com/ooI5g8V.png", "https://images-ext-2.discordapp.net/external/X0MWFAXC7D-mvDS31O09kPM_OI6qG9Ql3-u29qlKxgw/https/i.imgur.com/ClaaNj3.png"],
-    "+2": ["https://images-ext-1.discordapp.net/external/E0K4DQReeOZuJm5HpqRLW5_H3RIsROqfgH3yg63kiRs/https/i.imgur.com/Kc2aYFm.png", "https://images-ext-2.discordapp.net/external/E0T_YHn48G29HdMTuTjF1dZjvpkcaBIM6mlXfqsFq1A/https/i.imgur.com/09BhP1E.png"]
+    Skip: [
+      "https://images-ext-1.discordapp.net/external/c9qEjvOwjCfaDT9T6NN8_L5mKNu-W_5iipj9HAFXaUQ/https/i.imgur.com/ooI5g8V.png",
+      "https://images-ext-2.discordapp.net/external/X0MWFAXC7D-mvDS31O09kPM_OI6qG9Ql3-u29qlKxgw/https/i.imgur.com/ClaaNj3.png"
+    ],
+    "+2": [
+      "https://images-ext-1.discordapp.net/external/E0K4DQReeOZuJm5HpqRLW5_H3RIsROqfgH3yg63kiRs/https/i.imgur.com/Kc2aYFm.png",
+      "https://images-ext-2.discordapp.net/external/E0T_YHn48G29HdMTuTjF1dZjvpkcaBIM6mlXfqsFq1A/https/i.imgur.com/09BhP1E.png"
+    ]
   },
   Green: {
-    "0": ["https://images-ext-1.discordapp.net/external/Ato8fIJ4kxgyt7PtyIWS2OKdlNk989vMQWb3c5rTtSY/https/i.imgur.com/B4RtNx3.png", "https://images-ext-1.discordapp.net/external/eKO58U6chF4ftawErPGVBSltYxgVhJ5JN6RKcScD8-U/https/i.imgur.com/CaFXPI0.png"],
-    "1": ["https://images-ext-2.discordapp.net/external/_U4KN-yiPFfnMucXvWL0pyg07xQuoVJU_OhSQ5-13k8/https/i.imgur.com/oRjVKXU.png", "https://images-ext-1.discordapp.net/external/phhYbmJt23VWo62sAXTcVfRiEVOzoAi1t_YkrWb48-k/https/i.imgur.com/srixETl.png"],
-    "2": ["https://images-ext-2.discordapp.net/external/0iXMB9JJ7jLazNTXOUc_Can2EGxIEc2pdw8l5HWg8GM/https/i.imgur.com/GoTH1bl.png", "https://images-ext-2.discordapp.net/external/nV5-ghB7V1ucp67_eIHG_NBtD1p6q3mwOogwnjzzvqk/https/i.imgur.com/pO8DtWo.png"],
-    "3": ["https://images-ext-2.discordapp.net/external/bMhH25l_bOkcpsww0CPlqd_AgC7Vyvkc_7ypieSEPsQ/https/i.imgur.com/O91W7VJ.png", "https://images-ext-2.discordapp.net/external/9JlZwJggadT7bMGeyyDEGzbLKl33teGw2TIL1V54zN8/https/i.imgur.com/LI2GTY6.png"],
-    "4": ["https://images-ext-1.discordapp.net/external/odNkbbdZhDjL4BPAz8I23v1JWrdrVKGuPQh6LxDSv5M/https/i.imgur.com/nxnPhh9.png", "https://images-ext-2.discordapp.net/external/iIA3kyDwv5xCk1Hpq4kDUzVch1jcpaCUBB2UZWkjdXY/https/i.imgur.com/uRBViWu.png"],
-    "5": ["https://images-ext-1.discordapp.net/external/D3VeQYci2EM5Wo1u1Eili_JYg-VyjNVKviWhP412c1M/https/i.imgur.com/BtXeP5G.png", "https://images-ext-1.discordapp.net/external/QXXEBZe9TAgSWptjLStFA12-fQY0JWV5XpFyx6YGBis/https/i.imgur.com/BgsnkQx.png"],
-    "6": ["https://images-ext-1.discordapp.net/external/WfrK-t2QzeFn0IgKIa2FM1U50R5mvB8aDx9Xn9hU9R0/https/i.imgur.com/woHf1Ci.png", "https://images-ext-1.discordapp.net/external/IUVsvRW0zuYghYYQjdnB-RrQTfJEfnMPgZd9rCZnrb4/https/i.imgur.com/VHgXzWw.png"],
-    "7": ["https://images-ext-2.discordapp.net/external/aoSZjuoc7ZqOBLq-wrQkgQDhJXEQLUS-sp4-8T3FwaM/https/i.imgur.com/RJNDaN0.png", "https://images-ext-1.discordapp.net/external/LLrye6isc99zrdnVmvz5a8BnlTrthLVc6CPht6COsKM/https/i.imgur.com/r8Qza9I.png"],
-    "8": ["https://images-ext-1.discordapp.net/external/vCkiwGEde7XBCnnR5t63urTCRcUFRHLDjwOmaEh94sk/https/i.imgur.com/I5V3XaR.png", "https://images-ext-2.discordapp.net/external/tcwBSntj8wA_MFYVd8fHHPQmph0yzqWj6HyzJKLUAMM/https/i.imgur.com/swfvqLY.png"],
-    "9": ["https://images-ext-1.discordapp.net/external/pXNZdTbHAH9LO0PACj5dOTyhSA_v-YYMU0upB5XOJHI/https/i.imgur.com/1DuX0EZ.png", "https://images-ext-1.discordapp.net/external/Mv4GTc1_Y276REc39fo4iNDU1y3m0fruI1AfN28QYE8/https/i.imgur.com/6WSVugH.png"],
+    "0": [
+      "https://images-ext-1.discordapp.net/external/Ato8fIJ4kxgyt7PtyIWS2OKdlNk989vMQWb3c5rTtSY/https/i.imgur.com/B4RtNx3.png",
+      "https://images-ext-1.discordapp.net/external/eKO58U6chF4ftawErPGVBSltYxgVhJ5JN6RKcScD8-U/https/i.imgur.com/CaFXPI0.png"
+    ],
+    "1": [
+      "https://images-ext-2.discordapp.net/external/_U4KN-yiPFfnMucXvWL0pyg07xQuoVJU_OhSQ5-13k8/https/i.imgur.com/oRjVKXU.png",
+      "https://images-ext-1.discordapp.net/external/phhYbmJt23VWo62sAXTcVfRiEVOzoAi1t_YkrWb48-k/https/i.imgur.com/srixETl.png"
+    ],
+    "2": [
+      "https://images-ext-2.discordapp.net/external/0iXMB9JJ7jLazNTXOUc_Can2EGxIEc2pdw8l5HWg8GM/https/i.imgur.com/GoTH1bl.png",
+      "https://images-ext-2.discordapp.net/external/nV5-ghB7V1ucp67_eIHG_NBtD1p6q3mwOogwnjzzvqk/https/i.imgur.com/pO8DtWo.png"
+    ],
+    "3": [
+      "https://images-ext-2.discordapp.net/external/bMhH25l_bOkcpsww0CPlqd_AgC7Vyvkc_7ypieSEPsQ/https/i.imgur.com/O91W7VJ.png",
+      "https://images-ext-2.discordapp.net/external/9JlZwJggadT7bMGeyyDEGzbLKl33teGw2TIL1V54zN8/https/i.imgur.com/LI2GTY6.png"
+    ],
+    "4": [
+      "https://images-ext-1.discordapp.net/external/odNkbbdZhDjL4BPAz8I23v1JWrdrVKGuPQh6LxDSv5M/https/i.imgur.com/nxnPhh9.png",
+      "https://images-ext-2.discordapp.net/external/iIA3kyDwv5xCk1Hpq4kDUzVch1jcpaCUBB2UZWkjdXY/https/i.imgur.com/uRBViWu.png"
+    ],
+    "5": [
+      "https://images-ext-1.discordapp.net/external/D3VeQYci2EM5Wo1u1Eili_JYg-VyjNVKviWhP412c1M/https/i.imgur.com/BtXeP5G.png",
+      "https://images-ext-1.discordapp.net/external/QXXEBZe9TAgSWptjLStFA12-fQY0JWV5XpFyx6YGBis/https/i.imgur.com/BgsnkQx.png"
+    ],
+    "6": [
+      "https://images-ext-1.discordapp.net/external/WfrK-t2QzeFn0IgKIa2FM1U50R5mvB8aDx9Xn9hU9R0/https/i.imgur.com/woHf1Ci.png",
+      "https://images-ext-1.discordapp.net/external/IUVsvRW0zuYghYYQjdnB-RrQTfJEfnMPgZd9rCZnrb4/https/i.imgur.com/VHgXzWw.png"
+    ],
+    "7": [
+      "https://images-ext-2.discordapp.net/external/aoSZjuoc7ZqOBLq-wrQkgQDhJXEQLUS-sp4-8T3FwaM/https/i.imgur.com/RJNDaN0.png",
+      "https://images-ext-1.discordapp.net/external/LLrye6isc99zrdnVmvz5a8BnlTrthLVc6CPht6COsKM/https/i.imgur.com/r8Qza9I.png"
+    ],
+    "8": [
+      "https://images-ext-1.discordapp.net/external/vCkiwGEde7XBCnnR5t63urTCRcUFRHLDjwOmaEh94sk/https/i.imgur.com/I5V3XaR.png",
+      "https://images-ext-2.discordapp.net/external/tcwBSntj8wA_MFYVd8fHHPQmph0yzqWj6HyzJKLUAMM/https/i.imgur.com/swfvqLY.png"
+    ],
+    "9": [
+      "https://images-ext-1.discordapp.net/external/pXNZdTbHAH9LO0PACj5dOTyhSA_v-YYMU0upB5XOJHI/https/i.imgur.com/1DuX0EZ.png",
+      "https://images-ext-1.discordapp.net/external/Mv4GTc1_Y276REc39fo4iNDU1y3m0fruI1AfN28QYE8/https/i.imgur.com/6WSVugH.png"
+    ],
     Reverse: [
       "https://images-ext-1.discordapp.net/external/CRnJ551e0DsYJ9hivdULMCxzga-U8dnHlReArjuSCRw/https/i.imgur.com/YECYXav.png",
       "https://images-ext-2.discordapp.net/external/EbUCf0UUD8zpVjm9Km8xuk39k2CabgB2OhsJkl7g2ZE/https/i.imgur.com/fB8PNLX.png"
     ],
-    Skip: ["https://images-ext-2.discordapp.net/external/JCVDuKcooIdbW4tMitk129h1rz5My7kqJEs_Y1BYQEc/https/i.imgur.com/SxtBeO8.png", "https://images-ext-1.discordapp.net/external/8jENrfFYnhzHOYOz9mLYnEGo-vVh3x8kuQg-fhj4pOQ/https/i.imgur.com/bQLW8NR.png"],
-    "+2": ["https://images-ext-2.discordapp.net/external/AZDPZ57_50BAl_Nz_LS2vnRwiKRjwLO1Hb0zHnD5RG0/https/i.imgur.com/c8dQDj1.png", "https://images-ext-2.discordapp.net/external/tIHpC4oXB2oG3YlL6ir2izq94wBzgJnXKtONkLq8g6I/https/i.imgur.com/Vrm9HQf.png"]
+    Skip: [
+      "https://images-ext-2.discordapp.net/external/JCVDuKcooIdbW4tMitk129h1rz5My7kqJEs_Y1BYQEc/https/i.imgur.com/SxtBeO8.png",
+      "https://images-ext-1.discordapp.net/external/8jENrfFYnhzHOYOz9mLYnEGo-vVh3x8kuQg-fhj4pOQ/https/i.imgur.com/bQLW8NR.png"
+    ],
+    "+2": [
+      "https://images-ext-2.discordapp.net/external/AZDPZ57_50BAl_Nz_LS2vnRwiKRjwLO1Hb0zHnD5RG0/https/i.imgur.com/c8dQDj1.png",
+      "https://images-ext-2.discordapp.net/external/tIHpC4oXB2oG3YlL6ir2izq94wBzgJnXKtONkLq8g6I/https/i.imgur.com/Vrm9HQf.png"
+    ]
   },
   Yellow: {
-    "0": ["https://images-ext-2.discordapp.net/external/JOlxeONzaIzi9-T6NFGv8xLks-uFljjdTw9Z3pvFCJ0/https/i.imgur.com/lrOTrA2.png", "https://images-ext-2.discordapp.net/external/G56hh7_friw9gXIeiuoQG6DjdTWBDbz6H3xPrMeKFto/https/i.imgur.com/NTSlL01.png"],
-    "1": ["https://images-ext-2.discordapp.net/external/dnDcTViaWtLPgWuqb1fT26aCoKbkRWb3vtV6VucS_0I/https/i.imgur.com/iuBKJK3.png", "https://images-ext-2.discordapp.net/external/hMtJyX5uiu-HIFf4lJbc97uo3s_KQbUe8VtR3i_iV-A/https/i.imgur.com/gLKaoiX.png"],
-    "2": ["https://images-ext-1.discordapp.net/external/wT0I4jnfCmNh19bxZJuN9C_04laEBlyzyq8ixShX9V4/https/i.imgur.com/CRsDiE0.png", "https://images-ext-2.discordapp.net/external/G5mCaZsGfQOrkoKnAtXUlraot859AgpMCDKHjmpDDeI/https/i.imgur.com/kKiNrnG.png"],
-    "3": ["https://images-ext-2.discordapp.net/external/3GcawH6upJEDacrLoqKtNj-rIJvbnE4oh7WTiTvY1Tc/https/i.imgur.com/t51aCvW.png", "https://images-ext-1.discordapp.net/external/wrcn0Al29TEm5q7tvYGMkoJJuWqs-cEUnjWgdC2852s/https/i.imgur.com/WMTnBrh.png"],
-    "4": ["https://images-ext-1.discordapp.net/external/EMtSW9TkequoqHD0Z_r8tEwT860fmnCU8YjE1P_PXo0/https/i.imgur.com/w7CfOhG.png", "https://images-ext-1.discordapp.net/external/VOguOePWs3KaTYLUiBdIXYv1m4lDBaEuiK0-wLse_lQ/https/i.imgur.com/wenaxRC.png"],
-    "5": ["https://images-ext-2.discordapp.net/external/_V8F1effcyjvT5xGmMdlVGNzTXRVlZeMGODScHiAsVA/https/i.imgur.com/il4ot0O.png", "https://images-ext-2.discordapp.net/external/ZkV-454hW9Ss8y9StXbkQeVCSUOAbRj5wexO48LkeBA/https/i.imgur.com/YqljaUj.png"],
-    "6": ["https://images-ext-2.discordapp.net/external/SW9sOe5CKltEyXcacPQYjBEZBh4CidEEfZkH78e3OdA/https/i.imgur.com/TDGzvlE.png", "https://images-ext-2.discordapp.net/external/EIL89ardFYRqRERZHj_C57b92zfZOr1prhvzYIMd55w/https/i.imgur.com/96lpoMf.png"],
-    "7": ["https://images-ext-1.discordapp.net/external/aZAm5zyg_P92fVTd1fCHVT34axmsKkvzLvZypMUiAck/https/i.imgur.com/h65iQaC.png", "https://images-ext-1.discordapp.net/external/WC-VIvi2mP46Pkwgi05AKRi7X6PZsvnYM5JddNKeeEU/https/i.imgur.com/sx1LhK9.png"],
-    "8": ["https://images-ext-2.discordapp.net/external/zYOl4afEHPs-VY9WvvwiVrYdX5LXPHQr0Scq3eMEi5I/https/i.imgur.com/QSTYJxq.png", "https://images-ext-1.discordapp.net/external/b2ajupds92JpPvLoR-cJEw6foV2otFt-5HFBh_lUWOc/https/i.imgur.com/zSiYPZ4.png"],
-    "9": ["https://images-ext-1.discordapp.net/external/9_BytNtUbLdLeTcAuUo0zBww00-nTsQte0sJYPZUEYY/https/i.imgur.com/8lV4UPp.png", "https://images-ext-2.discordapp.net/external/SJYyq5aO2-ENIjYDe3MMk0L4VwchzALzTZsz-n4gTT0/https/i.imgur.com/IKxT4a5.png"],
+    "0": [
+      "https://images-ext-2.discordapp.net/external/JOlxeONzaIzi9-T6NFGv8xLks-uFljjdTw9Z3pvFCJ0/https/i.imgur.com/lrOTrA2.png",
+      "https://images-ext-2.discordapp.net/external/G56hh7_friw9gXIeiuoQG6DjdTWBDbz6H3xPrMeKFto/https/i.imgur.com/NTSlL01.png"
+    ],
+    "1": [
+      "https://images-ext-2.discordapp.net/external/dnDcTViaWtLPgWuqb1fT26aCoKbkRWb3vtV6VucS_0I/https/i.imgur.com/iuBKJK3.png",
+      "https://images-ext-2.discordapp.net/external/hMtJyX5uiu-HIFf4lJbc97uo3s_KQbUe8VtR3i_iV-A/https/i.imgur.com/gLKaoiX.png"
+    ],
+    "2": [
+      "https://images-ext-1.discordapp.net/external/wT0I4jnfCmNh19bxZJuN9C_04laEBlyzyq8ixShX9V4/https/i.imgur.com/CRsDiE0.png",
+      "https://images-ext-2.discordapp.net/external/G5mCaZsGfQOrkoKnAtXUlraot859AgpMCDKHjmpDDeI/https/i.imgur.com/kKiNrnG.png"
+    ],
+    "3": [
+      "https://images-ext-2.discordapp.net/external/3GcawH6upJEDacrLoqKtNj-rIJvbnE4oh7WTiTvY1Tc/https/i.imgur.com/t51aCvW.png",
+      "https://images-ext-1.discordapp.net/external/wrcn0Al29TEm5q7tvYGMkoJJuWqs-cEUnjWgdC2852s/https/i.imgur.com/WMTnBrh.png"
+    ],
+    "4": [
+      "https://images-ext-1.discordapp.net/external/EMtSW9TkequoqHD0Z_r8tEwT860fmnCU8YjE1P_PXo0/https/i.imgur.com/w7CfOhG.png",
+      "https://images-ext-1.discordapp.net/external/VOguOePWs3KaTYLUiBdIXYv1m4lDBaEuiK0-wLse_lQ/https/i.imgur.com/wenaxRC.png"
+    ],
+    "5": [
+      "https://images-ext-2.discordapp.net/external/_V8F1effcyjvT5xGmMdlVGNzTXRVlZeMGODScHiAsVA/https/i.imgur.com/il4ot0O.png",
+      "https://images-ext-2.discordapp.net/external/ZkV-454hW9Ss8y9StXbkQeVCSUOAbRj5wexO48LkeBA/https/i.imgur.com/YqljaUj.png"
+    ],
+    "6": [
+      "https://images-ext-2.discordapp.net/external/SW9sOe5CKltEyXcacPQYjBEZBh4CidEEfZkH78e3OdA/https/i.imgur.com/TDGzvlE.png",
+      "https://images-ext-2.discordapp.net/external/EIL89ardFYRqRERZHj_C57b92zfZOr1prhvzYIMd55w/https/i.imgur.com/96lpoMf.png"
+    ],
+    "7": [
+      "https://images-ext-1.discordapp.net/external/aZAm5zyg_P92fVTd1fCHVT34axmsKkvzLvZypMUiAck/https/i.imgur.com/h65iQaC.png",
+      "https://images-ext-1.discordapp.net/external/WC-VIvi2mP46Pkwgi05AKRi7X6PZsvnYM5JddNKeeEU/https/i.imgur.com/sx1LhK9.png"
+    ],
+    "8": [
+      "https://images-ext-2.discordapp.net/external/zYOl4afEHPs-VY9WvvwiVrYdX5LXPHQr0Scq3eMEi5I/https/i.imgur.com/QSTYJxq.png",
+      "https://images-ext-1.discordapp.net/external/b2ajupds92JpPvLoR-cJEw6foV2otFt-5HFBh_lUWOc/https/i.imgur.com/zSiYPZ4.png"
+    ],
+    "9": [
+      "https://images-ext-1.discordapp.net/external/9_BytNtUbLdLeTcAuUo0zBww00-nTsQte0sJYPZUEYY/https/i.imgur.com/8lV4UPp.png",
+      "https://images-ext-2.discordapp.net/external/SJYyq5aO2-ENIjYDe3MMk0L4VwchzALzTZsz-n4gTT0/https/i.imgur.com/IKxT4a5.png"
+    ],
     Reverse: [
       "https://images-ext-1.discordapp.net/external/FS7Klw-QVGbFXC94DUN0Ml_nx6OKVUe1ESFTTzfrVMI/https/i.imgur.com/lUPmvTW.png",
       "https://images-ext-2.discordapp.net/external/fm8kS0kmPid3-S92RJ-hJh7nIvfwPbMl2IcMr35A-W8/https/i.imgur.com/65Rdy35.png"
     ],
-    Skip: ["https://images-ext-2.discordapp.net/external/cPR9K4Aohd6kySTjseuTFN4hkpf9A_IHUs6wZu6DniQ/https/i.imgur.com/z99dERC.png", "https://images-ext-1.discordapp.net/external/NtEAI5Lc1MBjjFPzYLKQkLvBI-dvr-oQREdZvlT1Iec/https/i.imgur.com/Ps7xyC1.png"],
-    "+2": ["https://images-ext-2.discordapp.net/external/0XxNSDVYCm_Y_-WODYqfentMfndWZgGDGi8pQOA8mmA/https/i.imgur.com/eMYpZI0.png", "https://images-ext-2.discordapp.net/external/MQrRFsIzNa4VrYCaGJYLHV1qmTwoKt-qtR7Qvu2VGFs/https/i.imgur.com/5ZVAGyW.png"]
+    Skip: [
+      "https://images-ext-2.discordapp.net/external/cPR9K4Aohd6kySTjseuTFN4hkpf9A_IHUs6wZu6DniQ/https/i.imgur.com/z99dERC.png",
+      "https://images-ext-1.discordapp.net/external/NtEAI5Lc1MBjjFPzYLKQkLvBI-dvr-oQREdZvlT1Iec/https/i.imgur.com/Ps7xyC1.png"
+    ],
+    "+2": [
+      "https://images-ext-2.discordapp.net/external/0XxNSDVYCm_Y_-WODYqfentMfndWZgGDGi8pQOA8mmA/https/i.imgur.com/eMYpZI0.png",
+      "https://images-ext-2.discordapp.net/external/MQrRFsIzNa4VrYCaGJYLHV1qmTwoKt-qtR7Qvu2VGFs/https/i.imgur.com/5ZVAGyW.png"
+    ]
   },
   Black: {
     Wild: [
       "https://images-ext-2.discordapp.net/external/2T0u3Ciio-uYxZyLULvwP7HS7QNp8vNvhh7LpOTBM-g/https/i.imgur.com/xWy8VM5.png",
       "https://images-ext-2.discordapp.net/external/Fynh4M_f7tFpg_OYA4m5jLrMlfphK__cO5dAlqr7yzQ/https/i.imgur.com/wdLeyR1.png"
     ],
-    "+4": ["https://images-ext-1.discordapp.net/external/iOJDyZW34lXuat7FLjQPuoAI48sMp-ndr-QTO81rttM/https/i.imgur.com/25T2j9b.png", "https://images-ext-1.discordapp.net/external/lJuCP8vyaUefY_MggRGy9K5OoPYPzsh-l1VgnL6NaFM/https/i.imgur.com/sunITaw.png"]
+    "+4": [
+      "https://images-ext-1.discordapp.net/external/iOJDyZW34lXuat7FLjQPuoAI48sMp-ndr-QTO81rttM/https/i.imgur.com/25T2j9b.png",
+      "https://images-ext-1.discordapp.net/external/lJuCP8vyaUefY_MggRGy9K5OoPYPzsh-l1VgnL6NaFM/https/i.imgur.com/sunITaw.png"
+    ]
   }
 };
 //const colors = ['Red', 'Blue', 'Green', 'Yellow'];
@@ -282,7 +393,7 @@ class UnoGame extends Rooms.RoomGame {
     this.sendToRoom(
       `|uhtml|uno-${
         this.room.gameNumber
-      }|<div class="broadcast-green"><p style="font-size: 14pt; text-align: center">A new game of <strong>UNO</strong> is starting!</p><p style="font-size: 9pt; text-align: center"><button name="send" value="/uno join">Join</button><br />Or use <strong>/uno join</strong> to join the game.</p>${
+      }|<div class="broadcast-blue"><p style="font-size: 14pt; text-align: center">A new game of <strong>UNO</strong> is starting!</p><p style="font-size: 9pt; text-align: center"><button name="send" value="/uno join">Join</button><br />Or use <strong>/uno join</strong> to join the game.</p>${
         this.suppressMessages
           ? `<p style="font-size: 6pt; text-align: center">Game messages will be shown to only players.  If you would like to spectate the game, use <strong>/uno spectate</strong></p>`
           : ""
@@ -370,13 +481,7 @@ class UnoGame extends Rooms.RoomGame {
    */
   joinGame(user) {
     if (this.state === "signups" && this.addPlayer(user)) {
-      this.sendToRoom(
-        `|html|${Server.nameColor(
-          user.name,
-          true,
-          true
-        )} has joined the game of UNO.`
-      );
+      this.sendToRoom(`${user.name} has joined the game of UNO.`);
       return true;
     }
     return false;
