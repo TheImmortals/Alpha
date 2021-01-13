@@ -96,7 +96,7 @@ class LadderStore {
 			return [p1score, null, null];
 		}
 		if (data.errorip) {
-			room.add(`||This server's request IP ${data.errorip} is not a registered server.`);
+			room.add(`||Congrats if you won! Sorry, you cant upload and share replay because ${success.errorip} is not a registered server. Still you can download replay and give link.`);
 			room.add(`||You should be using ladders.js and not ladders-remote.js for ladder tracking.`);
 			room.update();
 			return [p1score, null, null];
