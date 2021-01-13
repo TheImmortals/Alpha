@@ -671,16 +671,16 @@ exports.commands = {
 				/*badges: {},*/
 				users: [targetUser.userid],
 				ranks: {
-					'grandmaster': {
-						title: 'Grand Master',
+					'godfather': {
+						title: 'God Father',
 						users: [targetUser.userid],
 						permissions: {
 							all: true,
 						},
 						sortBy: 100,
 					},
-					'masters': {
-						title: 'Masters',
+					'capo': {
+						title: 'Capo',
 						users: [],
 						permissions: {
 							invite: true,
@@ -700,16 +700,16 @@ exports.commands = {
 						},
 						sortBy: 6,
 					},
-					'elite': {
-						title: 'Elite',
+					'elites': {
+						title: 'Elites',
 						users: [],
 						permissions: {
 							givebadge: true,
 						},
 						sortBy: 4,
 					},
-					'commeners': {
-						title: 'Commeners',
+					'members': {
+						title: 'Members',
 						users: [],
 						permissions: {},
 						sortBy: 2,
