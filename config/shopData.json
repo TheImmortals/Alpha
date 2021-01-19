@@ -1,4 +1,32 @@
 {
+  "accountcustomization": {
+    "display": "More stuffs",
+    "info": "Customize your account with a variety of options; some selections may require an Upper Staff member to assist you.",
+    "items": {
+      "globaldeclare": {
+        "display": "Global Declare",
+        "price": 25,
+        "currency": "bucks",
+        "onbuy": "You have purchased a Global Declare. To redeem your Global Declare, do /usetoken declare, [message you want declared].. Note: PLease do it only when an Administrator(~) is online.",
+        "info": "Globally declares a message to every room on the server. (Cannot be used for server advertisements, message must be approved by an administrator.)"
+      },
+      "customcolor": {
+        "display": "Hex Code",
+        "price": 20,
+        "currency": "bucks",
+        "onbuy": "You have purchased a Custom Name Color. To redeem your Custom Color, do /usetoken color, [hex color code]<br/>Colors must be easily visible on the website. Note: PLease do it only when an Administrator is online.<br/>",
+        "info": "Redeems the ability to have your name color changed. Difficult to see colors are not allowed."
+      },
+      
+      "emote": {
+        "display": "Emoticon",
+        "price": 35,
+        "currency": "bucks",
+        "onbuy": "You have purchased an Emoticon. To redeem your Emoticon, do /usetoken emote, [emote name], [image]<br/>",
+        "info": "Add an emote to the server. You supply the image. Innappropraite images or names may be denied."
+      }
+    }
+  },
   "psgo": {
     "display": "PSGO",
     "info": "Buy card packs for PSGO",
