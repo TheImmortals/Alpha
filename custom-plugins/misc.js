@@ -517,12 +517,7 @@ credits: function(target, room, user) {
 			return this.errorReply('An error occured in the command.'); // This should never happen.
 		}
 	},
-	usetokenhelp: [
-		'/usetoken [token], [argument(s)] - Redeems a token from the shop. Accepts the following arguments: ',
-		'/usetoken avatar, [image] | /usetoken declare, [message] | /usetoken color, [hex code]',
-		'/usetoken icon [image] | /usetoken title, [name], [hex code] | /usetoken emote, [name], [image]',
-		'/usetoken disableintroscroll [room name] | /usetoken background, [img] | /usetoken music, [song], [name] | /usetoken roomshop, [room name]',
-	],
+
 
 	bonus: 'dailybonus',
 	checkbonus: 'dailybonus',
