@@ -1708,6 +1708,26 @@ const commands = {
     `/opensource - Links to PS's source code repository.`,
     `!opensource - Show everyone that information. Requires: + % @ * # & ~`
   ],
+	
+	   "!usetokenhelp": true,
+  helpusetoken: "usetokenhelp",
+  usetokenhelp: function(target, room, user) {
+    if (!this.runBroadcast()) return;
+    this.sendReplyBox(
+      `Available commands (first buy them by typing <code>/shop</code>):<br />` +
+        `/usetoken declare, [message] | /usetoken color, [hex code]<br />` +
+        `/usetoken emote, [name], [image]<br />` +
+        `<b>Note: Please use these commands only when an Administrator (~) is online.</b>`
+    );
+  },
+	
+	  customavatar: function(target, room, user) {
+    let popup =
+      "|html|" +
+      "<center><u><b>Custom Avatars</b></u></center><br>Custom avatars are given to staffs (% to ~) or to those who are in atleast 10th Level (type <code>/exp</code> for info). Asking for avatar will be ignored.<br />";
+    user.popup(popup);
+  },
+
 
   "!staff": true,
   staff: function(target, room, user) {
