@@ -416,30 +416,11 @@ const commands = {
       bw2elesa: "#bw2elesa",
       teamrocket: "#teamrocket",
       yellow: "#yellow",
-      acexmas: "#acexmas",
-      blackx: "#cicada",
-      immortal: "#albert",
-      nirdosh: "#analytic",
-      alfrond: "#alkov",
-      anusthan: "#bloo",
-      ansh: "#chaos",
-      astara: "astara",
-      averardo: "#averardo",
+     
       zinnia: "#zinnia",
-      ashtwo: "#wcop2020uswest",
-      mechav: "#prince",
-      arceus: "#ransei",
-      pokeray: "#snaquaza",
-      blazingthunder: "#mgperson",
+      
       clemont: "#clemont",
-      mybot: "#github",
-      wally: "#wally",
-      mechrtx: "#yashgreninja",
-      finchinator: "#finchinator",
-      tapuj0j0: "#xshiba",
-      joker: "#aeonic",
-      zera: "#flare",
-      astofolo: "#zeroluxgiven"
+      aeonic: "#aeonic"
     };
     if (avatarTable.hasOwnProperty(avatarid)) {
       avatar = avatarTable[avatarid];
