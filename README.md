@@ -21,7 +21,7 @@ Credits goes to:
 - Guangcong Luo [Zarel]- Main Code Owner, PS Owner
 - Other contributors in Pokemon Showdown (see [PS Credits][4])
 - Akash Kumar [Prince Sky]- [Impulse Repo][5] Owner.
-- Arjun Kumar [Astofolo]- Repo Owner
+- Arjun Kumar [X Dragon Prince]- Repo Owner
 - [Clown Posse 2]- Repo Owner, Helper
 - Ritik Gupta [Shade Ritik]- Helper (For whose support, i am so familiar with Pokemon Showdown, i can never forget their contributions)
 
@@ -55,7 +55,7 @@ Open a new file: ``config/usergroups.csv``
 
 Then give: ``[your username],~``  Note: No space or capitalization 
 
-Open ``config.js`` and go in line 107 and change “astofolo” to your username. (comma seperate to add more users)
+Open ``config.js`` and go in line 107 and change “immortalsx” to your username. (comma seperate to add more users)
 
 
 Installing
