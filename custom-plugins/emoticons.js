@@ -7,7 +7,7 @@ This plugin allows you to use emoticons in both chat rooms (as long as they are 
 const FS = require("../lib/fs.js");
 
 let emoticons = {"feelsbd": "http://i.imgur.com/TZvJ1lI.png"};
-let emoteRegex = new RegExp("feelsbd", "g");
+let emoteRegex = new RegExp("xaa", "https://images-ext-1.discordapp.net/external/z4SO-tsV75y4pC8OP5QJBhd1c3X8gCKR_rqJTmZQhrk/https/i.imgur.com/V728AvL.png");
 Server.ignoreEmotes = {};
 try {
 	Server.ignoreEmotes = JSON.parse(FS(`config/ignoreemotes.json`).readIfExistsSync());
@@ -77,7 +77,7 @@ exports.commands = {
 			for (let u in targetSplit) targetSplit[u] = targetSplit[u].trim();
 
 			if (!targetSplit[1]) return this.parse("/emoticonshelp");
-			if (targetSplit[0].length > 10) return this.errorReply("Emoticons may not be longer than 10 characters.");
+			if (targetSplit[0].length > 25) return this.errorReply("Emoticons may not be longer than 25 characters.");
 			if (emoticons[targetSplit[0]]) return this.errorReply(`${targetSplit[0]} is already an emoticon.`);
 
 			emoticons[targetSplit[0]] = targetSplit[1];
