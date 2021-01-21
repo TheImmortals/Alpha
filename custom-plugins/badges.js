@@ -8,11 +8,11 @@
 
 'use strict';
 
-const TR_CSS = 'style ="background: rgba(69, 76, 80, 0.8);border: 3px solid #FFF ;border-radius: 4px"';
+const TR_CSS = 'style ="background: rgba(255,0,0,1);border: 3px solid #FFF ;border-radius: 4px"';
 const TD_CSS = 'style ="background: rgba(69, 76, 80, 0.6);color: #FFF;padding: 5px;border: 1px solid #222;border: 3px solid #FFF;border-radius: 4px"';
 
 function badgeImg(IMG_URL, name) {
-	return '<img src="' + IMG_URL + '" height="16" width="16" alt="' + name + '" title="' + name + '" >';
+	return '<img src="' + IMG_URL + '" height="20" width="20" alt="' + name + '" title="' + name + '" >';
 }
 
 exports.commands = {
