@@ -22,7 +22,7 @@ Credits goes to:
 - Other contributors in Pokemon Showdown (see [PS Credits][4])
 - Akash Kumar [Prince Sky]- [Impulse Repo][5] Owner.
 - Arjun Kumar [X Dragon Prince]- Repo Owner
-- [Clown Posse 2]- Repo Owner, Helper
+- Ayaan [Tapu J0J0]- Repo Owner, Helper
 - Ritik Gupta [Shade Ritik]- Helper (For whose support, i am so familiar with Pokemon Showdown, i can never forget their contributions)
 
 [4]: https://pokemonshowdown.com/credits
