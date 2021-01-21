@@ -1,8 +1,8 @@
 {
-  "immortalsx": {
+  "xdragonprince": {
     "game": "SGgame - Alpha",
     "version": "(Alpha) 2.0",
-    "userid": "immortalsx",
+    "userid": "xdragonprince",
     "poke": 0,
     "time": 25516254,
     "bag": {
@@ -35,7 +35,7 @@
     },
     "pc": [
       [
-        "arceus||||earthpower,extremespeed,recover,ancientpower|Serious||M|255,255,255,255,255,255|S||150,,masterball,6141.25,immortalsx"
+        "arceus||||earthpower,extremespeed,recover,ancientpower|Serious||M|255,255,255,255,255,255|S||150,,masterball,6141.25,xdragonprince"
       ],
       [],
       [],
@@ -70,7 +70,7 @@
         "hpType": "",
         "pokeball": "ultraball",
         "exp": 1663.75,
-        "ot": "immortalsx"
+        "ot": "xdragonprince"
       },
       {
         "name": "Xerneas",
@@ -94,7 +94,7 @@
         "hpType": "",
         "pokeball": "pokeball",
         "exp": 6141.25,
-        "ot": "immortalsx"
+        "ot": "xdragonprince"
       },
       {
         "name": "Groudon",
@@ -126,7 +126,7 @@
         "hpType": "",
         "pokeball": "pokeball",
         "exp": 1250000,
-        "ot": "immortalsx"
+        "ot": "xdragonprince"
       },
       {
         "name": "Mew",
@@ -149,7 +149,7 @@
         "hpType": "",
         "pokeball": "masterball",
         "exp": 4218.75,
-        "ot": "immortalsx"
+        "ot": "xdragonprince"
       },
       {
         "name": "Mewtwo",
@@ -173,7 +173,7 @@
         "hpType": "",
         "pokeball": "ultraball",
         "exp": 3430,
-        "ot": "immortalsx"
+        "ot": "xdragonprince"
       },
       {
         "name": "Rayquaza",
@@ -205,7 +205,7 @@
         "hpType": "",
         "pokeball": "ultraball",
         "exp": 1250000,
-        "ot": "immortalsx"
+        "ot": "xdragonprince"
       }
     ],
     "pokedex": {}
