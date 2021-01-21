@@ -6,7 +6,7 @@ class SGgame extends Console.Console {
       user,
       room,
       "background: linear-gradient(red, white); color: #FFFFFF;",
-      '<center><br/><br/><br/><br/><img src="https://play.pokemonshowdown.com/sprites/trainers-custom/zeroluxgiven.png"/></center><!--split-->',
+      '<center><br/><br/><br/><br/><img src="http://play.pokemonshowdown.com/sprites/trainers-custom/deaglem40.png"/></center><!--split-->',
       '<center><!--mutebutton--><button name="send" value="/console sound" class="button">' +
         (muted ? "Unmute" : "Mute") +
         '</button><!--endmute-->  <button name="send" value="/console shift" class="button">Shift</button> <button class="button" name="send" value="/console kill">Power</button>',
@@ -1202,13 +1202,13 @@ exports.commands = {
           Object.keys(Db.players.get(user.userid).pokedex).length +
           "</span></button>";
       htm +=
-        "Type <code>/confirmresetalpha</code> to restart your game. [Warning: this action is irreversible]</center>";
+        "Type <code>/resetalpha</code> to restart your game. [Warning: this action is irreversible; you will lose all your pokemons and data]</center>";
       user.console.init();
       user.console.update("background-color: #6688AA;", htm, null);
     } else if (cmd === "confirmresetalpha") {
       // New Game
       user.console.queue = [
-        "text|Welcome to the world of Pokemon!<br/>I'm ImmortalsX, What's Up?. (Click the star to continue)",
+        "text|Welcome to the world of Pokemon!<br/>I'm X Dragon Prince, What's Up?. (Click the star to continue)",
         "text|This is an exciting game which we hope you will like! You can catch pokemons and then battle others or SgGame Server.",
         "text|Tell us what you think about it. So ready for your journey?",
         "text|Ok. I guess you are ready.<br/>Pick up a starter:"
