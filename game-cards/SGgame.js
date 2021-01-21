@@ -5,7 +5,7 @@ class SGgame extends Console.Console {
     super(
       user,
       room,
-      "background: linear-gradient(red, white); color: #FFFFFF;",
+      "background: linear-gradient(red, #FF0042); color: #FFFFFF;",
       '<center><br/><br/><br/><br/><img src="http://play.pokemonshowdown.com/sprites/trainers-custom/deaglem40.png"/></center><!--split-->',
       '<center><!--mutebutton--><button name="send" value="/console sound" class="button">' +
         (muted ? "Unmute" : "Mute") +
@@ -1202,9 +1202,11 @@ exports.commands = {
           Object.keys(Db.players.get(user.userid).pokedex).length +
           "</span></button>";
       htm +=
-        "Type <code>/resetalpha</code> to restart your game. [Warning: this action is irreversible; you will lose all your pokemons and data]</center>";
+        '<button name="send" value="/resetalpha" style="display: block; border: 5px solid #AAA; background: #FFF; font-family: monospace; border-radius: 5px; width: 90%; text-align: left;"><b>START NEW GAME | RESET YOUR GAME</b></button></center>';
+      htm +=
+      '<center><button name="send" value="/shop" style="display: block; border: 5px solid #AAA; background: #FFF; font-family: monospace; border-radius: 5px; width: 90%; text-align: left;"><b>SHOP</b></button></center>';
       user.console.init();
-      user.console.update("background-color: #6688AA;", htm, null);
+      user.console.update("background-color: red;", htm, null);
     } else if (cmd === "confirmresetalpha") {
       // New Game
       user.console.queue = [
