@@ -1,3 +1,9 @@
+/**********************************
+ * SgGame for Pokemon Showdown *
+ * Created by: HoeenHero			  *
+ * Credits: Insist, Pokem9n, ImmortalsX, PrinceSky		  *
+ **********************************/
+
 "use strict";
 
 class SGgame extends Console.Console {
@@ -1202,9 +1208,9 @@ exports.commands = {
           Object.keys(Db.players.get(user.userid).pokedex).length +
           "</span></button>";
       htm +=
-        '<button name="send" value="/resetalpha" style="display: block; border: 5px solid #AAA; background: #FFF; font-family: monospace; border-radius: 5px; width: 90%; text-align: left;"><b>START NEW GAME | RESET YOUR GAME</b></button></center>';
+        '<button name="send" value="/resetalpha" style="display: block; border: 5px solid #AAA; background: #FFF; font-family: monospace; border-radius: 5px; width: 90%; text-align: left;"><b><center>START NEW GAME | RESET YOUR GAME</center></b></button></center>';
       htm +=
-      '<center><button name="send" value="/shop" style="display: block; border: 5px solid #AAA; background: #FFF; font-family: monospace; border-radius: 5px; width: 90%; text-align: left;"><b>SHOP</b></button></center>';
+      '<center><button name="send" value="/shop" style="display: block; border: 5px solid #AAA; background: #FFF; font-family: monospace; border-radius: 5px; width: 90%; text-align: left;"><b><center>SHOP</center></b></button></center>';
       user.console.init();
       user.console.update("background-color: red;", htm, null);
     } else if (cmd === "confirmresetalpha") {
