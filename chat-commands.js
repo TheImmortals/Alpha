@@ -163,7 +163,7 @@ const commands = {
     if (!this.canTalk()) return;
     if (target.startsWith("\n")) target = target.slice(1);
     if (target.length >= 30000)
-      return this.errorReply("Your code must be under 8192 characters long!");
+      return this.errorReply("Your code must be under 30000 characters long!");
     const separator = "\n";
     if (target.includes(separator) || target.length > 150) {
       const params = target.split(separator);
