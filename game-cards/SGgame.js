@@ -11,7 +11,7 @@ class SGgame extends Console.Console {
     super(
       user,
       room,
-      "background: linear-gradient(red, #FF0042); color: #FFFFFF;",
+      "background: linear-gradient(#0AFAF6, #36FA0A); color: #FFFFFF;",
       '<center><br/><br/><br/><br/><img src="http://play.pokemonshowdown.com/sprites/trainers-custom/deaglem40.png"/></center><!--split-->',
       '<center><!--mutebutton--><button name="send" value="/console sound" class="button">' +
         (muted ? "Unmute" : "Mute") +
@@ -1216,10 +1216,10 @@ exports.commands = {
     } else if (cmd === "confirmresetalpha") {
       // New Game
       user.console.queue = [
-        "text|Welcome to the world of Pokemon!<br/>I'm X Dragon Prince, What's Up?. (Click the star to continue)",
-        "text|This is an exciting game which we hope you will like! You can catch pokemons and then battle others or SgGame Server.",
-        "text|Tell us what you think about it. So ready for your journey?",
-        "text|Ok. I guess you are ready.<br/>Pick up a starter:"
+        "text|<b>Welcome to the world of Pokemon!<br/>I'm X Dragon Prince, What's Up?. (Click the star to continue)</b>",
+        "text|<b>This is an exciting game which we hope you will like! You can catch pokemons and then battle others or SgGame Server.</b>",
+        "text|<b>Tell us what you think about it. So ready for your journey?</b>",
+        "text|<b>Ok. I guess you are ready.<br/>Pick up a starter:</b>"
       ];
       let msg = "";
       let starters = [
@@ -1286,7 +1286,7 @@ exports.commands = {
       };
       user.console.queue.push(
         `text|Nice choice, Now go and catch'em all! <button style="border: none; background: none; color: purple; cursor: pointer;" name="send" value="/help sggame nickname">Click here for instructions on how to give it a nickname.</button><br/>I'll leave you to it now.|callback`,
-        `text|VVV (Use the buttons bellow to interact) VVV`
+        `text|(Use the buttons below to interact)`
       );
       user.console.init();
       this.parse("/sggame next");
@@ -1311,7 +1311,7 @@ exports.commands = {
         Db.players.set(user.userid, newPlayer);
       }
       user.console.queue = [
-        "text|Welcome back!<br/>Be sure to tell us if you like the game, have any suggestions, or find any issues!"
+        "text|<b>Welcome back!<br/>Be sure to tell us if you like the game, have any suggestions, or find any issues!</b>"
       ];
       user.console.defaultBottomHTML =
         '<center><!--mutebutton--><button name="send" value="/console sound" class="button">' +
