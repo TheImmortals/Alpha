@@ -4,7 +4,7 @@
     "version": "(Alpha) 2.0",
     "userid": "xdragonprince",
     "poke": 0,
-    "time": 25516254,
+    "time": 71677696,
     "bag": {
       "items": {
         "leafstone": 1,
@@ -16,26 +16,26 @@
       },
       "medicine": {
         "potion": 5,
-        "rarecandy": 3
+        "rarecandy": 3,
+        "awakening": 10
       },
       "pokeballs": {
         "pokeball": 50,
         "greatball": 25,
-        "ultraball": 10,
+        "ultraball": 9,
         "masterball": 1
       },
       "berries": {
         "oranberry": 5,
         "lumberry": 2
       },
-     
       "keyitems": {
         "alphaticket": 1
       }
     },
     "pc": [
       [
-        "arceus||||earthpower,extremespeed,recover,ancientpower|Serious||M|255,255,255,255,255,255|S||150,,masterball,6141.25,xdragonprince"
+        "Umbreon||leftovers||crunch,darkpulse,foulplay,thief|Modest||none|255,255,255,255,255,255|S||150,,ultraball,1663.75,xdragonprince"
       ],
       [],
       [],
@@ -48,30 +48,6 @@
       []
     ],
     "party": [
-      {
-        "name": "Umbreon",
-        "species": " Umbreon ",
-        "item": "leftovers",
-        "ability": "Synchronize",
-        "shiny": "yes",
-        "moves": ["crunch ", "Dark Pulse", "Foul Play", "Thief"],
-        "nature": "Modest",
-        "gender": "none",
-        "ivs": {
-          "hp": 255,
-          "atk": 255,
-          "def": 255,
-          "spa": 255,
-          "spd": 255,
-          "spe": 255
-        },
-        "level": 100,
-        "happiness": 150,
-        "hpType": "",
-        "pokeball": "ultraball",
-        "exp": 1663.75,
-        "ot": "xdragonprince"
-      },
       {
         "name": "Xerneas",
         "species": "Xerneas",
@@ -93,8 +69,16 @@
         "happiness": 150,
         "hpType": "",
         "pokeball": "pokeball",
-        "exp": 6141.25,
-        "ot": "xdragonprince"
+        "exp": 1250000,
+        "ot": "xdragonprince",
+        "evs": {
+          "hp": 2,
+          "atk": 8,
+          "def": 1,
+          "spa": 6,
+          "spd": 2,
+          "spe": 2
+        }
       },
       {
         "name": "Groudon",
@@ -120,7 +104,6 @@
           "spd": 255,
           "spe": 255
         },
-        "shiny": true,
         "level": 100,
         "happiness": 150,
         "hpType": "",
@@ -129,26 +112,34 @@
         "ot": "xdragonprince"
       },
       {
-        "name": "Mew",
-        "species": "Mew",
-        "item": "mewniumz",
-        "ability": "Synchronize",
-        "moves": ["psychic", "transform", "darkpulse", "blazekick"],
-        "nature": "Lax",
-        "gender": "none",
+        "name": "Aqua Queen",
+        "species": "Kyogre",
+        "item": "blueorb",
+        "ability": "Primordial Sea",
+        "moves": ["originpulse", "icebeam", "earthquake", "brickbreak"],
+        "nature": "Impish",
+        "evs": {
+          "hp": 255,
+          "atk": 255,
+          "def": 255,
+          "spa": 255,
+          "spd": 255,
+          "spe": 25
+        },
+        "gender": "M",
         "ivs": {
-          "hp": 250,
-          "atk": 250,
-          "def": 250,
-          "spa": 250,
+          "hp": 255,
+          "atk": 255,
+          "def": 255,
+          "spa": 255,
           "spd": 255,
           "spe": 255
         },
         "level": 100,
         "happiness": 150,
         "hpType": "",
-        "pokeball": "masterball",
-        "exp": 4218.75,
+        "pokeball": "pokeball",
+        "exp": 1250000,
         "ot": "xdragonprince"
       },
       {
@@ -180,15 +171,15 @@
         "species": "Rayquaza",
         "item": "wikiberry",
         "ability": "Air Lock",
-        "moves": ["dragonascent", "extremespeed", "dracometeor", "dragonpulse"],
+        "moves": ["dragonascent", "v-create", "dracometeor", "dragonpulse"],
         "nature": "Relaxed",
         "evs": {
-          "hp": 1,
+          "hp": 3,
           "atk": 0,
           "def": 0,
           "spa": 0,
           "spd": 0,
-          "spe": 0
+          "spe": 2
         },
         "gender": "F",
         "ivs": {
@@ -205,6 +196,30 @@
         "hpType": "",
         "pokeball": "ultraball",
         "exp": 1250000,
+        "ot": "xdragonprince"
+      },
+      {
+        "name": "arceus",
+        "species": "arceus",
+        "item": "leftovers",
+        "ability": "Multitype",
+        "moves": ["earthpower", "extremespeed", "recover", "ancientpower"],
+        "nature": "Serious",
+        "gender": "M",
+        "ivs": {
+          "hp": 255,
+          "atk": 255,
+          "def": 255,
+          "spa": 255,
+          "spd": 255,
+          "spe": 255
+        },
+        "shiny": true,
+        "level": 100,
+        "happiness": 150,
+        "hpType": "",
+        "pokeball": "masterball",
+        "exp": 6141.25,
         "ot": "xdragonprince"
       }
     ],
