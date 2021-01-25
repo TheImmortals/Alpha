@@ -356,6 +356,14 @@ const commands = {
   },
   hosthelp: [`/host [ip] - Gets the host for a given IP. Requires: & ~`],
 	
+	"!shrug": true,
+  shrug: function(target, room, user) {
+    if (!this.runBroadcast()) return;
+    this.sendReplyBox(
+      `<button class="button" name="send" value="¯\\_(ツ)_/¯"><b>Click to shrug</b> </button>`
+    );
+  },
+	
 	  customavatar: function(target, room, user) {
     let popup =
       "|html|" +
