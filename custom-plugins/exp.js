@@ -115,7 +115,7 @@ class ExpFunctions {
               );
               if (!user.tokens) user.tokens = {};
               user.tokens.avatar = true;
-              reward = `a Custom Avatar. To claim your avatar, Private message ImmortalsX and tell them to set the avatar (avatar options will be given by them).`;
+              reward = `a Custom Avatar. To claim your avatar, private message ImmortalsX to set an avatar.`;
               break;
             case 15:
               Economy.logTransaction(
@@ -142,10 +142,10 @@ class ExpFunctions {
 
             case 25:
               Economy.logTransaction(
-                `${user.name} received a custom usercommand for reaching level ${level}.`
+                `${user.name} received a custom icon for reaching level ${level}.`
               );
               Monitor.log(
-                `${user.name} has reached Level ${level} and earned a Custom Usercommand.`
+                `${user.name} has reached Level ${level} and earned a Custom Icon.`
               );
               if (!user.tokens) user.tokens = {};
               user.tokens.icon = true;
@@ -193,7 +193,7 @@ class ExpFunctions {
               );
               if (!user.tokens) user.tokens = {};
               user.tokens.roomshop = true;
-              reward = `a Roomshop. To claim your Roomshop, use the command /usetoken roomshop, [room for room shop].`;
+              reward = `two mega stones and one custom moveset. To claim your reward, private message X Dragon Prince <a href="http://superb-platinum-basilisk.glitch.me-80.psim.us/">here</a> if they are online.`;
               break;
             default:
               Economy.writeMoney(user.userid, Math.ceil(level * 0.7));
@@ -274,7 +274,7 @@ exports.commands = {
             currencyPlural +
             ". <br /><br />" +
             "Level 40 unlocks a free Chatroom. <br /><br />" +
-            "Level 45 unlocks a free Room Shop.<br /><br />"
+            "Level 45 unlocks a free 2 Mega stones and Custom Moveset.<br /><br />"
         );
       });
     }
