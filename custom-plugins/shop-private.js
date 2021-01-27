@@ -106,7 +106,7 @@ function drawMain(output) {
   for (let x = 0; x < outputArr.length; x++) {
     let name = outputArr[x].display;
     output +=
-      '<td style="padding: 8px;"><button style="border: 2px solid #000 ; border-radius: 15px 0px ; background: #6600CC; color: white;" name="send" value="/shop ' +
+      '<td style="padding: 8px;"><button style="border: 2px solid #000 ; border-radius: 15px 0px ; background: red; color: white;" name="send" value="/shop ' +
       arr[x] +
       '|1">' +
       name +
@@ -131,17 +131,17 @@ function assembleOutput(
 ) {
   output += "<br/><div>";
   output +=
-    '<div style="padding: 5px; border: 2px solid #000; background: #6600CC; color: #fff; text-shadow: none; border-radius: 6px; margin: 10px"><div style="float: left; background-color: #6600CC; position: absolute; z-index: 10;">' +
+    '<div style="padding: 5px; border: 2px solid #000; background: red; color: #fff; text-shadow: none; border-radius: 6px; margin: 10px"><div style="float: left; background-color: red; position: absolute; z-index: 10;">' +
     (selectionType !== "main" && selectionType !== "exit"
-      ? '<button style="border: 2px solid #000; border-radius: 6px; background: #6600CC; color: white;" name="send" value="/shop main|1">Main Menu</button> <button style="border: 2px solid #000; border-radius: 6px; background: #6600CC; color: white;" name="send" value="/shop ' +
+      ? '<button style="border: 2px solid #000; border-radius: 6px; background: red; color: white;" name="send" value="/shop main|1">Main Menu</button> <button style="border: 2px solid #000; border-radius: 6px; background: red; color: white;" name="send" value="/shop ' +
         back +
         '|1">Back</button> '
       : "") +
-    '<button style="border: 2px solid #000; border-radius: 6px; background: #6600CC; color: white;" name="send" value="/shop exit|1">Exit</button></div><marquee style="text-align: center; width: 100%" direction="left">' +
+    '<button style="border: 2px solid #000; border-radius: 6px; background: red; color: white;" name="send" value="/shop exit|1">Exit</button></div><marquee style="text-align: center; width: 100%" direction="left">' +
     marquee +
     "</marquee></div>";
   shop =
-    '<div style="padding: 5px; border: 2px solid #101ad1; background: #6600CC; color: #fff; text-shadow: none; border-radius: 6px; margin: 10px"><center><font size=4><i><b>' +
+    '<div style="padding: 5px; border: 2px solid #101ad1; background: red; color: #fff; text-shadow: none; border-radius: 6px; margin: 10px"><center><font size=4><i><b>' +
     serverName +
     " Server Shop</b></i></font></center></div><br/><br/>" +
     output;
@@ -213,7 +213,7 @@ function failedTransaction(user, item, money, room) {
 function successfulTransaction(item, receipt, user, room) {
   receipt = receipt.split("|");
   let output =
-    '<div style="padding: 5px; border: 2px solid #000; background: #6600CC; color: #fff; text-shadow: none; border-radius: 6px; margin: 10px; text-align: center"><font size=4><i><b>' +
+    '<div style="padding: 5px; border: 2px solid #000; background: red; color: #fff; text-shadow: none; border-radius: 6px; margin: 10px; text-align: center"><font size=4><i><b>' +
     serverName +
     " Server Shop</b></i></font></div><br/><br/>";
   output +=
@@ -237,14 +237,14 @@ function successfulTransaction(item, receipt, user, room) {
     receipt[5] +
     "<br/><br/><center>This receipt is stored as your proof of purchase in the event of an error.<br/>Use /receipts to see your recent receipts.<br/><br/>";
   output +=
-    '<button style="border: 2px solid #000; border-radius: 6px; background: #6600CC; color: white;" name="send" value="/shop main|1">Main Menu</button> ' +
+    '<button style="border: 2px solid #000; border-radius: 6px; background: red; color: white;" name="send" value="/shop main|1">Main Menu</button> ' +
     (item.multibuy && receipt[3] < receipt[4]
       ? '<button style="border: 2px solid #070e96 ; border-radius: 6px; background: black ; color: white;" name="send" value="/rebuy ' +
         item.name +
         '">Buy Another</button>'
       : "");
   output +=
-    '<br/></center></div><div style="padding: 5px; border: 2px solid #101ad1; background: #6600cc; color: #fff; text-shadow: none; border-radius: 6px; margin: 10px"><div style="float: left;"><button style="border: 2px solid #000; border-radius: 6px; background: #6600CC; color: white;" name="send" value="/shop main|1">Main Menu</button> <button style="border: 2px solid #000; border-radius: 6px; background: #6600CC; color: white;" name="send" value="/shop exit|1">Exit</button></div><marquee style="text-align: center; width: 70%" direction="left">Thank you for your purchase!</marquee></div>';
+    '<br/></center></div><div style="padding: 5px; border: 2px solid #101ad1; background: red; color: #fff; text-shadow: none; border-radius: 6px; margin: 10px"><div style="float: left;"><button style="border: 2px solid #000; border-radius: 6px; background: red; color: white;" name="send" value="/shop main|1">Main Menu</button> <button style="border: 2px solid #000; border-radius: 6px; background: red; color: white;" name="send" value="/shop exit|1">Exit</button></div><marquee style="text-align: center; width: 70%" direction="left">Thank you for your purchase!</marquee></div>';
 
   Users.get(user.userid).connections[0].sendTo(
     room.id,
@@ -387,7 +387,7 @@ exports.commands = {
                   let name = outputArr[x].display;
                   let button = match + "." + arr[x];
                   output +=
-                    '<td style="padding: 8px;"><button style="border: 2px solid #000; border-radius: 15px 0px ; background: #6600CC; color: white;" name="send" value="/shop ' +
+                    '<td style="padding: 8px;"><button style="border: 2px solid #000; border-radius: 15px 0px ; background: red; color: white;" name="send" value="/shop ' +
                     button +
                     '|1">' +
                     name +
@@ -418,7 +418,7 @@ exports.commands = {
                   let name = outputArr[x].display;
                   let button = match + "." + arr[x];
                   output +=
-                    '<td style="padding: 5px;"><button style="border: 2px solid #000; border-radius: 15px 0px ; background: #6600CC; color: white;" name="send" value="/shop ' +
+                    '<td style="padding: 5px;"><button style="border: 2px solid #000; border-radius: 15px 0px ; background: red; color: white;" name="send" value="/shop ' +
                     button +
                     '|2">' +
                     name +
@@ -518,7 +518,7 @@ exports.commands = {
                   let name = outputArr[x].display;
                   let button = last + "." + arr[x];
                   output +=
-                    '<td style="padding: 8px;"><button style="border: 2px solid #000; border-radius: 15px 0px ; background: #6600CC; color: white;" name="send" value="/shop ' +
+                    '<td style="padding: 8px;"><button style="border: 2px solid #000; border-radius: 15px 0px ; background: red; color: white;" name="send" value="/shop ' +
                     button +
                     '|1">' +
                     name +
@@ -569,7 +569,7 @@ exports.commands = {
                   let name = outputArr[x].display;
                   let button = last + "." + arr[x];
                   output +=
-                    '<td style="padding: 5px;"><button style="border: 2px solid #0000; border-radius: 15px 0px ; background: #6600CC; color: white;" name="send" value="/shop ' +
+                    '<td style="padding: 5px;"><button style="border: 2px solid #0000; border-radius: 15px 0px ; background: red; color: white;" name="send" value="/shop ' +
                     button +
                     '|2">' +
                     name +
@@ -622,7 +622,7 @@ exports.commands = {
                 output +=
                   '<td style="padding: 5px;"><button style="border: 2px solid ' +
                   (containerArr[x] == match ? "#ffffff" : "#000") +
-                  ' ; border-radius: 15px 0px ; background: #6600CC; color: white;" name="send" value="/shop ' +
+                  ' ; border-radius: 15px 0px ; background: red; color: white;" name="send" value="/shop ' +
                   button +
                   '|2">' +
                   name +
@@ -650,7 +650,7 @@ exports.commands = {
                   selection.price +
                   " " +
                   selection.currency +
-                  '<br/><br/><button style="border: 2px solid #000 ; border-radius: 15px 0px ; background: #6600CC ; color: white;" name="send" value="/redeem ' +
+                  '<br/><br/><button style="border: 2px solid #000 ; border-radius: 15px 0px ; background: red ; color: white;" name="send" value="/redeem ' +
                   itemId +
                   '">Confirm Purchase</button></center><!-- split --></div></div>';
                 marquee = selection.info;
@@ -840,20 +840,22 @@ exports.commands = {
           user.shopCache = false;
           break;
         case "profilemusic":
+          if (user.tokens.profilemusic)
+            return self.errorReply(
+              "You already have this purchased! Use it first with /usetoken music, [link], [title of song]"
+            );
           money = setupPrice(match, stardust);
           success = runTransaction(money, match, user);
           if (success) {
-            //Server.messageSeniorStaff(user.name + " has purchased a profile music. Please contact this user to setup their pmusic.");
+            //Server.messageSeniorStaff(user.name + " has purchased an Emote. Please contact this user to setup their Emote.");
             user.tokens.profilemusic = true;
-            Db.hasmusic.set(user, 1);
-            Users(user).popup(
-              "You have purchased profile music. use /pmusic set [user], [link], [title of song] to set your profile Music. Can be used only once."
-            );
+            successfulTransaction(match, success, user, room);
           } else {
             failedTransaction(user, match, money, room);
           }
           user.shopCache = false;
           break;
+
         case "profilebackground":
           money = setupPrice(match, stardust);
           success = runTransaction(money, match, user);
@@ -1085,7 +1087,7 @@ exports.commands = {
           }
           user.shopCache = false;
           break;
-         case "pokeball":
+        case "pokeball":
           if (!sggame)
             return this.sendReply(
               "You need to start SGgame before buying this."
