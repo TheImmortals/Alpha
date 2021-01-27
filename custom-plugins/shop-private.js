@@ -1085,7 +1085,7 @@ exports.commands = {
           }
           user.shopCache = false;
           break;
-        case "pokeball":
+         case "pokeball":
           if (!sggame)
             return this.sendReply(
               "You need to start SGgame before buying this."
@@ -1095,7 +1095,7 @@ exports.commands = {
           if (success) {
             let b = Server.getItem(match.name);
             if (!sggame.bag[b.slot][b.id]) sggame.bag[b.slot][b.id] = 0;
-            sggame.bag[b.slot][b.id] += 30;
+            sggame.bag[b.slot][b.id] += 5;
             successfulTransaction(match, success, user, room);
           } else {
             failedTransaction(user, match, money, room);
@@ -1113,7 +1113,7 @@ exports.commands = {
           if (success) {
             let b = Server.getItem(match.name);
             if (!sggame.bag[b.slot][b.id]) sggame.bag[b.slot][b.id] = 0;
-            sggame.bag[b.slot][b.id] += 15;
+            sggame.bag[b.slot][b.id] += 5;
             successfulTransaction(match, success, user, room);
           } else {
             failedTransaction(user, match, money, room);
@@ -1151,7 +1151,7 @@ exports.commands = {
           if (success) {
             let b = Server.getItem(match.name);
             if (!sggame.bag[b.slot][b.id]) sggame.bag[b.slot][b.id] = 0;
-            sggame.bag[b.slot][b.id] += 7;
+            sggame.bag[b.slot][b.id] += 5;
             successfulTransaction(match, success, user, room);
           } else {
             failedTransaction(user, match, money, room);
