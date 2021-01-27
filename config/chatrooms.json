@@ -26,16 +26,5 @@
     "batchJoins": 0,
     "introMessage": "<div style=\"background-image: url(&quot;https://i.ibb.co/g64d3KP/image.png&quot;)\"><center><img src=\"https://i.ibb.co/PCFDL2j/cooltext368880565333769.png\" alt=\"Trulli\" width=\"510\" height=\"180\"></center></div>",
     "modjoin": "%"
-  },
-  {
-    "title": "ShadowBanRoom",
-    "logTimes": true,
-    "autoTruncate": true,
-    "staffAutojoin": true,
-    "reportJoins": true,
-    "batchJoins": 0,
-    "isPrivate": "hidden",
-    "staffRoom": true,
-    "addedUsers": {}
   }
 ]
