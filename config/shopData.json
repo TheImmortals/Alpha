@@ -873,29 +873,29 @@
         "display": "Pokeballs",
         "price": 1,
         "currency": "bucks",
-        "onbuy": "You have purchased a pack of 30 Pokeballs for SGgame Alpha. The Pokeballs have been added to your bag, close and reopen your bag if its open to get them to display.<br/>",
-        "info": "30 Pokeballs for SGgame Alpha.",
+        "onbuy": "You have purchased a pack of 5 Pokeballs for SGgame Alpha. The Pokeballs have been added to your bag, close and reopen your bag if its open to get them to display.<br/>",
+        "info": "5 Pokeballs for SGgame Alpha.",
         "multibuy": true
       },
       "greatball": {
         "display": "Greatballs",
-        "price": 15,
+        "price": 3,
         "currency": "bucks",
-        "onbuy": "You have purchased a pack of 15 Greatballs for SGgame Alpha. The Greatballs have been added to your bag, close and reopen your bag if its open to get them to display.<br/>",
-        "info": "15 Greatballs for SGgame Alpha.",
+        "onbuy": "You have purchased a pack of 5 Greatballs for SGgame Alpha. The Greatballs have been added to your bag, close and reopen your bag if its open to get them to display.<br/>",
+        "info": "5 Greatballs for SGgame Alpha.",
         "multibuy": true
       },
       "ultraball": {
         "display": "Ultraballs",
-        "price": 20,
+        "price": 7,
         "currency": "bucks",
-        "onbuy": "You have purchased a pack of 7 Ultraballs for SGgame Alpha. The Ultraballs have been added to your bag, close and reopen your bag if its open to get them to display.<br/>",
-        "info": "7 Ultraballs for SGgame Alpha.",
+        "onbuy": "You have purchased a pack of 5 Ultraballs for SGgame Alpha. The Ultraballs have been added to your bag, close and reopen your bag if its open to get them to display.<br/>",
+        "info": "5 Ultraballs for SGgame Alpha.",
         "multibuy": true
       },
       "masterball": {
         "display": "Masterballs",
-        "price": 45,
+        "price": 20,
         "currency": "bucks",
         "onbuy": "You have purchased 1 Masterball for SGgame Alpha. The Masterball have been added to your bag, close and reopen your bag if its open to get them to display.<br/>",
         "info": "1 Masterballs for SGgame Alpha.",
