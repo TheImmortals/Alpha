@@ -3,7 +3,7 @@ Alpha @ Pokémon Showdown
 
 Navigation: [Website][1] | **Server repository** | [Client repository][2] | [Dex repository][3]
 
-  [1]: https://superbplatinum.glitch.me/
+  [1]: http://sun.psim.us/
   [2]: https://github.com/Zarel/Pokemon-Showdown-Client
   [3]: https://github.com/Zarel/Pokemon-Showdown-Dex
 
