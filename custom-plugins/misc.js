@@ -251,7 +251,7 @@ credits: function(target, room, user) {
       "<br />" +
       "<u><b>Main Contributors:</u></b><br />" +
 			"- " + Server.nameColor('XDragonPrince', true) + " (Owner, Policy + Technical Admin, Development)<br />" +
-			"- " + Server.nameColor('TapuJ0J0', true) + " (Owner, Technical Admin, Development)<br />" +
+			"- " + Server.nameColor('Aadhikesh', true) + " (Owner, Technical Admin, Development)<br />" +
 			"<br />" +
 			"<u><b>Contributors:</b></u><br />" +
 			"- " + Server.nameColor('Frostienana', true) + " (Admin, Helper, Technical Leader)<br />" +
