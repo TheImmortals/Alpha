@@ -12,7 +12,7 @@ class SGgame extends Console.Console {
       user,
       room,
       "background: linear-gradient(#0AFAF6, #36FA0A); color: #FFFFFF;",
-      '<center><br/><br/><br/><br/><img src="http://play.pokemonshowdown.com/sprites/trainers-custom/deaglem40.png"/></center><!--split-->',
+      '<center><br/><br/><br/><br/><img src="http://megaleague.glitch.me/avatars/xdragonprince.png"/></center><!--split-->',
       '<center><!--mutebutton--><button name="send" value="/console sound" class="button">' +
         (muted ? "Unmute" : "Mute") +
         '</button><!--endmute-->  <button name="send" value="/console shift" class="button">Shift</button> <button class="button" name="send" value="/console kill">Power</button>',
