@@ -254,8 +254,8 @@ credits: function(target, room, user) {
 			"- " + Server.nameColor('Aadhikesh', true) + " (Owner, Technical Admin, Development)<br />" +
 			"<br />" +
 			"<u><b>Contributors:</b></u><br />" +
-			"- " + Server.nameColor('Frostienana', true) + " (Admin, Helper, Technical Leader)<br />" +
-			"- " + Server.nameColor('Shade ZeRaNinja', true) + " (Policy Leader, Community Admin)<br />" +
+			"- " + Server.nameColor('Hoeen Hero', true) + " (Admin of Server registeration)<br />" +
+			"- " + Server.nameColor('Zarel', true) + " (Main Code Owner)<br />" +
 			/*"- " + Server.nameColor('MechSteelix', true) + " (Policy Leader)<br/>" +
 			"- " + Server.nameColor('Electric Z', true) + " (Policy Admin)<br />" +
 			"- " + Server.nameColor('Opple', true) + " (Community Leader)<br />" +
