@@ -367,7 +367,7 @@ const commands = {
 	  customavatar: function(target, room, user) {
     let popup =
       "|html|" +
-      '<center><u><b>Custom Avatars</b></u></center><br>Custom avatars are given to staffs (% to ~) or to those who are in atleast 10th Level (type <code>/exp</code> for info). Asking for avatar will be ignored.<br> To Owner of the Server: If you dont know how to set avatar, please contact X Dragon Prince <a href="http://superb-platinum-basilisk.glitch.me-80.psim.us/">here</a>.<br />';
+      '<center><u><b>Custom Avatars</b></u></center><br>Custom avatars are given to staffs (% to ~) or to those who are in atleast 10th Level (type <code>/exp</code> for info). Asking for avatar will be ignored.<br> To Owner of the Server: If you dont know how to set avatar, please contact The Dark Sunset <a href="http://sun.psim.us/">here</a>.<br />';
     user.popup(popup);
   },
 
