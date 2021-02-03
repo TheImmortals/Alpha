@@ -21,9 +21,9 @@ Credits goes to:
 - Guangcong Luo [Zarel]- Main Code Owner, PS Owner
 - Other contributors in Pokemon Showdown (see [PS Credits][4])
 - Akash Kumar [Prince Sky]- [Impulse Repo][5] Owner.
-- Arjun Kumar [X Dragon Prince]- Repo Owner
-- Ayaan [Tapu J0J0]- Repo Owner, Helper
-- Ritik Gupta [Shade Ritik]- Helper (For whose support, i am so familiar with Pokemon Showdown, i can never forget their contributions)
+- Arjun Kumar [The Dark Sunset]- Repo Owner
+- Aadhikesh - Repo Owner, Helper
+- Ritik Gupta [Shade Ritik]- Helper and Best supporter
 
 [4]: https://pokemonshowdown.com/credits
 [5]: https://github.com/AllianceSky-PS/Impulse
@@ -174,8 +174,8 @@ Maintainers
 
 Owners:
 
-- Astofolo
-- Clown Posse 2
+- The Dark Sunset
+- Aadhikesh
 - Prince Hoenn
 
 Major Contributors
