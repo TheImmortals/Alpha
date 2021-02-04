@@ -388,7 +388,6 @@ exports.replsocketmode = 0o600;
  * Main is huge), and to do pinpoint hotpatching (like /nohotpatch).
  */
 exports.disablehotpatchall = false;
-exports.special = ["xdragonprince"];
 
 /**
  * permissions and groups:
