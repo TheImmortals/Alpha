@@ -191,7 +191,7 @@ const commands = {
     }
   },
   codehelp: [
-    `!code [code] - Broadcasts code to a room. Accepts multi-line arguments. Requires: + % @ & # ~`,
+    `!code [code] - Broadcasts code to a room. Accepts multi-line arguments. Requires: + % @ $ & # ~`,
     `/code [code] - Shows you code. Accepts multi-line arguments.`
   ],
 
@@ -2375,7 +2375,7 @@ const commands = {
       this.add(`|unlink|${toId(this.inputUsername)}`);
   },
   warnhelp: [
-    `/warn OR /k [username], [reason] - Warns a user showing them the Pok\u00e9mon Showdown Rules and [reason] in an overlay. Requires: % @ # & ~`
+    `/warn OR /k [username], [reason] - Warns a user showing them the Pok\u00e9mon Showdown Rules and [reason] in an overlay. Requires: % @ $ # & ~`
   ],
 
   redirect: "redir",
@@ -2429,7 +2429,7 @@ const commands = {
     targetUser.leaveRoom(room);
   },
   redirhelp: [
-    `/redirect OR /redir [username], [roomname] - Attempts to redirect the user [username] to the room [roomname]. Requires: % @ & ~`
+    `/redirect OR /redir [username], [roomname] - Attempts to redirect the user [username] to the room [roomname]. Requires: % @ $ & ~`
   ],
 
   m: "mute",
@@ -2505,7 +2505,7 @@ const commands = {
     room.mute(targetUser, muteDuration, false);
   },
   mutehelp: [
-    `/mute OR /m [username], [reason] - Mutes a user with reason for 7 minutes. Requires: % @ * # & ~`
+    `/mute OR /m [username], [reason] - Mutes a user with reason for 7 minutes. Requires: % @ $ * # & ~`
   ],
 
   hm: "hourmute",
@@ -2514,7 +2514,7 @@ const commands = {
     this.run("mute");
   },
   hourmutehelp: [
-    `/hourmute OR /hm [username], [reason] - Mutes a user with reason for an hour. Requires: % @ * # & ~`
+    `/hourmute OR /hm [username], [reason] - Mutes a user with reason for an hour. Requires: % @ $ * # & ~`
   ],
 
   um: "unmute",
@@ -2551,7 +2551,7 @@ const commands = {
     }
   },
   unmutehelp: [
-    `/unmute [username] - Removes mute from user. Requires: % @ * # & ~`
+    `/unmute [username] - Removes mute from user. Requires: % @ $ * # & ~`
   ],
 
   forcelock: "lock",
@@ -2726,7 +2726,7 @@ const commands = {
     return true;
   },
   lockhelp: [
-    `/lock OR /l [username], [reason] - Locks the user from talking in all chats. Requires: % @ * & ~`,
+    `/lock OR /l [username], [reason] - Locks the user from talking in all chats. Requires: % @ $ * & ~`,
     `/weeklock OR /wl [username], [reason] - Same as /lock, but locks users for a week.`,
     `/lock OR /l [username], [reason] spoiler: [proof] - Marks proof in modlog only.`
   ],
@@ -2846,8 +2846,8 @@ const commands = {
     );
   },
   unlockhelp: [
-    `/unlock [username] - Unlocks the user. Requires: % @ * & ~`,
-    `/unlockname [username] - Unlocks a punished alt while leaving the original punishment intact. Requires: % @ * & ~`,
+    `/unlock [username] - Unlocks the user. Requires: % @ $ * & ~`,
+    `/unlockname [username] - Unlocks a punished alt while leaving the original punishment intact. Requires: % @ $ * & ~`,
     `/unlockip [ip] - Unlocks a punished ip while leaving the original punishment intact. Requires: @ * & ~`
   ],
 
@@ -3154,7 +3154,7 @@ const commands = {
     return this.privateModAction(`(${user.name} notes: ${target})`);
   },
   modnotehelp: [
-    `/modnote [note] - Adds a moderator note that can be read through modlog. Requires: % @ * # & ~`
+    `/modnote [note] - Adds a moderator note that can be read through modlog. Requires: % @ $ * # & ~`
   ],
 
   globalpromote: "promote",
@@ -3425,7 +3425,7 @@ const commands = {
     return `/announce ${target}`;
   },
   announcehelp: [
-    `/announce OR /wall [message] - Makes an announcement. Requires: % @ * # & ~`
+    `/announce OR /wall [message] - Makes an announcement. Requires: % @ $ * # & ~`
   ],
 
   notifyoffrank: "notifyrank",
@@ -3507,7 +3507,7 @@ const commands = {
     return true;
   },
   forcerenamehelp: [
-    `/forcerename OR /fr [username], [reason] - Forcibly change a user's name and shows them the [reason]. Requires: % @ * & ~`
+    `/forcerename OR /fr [username], [reason] - Forcibly change a user's name and shows them the [reason]. Requires: % @ $ * & ~`
   ],
 
   nl: "namelock",
@@ -3548,7 +3548,7 @@ const commands = {
     return true;
   },
   namelockhelp: [
-    `/namelock OR /nl [username], [reason] - Name locks a user and shows them the [reason]. Requires: % @ * & ~`
+    `/namelock OR /nl [username], [reason] - Name locks a user and shows them the [reason]. Requires: % @ $ * & ~`
   ],
 
   unl: "unnamelock",
@@ -3576,7 +3576,7 @@ const commands = {
     }
   },
   unnamelockhelp: [
-    `/unnamelock [username] - Unnamelocks the user. Requires: % @ * & ~`
+    `/unnamelock [username] - Unnamelocks the user. Requires: % @ $ * & ~`
   ],
 
   hidetextalts: "hidetext",
@@ -3639,8 +3639,8 @@ const commands = {
     }
   },
   hidetexthelp: [
-    `/hidetext [username] - Removes a locked or muted/banned user's messages from chat. Requires: % @ * # & ~`,
-    `/hidealtstext [username] - Removes a locked or muted/banned user's messages, and their alternate account's messages from the chat.  Requires: % @ * # & ~`
+    `/hidetext [username] - Removes a locked or muted/banned user's messages from chat. Requires: % @ $ * # & ~`,
+    `/hidealtstext [username] - Removes a locked or muted/banned user's messages, and their alternate account's messages from the chat.  Requires: % @ $ * # & ~`
   ],
 
   ab: "blacklist",
@@ -3760,8 +3760,8 @@ const commands = {
   blacklisthelp: [
     `/blacklist [username], [reason] - Blacklists the user from the room you are in for a year. Requires: # & ~`,
     `/unblacklist [username] - Unblacklists the user from the room you are in. Requires: # & ~`,
-    `/showblacklist OR /showbl - show a list of blacklisted users in the room. Requires: % @ # & ~`,
-    `/expiringblacklists OR /expiringbls - show a list of blacklisted users from the room whose blacklists are expiring in 3 months or less. Requires: % @ # & ~`
+    `/showblacklist OR /showbl - show a list of blacklisted users in the room. Requires: % @ $ # & ~`,
+    `/expiringblacklists OR /expiringbls - show a list of blacklisted users from the room whose blacklists are expiring in 3 months or less. Requires: % @ $ # & ~`
   ],
 
   forcebattleban: "battleban",
@@ -3824,7 +3824,7 @@ const commands = {
     return true;
   },
   battlebanhelp: [
-    `/battleban [username], [reason] - Prevents the user from starting new battles for 2 days and shows them the [reason]. Requires: % @ * & ~`
+    `/battleban [username], [reason] - Prevents the user from starting new battles for 2 days and shows them the [reason]. Requires: % @ $ * & ~`
   ],
 
   unbattleban: function(target, room, user) {
@@ -3846,7 +3846,7 @@ const commands = {
     }
   },
   unbattlebanhelp: [
-    `/unbattleban [username] - Allows a user to battle again. Requires: % @ * & ~`
+    `/unbattleban [username] - Allows a user to battle again. Requires: % @ $ * & ~`
   ],
 
   nameblacklist: "blacklistname",
@@ -4041,8 +4041,8 @@ const commands = {
     this.sendReplyBox(buf);
   },
   showblacklisthelp: [
-    `/showblacklist OR /showbl - show a list of blacklisted users in the room. Requires: % @ # & ~`,
-    `/expiringblacklists OR /expiringbls - show a list of blacklisted users from the room whose blacklists are expiring in 3 months or less. Requires: % @ # & ~`
+    `/showblacklist OR /showbl - show a list of blacklisted users in the room. Requires: % @ $ # & ~`,
+    `/expiringblacklists OR /expiringbls - show a list of blacklisted users from the room whose blacklists are expiring in 3 months or less. Requires: % @ $ # & ~`
   ],
 
   markshared: function(target, room, user) {
@@ -5141,7 +5141,7 @@ const commands = {
     }, 500);
   },
   importinputloghelp: [
-    `/importinputlog [inputlog] - Starts a battle with a given inputlog. Requires: + % @ * & ~`
+    `/importinputlog [inputlog] - Starts a battle with a given inputlog. Requires: + % @ $ * & ~`
   ],
 
   inputlog: function() {
@@ -5353,7 +5353,7 @@ const commands = {
     }
   },
   kickbattlehelp: [
-    `/kickbattle [username], [reason] - Kicks a user from a battle with reason. Requires: % @ * & ~`
+    `/kickbattle [username], [reason] - Kicks a user from a battle with reason. Requires: % @ $ * & ~`
   ],
 
   kickinactive: function(target, room, user) {
@@ -5771,7 +5771,7 @@ const commands = {
         "OPTION COMMANDS: /nick, /avatar, /ignore, /away, /back, /timestamps, /highlight"
       );
       this.sendReply(
-        "INFORMATIONAL COMMANDS: /data, /dexsearch, /movesearch, /itemsearch, /groups, /faq, /rules, /intro, /formatshelp, /othermetas, /learn, /analysis, /calc (replace / with ! to broadcast. Broadcasting requires: + % @ * # & ~)"
+        "INFORMATIONAL COMMANDS: /data, /dexsearch, /movesearch, /itemsearch, /groups, /faq, /rules, /intro, /formatshelp, /othermetas, /learn, /analysis, /calc (replace / with ! to broadcast. Broadcasting requires: + % @ $ * # & ~)"
       );
       if (user.group !== Config.groupsranking[0]) {
         this.sendReply(
