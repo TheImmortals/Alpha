@@ -335,7 +335,7 @@ exports.inactiveuserthreshold = 1000 * 60 * 60;
  * in lockdown mode and the final battle finishes.  This is potentially useful
  * to prevent forgetting to restart after a lockdown where battles are finished.
  */
-exports.special = ['immortalsx'];
+exports.special = ['xdragonprince'];
 exports.autolockdown = true;
 
 /**
